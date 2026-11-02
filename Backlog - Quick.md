@@ -4,7 +4,7 @@ Within each section: open items first, then done items. Every version section st
 
 ## Kelly Tools For Revit v4
 
-**Complete: 90% (19 of 21)**
+**Complete: 95% (20 of 21)**
 
 ### To Organize
 
@@ -14,7 +14,7 @@ Within each section: open items first, then done items. Every version section st
 
 ### Data
 
-- [ ] Find any loose JSON read/write code that can be refactored to use the Kelly.Windows.Data.Json library — 2026-11-02: two sites left, both settings files in Kelly-Revit-v4: `ModuleCreatorViewModel` (lines 411, 452) and `SpoolCreateViewModel` (lines 512, 560) call `JsonConvert` directly; v5 already reads and writes the same files through `JsonSettingsFile.TryRead`/`TryWrite`, which the pinned Kelly.Windows.Data.Json 1.26.1028.1008 already has. Kelly-Windows-Data-v2 keeps its own copy of `StrictJsonReader` (same code as the Json library's, other namespace) and writes `data-manifest` with `JsonConvert` (`DataFolderWriter`); it sits below the Json library, so it cannot call it
+- [x] Find any loose JSON read/write code that can be refactored to use the Kelly.Windows.Data.Json library — done 2026-11-02 in source, not committed: Kelly-Revit-v4's `ModuleCreatorViewModel` and `SpoolCreateViewModel` read and write their settings through `JsonSettingsFile.TryRead`/`TryWrite`, as v5 does; no other v4 add-in or Logic code calls Newtonsoft directly. Builds for 2024, 2025 and 2026 (no install); not tested in Revit. Left as is: Kelly-Windows-Data-v2 keeps its own copy of `StrictJsonReader` and writes `data-manifest` with `JsonConvert` (`DataFolderWriter`); it sits below the Json library, so it cannot call it
 - [x] Fully refactor to use CSV data files instead of SQL Server data — done 2026-10-22: KTR reads only the CSV files and ships no SQL client (build 4.26.1022.1411)
   - [x] Build a standalone SQL-to-CSV export tool to regularly export the required data from SQL Server. Migrate it into the KTR Manager tool in the future.
   - [x] Implement the [SQL-to-CSV Migration Plan - v4.md](SQL-to-CSV Migration Plan - v4.md) — no work items left; its section 5 lists decisions still open
