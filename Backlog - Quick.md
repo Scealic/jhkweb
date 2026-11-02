@@ -4,11 +4,9 @@ Within each section: open items first, then done items. Every version section st
 
 ## Kelly Tools For Revit v4
 
-**Complete: 80% (16 of 20)**
+**Complete: 76% (16 of 21)**
 
 ### To Organize
-
-- [ ] Create Icons for Ribbon Buttons having the value "Scrum" for the "ImageName" property.
 
 ### Architecture
 
@@ -39,11 +37,12 @@ Within each section: open items first, then done items. Every version section st
 ### Tools, ribbon and UI
 
 - [ ] Allow descriptions longer than 50 characters in the Layout Point Exporter
+- [ ] Create icons for ribbon buttons that have the value "Scrum" for the `ImageName` property — 2026-11-02: no v4 push button sets `ImageName = "Scrum"`, but four name an image with no PNG in Kelly-Revit-v4, so they fall back to it: `ContextValueAddPushButton` (ContextAdder), `ModuleValueAutoSetPushButton` and `SpoolValueAutoSetPushButton` (ContextAutoAssign), `LayoutPointFileDirectoryOpenPushButton` (Folder01)
 - [x] Update the tooltip of every IExternalCommand by gleaning what each tool does from the code behind the command — done 2026-10-26: all 153 push buttons (commit 6601016e, build 4.26.1026.1106)
 
 ### Code quality and cleanup
 
-- [ ] Are there any TODO notes that can be handled? — 2026-10-30: 135 `// todo` comments (Kelly-Revit-v4 122, Kelly-Revit-Logic-v4 11, Kelly-Windows-v2 2, Kelly-Windows-Data-v2 0)
+- [ ] Are there any TODO notes that can be handled? — 2026-10-30: 135 `// todo` comments (Kelly-Revit-v4 122, Kelly-Revit-Logic-v4 11, Kelly-Windows-v2 2, Kelly-Windows-Data-v2 0); unchanged 2026-11-02
 - [ ] Ensure every type lives in its own file: only one type per file unless nested
 - [x] Remove references to "Casey Puyleart" and "Jason Sherwood" — done 2026-07-07 (commit 01124c1 "Update contacts"); checked 2026-10-28: no match left in Kelly-Windows-Data-v2, Kelly-Windows-v2, Kelly-Revit-Logic-v4 or Kelly-Revit-v4
 
@@ -55,11 +54,9 @@ Within each section: open items first, then done items. Every version section st
 
 ## Kelly Tools For Revit v5
 
-**Complete: 51% (34 of 67)**
+**Complete: 51% (35 of 68)**
 
 ### To Organize
-
-- [ ] Create Icons for Ribbon Buttons having the value "Scrum" for the "ImageName" property.
 
 ### Architecture and services
 
@@ -125,20 +122,21 @@ Within each section: open items first, then done items. Every version section st
 
 ### Tools, ribbon and UI
 
-- [ ] Update the tooltip of every IExternalCommand by gleaning what each tool does from the code behind the command — 2026-11-02: 142 of 147 push button files set a `ToolTip`, mostly the short originals (median 86 characters, against 223 in v4); not yet rewritten from the code as in v4
 - [ ] Allow descriptions longer than 50 characters in the Layout Point Exporter
+- [ ] Create icons for ribbon buttons that have the value "Scrum" for the `ImageName` property — 2026-11-02: in progress, not committed: 20 push buttons used `"Scrum"` in commit 831461d8; the Kelly-Revit-v5 working tree gives all 20 their own icons and deletes `Scrum16.png`/`Scrum32.png`
 - [ ] Enable light and dark mode for the versions of Revit that have that feature — 2026-11-02: no v5 code handles Revit's theme (`ThemeChanged` is only subscribed with a null handler in v4's EventService)
    - [ ] Light-mode and dark-mode icons (use the proper green color)
 - [ ] Suspended Support Manager: split the rod grid view into a separate grid below the main grid view, showing the vertical support members of the selected suspended supports
 - [ ] Implement the scope control in every window that doesn't have it yet
 - [ ] Is there anything to improve in my controls? `C:\repo\jhkweb\Kelly-Revit-UI\src\Controls\`
+- [x] Update the tooltip of every IExternalCommand by gleaning what each tool does from the code behind the command — done 2026-11-02 in source (Kelly-Revit-v5 commits 978ffda5 and 831461d8): all 149 push buttons have a tooltip rewritten from the command's code (median 206 characters; v4 223). Not checked in Revit
 - [x] Move the "Extend and Reset Trapeze Rods" tools to another panel; the one they're on is for annotations — done 2026-10-30: a new Supports panel (Kelly-Revit-v5 commit 129c360f)
 
 ### Code quality and cleanup
 
-- [ ] [IA Prompt - Architectural Analysis and Cleanup.md](IA Prompt - Architectural Analysis and Cleanup.md) — 2026-10-30: the linked file is not in `C:\repo\jhkweb`
+- [ ] [IA Prompt - Architectural Analysis and Cleanup.md](IA Prompt - Architectural Analysis and Cleanup.md) — 2026-11-02: the linked file is still not in `C:\repo\jhkweb`
 - [ ] Have Claude refactor the Vicious tools
-- [ ] Are there any TODO notes that can be handled? — 2026-10-30: 114 `// todo` comments (Kelly-Revit-v5 55, Kelly-Revit-Logic-v5 54, Kelly-Windows-v3 2, Kelly-Domain 2, Kelly-Revit-UI 1, Kelly-Windows-Data-v3 0)
+- [ ] Are there any TODO notes that can be handled? — 2026-10-30: 114 `// todo` comments (Kelly-Revit-v5 55, Kelly-Revit-Logic-v5 54, Kelly-Windows-v3 2, Kelly-Domain 2, Kelly-Revit-UI 1, Kelly-Windows-Data-v3 0); unchanged 2026-11-02
 - [ ] Ensure every type lives in its own file: only one type per file unless nested
 - [x] Remove references to "Casey Puyleart" and "Jason Sherwood" — done 2026-07-07 (commit 01124c17); checked 2026-10-28: no match left in any v5 repo
 
