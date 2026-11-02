@@ -1,0 +1,119 @@
+Operation Name,Operation Count (as reported),Elements Affected Count,API Seconds Total,Manual Seconds Per Element
+"Bill Of Material Default Updater Manual Command - ActiveView",1,,,60
+"Bill Of Material Default Updater Manual Command - Project",1,,,60
+"Bill Of Material Default Updater Manual Command - Selected",1,,,60
+"Check Box Default Updater Manual Command - ActiveView",1,,,5
+"Check Box Default Updater Manual Command - Project",1,,,5
+"Check Box Default Updater Manual Command - Selected",1,,,5
+"Component Description Updater Manual Command - Project",1,,,5
+"Component Description Updater Manual Command - Selected",1,,,5
+"Component Updater Manual Command - ActiveView",1,,,5
+"Component Updater Manual Command - Project",1,,,5
+"Component Updater Manual Command - Selected",1,,,5
+"Conveyance Electrical Updater Manual Command - Project",1,,,5
+"Description Flag Updater Manual Command - Selected",1,,,5
+"Descriptions Updater Manual Command - ActiveView",1,,,5
+"Descriptions Updater Manual Command - Project",1,,,5
+"Descriptions Updater Manual Command - Selected",1,,,5
+"Detailing Phase Instance Updater Manual Command - ActiveView",1,,,5
+"Detailing Phase Instance Updater Manual Command - Project",1,,,5
+"Detailing Phase Instance Updater Manual Command - Selected",1,,,5
+"Duct - Item Numbering",1,,,30
+"End Preparation Updater Manual Command - ActiveView",1,,,5
+"End Preparation Updater Manual Command - Project",1,,,5
+"End Preparation Updater Manual Command - Selected",1,,,5
+"Export Data Of 78320 Fabrication Part Instances",1,,,5
+"Export Data Of Fabrication Part Instances",1,,,5
+"Export Distinct Data Of Fabrication Part Instances",1,,,60
+"Export Fabrication Button Part Data Of Loaded Services To SQL Server.",1,,,5
+"Fabrication Part Instances Updater Manual Command - ActiveView",1,,,5
+"Fabrication Part Instances Updater Manual Command - Project",1,,,5
+"Fabrication Part Instances Updater Manual Command - Selected",1,,,5
+"Field Trim Default Updater Manual Command - ActiveView",1,,,5
+"Field Trim Default Updater Manual Command - Project",1,,,5
+"Field Trim Default Updater Manual Command - Selected",1,,,5
+"Gauge Updater Manual Command - ActiveView",1,,,5
+"Gauge Updater Manual Command - Project",1,,,5
+"Gauge Updater Manual Command - Selected",1,,,5
+"Layout Discipline Instance Updater Manual Command - ActiveView",1,,,5
+"Layout Discipline Instance Updater Manual Command - Project",1,,,5
+"Layout Discipline Instance Updater Manual Command - Selected",1,,,5
+"Manual Update - Bill Of Material Data In Active View",1,,,30
+"Manual Update - Bill Of Material Data In Project",1,,,30
+"Manual Update - Bill Of Material Data In Selection",1,,,5
+"Manual Update - Checkbox Default Data In Active View",1,,,60
+"Manual Update - Checkbox Default Data In Project",1,,,60
+"Manual Update - Checkbox Default Data In Selection",1,,,5
+"Manual Update - Content Data In Active View",1,,,5
+"Manual Update - Content Data In Project",1,,,5
+"Manual Update - Content Data In Selection",1,,,5
+"Manual Update - Content Data Legacy In Project",1,,,5
+"Manual Update - Content Data Legacy In Selection",1,,,5
+"Manual Update - Conveyance Data In Active View",1,,,30
+"Manual Update - Conveyance Data In Project",1,,,30
+"Manual Update - Conveyance Data In Selection",1,,,30
+"Manual Update - Detailing Phase Data In Active View",1,,,30
+"Manual Update - Detailing Phase Data In Project",1,,,30
+"Manual Update - Detailing Phase Data In Selection",1,,,30
+"Manual Update - End Preparation Data In Active View",1,,,30
+"Manual Update - End Preparation Data In Project",1,,,300
+"Manual Update - End Preparation Data In Selection",1,,,30
+"Manual Update - Fabrication Part Instances In Project",1,,,5
+"Manual Update - Layout Discipline Data In Active View",1,,,30
+"Manual Update - Layout Discipline Data In Project",1,,,30
+"Manual Update - Layout Discipline Data In Selection",1,,,30
+"Manual Update - Model Status Data In Active View",1,,,30
+"Manual Update - Model Status Data In Project",1,,,30
+"Manual Update - Model Status Data In Selection",1,,,30
+"Manual Update - Piping Instance Data In Active View",1,,,30
+"Manual Update - Piping Instance Data In Project",1,,,30
+"Manual Update - Piping Instance Data In Selection",1,,,5
+"Manual Update - Piping Type Data In Active View",1,,,30
+"Manual Update - Piping Type Data In Project",1,,,30
+"Manual Update - Piping Type Data In Selection",1,,,5
+"Manual Update - Product Data In Active View",1,,,5
+"Manual Update - Product Data In Project",1,,,5
+"Manual Update - Product Data In Selection",1,,,5
+"Manual Update - Product Range Checkbox Default Data In Active View",1,,,5
+"Manual Update - Product Range Checkbox Default Data In Project",1,,,5
+"Manual Update - Product Range Checkbox Default Data In Selection",1,,,5
+"Manual Update - Service Data In Active View",1,,,30
+"Manual Update - Service Data In Project",1,,,30
+"Manual Update - Service Data In Selection",1,,,5
+"Manual Update - Support Data In Active View",1,,,5
+"Manual Update - Support Data In Project",1,,,5
+"Manual Update - Support Data In Selection",1,,,5
+"Manual Update - Weld Data In Active View",1,,,30
+"Manual Update - Weld Data In Project",1,,,30
+"Manual Update - Weld Data In Selection",1,,,5
+"Material Updater Manual Command - ActiveView",1,,,5
+"Material Updater Manual Command - Project",1,,,5
+"Material Updater Manual Command - Selected",1,,,5
+"Product Updater Manual Command - ActiveView",1,,,5
+"Product Updater Manual Command - Project",1,,,5
+"Product Updater Manual Command - Selected",1,,,5
+"Service Of Fabrication Part Updater Manual Command - ActiveView",1,,,5
+"Service Of Fabrication Part Updater Manual Command - Project",1,,,5
+"Service Of Fabrication Part Updater Manual Command - Selected",1,,,5
+"Service Of Fabrication Updater Manual Command - Selected",1,,,5
+"Shared Parameter Deletion -",1,,,30
+"Size Updater Manual Command - ActiveView",1,,,5
+"Size Updater Manual Command - Project",1,,,5
+"Size Updater Manual Command - Selected",1,,,5
+"Spool Sheet - Create With 4 Views and 4 Schedules",1,,,300
+"Support Instance Updater Manual Command - Project",1,,,5
+"Support Instance Updater Manual Command - Selected",1,,,5
+"Update BOM Type To Default In Project",1,,,30
+"Update Detailing Phase Data In Active View",1,,,30
+"Update Detailing Phase Data In Project",1,,,30
+"Update Detailing Phase Data In Selection",1,,,30
+"Update Field Trim To Default In Project",1,,,30
+"Update Layout Discipline Data In Active View",1,,,30
+"Update Layout Discipline Data In Project",1,,,30
+"Update Layout Discipline Data In Selection",1,,,30
+"Update Piping Instance Data In Selection",1,,,60
+"Update Piping Type Data In Selection",1,,,60
+"Update Service Data In Selection",1,,,60
+"Weld Updater Manual Command - ActiveView",1,,,5
+"Weld Updater Manual Command - Project",1,,,5
+"Weld Updater Manual Command - Selected",1,,,5

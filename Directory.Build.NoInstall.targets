@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Imported by Directory.Build.targets for projects in the Kelly-Revit (v5) folder: replaces the install targets so the build does not install. -->
+<Project>
+    <Target Name="GenerateAddinFile"/>
+    <Target Name="PostBuild"
+            AfterTargets="PostBuildEvent">
+        <Warning Code="KTR0004"
+                 Text="$(MSBuildProjectFile) was not installed: builds in $(KellyRevitV5Folder) (major version 5) skip the install, which would make version 5 the one Revit loads (it disables the version 4 manifest). Pass -p:InstallAddin=true to install it."/>
+    </Target>
+</Project>

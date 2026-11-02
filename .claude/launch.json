@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "icon-render",
+      "runtimeExecutable": "dotnet",
+      "runtimeArgs": [
+        "run",
+        "--project",
+        "C:\\Users\\childebran\\AppData\\Local\\Temp\\claude\\C--repo-jhkweb\\a522c577-b3ce-4bc5-a0e7-fa6f51750841\\scratchpad\\icon-render\\IconRender.csproj",
+        "--",
+        "C:\\Users\\childebran\\AppData\\Local\\Temp\\claude\\C--repo-jhkweb\\a522c577-b3ce-4bc5-a0e7-fa6f51750841\\scratchpad\\icon-render"
+      ],
+      "port": 5317
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Install guard for this machine (C:\repo\jhkweb is not a repository; MSBuild loads this file for every project below it).
+
+    Kelly Tools For Revit major version 4 is checked out in Kelly-Revit-v4 and version 5 in Kelly-Revit-v5 (separate repos). Since 2026-11-02 each
+    installs to its own folder and manifest (C:\Program Files\JH Kelly\Kelly Tools For Revit <n>\<year>, Kelly Tools For Revit <n>.addin;
+    BuildConfigs' AddinInstall.Build.targets), but only one can be loaded in a Revit year, so an install disables the other version's manifest
+    (renamed to .addin.x) and makes itself the one Revit loads. Projects in the v5 folder therefore skip the install targets (GenerateAddinFile,
+    PostBuild) and print KTR0004, so an ordinary v5 build does not switch Revit to v5; pass -p:InstallAddin=true to install a v5 build on
+    purpose. Kelly-Revit-v4 builds install as before.
+    Defined last, these targets replace the projects' own, as Kelly-Revit-v5's test\Tests.Revit\NoInstall.targets does.
+-->
+<Project>
+    <PropertyGroup>
+        <KellyRevitV5Folder Condition="'$(KellyRevitV5Folder)' == ''">C:\repo\jhkweb\Kelly-Revit-v5\</KellyRevitV5Folder>
+        <SkipKellyRevitInstall Condition="'$(InstallAddin)' != 'true' and $([System.String]::Concat('$(MSBuildProjectDirectory)', '\').StartsWith('$(KellyRevitV5Folder)', System.StringComparison.OrdinalIgnoreCase))">true</SkipKellyRevitInstall>
+    </PropertyGroup>
+    <Import Project="Directory.Build.NoInstall.targets" Condition="'$(SkipKellyRevitInstall)' == 'true'"/>
+</Project>

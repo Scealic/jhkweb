@@ -1,0 +1,179 @@
+[
+  {
+    "key": "revit-host",
+    "repo": "Kelly-Revit-v5",
+    "paths": ["Kelly-Revit-v5/src"],
+    "guidance": "The add-in host: App.cs (IExternalApplication), EventHandlers, Services (EventService, RibbonService, ApplicationSessionService) and Properties (the Designer files stay; just note them). Look for Revit database logic in the handlers and services that belongs in Kelly-Revit-Logic, reusable framework that belongs in Kelly-Revit-UI, and Revit-free code (project reconciliation, session records, data access) that belongs in Kelly-Domain or Kelly-Windows-Data."
+  },
+  {
+    "key": "alltrade-acquired",
+    "repo": "Kelly-Revit-v5",
+    "paths": ["Kelly-Revit-v5/modules/Trade.All/Commands/Acquired"],
+    "guidance": "Tools acquired from outside Kelly (Arrange, Vicious). They often re-implement geometry, collector, transaction and string helpers that Kelly-Revit-Logic-v5 or Kelly-Windows already have: look hard for that duplication, and for Revit-free math that belongs in Kelly-Windows or Kelly-Domain."
+  },
+  {
+    "key": "alltrade-assigners-a",
+    "repo": "Kelly-Revit-v5",
+    "paths": [
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/*",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/ContextValueAdder",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/DetailingPackageContext",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/LineNumberContext",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/ModuleNumberContext"
+    ],
+    "guidance": "The files directly in Assigners/ plus four assigner contexts. The six contexts repeat one pattern (about 19 files each): look hard for duplicated logic that one shared Kelly-Revit-Logic-v5 service or one Kelly-Revit-UI base class could own, and compare with the other scope's contexts (ServiceContext, SpoolNumberContext, SystemContext) by reading one of them."
+  },
+  {
+    "key": "alltrade-assigners-b",
+    "repo": "Kelly-Revit-v5",
+    "paths": [
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/ServiceContext",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/SpoolNumberContext",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/SystemContext",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/DockablePane",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Assigners/UserInterfaceAssignerReset"
+    ],
+    "guidance": "Three assigner contexts, the dockable pane and the reset tool. The six contexts repeat one pattern: look hard for duplicated logic that one shared Kelly-Revit-Logic-v5 service or one Kelly-Revit-UI base class could own, and compare with the other scope's contexts (DetailingPackageContext, LineNumberContext, ModuleNumberContext) by reading one of them."
+  },
+  {
+    "key": "alltrade-tools-a",
+    "repo": "Kelly-Revit-v5",
+    "paths": [
+      "Kelly-Revit-v5/modules/Trade.All/Commands/About",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/BillOfMaterial",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/FamilySharedParameterReport",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Layout",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/ManyConnect",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/PenetrationTagAssign",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/ProjectDirectoryOpen",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/ScheduleExport"
+    ],
+    "guidance": "AllTrade tools. Look for Revit database logic inside commands that belongs in Kelly-Revit-Logic-v5 (layout points, schedules, connectors, tags), Revit-free file, CSV and path code that belongs in Kelly-Windows or Kelly-Domain, and helpers repeated across these tools. Office interop and ExcelDataReader stay in Kelly-Revit."
+  },
+  {
+    "key": "alltrade-tools-b",
+    "repo": "Kelly-Revit-v5",
+    "paths": [
+      "Kelly-Revit-v5/modules/Trade.All/Commands/ServerRecache",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Spools",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Supports",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Updaters",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/Views"
+    ],
+    "guidance": "AllTrade tools. Look for spool, module, support, updater and view-filter logic inside commands and view models that Kelly-Revit-Logic-v5 (Spools, Supports, Updaters, Views) should own, Revit-free spool and naming rules that belong in Kelly-Domain, and helpers repeated across these tools."
+  },
+  {
+    "key": "alltrade-ribbon",
+    "repo": "Kelly-Revit-v5",
+    "paths": ["Kelly-Revit-v5/modules/Trade.All/RibbonItems", "Kelly-Revit-v5/modules/Trade.All/*"],
+    "guidance": "AllTrade's ribbon items (panels, push buttons, availability classes) and the module root. Push buttons and availability classes stay with their commands (availability classes must be in the command's assembly); look for repeated button or availability logic that a Kelly-Revit-UI base class should own, and for push buttons that are not beside the command they call."
+  },
+  {
+    "key": "pipe-duct-trade",
+    "repo": "Kelly-Revit-v5",
+    "paths": ["Kelly-Revit-v5/modules/Trade.Pipe", "Kelly-Revit-v5/modules/Trade.Duct"],
+    "guidance": "The PipeTrade and DuctTrade modules. Look for MEP, fabrication and connector logic inside commands that belongs in Kelly-Revit-Logic-v5 (Mep, Fabrication, Connectors), logic the two modules duplicate between them or with AllTrade, and ribbon or availability code a Kelly-Revit-UI base should own."
+  },
+  {
+    "key": "contenter-manager-developer",
+    "repo": "Kelly-Revit-v5",
+    "paths": ["Kelly-Revit-v5/modules/Trade.Contenter", "Kelly-Revit-v5/modules/Trade.Manager", "Kelly-Revit-v5/modules/Trade.Developer"],
+    "guidance": "The Contenter, Manager and Developer modules. Look for family, parameter and project logic inside commands that belongs in Kelly-Revit-Logic, Revit-free data and report code that belongs in Kelly-Domain or Kelly-Windows-Data, and helpers duplicated with AllTrade. Developer tools are diagnostics (WindowMockup, AvailabilityProbe); keep them unless their logic is reusable."
+  },
+  {
+    "key": "ui",
+    "repo": "Kelly-Revit-UI",
+    "paths": ["Kelly-Revit-UI/src"],
+    "guidance": "The shared ribbon, command, MVVM, selection-filter and availability framework. Look for Revit database logic that belongs in Kelly-Revit-Logic, Revit-free WPF or prompt helpers that belong in Kelly-Windows, code only one module uses (it belongs in that module, unless it is framework), and namespace/folder mismatches. The abstract command contracts, CommandBase, ViewModel, IView and IViewModel are approved here."
+  },
+  {
+    "key": "logic-updaters",
+    "repo": "Kelly-Revit-Logic-v5",
+    "paths": ["Kelly-Revit-Logic-v5/src/Updaters"],
+    "guidance": "Look for Revit-free code that belongs in Kelly-Domain (or Kelly-Windows), UI concerns that belong in Kelly-Revit-UI or a module, and logic duplicated across the many updater configurations and element services that one shared helper should own. Updater configurations build Revit element services and were judged Revit-bound before; reopen that only for concrete Revit-free parts."
+  },
+  {
+    "key": "logic-a",
+    "repo": "Kelly-Revit-Logic-v5",
+    "paths": [
+      "Kelly-Revit-Logic-v5/src/*",
+      "Kelly-Revit-Logic-v5/src/Arrangement",
+      "Kelly-Revit-Logic-v5/src/Caches",
+      "Kelly-Revit-Logic-v5/src/Categories",
+      "Kelly-Revit-Logic-v5/src/Common",
+      "Kelly-Revit-Logic-v5/src/Connectors",
+      "Kelly-Revit-Logic-v5/src/Documents",
+      "Kelly-Revit-Logic-v5/src/Elements",
+      "Kelly-Revit-Logic-v5/src/Entities",
+      "Kelly-Revit-Logic-v5/src/Fabrication",
+      "Kelly-Revit-Logic-v5/src/Families",
+      "Kelly-Revit-Logic-v5/src/Geometry"
+    ],
+    "guidance": "Look for Revit-free code that belongs in Kelly-Domain or Kelly-Windows (generic helpers), data access that belongs in Kelly-Windows-Data, ribbon, command or MVVM code that belongs in Kelly-Revit-UI, and Revit-free parts that can be split out of mixed files. Earlier passes moved about 170 Revit-free files to Kelly-Domain; focus on what is left."
+  },
+  {
+    "key": "logic-b",
+    "repo": "Kelly-Revit-Logic-v5",
+    "paths": [
+      "Kelly-Revit-Logic-v5/src/LayoutPoints",
+      "Kelly-Revit-Logic-v5/src/Materials",
+      "Kelly-Revit-Logic-v5/src/Mep",
+      "Kelly-Revit-Logic-v5/src/Operations",
+      "Kelly-Revit-Logic-v5/src/Parameters",
+      "Kelly-Revit-Logic-v5/src/Projects",
+      "Kelly-Revit-Logic-v5/src/Properties",
+      "Kelly-Revit-Logic-v5/src/Signatures",
+      "Kelly-Revit-Logic-v5/src/Spools",
+      "Kelly-Revit-Logic-v5/src/Supports",
+      "Kelly-Revit-Logic-v5/src/Views"
+    ],
+    "guidance": "Look for Revit-free code that belongs in Kelly-Domain or Kelly-Windows (generic helpers), data access that belongs in Kelly-Windows-Data, ribbon, command or MVVM code that belongs in Kelly-Revit-UI, and Revit-free parts that can be split out of mixed files. Properties/*.Designer.cs stay. Earlier passes moved about 170 Revit-free files to Kelly-Domain; focus on what is left."
+  },
+  {
+    "key": "domain-a",
+    "repo": "Kelly-Domain",
+    "paths": [
+      "Kelly-Domain/src/*",
+      "Kelly-Domain/src/Caches",
+      "Kelly-Domain/src/Categories",
+      "Kelly-Domain/src/Common",
+      "Kelly-Domain/src/Connectors",
+      "Kelly-Domain/src/Definitions",
+      "Kelly-Domain/src/Fabrication",
+      "Kelly-Domain/src/Identifiers",
+      "Kelly-Domain/src/LayoutPoints",
+      "Kelly-Domain/src/Measurements"
+    ],
+    "guidance": "Look for generic non-Kelly code that belongs in Kelly-Windows (converters, math, geometry and fraction helpers), generic caching or data-access code that belongs in Kelly-Windows-Data, WPF IValueConverters (generic: Kelly-Windows; Kelly-specific: stay), anything only Revit-coupled code uses that encodes Revit behaviour (belongs in Kelly-Revit-Logic, only if nothing in Domain or below uses it), and namespace/folder mismatches."
+  },
+  {
+    "key": "domain-b",
+    "repo": "Kelly-Domain",
+    "paths": [
+      "Kelly-Domain/src/Operations",
+      "Kelly-Domain/src/Parameters",
+      "Kelly-Domain/src/Pcf",
+      "Kelly-Domain/src/Products",
+      "Kelly-Domain/src/Projects",
+      "Kelly-Domain/src/Signatures",
+      "Kelly-Domain/src/Spools",
+      "Kelly-Domain/src/Supports",
+      "Kelly-Domain/src/Views",
+      "Kelly-Domain/src/Vocabulary"
+    ],
+    "guidance": "Look for generic non-Kelly code that belongs in Kelly-Windows, data access (SQL, Dapper, stored-procedure calls, JSON persistence) that belongs in Kelly-Windows-Data, WPF IValueConverters, anything only Revit-coupled code uses that encodes Revit behaviour, and namespace/folder mismatches."
+  },
+  {
+    "key": "windows-and-data",
+    "repo": "Kelly-Windows-v3",
+    "paths": ["Kelly-Windows-v3/src", "Kelly-Windows-Data-v3/src"],
+    "guidance": "Check the Revit-free rule: any mention of Revit concepts or Autodesk types, including XML docs and string literals that encode Revit behaviour. Look for Kelly business concepts that belong in Kelly-Domain (only if nothing in Windows or Windows.Data still uses them), data access in Kelly-Windows that belongs in Kelly-Windows-Data, non-data code in Kelly-Windows-Data-v3 that belongs in Kelly-Windows, and dead or empty folders."
+  },
+  {
+    "key": "cross-repo-duplication",
+    "repo": "ALL",
+    "coverage": false,
+    "paths": ["Kelly-Windows-Data-v3/src", "Kelly-Windows-v3/src", "Kelly-Domain/src", "Kelly-Revit-Logic-v5/src", "Kelly-Revit-UI/src", "Kelly-Revit-v5/src", "Kelly-Revit-v5/modules"],
+    "guidance": "Hunt for duplicated or near-duplicated code ACROSS layers, modules or folders: helper and extension methods, constants, enums, models, converters, colour tables, string/file/path/number helpers, Revit collector and transaction helpers re-implemented in several commands, or re-implementations of something a lower layer already provides. Report each redundant copy as one move: sourceRepo/sourcePath = the copy to remove, targetRepo = the lowest appropriate layer that should own the single implementation, requiredChanges = the callers to repoint and any change the kept copy needs. Only report duplication you have read, not similar names."
+  }
+]
