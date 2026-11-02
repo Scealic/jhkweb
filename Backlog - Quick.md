@@ -10,12 +10,12 @@ Since 2026-11-02 each repository keeps its own backlog in `Quick-Backlog.md` at 
 | [Kelly-Revit-Logic-v4](Kelly-Revit-Logic-v4/Quick-Backlog.md) | 0% (0 of 1) |
 | [Kelly-Windows-v2](Kelly-Windows-v2/Quick-Backlog.md) | 0% (0 of 1) |
 | [Kelly-Windows-Data-v2](Kelly-Windows-Data-v2/Quick-Backlog.md) | 0% (0 of 0) |
-| [Kelly-Revit-v5](Kelly-Revit-v5/Quick-Backlog.md) (all of v5) | 62% (32 of 52) |
-| [Kelly-Revit-UI](Kelly-Revit-UI/Quick-Backlog.md) | 0% (0 of 2) |
-| [Kelly-Revit-Logic-v5](Kelly-Revit-Logic-v5/Quick-Backlog.md) | 50% (4 of 8) |
-| [Kelly-Domain](Kelly-Domain/Quick-Backlog.md) | 50% (2 of 4) |
-| [Kelly-Windows-v3](Kelly-Windows-v3/Quick-Backlog.md) | 0% (0 of 3) |
-| [Kelly-Windows-Data-v3](Kelly-Windows-Data-v3/Quick-Backlog.md) | 100% (1 of 1) |
+| [Kelly-Revit-v5](Kelly-Revit-v5/Quick-Backlog.md) (all of v5) | 58% (35 of 60) |
+| [Kelly-Revit-UI](Kelly-Revit-UI/Quick-Backlog.md) | 0% (0 of 8) |
+| [Kelly-Revit-Logic-v5](Kelly-Revit-Logic-v5/Quick-Backlog.md) | 36% (5 of 14) |
+| [Kelly-Domain](Kelly-Domain/Quick-Backlog.md) | 25% (3 of 12) |
+| [Kelly-Windows-v3](Kelly-Windows-v3/Quick-Backlog.md) | 13% (1 of 8) |
+| [Kelly-Windows-Data-v3](Kelly-Windows-Data-v3/Quick-Backlog.md) | 11% (1 of 9) |
 | [VCS-Database-General-Schema](VCS-Database-General-Schema/Quick-Backlog.md) | 0% (0 of 1) |
 | [VCS-Database-Content-Schema](VCS-Database-Content-Schema/Quick-Backlog.md) | 0% (0 of 0) |
 | [Kelly-Revit-Data-Exporter](Kelly-Revit-Data-Exporter/Quick-Backlog.md) | 0% (0 of 0) |
