@@ -54,7 +54,7 @@ Within each section: open items first, then done items. Every version section st
 
 ## Kelly Tools For Revit v5
 
-**Complete: 54% (37 of 68)**
+**Complete: 56% (38 of 68)**
 
 ### To Organize
 
@@ -137,7 +137,7 @@ Within each section: open items first, then done items. Every version section st
 - [ ] [IA Prompt - Architectural Analysis and Cleanup.md](IA Prompt - Architectural Analysis and Cleanup.md) — 2026-11-02: the linked file is still not in `C:\repo\jhkweb`
 - [ ] Have Claude refactor the Vicious tools
 - [ ] Are there any TODO notes that can be handled? — 2026-10-30: 114 `// todo` comments (Kelly-Revit-v5 55, Kelly-Revit-Logic-v5 54, Kelly-Windows-v3 2, Kelly-Domain 2, Kelly-Revit-UI 1, Kelly-Windows-Data-v3 0); unchanged 2026-11-02
-- [ ] Ensure every type lives in its own file: only one type per file unless nested — 2026-11-02: after the ReSharper pass, two test files still hold more than one top-level type: `Kelly-Revit-UI/test/Revit.UI.Tests/Ribbon/Modules/TestRibbonModules.cs` (7: `ModuleCalls`, `FailingRibbonModule`, `RecordingRibbonModule`, `ThrowingConstructorRibbonModule`, `AbstractRibbonModule`, `ConstructorArgumentRibbonModule`, `InternalRibbonModule`) and `Kelly-Revit-Logic-v5/test/Revit.Logic.RevitTests/Abstractions/RecordingProgress.cs` (`RecordingProgress`, `RecordedProgress`). Every other v5 file has one type (`DocumentExtensions.cs` in Kelly-Revit-Logic-v5 is three `partial` blocks of one class). Kelly-Revit-Logic-v5’s new test files are not committed yet
+- [x] Ensure every type lives in its own file: only one type per file unless nested — done 2026-11-02, not committed: after the ReSharper pass, Claude split the two test files left, `TestRibbonModules.cs` (Kelly-Revit-UI, into seven files) and `RecordingProgress.cs` (Kelly-Revit-Logic-v5, into `RecordingProgress.cs` and `RecordedProgress.cs`); a scan of every `.cs` file in the six v5 repos finds no file with two top-level types (`DocumentExtensions.cs` in Kelly-Revit-Logic-v5 is three `partial` blocks of one class). `Revit.UI.Tests` passes (167 of 167, 2024); `Revit.Logic.RevitTests` builds, not run in Revit
 - [x] Remove references to "Casey Puyleart" and "Jason Sherwood" — done 2026-07-07 (commit 01124c17); checked 2026-10-28: no match left in any v5 repo
 
 ### Testing and documentation
