@@ -14,7 +14,7 @@ Within each section: open items first, then done items. Every version section st
 
 ### Data
 
-- [ ] Find any loose JSON read/write code that can be refactored to use the Kelly.Windows.Data.Json library.
+- [ ] Find any loose JSON read/write code that can be refactored to use the Kelly.Windows.Data.Json library — 2026-11-02: two sites left, both settings files in Kelly-Revit-v4: `ModuleCreatorViewModel` (lines 411, 452) and `SpoolCreateViewModel` (lines 512, 560) call `JsonConvert` directly; v5 already reads and writes the same files through `JsonSettingsFile.TryRead`/`TryWrite`, which the pinned Kelly.Windows.Data.Json 1.26.1028.1008 already has. Kelly-Windows-Data-v2 keeps its own copy of `StrictJsonReader` (same code as the Json library's, other namespace) and writes `data-manifest` with `JsonConvert` (`DataFolderWriter`); it sits below the Json library, so it cannot call it
 - [x] Fully refactor to use CSV data files instead of SQL Server data — done 2026-10-22: KTR reads only the CSV files and ships no SQL client (build 4.26.1022.1411)
   - [x] Build a standalone SQL-to-CSV export tool to regularly export the required data from SQL Server. Migrate it into the KTR Manager tool in the future.
   - [x] Implement the [SQL-to-CSV Migration Plan - v4.md](SQL-to-CSV Migration Plan - v4.md) — no work items left; its section 5 lists decisions still open
@@ -83,7 +83,7 @@ Within each section: open items first, then done items. Every version section st
 - [ ] Implement an application/tool settings file. Hierarchical: the application settings at the top level and each tool's settings below them (if applicable)
    - [ ] Have the new Kelly.Windows.Data.Json library read/write the application and tool settings file
 - [ ] Is there any other file data I/O that Kelly.Windows.Data.* can handle?
-   - [ ] Find any loose JSON read/write code that can be refactored to use the Kelly.Windows.Data.Json library.
+   - [ ] Find any loose JSON read/write code that can be refactored to use the Kelly.Windows.Data.Json library — 2026-11-02: none in Kelly-Revit-v5, Kelly-Revit-UI or Kelly-Revit-Logic-v5 (the Module Creator and Spool Create settings already use `JsonSettingsFile`; Kelly-Domain only carries `[JsonProperty]` attributes on records). Kelly-Windows-Data-v3 keeps its own copy of `StrictJsonReader` (same code as the Json library's, other namespace), used by `DataDirectory` for the data manifest, and writes the manifest with `JsonConvert` (`DataFolderWriter`); it sits below the Json library, so it cannot call it
 - [x] Fully refactor to use CSV data files instead of SQL Server data — done 2026-10-30: no `Microsoft.Data.SqlClient` left in any v5 layer, and clean 2024–2026 builds put no SqlClient, Dapper or Azure DLL in the add-in folder (plan step 7)
    - [ ] Step 9 of the plan: mark the SQL procedures only v5 called, once v5 is installed everywhere
    - [x] Implement the [SQL-to-CSV Migration Plan - v5.md](SQL-to-CSV Migration Plan - v5.md) — steps 1–8 done 2026-10-30
