@@ -3,8 +3,10 @@
 # Usage: inventory.sh <add-in repo folder> [subfolder filter]
 #   e.g. inventory.sh /c/repo/jhkweb/Kelly-Revit-v4
 #        inventory.sh /c/repo/jhkweb/Kelly-Revit-v5 Trade.Pipe
-# Output (tab-separated): BUTTON <file> <command type> <current tooltip or (none)>
+# Output (tab-separated): BUTTON <file> <command type> <current tooltip or (none)> <ImageName or (none)> <icon state>
 #                         ORPHAN <file> <command class>   (an IExternalCommand no push button names in Type = typeof(...))
+# Icon state: ok, placeholder (ImageName missing, blank or "Scrum", which RibbonPushButton substitutes), or
+#             missing (<ImageName>16.png or 32.png is not in the RibbonIcons folder the button's assembly embeds).
 set -euo pipefail
 
 repo="${1:?add-in repo folder, e.g. /c/repo/jhkweb/Kelly-Revit-v4}"
@@ -25,7 +27,16 @@ for f in "${buttons[@]}"; do
     tip=$(grep -E '^\s*ToolTip\s*=' "$f" | head -1 | sed -E 's/^\s*ToolTip\s*=\s*//; s/;\s*\r?$//' || true)
     [ -z "$tip" ] && tip='(none)'
     [ -n "$type" ] && called["${type##*.}"]=1
-    printf 'BUTTON\t%s\t%s\t%s\n' "$f" "${type:-(no Type)}" "$tip"
+    image=$(grep -E '^\s*ImageName\s*=' "$f" | head -1 | sed -E 's/^\s*ImageName\s*=\s*"?//; s/"?\s*;\s*\r?$//' || true)
+    # v5: each module embeds modules/<module>/Graphics/RibbonIcons; v4 (and the v5 host): src/Application/Graphics/RibbonIcons or src/Graphics/RibbonIcons
+    case "$f" in
+        modules/*) icons="modules/$(echo "$f" | cut -d/ -f2)/Graphics/RibbonIcons" ;;
+        *)         icons="src/Application/Graphics/RibbonIcons"; [ -d "$icons" ] || icons="src/Graphics/RibbonIcons" ;;
+    esac
+    if [ -z "$image" ] || [ "${image,,}" = scrum ]; then state=placeholder
+    elif [ -f "$icons/${image}16.png" ] && [ -f "$icons/${image}32.png" ]; then state=ok
+    else state=missing; fi
+    printf 'BUTTON\t%s\t%s\t%s\t%s\t%s\n' "$f" "${type:-(no Type)}" "$tip" "${image:-(none)}" "$state"
 done
 
 # Commands: classes that implement IExternalCommand directly or through IExternalCommandBase / a command base class.
