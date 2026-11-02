@@ -108,7 +108,7 @@ Found while testing (behavior pinned by the tests as it is; not changed):
 
 ### Kelly-Revit-Logic-v5
 
-99 of 127 done 2026-11-02 (157 new tests, all passing in Revit 2024 with the add-in disabled; a full run after the first 121 passed 729 of 729 in 18 min; Kelly-Revit-Logic-v5 `cbfca8e`..`994fd41`, one commit per fixture):
+119 of 127 done 2026-11-02 (229 new tests, each fixture passing in its own Revit 2024 run with the add-in disabled; a full run after the first 121 passed 729 of 729 in 18 min, the full run with all 229 is still to do; Kelly-Revit-Logic-v5 `cbfca8e`..`d044641`, one commit per fixture):
 
 - [x] **Updaters/Configurations** (39): every auto and manual configuration in two fixtures, `AutoUpdaterConfigurationsTests` and `ManualUpdaterConfigurationsTests`, one case per configuration (duty, default state, GUID, element service) and a coverage check that fails when a new configuration has no case; the bases `AutoUpdaterConfiguration`/`ManualUpdaterConfiguration`, `UpdaterDuty`, `UpdaterState`.
 - [x] **Common**: `AddInServices`, `AssemblyTypeExtensions`, `AssemblyWarningSwallower` and `SuppressDuplicateInstancesWarning` (a duct terminal copied onto itself raises the duplicate-instances warning), `ObjectExtensions` (internal, by reflection), `RevitCancelValue`.
@@ -118,6 +118,7 @@ Found while testing (behavior pinned by the tests as it is; not changed):
 - [x] **Updaters/ElementDataModels** (8): `ElementDataModel` and the seven models in `ElementDataModelsTests`, on ducts and duct terminals with in-memory components, products and services.
 - [x] **Signatures**: `GeometrySignatureExtensions` (argument check only: no fabrication parts), `ServiceSignatureExtensions`, `SystemSignatureExtensions`. **Mep**: `DuctExtensions` (on a disconnected duct), `PipeExtensions`, `ConduitExtensions`, `CableTrayExtensions` (argument checks), `OletTapConnectorStatus`. **Projects**: `ProjectLocationExtensions`. **Elements**: `ElementFilterExtensions`, `ReInsertModel`. **Entities**: `BuiltInCategoryElementEntity`.
 - [x] **Families**: `FamilyExtensions`, `TypeBoundSharedParameter`, `TypeBoundSharedParameterScanner` (a family sample given three shared parameters and loaded into an empty project). **Views**: `ParameterFilterElementExtensions` (`ApplyToView`; `Export` argument checks only). **Arrangement**: `ViewSides`, `CustomLeader`, `CommitPreprocessor`. **Caches**: `IDocumentCache`, `SystemDocumentCache` (no fabrication configuration); `NumberedDocumentCache` was already run through its four subclasses in `DocumentCacheTests`.
+- [x] **Common**: `TaskDialogSimple` (every message, through a recording prompt), `ContextLists`, `ButtonDataWrapper` (argument check only). **Properties**: `Resources`. **Mep**: `ValveData`, `ValveClearanceSphereTools` (on duct terminals; no clearance sphere family, so no sphere is placed). **Views**: `StratusViewTools` (the template view checks; the package views need the Kelly filters), `ViewPortExtensions`. **Elements**: `ElementInstanceModel`. **Arrangement**: `AnnotationElement` (text notes). **Documents**: `UiDocumentExtensions`, `DocumentSchemaExtensions`, `DocumentSavedEventHandler`, `EventHandlerTools`. **Fabrication**: `BillOfMaterialTypeAssigner`; `FabricationPartWrapper`, `FabricationConnectorTools`, `ProductCodeCheckResult` (argument check only). **Connectors**: `ConnectorExtensions` (`GetConnectors`; the rest was already run in `ConnectorToolsTests`). **Supports**: `VerticalSupportMember` (made from its type).
 
 A test folder named `Common` made `using Common;` in 11 existing fixtures resolve to the test namespace; they now say `using Logic.Common;` (`e0f78b9`).
 
@@ -129,21 +130,17 @@ Found while testing (behavior pinned by the tests as it is; not changed):
 - `TypeBoundSharedParameterScanner.Scan` closes the document `EditFamily` returns, so a family document the caller already had open is closed by the scan.
 - `SystemDocumentCache` throws `ArgumentNullException` from its constructor in a project with no fabrication configuration instead of listing the generic system, as `ServiceDocumentCache` does.
 - `MaterialExtensions.Export` and `ParameterFilterElementExtensions.Export` write a CSV report and open it on the desktop (`ToCsv(..., openFile: true)`), so a test would start a program; they need an "open file" seam, like `ShellTools`.
+- `UiDocumentExtensions.CreateProductRangeFilter` also passes a duct's "Center line" element, which reports the duct's parameters, so `GetInstancesByProductRange` returns the center line with the duct.
+- `ContextLists.GetItemNumbers` lists only elements that have both a line number and an item number (the parameter filter ANDs them).
+- `VerticalSupportMember.Signature` throws `NullReferenceException` while `Size` is unset, instead of returning "Signature Issue".
+- `TypeBoundSharedParameterScanner`, `SystemDocumentCache`: see above. `ComponentCategoryType` has a member 99 (`PlaceHolder`), so 99 is no "invalid value" for it.
 
-Still to do:
+Still to do. These need fabrication parts, a fabrication configuration or Kelly support families, which the Revit samples do not have; they need a Kelly test model (or a seam) before they can be tested:
 
-- [ ] **Arrangement**: `AnnotationElement`
-- [ ] **Common**: `ButtonDataWrapper`, `ContextLists`, `TaskDialogSimple`
-- [ ] **Connectors**: `ConnectorExtensions`, `FabricationConnectorTools`
-- [ ] **Documents**: `DocumentSavedEventHandler`, `DocumentSchemaExtensions`, `EventHandlerTools`, `UiDocumentExtensions`
-- [ ] **Elements**: `ElementInstanceModel`
-- [ ] **Fabrication**: `BillOfMaterialTypeAssigner`, `FabricationPartExtensions`, `FabricationPartWrapper`, `ProductCodeCheckResult`, `ProductRange10Joints01Weld`
-- [ ] **Materials**: `MaterialExtensions` (needs the open-file seam, above)
-- [ ] **Mep**: `ValveClearanceSphereTools`, `ValveData`
-- [ ] **Properties**: `Resources`
-- [ ] **Supports**: `HangerPlacementService`, `HangeredStraightModel`, `TrapezeVerticalMemberTools`, `VerticalSupportMember`
+- [ ] **Fabrication**: `FabricationPartExtensions`, `ProductRange10Joints01Weld` (built from a `SpoolItem` of a fabrication assembly)
+- [ ] **Materials**: `MaterialExtensions` (also needs the open-file seam, above)
+- [ ] **Supports**: `HangerPlacementService`, `HangeredStraightModel`, `TrapezeVerticalMemberTools`
 - [ ] **Updaters**: `CustomDataUpdateEvaluator`, `CustomDataUpdater`
-- [ ] **Views**: `StratusViewTools`, `ViewPortExtensions`
 
 ### Kelly-Revit-UI
 
