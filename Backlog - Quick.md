@@ -4,16 +4,32 @@ Within each section: open items first, then done items. Every version section st
 
 ## Kelly Tools For Revit v4
 
-**Complete: 95% (20 of 21)**
+**Complete: 35% (20 of 57)**
 
 ### To Organize
 
 ### Architecture
 
+- [ ] (High, review 2026-11-02) Key document sessions by `Document`, not the deprecated JHK Project ID: nothing assigns that ID any more, so projects without one share one session and closing one deletes the other's; new and non-Kelly documents get none, and Hanger Place dereferences it without a null check (Kelly-Revit-v4 `DocumentSessionService.cs:62`; commits 1fd8e20, 0594dca)
+- [ ] (Review 2026-11-02) `App` is a static service locator: 29 files reach `App.Data`/`App.Lookups` directly, and `App.GetDefinition` pops a MessageBox from a catch-all
+- [ ] (Review 2026-11-02) Move Kelly Tools For Revit knowledge out of Kelly-Windows-Data-v2: `DataDirectory.DefaultPath` (`DataDirectory.cs:235`), the Revit records `BuiltInCategoryBinding`/`RibbonPanel`/`RibbonTab`, and the VCS database names in `DataManifestSource`
+- [ ] (Review 2026-11-02) Kelly-Revit-Logic-v4 pins `Kelly.Windows.Data.Json` only for the operation log; put it behind an `IOperationLog`
+- [ ] (Review 2026-11-02, pre-existing) Move `TaskDialogSimple`/`TaskDialogsCommon` (user-facing dialogs) out of Kelly-Revit-Logic-v4
 - [x] "Straighten" the architectural layer connections that make up Kelly Tools For Revit v4
 
 ### Data
 
+- [ ] (High, review 2026-11-02) Gauge lookup needs an exact `double` match: the old `USP_Table_Gauge_ReadWhereEquals` rounded to `DECIMAL(10,4)`, the new key is the raw `feet * 12`, so floating-point noise misses and the gauge custom data is not written; round to 4 places on both sides (Kelly-Revit-v4 `GaugeNameResolver.cs:41`, `DataStore.cs:145`)
+- [ ] (Review 2026-11-02) Replace `JsonFileLoadException` with a `DataFileLoadException`: CSV, manifest and hashing errors all throw the JSON one
+- [ ] (Review 2026-11-02) Rename `SqlMatch`/`BySqlKeys`; `TrimEnd()` also strips tab, CR, LF and NBSP, which SQL's `=` does not
+- [ ] (Review 2026-11-02) A missing CSV/SQLite column is silently zero-filled (only an extra column fails); JSON ignores unknown properties, so "strict" differs per format
+- [ ] (Review 2026-11-02) One value converter for all formats: `RecordMapper`, `SqliteRecordReader` and CsvHelper convert differently; `StrictJsonReader` is duplicated in Kelly-Windows-Data-v2 and -Json
+- [ ] (Review 2026-11-02) `DataFolderWriter.Commit` moves files one by one: a failure partway leaves new files beside the old manifest, and the add-in then refuses to start
+- [ ] (Review 2026-11-02) Catch IO errors in the data load (`App.cs:223` catches only `JsonFileLoadException`/`InvalidOperationException`; a file locked by the exporter escapes the data-error dialog) and per file in `DataDirectory.Verify`/`CheckPresence`
+- [ ] (Review 2026-11-02) Reload Data swaps `App.Data` only; combo boxes and element services built from the old data stay until the project is reopened, and the user is not told
+- [ ] (Review 2026-11-02) Make the shared data rows `init`-only so one missed `with { }` copy can't corrupt the session's data
+- [ ] (Review 2026-11-02) `DatabaseConnectionTester` (Kelly-Windows-Data-SqlServer) logs the connection string with its password (a test enshrines it) and only `e.StackTrace`, not the message
+- [ ] (Review 2026-11-02) Column order rests on `MetadataToken`, so an IDE member sort changes the exported layout and hashes (already reverted twice: d890444, a0252c6); add a column-order attribute or layout test
 - [x] Find any loose JSON read/write code that can be refactored to use the Kelly.Windows.Data.Json library — done 2026-11-02 (Kelly-Revit-v4 commit 1c9c4e8, pushed): Kelly-Revit-v4's `ModuleCreatorViewModel` and `SpoolCreateViewModel` read and write their settings through `JsonSettingsFile.TryRead`/`TryWrite`, as v5 does; no other v4 add-in or Logic code calls Newtonsoft directly. Builds for 2024, 2025 and 2026 (no install); not tested in Revit. Left as is: Kelly-Windows-Data-v2 keeps its own copy of `StrictJsonReader` and writes `data-manifest` with `JsonConvert` (`DataFolderWriter`); it sits below the Json library, so it cannot call it
 - [x] Fully refactor to use CSV data files instead of SQL Server data — done 2026-10-22: KTR reads only the CSV files and ships no SQL client (build 4.26.1022.1411)
   - [x] Build a standalone SQL-to-CSV export tool to regularly export the required data from SQL Server. Migrate it into the KTR Manager tool in the future.
@@ -21,6 +37,11 @@ Within each section: open items first, then done items. Every version section st
 
 ### Versioning, build and install
 
+- [ ] (High, review 2026-11-02) The package feed sorts backwards: `Kelly.Windows.Data.Net481` is at 2.x (v4), 3.x (v5) and 13 stale 4.26 builds under one ID (likewise `Kelly.Windows.*`, and the format libraries' 26.10.22 builds above 1.26); only exact pins keep the right one. Purge the stale 4.26 and 26.x packages; consider separate v4/v5 package IDs
+- [ ] (Review 2026-11-02) `Revit.Build.props:26` demotes MSB3277, CS0612 and CS0618 to messages for every Revit project, hiding obsolete warnings (e.g. `ProjectInformationWrapper`'s "This Smells A Bit")
+- [ ] (Review 2026-11-02) `AssemblyVersion` changes every minute from local time (not reproducible; DST can reverse it); fix it at `Major.0.0.0` and keep the time in file and package versions
+- [ ] (Review 2026-11-02) Kelly-Windows-v2's `NuGet.Config` relies on machine-level feeds, unlike the other repos
+- [ ] (Review 2026-11-02) Process: one Changelog entry per release instead of an "installed as build" commit per install (nine on 2026-10-22), and pin bumps in their own commits
 - [x] Refactor the installation directory to be "C:\Program Files\JH Kelly\Kelly Tools For Revit 4". The add-in manifest files will need to be built and named as such. — done 2026-11-02 (Kelly-Revit-v4 commit d87120c, BuildConfigs `AddinInstall.Build.targets`): installs to `Kelly Tools For Revit 4\<year>` with `Kelly Tools For Revit 4.addin`, and renames the other versions' manifests to `.addin.x`. No v4 build installed since: Revit 2024–2026 have only the v5 manifest
 - [x] Update my .sln solution files to the .slnx format — checked 2026-10-30: all four v4 repos have only a `.slnx`
 - [x] Add a `<Generation>4</Generation>` property to the .csproj that indicates the application major version (1 to 5)
@@ -30,12 +51,19 @@ Within each section: open items first, then done items. Every version section st
 
 ### Updaters and project information
 
+- [ ] (Review 2026-11-02) Updaters and the session are removed in `DocumentClosing`, which can be cancelled, leaving an open project without them; unregister in `DocumentClosed`, each step in its own try
+- [ ] (Review 2026-11-02) New projects get no auto updaters: `DocumentCreatedEventHandler` is still empty
+- [ ] (Review 2026-11-02) If `Suspend` throws in `SetPowerIcon`, callers see "not suspended" and never resume, so the updaters stay off (`AutoUpdaterService.cs:253`)
+- [ ] (Review 2026-11-02) `ProjectInformationWrapper`: Architect, GeneralContractor, MarketSector and NameAbbreviation hard-coded "TBD"; MarketSector is editable in the Project Information Editor but never saved; `GetFabricationConfiguration` not null-checked; `IsKellyProject` finds JHK Project Number by name, not GUID
+- [ ] (Review 2026-11-02) The null check and toggle body are copied into four `*AssignerAutoSetToggleCommand`s; move them into `CommonAutoAssignerTools`
 - [x] Delete any and all Active Project functionality: whatever is reading/writing the shared parameter "JHK Active Project" — done 2026-10-30 in v4 and v5: no Active Project button, the trade tabs are always enabled, and opening a project builds the updaters and views only in a Kelly project (`IsKellyProject`: JHK Project Number). The parameter stays in the data files and existing projects. Built, not installed
 - [x] Enable the ProjectInformationEditor, but only have it edit the project shared parameters
 - [x] Each document should have its own set of IUpdaters
 
 ### Tools, ribbon and UI
 
+- [ ] (Review 2026-11-02) Fix the bugs the user guides documented as behaviour: Rules Of Credit shows "5,000.00 %"; Purge Unused Families deletes tag families with placed tags; Set Revision Date drops the leading zero ("09:30:15" → "93015"); a debug button borrows the "Align Conduit Bottom" label
+- [ ] (Review 2026-11-02) Check the user guides in Revit: 224 "TODO: confirm" markers, none verified
 - [x] Allow descriptions longer than 50 characters in the Layout Point Exporter — done 2026-10-21 (Kelly-Revit-v4 commit 9af4bbf): `LayoutPoint.Description` allows 4 to 65 characters (`StringLength(65)` and `IsValid`); the exporter still flags a host whose joined descriptions reach 255 characters
 - [x] Update the tooltip of every IExternalCommand by gleaning what each tool does from the code behind the command — done 2026-10-26: all 153 push buttons (commit 6601016e, build 4.26.1026.1106)
 - [x] Create icons for ribbon buttons that have the value "Scrum" for the `ImageName` property — done 2026-11-02 in source (Kelly-Revit-v4 commits 0f59534 and 8abfe9d): the 20 Scrum buttons and the six whose image never existed (among them `ContextValueAddPushButton` and `LayoutPointFileDirectoryOpenPushButton`) have their own icons; the Scrum images are removed. Not checked in Revit
@@ -43,11 +71,19 @@ Within each section: open items first, then done items. Every version section st
 ### Code quality and cleanup
 
 - [ ] Are there any TODO notes that can be handled? — 2026-10-30: 135 `// todo` comments (Kelly-Revit-v4 122, Kelly-Revit-Logic-v4 11, Kelly-Windows-v2 2, Kelly-Windows-Data-v2 0); unchanged 2026-11-02 (rechecked after the icon commits)
+- [ ] (Review 2026-11-02) Hard-coded people: `App.cs:102` detects the developer by username `"ChrisHildebranAtWork"`; `App.cs:145` has the misspelled `CHILDEBRAN@JHELLY.COM`; the missing-parameters dialog and the Stratus command name Adam Fuller. Use one support-contact constant
+- [ ] (Review 2026-11-02) The Telerik licence key is committed (`src/teleriklicense.cs`, installer `.ise`) and `App.cs:142` shows it in an error dialog; the `.ise` also holds a name and phone number
+- [ ] (Review 2026-11-02) Remove dead SQL-era code: `SetIdTransaction`, the `GetRecord()` stubs (15 DTOs, and `ExternalParameterDefinition`/`BuiltInCategoryWrapper` in Logic), the `REVIT2027` branch, stale "SQL Server" comments
+- [ ] (Review 2026-11-02) Kelly-Revit-Logic-v4 README: pin and path sections contradict the code; "SOLID principles" section missing
+- [ ] (Review 2026-11-02) Ten owner-less "TODO: Verify" items left by removing names (Logic `FabricationPartExtensions.cs`); `GetBearerSizeOfProfiledBearer` still returns `-1.0`
 - [x] Ensure every type lives in its own file: only one type per file unless nested — done 2026-11-02 (ReSharper, all v4 solutions): a scan of every `.cs` file in the four v4 repos finds no file with two top-level types. `DocumentExtensions.cs` (Kelly-Revit-Logic-v4) holds three `partial` blocks of one class and `FileDialogTools.cs` (Kelly-Revit-v4) one class per `#if` branch, both one type. Kelly-Windows-Data-v2’s split (`DataManifestFile.cs`, `CsvSampleRecord.cs`, `CsvDecimalSampleRecord.cs`, `TestRecords.cs` deleted) is not committed yet
 - [x] Remove references to "Casey Puyleart" and "Jason Sherwood" — done 2026-07-07 (commit 01124c1 "Update contacts"); checked 2026-10-28: no match left in Kelly-Windows-Data-v2, Kelly-Windows-v2, Kelly-Revit-Logic-v4 or Kelly-Revit-v4
 
 ### Testing
 
+- [ ] (Review 2026-11-02) Kelly-Revit-v4 and Kelly-Revit-Logic-v4 have no tests although the data layer, updater lifecycle and sessions were replaced; both High bugs are test-catchable. `DataStore.Load` could be tested outside Revit
+- [ ] (Review 2026-11-02) Add `Author`/`Description` to `[Test]`/`[TestCase]`: missing on Kelly-Windows-v2 463 of 468, Kelly-Windows-Data-v2 50 of 161, -Json 50 of 129, -SqlServer 25 of 60
+- [ ] (Review 2026-11-02) Weak tests: `CoreBoundaryTests` checks only type names; the SqlServer integration tests skip themselves with no server, so they likely never run
 - [x] Final test: KTR needs to work without connecting to a JHK network (no VPN, etc.)
 
 
