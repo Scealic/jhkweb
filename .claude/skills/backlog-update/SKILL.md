@@ -7,7 +7,7 @@ description: Update and organize the quick backlogs - each repository's Quick-Ba
 
 Since 2026-11-02 the backlog is split:
 
-- **One `Quick-Backlog.md` per repository**, at its root (Kelly-Revit-v4, Kelly-Revit-Logic-v4, Kelly-Windows-v2, Kelly-Windows-Data-v2, Kelly-Revit-v5, Kelly-Revit-UI, Kelly-Revit-Logic-v5, Kelly-Domain, Kelly-Windows-v3, Kelly-Windows-Data-v3, VCS-Database-General-Schema). Each repository's `AGENTS.md` points to it, and `BuildConfigs/SHARED-AGENTS.md` holds the rule. Items that cover a whole major version (every v4 or every v5 repository) live in that version's add-in repository, Kelly-Revit-v4 or Kelly-Revit-v5.
+- **One `Quick-Backlog.md` per repository**, at its root: all 18 sibling repositories (the v4 and v5 layers, the four Kelly-Windows-Data format libraries, Kelly-Revit-Data-Exporter, BuildConfigs and the two VCS schema repositories). A newly cloned repository gets one too, with a "Backlog" line in its `AGENTS.md` and a row in the index. Each repository's `AGENTS.md` points to it, and `BuildConfigs/SHARED-AGENTS.md` holds the rule. Items that cover a whole major version (every v4 or every v5 repository) live in that version's add-in repository, Kelly-Revit-v4 or Kelly-Revit-v5.
 - **`C:\repo\jhkweb\Backlog - Quick.md`** is the index: a table of every repository backlog with its percent, and an "Other" section for items that belong to no repository (process, subscriptions), with its own "To Organize".
 
 The user edits these files in Typora, often while Claude works, so re-read a file right before writing it and keep every change they made.

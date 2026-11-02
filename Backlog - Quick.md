@@ -17,6 +17,13 @@ Since 2026-11-02 each repository keeps its own backlog in `Quick-Backlog.md` at 
 | [Kelly-Windows-v3](Kelly-Windows-v3/Quick-Backlog.md) | 0% (0 of 3) |
 | [Kelly-Windows-Data-v3](Kelly-Windows-Data-v3/Quick-Backlog.md) | 100% (1 of 1) |
 | [VCS-Database-General-Schema](VCS-Database-General-Schema/Quick-Backlog.md) | 0% (0 of 1) |
+| [VCS-Database-Content-Schema](VCS-Database-Content-Schema/Quick-Backlog.md) | 0% (0 of 0) |
+| [Kelly-Revit-Data-Exporter](Kelly-Revit-Data-Exporter/Quick-Backlog.md) | 0% (0 of 0) |
+| [Kelly-Windows-Data-Csv](Kelly-Windows-Data-Csv/Quick-Backlog.md) | 0% (0 of 0) |
+| [Kelly-Windows-Data-Json](Kelly-Windows-Data-Json/Quick-Backlog.md) | 0% (0 of 0) |
+| [Kelly-Windows-Data-SqlServer](Kelly-Windows-Data-SqlServer/Quick-Backlog.md) | 0% (0 of 0) |
+| [Kelly-Windows-Data-Sqlite](Kelly-Windows-Data-Sqlite/Quick-Backlog.md) | 0% (0 of 0) |
+| [BuildConfigs](BuildConfigs/Quick-Backlog.md) | 0% (0 of 0) |
 
 ## Other
 
