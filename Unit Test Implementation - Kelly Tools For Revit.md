@@ -108,7 +108,7 @@ Found while testing (behavior pinned by the tests as it is; not changed):
 
 ### Kelly-Revit-Logic-v5
 
-119 of 127 done 2026-11-02 (229 new tests, each fixture passing in its own Revit 2024 run with the add-in disabled; a full run after the first 121 passed 729 of 729 in 18 min, the full run with all 229 is still to do; Kelly-Revit-Logic-v5 `cbfca8e`..`d044641`, one commit per fixture):
+119 of 127 done 2026-11-02 (229 new tests, each fixture passing in its own Revit 2024 run with the add-in disabled; full run 2026-11-02 with all 229: ricaun ran 842 tests in 19 min, all 734 results that reached the log passed, the adapter lost 108 results (KTR0001) and the Revit journal records no failed or skipped test; Kelly-Revit-Logic-v5 `cbfca8e`..`d044641`, one commit per fixture):
 
 - [x] **Updaters/Configurations** (39): every auto and manual configuration in two fixtures, `AutoUpdaterConfigurationsTests` and `ManualUpdaterConfigurationsTests`, one case per configuration (duty, default state, GUID, element service) and a coverage check that fails when a new configuration has no case; the bases `AutoUpdaterConfiguration`/`ManualUpdaterConfiguration`, `UpdaterDuty`, `UpdaterState`.
 - [x] **Common**: `AddInServices`, `AssemblyTypeExtensions`, `AssemblyWarningSwallower` and `SuppressDuplicateInstancesWarning` (a duct terminal copied onto itself raises the duplicate-instances warning), `ObjectExtensions` (internal, by reflection), `RevitCancelValue`.
