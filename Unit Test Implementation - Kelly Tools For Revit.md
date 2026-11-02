@@ -108,14 +108,22 @@ Found while testing (behavior pinned by the tests as it is; not changed):
 
 ### Kelly-Revit-Logic-v5
 
-55 of 127 done 2026-11-02 (83 new tests, all passing in Revit 2024 with the add-in disabled; Kelly-Revit-Logic-v5 `cbfca8e`..`9677f75`, one commit per fixture):
+77 of 127 done 2026-11-02 (121 new tests, all passing in Revit 2024 with the add-in disabled; Kelly-Revit-Logic-v5 `cbfca8e`..`9e228f8`, one commit per fixture):
 
 - [x] **Updaters/Configurations** (39): every auto and manual configuration in two fixtures, `AutoUpdaterConfigurationsTests` and `ManualUpdaterConfigurationsTests`, one case per configuration (duty, default state, GUID, element service) and a coverage check that fails when a new configuration has no case; the bases `AutoUpdaterConfiguration`/`ManualUpdaterConfiguration`, `UpdaterDuty`, `UpdaterState`.
 - [x] **Common**: `AddInServices`, `AssemblyTypeExtensions`, `AssemblyWarningSwallower` and `SuppressDuplicateInstancesWarning` (a duct terminal copied onto itself raises the duplicate-instances warning), `ObjectExtensions` (internal, by reflection), `RevitCancelValue`.
 - [x] **Connectors**: `ConnectorTypeEnd`, `EndPositions`, `DimensionModel`, `ConnectorInfo`, `ConnectorInfoVictaulic`, `TapWrapper` in `ConnectorModelsTests`.
 - [x] **IsExternalInit**, **Spools**: `NumberableSpoolItemBuiltInCategorySet` (54 categories), **Supports**: `HangerLocation`, `HangerPlaceSettings`.
+- [x] **Updaters/ElementServices** (14): `ElementServicesTests` pins every remaining service's execution order and trigger filter (one case each: no duct passes before its parameters are bound; after, a duct passes only when the service is not limited to fabrication parts or supports), and runs content identity, service of (non-)fabrication part, `ServiceElementWriter` (internal, by reflection), system and product on ducts.
+- [x] **Updaters/ElementDataModels** (8): `ElementDataModel` and the seven models in `ElementDataModelsTests`, on ducts and duct terminals with in-memory components, products and services.
 
 A test folder named `Common` made `using Common;` in 11 existing fixtures resolve to the test namespace; they now say `using Logic.Common;` (`e0f78b9`).
+
+Found while testing (behavior pinned by the tests as it is; not changed):
+
+- `ProductElementDataModel`: when the component has no product in the data, `Initialize` returns early but `UpdateElement` still writes its defaults, so CAHF, CIPE and JHK Total Weight are overwritten with 0 (the product id read from the element is written back).
+- `ElementService.ExecutionOrder`: three services share 11 (service, service of fabrication part, service of non-fabrication part) and two share 100 (detailing package, line number), so execution order alone does not decide which of them runs first.
+- Kelly's string `GetValue` turns a double quote into two single quotes, so a type named `4" DIA` is written to JHK Long Description as `4'' DIA`.
 
 Still to do:
 
@@ -134,9 +142,7 @@ Still to do:
 - [ ] **Properties**: `Resources`
 - [ ] **Signatures**: `GeometrySignatureExtensions`, `ServiceSignatureExtensions`, `SystemSignatureExtensions`
 - [ ] **Supports**: `HangerPlacementService`, `HangeredStraightModel`, `TrapezeVerticalMemberTools`, `VerticalSupportMember`
-- [ ] **Updaters**: `CustomDataUpdateEvaluator`, `CustomDataUpdater`, `ElementDataModel`
-- [ ] **Updaters/ElementDataModels**: `BillOfMaterialTypeDefaultElementDataModel`, `ComponentElementDataModel`, `LayoutDisciplineElementDataModel`, `MaterialElementDataModel`, `PlaceholderElementDataModel`, `ProductElementDataModel`, `ScheduleGaugeElementDataModel`
-- [ ] **Updaters/ElementServices**: `ComponentUpdaterElementService`, `ContentIdentityUpdaterElementService`, `EndPreparationUpdaterElementService`, `FabricationPartInstancesUpdaterElementService`, `MaterialUpdaterElementService`, `ProductUpdaterElementService`, `ScheduleGaugeUpdaterElementService`, `ServiceElementWriter`, `ServiceOfFabricationPartElementService`, `ServiceOfNonFabricationPartElementService`, `SizeUpdaterElementService`, `SuspendedSupportElementService`, `SystemUpdaterElementService`, `WeldUpdaterElementService`
+- [ ] **Updaters**: `CustomDataUpdateEvaluator`, `CustomDataUpdater`
 - [ ] **Views**: `ParameterFilterElementExtensions`, `StratusViewTools`, `ViewPortExtensions`
 
 ### Kelly-Revit-UI
