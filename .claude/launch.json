@@ -7,9 +7,9 @@
       "runtimeArgs": [
         "run",
         "--project",
-        "C:\\Users\\childebran\\AppData\\Local\\Temp\\claude\\C--repo-jhkweb\\a522c577-b3ce-4bc5-a0e7-fa6f51750841\\scratchpad\\icon-render\\IconRender.csproj",
+        "C:\\Users\\childebran\\AppData\\Local\\Temp\\claude\\C--repo-jhkweb\\a522c577-b3ce-4bc5-a0e7-fa6f51750841\\scratchpad\\icon-render-c\\IconRender.csproj",
         "--",
-        "C:\\Users\\childebran\\AppData\\Local\\Temp\\claude\\C--repo-jhkweb\\a522c577-b3ce-4bc5-a0e7-fa6f51750841\\scratchpad\\icon-render"
+        "C:\\Users\\childebran\\AppData\\Local\\Temp\\claude\\C--repo-jhkweb\\a522c577-b3ce-4bc5-a0e7-fa6f51750841\\scratchpad\\icon-render-c"
       ],
       "port": 5317
     }
