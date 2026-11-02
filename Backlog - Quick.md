@@ -10,12 +10,12 @@ Since 2026-11-02 each repository keeps its own backlog in `Quick-Backlog.md` at 
 | [Kelly-Revit-Logic-v4](Kelly-Revit-Logic-v4/Quick-Backlog.md) | 0% (0 of 1) |
 | [Kelly-Windows-v2](Kelly-Windows-v2/Quick-Backlog.md) | 0% (0 of 1) |
 | [Kelly-Windows-Data-v2](Kelly-Windows-Data-v2/Quick-Backlog.md) | 0% (0 of 0) |
-| [Kelly-Revit-v5](Kelly-Revit-v5/Quick-Backlog.md) (all of v5) | 58% (35 of 60) |
-| [Kelly-Revit-UI](Kelly-Revit-UI/Quick-Backlog.md) | 0% (0 of 8) |
-| [Kelly-Revit-Logic-v5](Kelly-Revit-Logic-v5/Quick-Backlog.md) | 36% (5 of 14) |
-| [Kelly-Domain](Kelly-Domain/Quick-Backlog.md) | 25% (3 of 12) |
-| [Kelly-Windows-v3](Kelly-Windows-v3/Quick-Backlog.md) | 13% (1 of 8) |
-| [Kelly-Windows-Data-v3](Kelly-Windows-Data-v3/Quick-Backlog.md) | 11% (1 of 9) |
+| [Kelly-Revit-v5](Kelly-Revit-v5/Quick-Backlog.md) (all of v5) | 62% (38 of 61) |
+| [Kelly-Revit-UI](Kelly-Revit-UI/Quick-Backlog.md) | 75% (6 of 8) |
+| [Kelly-Revit-Logic-v5](Kelly-Revit-Logic-v5/Quick-Backlog.md) | 60% (9 of 15) |
+| [Kelly-Domain](Kelly-Domain/Quick-Backlog.md) | 42% (5 of 12) |
+| [Kelly-Windows-v3](Kelly-Windows-v3/Quick-Backlog.md) | 38% (3 of 8) |
+| [Kelly-Windows-Data-v3](Kelly-Windows-Data-v3/Quick-Backlog.md) | 67% (6 of 9) |
 | [VCS-Database-General-Schema](VCS-Database-General-Schema/Quick-Backlog.md) | 0% (0 of 1) |
 | [VCS-Database-Content-Schema](VCS-Database-Content-Schema/Quick-Backlog.md) | 0% (0 of 0) |
 | [Kelly-Revit-Data-Exporter](Kelly-Revit-Data-Exporter/Quick-Backlog.md) | 0% (0 of 0) |
@@ -23,7 +23,7 @@ Since 2026-11-02 each repository keeps its own backlog in `Quick-Backlog.md` at 
 | [Kelly-Windows-Data-Json](Kelly-Windows-Data-Json/Quick-Backlog.md) | 0% (0 of 0) |
 | [Kelly-Windows-Data-SqlServer](Kelly-Windows-Data-SqlServer/Quick-Backlog.md) | 0% (0 of 0) |
 | [Kelly-Windows-Data-Sqlite](Kelly-Windows-Data-Sqlite/Quick-Backlog.md) | 0% (0 of 0) |
-| [BuildConfigs](BuildConfigs/Quick-Backlog.md) | 0% (0 of 0) |
+| [BuildConfigs](BuildConfigs/Quick-Backlog.md) | 100% (1 of 1) |
 
 ## Other
 
