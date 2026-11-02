@@ -4,7 +4,7 @@ Within each section: open items first, then done items. Every version section st
 
 ## Kelly Tools For Revit v4
 
-**Complete: 76% (16 of 21)**
+**Complete: 86% (18 of 21)**
 
 ### To Organize
 
@@ -36,13 +36,13 @@ Within each section: open items first, then done items. Every version section st
 
 ### Tools, ribbon and UI
 
-- [ ] Allow descriptions longer than 50 characters in the Layout Point Exporter
-- [ ] Create icons for ribbon buttons that have the value "Scrum" for the `ImageName` property — 2026-11-02: no v4 push button sets `ImageName = "Scrum"`, but four name an image with no PNG in Kelly-Revit-v4, so they fall back to it: `ContextValueAddPushButton` (ContextAdder), `ModuleValueAutoSetPushButton` and `SpoolValueAutoSetPushButton` (ContextAutoAssign), `LayoutPointFileDirectoryOpenPushButton` (Folder01)
+- [x] Allow descriptions longer than 50 characters in the Layout Point Exporter — done 2026-10-21 (Kelly-Revit-v4 commit 9af4bbf): `LayoutPoint.Description` allows 4 to 65 characters (`StringLength(65)` and `IsValid`); the exporter still flags a host whose joined descriptions reach 255 characters
 - [x] Update the tooltip of every IExternalCommand by gleaning what each tool does from the code behind the command — done 2026-10-26: all 153 push buttons (commit 6601016e, build 4.26.1026.1106)
+- [x] Create icons for ribbon buttons that have the value "Scrum" for the `ImageName` property — done 2026-11-02 in source (Kelly-Revit-v4 commits 0f59534 and 8abfe9d): the 20 Scrum buttons and the six whose image never existed (among them `ContextValueAddPushButton` and `LayoutPointFileDirectoryOpenPushButton`) have their own icons; the Scrum images are removed. Not checked in Revit
 
 ### Code quality and cleanup
 
-- [ ] Are there any TODO notes that can be handled? — 2026-10-30: 135 `// todo` comments (Kelly-Revit-v4 122, Kelly-Revit-Logic-v4 11, Kelly-Windows-v2 2, Kelly-Windows-Data-v2 0); unchanged 2026-11-02
+- [ ] Are there any TODO notes that can be handled? — 2026-10-30: 135 `// todo` comments (Kelly-Revit-v4 122, Kelly-Revit-Logic-v4 11, Kelly-Windows-v2 2, Kelly-Windows-Data-v2 0); unchanged 2026-11-02 (rechecked after the icon commits)
 - [ ] Ensure every type lives in its own file: only one type per file unless nested
 - [x] Remove references to "Casey Puyleart" and "Jason Sherwood" — done 2026-07-07 (commit 01124c1 "Update contacts"); checked 2026-10-28: no match left in Kelly-Windows-Data-v2, Kelly-Windows-v2, Kelly-Revit-Logic-v4 or Kelly-Revit-v4
 
@@ -54,7 +54,7 @@ Within each section: open items first, then done items. Every version section st
 
 ## Kelly Tools For Revit v5
 
-**Complete: 51% (35 of 68)**
+**Complete: 54% (37 of 68)**
 
 ### To Organize
 
@@ -122,14 +122,14 @@ Within each section: open items first, then done items. Every version section st
 
 ### Tools, ribbon and UI
 
-- [ ] Allow descriptions longer than 50 characters in the Layout Point Exporter
-- [ ] Create icons for ribbon buttons that have the value "Scrum" for the `ImageName` property — 2026-11-02: in progress, not committed: 20 push buttons used `"Scrum"` in commit 831461d8; the Kelly-Revit-v5 working tree gives all 20 their own icons and deletes `Scrum16.png`/`Scrum32.png`
 - [ ] Enable light and dark mode for the versions of Revit that have that feature — 2026-11-02: no v5 code handles Revit's theme (`ThemeChanged` is only subscribed with a null handler in v4's EventService)
    - [ ] Light-mode and dark-mode icons (use the proper green color)
 - [ ] Suspended Support Manager: split the rod grid view into a separate grid below the main grid view, showing the vertical support members of the selected suspended supports
 - [ ] Implement the scope control in every window that doesn't have it yet
 - [ ] Is there anything to improve in my controls? `C:\repo\jhkweb\Kelly-Revit-UI\src\Controls\`
+- [x] Allow descriptions longer than 50 characters in the Layout Point Exporter — done 2026-10-14 (Kelly-Domain commit 6343bcb): `Kelly.Domain` `LayoutPoint.Description` allows 4 to 65 characters (`StringLength(65)` and `IsValid`); `LayoutPointExportCandidateFactory` still flags a host whose joined descriptions reach 255 characters
 - [x] Update the tooltip of every IExternalCommand by gleaning what each tool does from the code behind the command — done 2026-11-02 in source (Kelly-Revit-v5 commits 978ffda5 and 831461d8): all 149 push buttons have a tooltip rewritten from the command's code (median 206 characters; v4 223). Not checked in Revit
+- [x] Create icons for ribbon buttons that have the value "Scrum" for the `ImageName` property — done 2026-11-02 in source (Kelly-Revit-v5 commits 41bb6ad5 and 5032838c): all 20 Scrum buttons have their own icons; `Scrum16.png`/`Scrum32.png` are removed and no push button names "Scrum". Built, not installed; not checked in Revit
 - [x] Move the "Extend and Reset Trapeze Rods" tools to another panel; the one they're on is for annotations — done 2026-10-30: a new Supports panel (Kelly-Revit-v5 commit 129c360f)
 
 ### Code quality and cleanup
