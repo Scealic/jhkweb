@@ -9,6 +9,8 @@ its own local git repo (branch `main`, no remote) that tracks only the working d
 `*.mmd` diagrams, `Monthly Reports`, `db-deprecation`, `.claude`, the root `Directory.Build*.targets`). Its `.gitignore` lists every sibling repo folder: add a
 new repo's folder there when one is cloned here. A plain `git` command run at the root acts on this outer repo, not on any sibling.
 
+Each repo keeps its own backlog in `Quick-Backlog.md` at its root (since 2026-11-02; its `AGENTS.md` points to it, `BuildConfigs/SHARED-AGENTS.md` has the rule). Items that cover a whole major version live in Kelly-Revit-v4 or Kelly-Revit-v5. `Backlog - Quick.md` at the root is the index of them, plus the items that belong to no repo. The `backlog-update` skill maintains them.
+
 Kelly Tools For Revit (KTR) is a layered .NET stack. Each layer is published as NuGet packages and **pinned by exact version** in the layer above it:
 
 ```
