@@ -4,7 +4,7 @@ Within each section: open items first, then done items. Every version section st
 
 ## Kelly Tools For Revit v4
 
-**Complete: 86% (18 of 21)**
+**Complete: 90% (19 of 21)**
 
 ### To Organize
 
@@ -43,7 +43,7 @@ Within each section: open items first, then done items. Every version section st
 ### Code quality and cleanup
 
 - [ ] Are there any TODO notes that can be handled? — 2026-10-30: 135 `// todo` comments (Kelly-Revit-v4 122, Kelly-Revit-Logic-v4 11, Kelly-Windows-v2 2, Kelly-Windows-Data-v2 0); unchanged 2026-11-02 (rechecked after the icon commits)
-- [ ] Ensure every type lives in its own file: only one type per file unless nested
+- [x] Ensure every type lives in its own file: only one type per file unless nested — done 2026-11-02 (ReSharper, all v4 solutions): a scan of every `.cs` file in the four v4 repos finds no file with two top-level types. `DocumentExtensions.cs` (Kelly-Revit-Logic-v4) holds three `partial` blocks of one class and `FileDialogTools.cs` (Kelly-Revit-v4) one class per `#if` branch, both one type. Kelly-Windows-Data-v2’s split (`DataManifestFile.cs`, `CsvSampleRecord.cs`, `CsvDecimalSampleRecord.cs`, `TestRecords.cs` deleted) is not committed yet
 - [x] Remove references to "Casey Puyleart" and "Jason Sherwood" — done 2026-07-07 (commit 01124c1 "Update contacts"); checked 2026-10-28: no match left in Kelly-Windows-Data-v2, Kelly-Windows-v2, Kelly-Revit-Logic-v4 or Kelly-Revit-v4
 
 ### Testing
@@ -137,7 +137,7 @@ Within each section: open items first, then done items. Every version section st
 - [ ] [IA Prompt - Architectural Analysis and Cleanup.md](IA Prompt - Architectural Analysis and Cleanup.md) — 2026-11-02: the linked file is still not in `C:\repo\jhkweb`
 - [ ] Have Claude refactor the Vicious tools
 - [ ] Are there any TODO notes that can be handled? — 2026-10-30: 114 `// todo` comments (Kelly-Revit-v5 55, Kelly-Revit-Logic-v5 54, Kelly-Windows-v3 2, Kelly-Domain 2, Kelly-Revit-UI 1, Kelly-Windows-Data-v3 0); unchanged 2026-11-02
-- [ ] Ensure every type lives in its own file: only one type per file unless nested
+- [ ] Ensure every type lives in its own file: only one type per file unless nested — 2026-11-02: after the ReSharper pass, two test files still hold more than one top-level type: `Kelly-Revit-UI/test/Revit.UI.Tests/Ribbon/Modules/TestRibbonModules.cs` (7: `ModuleCalls`, `FailingRibbonModule`, `RecordingRibbonModule`, `ThrowingConstructorRibbonModule`, `AbstractRibbonModule`, `ConstructorArgumentRibbonModule`, `InternalRibbonModule`) and `Kelly-Revit-Logic-v5/test/Revit.Logic.RevitTests/Abstractions/RecordingProgress.cs` (`RecordingProgress`, `RecordedProgress`). Every other v5 file has one type (`DocumentExtensions.cs` in Kelly-Revit-Logic-v5 is three `partial` blocks of one class). Kelly-Revit-Logic-v5’s new test files are not committed yet
 - [x] Remove references to "Casey Puyleart" and "Jason Sherwood" — done 2026-07-07 (commit 01124c17); checked 2026-10-28: no match left in any v5 repo
 
 ### Testing and documentation
