@@ -108,27 +108,33 @@ Found while testing (behavior pinned by the tests as it is; not changed):
 
 ### Kelly-Revit-Logic-v5
 
+55 of 127 done 2026-11-02 (83 new tests, all passing in Revit 2024 with the add-in disabled; Kelly-Revit-Logic-v5 `cbfca8e`..`9677f75`, one commit per fixture):
+
+- [x] **Updaters/Configurations** (39): every auto and manual configuration in two fixtures, `AutoUpdaterConfigurationsTests` and `ManualUpdaterConfigurationsTests`, one case per configuration (duty, default state, GUID, element service) and a coverage check that fails when a new configuration has no case; the bases `AutoUpdaterConfiguration`/`ManualUpdaterConfiguration`, `UpdaterDuty`, `UpdaterState`.
+- [x] **Common**: `AddInServices`, `AssemblyTypeExtensions`, `AssemblyWarningSwallower` and `SuppressDuplicateInstancesWarning` (a duct terminal copied onto itself raises the duplicate-instances warning), `ObjectExtensions` (internal, by reflection), `RevitCancelValue`.
+- [x] **Connectors**: `ConnectorTypeEnd`, `EndPositions`, `DimensionModel`, `ConnectorInfo`, `ConnectorInfoVictaulic`, `TapWrapper` in `ConnectorModelsTests`.
+- [x] **IsExternalInit**, **Spools**: `NumberableSpoolItemBuiltInCategorySet` (54 categories), **Supports**: `HangerLocation`, `HangerPlaceSettings`.
+
+A test folder named `Common` made `using Common;` in 11 existing fixtures resolve to the test namespace; they now say `using Logic.Common;` (`e0f78b9`).
+
+Still to do:
+
 - [ ] **Arrangement**: `AnnotationElement`, `CommitPreprocessor`, `CustomLeader`, `ViewSides`
 - [ ] **Caches**: `IDocumentCache`, `NumberedDocumentCache`, `SystemDocumentCache`
-- [ ] **Common**: `AddInServices`, `AssemblyTypeExtensions`, `AssemblyWarningSwallower`, `ButtonDataWrapper`, `ContextLists`, `ObjectExtensions`, `RevitCancelValue`, `SuppressDuplicateInstancesWarning`, `TaskDialogSimple`
-- [ ] **Connectors**: `ConnectorExtensions`, `ConnectorInfo`, `ConnectorInfoVictaulic`, `ConnectorTypeEnd`, `DimensionModel`, `EndPositions`, `FabricationConnectorTools`, `TapWrapper`
+- [ ] **Common**: `ButtonDataWrapper`, `ContextLists`, `TaskDialogSimple`
+- [ ] **Connectors**: `ConnectorExtensions`, `FabricationConnectorTools`
 - [ ] **Documents**: `DocumentSavedEventHandler`, `DocumentSchemaExtensions`, `EventHandlerTools`, `UiDocumentExtensions`
 - [ ] **Elements**: `ElementFilterExtensions`, `ElementInstanceModel`, `ReInsertModel`
 - [ ] **Entities**: `BuiltInCategoryElementEntity`
 - [ ] **Fabrication**: `BillOfMaterialTypeAssigner`, `FabricationPartExtensions`, `FabricationPartWrapper`, `ProductCodeCheckResult`, `ProductRange10Joints01Weld`
 - [ ] **Families**: `FamilyExtensions`, `TypeBoundSharedParameter`, `TypeBoundSharedParameterScanner`
-- [ ] **IsExternalInit**: `IsExternalInit`
 - [ ] **Materials**: `MaterialExtensions`
 - [ ] **Mep**: `CableTrayExtensions`, `ConduitExtensions`, `DuctExtensions`, `OletTapConnectorStatus`, `PipeExtensions`, `ValveClearanceSphereTools`, `ValveData`
 - [ ] **Projects**: `ProjectLocationExtensions`
 - [ ] **Properties**: `Resources`
 - [ ] **Signatures**: `GeometrySignatureExtensions`, `ServiceSignatureExtensions`, `SystemSignatureExtensions`
-- [ ] **Spools**: `NumberableSpoolItemBuiltInCategorySet`
-- [ ] **Supports**: `HangerLocation`, `HangerPlaceSettings`, `HangerPlacementService`, `HangeredStraightModel`, `TrapezeVerticalMemberTools`, `VerticalSupportMember`
+- [ ] **Supports**: `HangerPlacementService`, `HangeredStraightModel`, `TrapezeVerticalMemberTools`, `VerticalSupportMember`
 - [ ] **Updaters**: `CustomDataUpdateEvaluator`, `CustomDataUpdater`, `ElementDataModel`
-- [ ] **Updaters/Configurations**: `AutoUpdaterConfiguration`, `ManualUpdaterConfiguration`, `UpdaterDuty`, `UpdaterState`
-- [ ] **Updaters/Configurations/Auto**: `ComponentAutoUpdaterConfiguration`, `ContentIdentityAutoUpdaterConfiguration`, `DetailingPackageUpdaterAutoAdditionConfiguration`, `DetailingPhaseAutoUpdaterConfiguration`, `EndPreparationAutoUpdaterConfiguration`, `FabricationPartInstancesAutoUpdaterConfiguration`, `FieldTrimDefaultAutoUpdaterConfiguration`, `LayoutDisciplineUpdaterAutoAdditionConfiguration`, `LineNumberUpdaterAutoAdditionConfiguration`, `MaterialAutoUpdaterConfiguration`, `ProductAutoUpdaterConfiguration`, `ScheduleGaugeAutoUpdaterConfiguration`, `ServiceAutoUpdaterConfiguration`, `ServiceOfFabricationPartAutoUpdaterConfiguration`, `ServiceOfNonFabricationPartUpdaterAutoAdditionConfiguration`, `SizeAutoUpdaterConfiguration`, `SuspendedSupportAutoUpdaterConfiguration`, `SystemUpdaterAutoAdditionConfiguration`, `WeldAutoUpdaterConfiguration`
-- [ ] **Updaters/Configurations/Manual**: `BillOfMaterialTypeDefaultManualUpdaterConfiguration`, `CheckboxDefaultManualUpdaterConfiguration`, `ComponentManualUpdaterConfiguration`, `ContentIdentityManualUpdaterConfiguration`, `DetailingPhaseManualUpdaterConfiguration`, `EndPreparationManualUpdaterConfiguration`, `FabricationPartInstancesManualUpdaterConfiguration`, `FieldTrimDefaultManualUpdaterConfiguration`, `LayoutDisciplineManualUpdaterConfiguration`, `MaterialManualUpdaterConfiguration`, `ProductManualUpdaterConfiguration`, `ScheduleGaugeManualUpdaterConfiguration`, `ServiceOfFabricationPartManualUpdaterConfiguration`, `SizeManualUpdaterConfiguration`, `SuspendedSupportManualUpdaterConfiguration`, `WeldManualUpdaterConfiguration`
 - [ ] **Updaters/ElementDataModels**: `BillOfMaterialTypeDefaultElementDataModel`, `ComponentElementDataModel`, `LayoutDisciplineElementDataModel`, `MaterialElementDataModel`, `PlaceholderElementDataModel`, `ProductElementDataModel`, `ScheduleGaugeElementDataModel`
 - [ ] **Updaters/ElementServices**: `ComponentUpdaterElementService`, `ContentIdentityUpdaterElementService`, `EndPreparationUpdaterElementService`, `FabricationPartInstancesUpdaterElementService`, `MaterialUpdaterElementService`, `ProductUpdaterElementService`, `ScheduleGaugeUpdaterElementService`, `ServiceElementWriter`, `ServiceOfFabricationPartElementService`, `ServiceOfNonFabricationPartElementService`, `SizeUpdaterElementService`, `SuspendedSupportElementService`, `SystemUpdaterElementService`, `WeldUpdaterElementService`
 - [ ] **Views**: `ParameterFilterElementExtensions`, `StratusViewTools`, `ViewPortExtensions`
