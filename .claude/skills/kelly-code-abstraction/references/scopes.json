@@ -54,7 +54,7 @@
     "key": "alltrade-tools-b",
     "repo": "Kelly-Revit-v5",
     "paths": [
-      "Kelly-Revit-v5/modules/Trade.All/Commands/ServerRecache",
+      "Kelly-Revit-v5/modules/Trade.All/Commands/DataReload",
       "Kelly-Revit-v5/modules/Trade.All/Commands/Spools",
       "Kelly-Revit-v5/modules/Trade.All/Commands/Supports",
       "Kelly-Revit-v5/modules/Trade.All/Commands/Updaters",
@@ -134,6 +134,7 @@
     "repo": "Kelly-Domain",
     "paths": [
       "Kelly-Domain/src/*",
+      "Kelly-Domain/src/Data",
       "Kelly-Domain/src/Caches",
       "Kelly-Domain/src/Categories",
       "Kelly-Domain/src/Common",

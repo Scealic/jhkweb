@@ -18,13 +18,13 @@ case $layer in
   domain)    proj=$R/Kelly-Domain/src/Domain.csproj;          tests=$R/Kelly-Domain/tests/Domain.Tests.csproj;       rtests="";                                                       sol=Kelly.Domain;       cfgs=$lower;;
   logic)     proj=$R/Kelly-Revit-Logic-v5/src/Revit.csproj;      tests="";                                              rtests=$R/Kelly-Revit-Logic-v5/test/Revit.Logic.RevitTests/Revit.Logic.RevitTests.csproj; sol=Kelly.Revit.Logic; cfgs=$revit;;
   ui)        proj=$R/Kelly-Revit-UI/src/Revit.UI.csproj;      tests=$R/Kelly-Revit-UI/test/Revit.UI.Tests/Revit.UI.Tests.csproj; rtests=$R/Kelly-Revit-UI/test/Revit.UI.RevitTests/Revit.UI.RevitTests.csproj; sol=Kelly.Revit.UI; cfgs=$revit;;
-  revit)     proj=$R/Kelly-Revit-v5/src/Revit.csproj;            tests="";                                              rtests=$R/Kelly-Revit-v5/test/Tests.Revit/Tests.Revit.csproj; sol=Kelly.Revit; cfgs=$revit;;
-  alltrade)  proj=$R/Kelly-Revit-v5/modules/AllTrade/AllTrade.csproj;   tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
-  pipetrade) proj=$R/Kelly-Revit-v5/modules/PipeTrade/PipeTrade.csproj; tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
-  ducttrade) proj=$R/Kelly-Revit-v5/modules/DuctTrade/DuctTrade.csproj; tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
-  contenter) proj=$R/Kelly-Revit-v5/modules/Contenter/Contenter.csproj; tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
-  manager)   proj=$R/Kelly-Revit-v5/modules/Manager/Manager.csproj;     tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
-  developer) proj=$R/Kelly-Revit-v5/modules/Developer/Developer.csproj; tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
+  revit)     proj=$R/Kelly-Revit-v5/src/Core.csproj;              tests="";                                              rtests=$R/Kelly-Revit-v5/test/Tests.Revit/Core.Tests.csproj; sol=Kelly.Revit; cfgs=$revit;;
+  alltrade)  proj=$R/Kelly-Revit-v5/modules/Trade.All/Trade.All.csproj;             tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
+  pipetrade) proj=$R/Kelly-Revit-v5/modules/Trade.Pipe/Trade.Pipe.csproj;           tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
+  ducttrade) proj=$R/Kelly-Revit-v5/modules/Trade.Duct/Trade.Duct.csproj;           tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
+  contenter) proj=$R/Kelly-Revit-v5/modules/Trade.Contenter/Trade.Contenter.csproj; tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
+  manager)   proj=$R/Kelly-Revit-v5/modules/Trade.Manager/Trade.Manager.csproj;     tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
+  developer) proj=$R/Kelly-Revit-v5/modules/Trade.Developer/Trade.Developer.csproj; tests=""; rtests=""; sol=Kelly.Revit; cfgs=$revit;;
   *) sed -n 2,9p "$0"; exit 2;;
 esac
 [ $# -gt 0 ] && cfgs="$*"
@@ -58,7 +58,10 @@ case $mode in
       summarize "$log" "$layer $c revittests compile" || rc=1; done;;
   pack)
     [ "$sol" = "Kelly.Revit" ] && { echo "Kelly-Revit is not a package; use verify"; exit 2; }
-    ver="$(date +%y).$((10#$(date +%m))).$((10#$(date +%d))).$((10#$(date +%H%M)))"
+    # BuildConfigs Version.Build.props: MajorVersion.yy.MMdd.HHmm, each number without leading zeros (3.26.1103.1425).
+    major=$(grep -oE "<MajorVersion>[0-9]+</MajorVersion>" "$proj" | grep -oE "[0-9]+" | head -1)
+    [ -n "$major" ] || { echo "$proj sets no MajorVersion"; exit 2; }
+    ver="$major.$(date +%y).$((10#$(date +%m%d))).$((10#$(date +%H%M)))"
     last=$(grep "^$layer " "$LOGS/versions.log" 2>/dev/null | tail -1 | awk '{print $2}')
     if [ "$ver" = "$last" ]; then echo "version $ver was already used for $layer this minute; pack again after the minute changes"; exit 3; fi
     for c in $cfgs; do log=$LOGS/$layer-pack-$c.log
