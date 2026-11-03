@@ -139,14 +139,14 @@ These needed fabrication parts, a fabrication configuration or Kelly support fam
 
 Kelly test projects (user decision 2026-11-03): kept in `C:\repo\jhkweb\RevitTestModels\` (the jhkweb root repo, outside every sibling repository), one per Revit version, `<year> KTR Test Project - Piping And Families.rvt`; Chris builds them. 2024 is there (137 MB, workshared): 269 fabrication parts (pipework, clevis hangers on support rods), 5 spool assemblies, weld families, 4 trapezes (T1, T4, T5) with 2–3 layout points and no structure above them, 139 materials, and the project's own JHK shared parameters (real GUIDs, so the tests bind `KellyDefinitions` stubs beside them). Fabrication configuration: "JHK Master Database 2025", the piping database (GUID `69a21195-f633-4908-531d-aecccdd482b1`). 2025 and 2026 to follow. `Abstractions/RevitKellyModelTest` opens a shared or isolated copy and picks the content (`ClevisHanger`, `Straight`, `Trapeze`, `FabricationAssembly`); a test is inconclusive when its year's project or content is missing.
 
-- [x] **Fabrication**: `FabricationPartExtensions`, `ProductRange10Joints01Weld` — done 2026-11-03: 43 tests (every public member; the private bearer-size readers through `GetBearerSize` per bearer type) and 5 tests; all pass in Revit 2024 but `LogDimensionValues` (below)
+- [x] **Fabrication**: `FabricationPartExtensions`, `ProductRange10Joints01Weld` — done 2026-11-03: 43 tests (every public member; the private bearer-size readers through `GetBearerSize` per bearer type) and 5 tests; all pass in Revit 2024 (`LogDimensionValues` only with the add-in loaded, below)
 - [ ] **Materials**: `MaterialExtensions` (needs the open-file seam: `Export` opens the CSV it writes)
 - [x] **Supports**: `HangerPlacementService`, `HangeredStraightModel`, `TrapezeVerticalMemberTools` — done 2026-11-03: 5, 8 and 8 tests, all pass in Revit 2024
 - [x] **Updaters**: `CustomDataUpdateEvaluator`, `CustomDataUpdater` — done 2026-11-03: 9 and 5 tests, all pass in Revit 2024
 
 Findings from the Kelly test project:
 
-- `FabricationPartExtensions.LogDimensionValues` throws `MissingMethodException` (`LoggerServices.GetFileLogger(string, RollingInterval)`) in a test run: with the Kelly add-in disabled, Revit 2024 has already loaded another add-in's older `Serilog.dll` (Autodesk BIM 360 Issues ships one), and Kelly.Windows was built against Serilog 4.2.0. Not yet checked with the add-in loaded; the test is left failing as the evidence.
+- `FabricationPartExtensions.LogDimensionValues` throws `MissingMethodException` (`LoggerServices.GetFileLogger(string, RollingInterval)`) in a test run with the Kelly add-in disabled: Revit 2024's P&ID Modeler add-in ships `AddInsPnIDModelerSerilog.Sinks.File.dll`, older than `RollingInterval`, with the same assembly version (2.0.0.0) as Kelly's 7.0.0, and the first one loaded wins. With the add-in loaded it passes (checked 2026-11-03); with it disabled the test is inconclusive and names the copy Revit resolved.
 - `GetHostSize` and `GetVerticalSupportSize` write the inch mark as two single quotes (`2''`) and as `"` (`3/8"`) respectively.
 
 ### Kelly-Revit-UI
