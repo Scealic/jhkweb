@@ -135,14 +135,19 @@ Found while testing (behavior pinned by the tests as it is; not changed):
 - `VerticalSupportMember.Signature` throws `NullReferenceException` while `Size` is unset, instead of returning "Signature Issue".
 - `TypeBoundSharedParameterScanner`, `SystemDocumentCache`: see above. `ComponentCategoryType` has a member 99 (`PlaceHolder`), so 99 is no "invalid value" for it.
 
-Still to do. These need fabrication parts, a fabrication configuration or Kelly support families, which the Revit samples do not have; they need a Kelly test model (or a seam) before they can be tested.
+These needed fabrication parts, a fabrication configuration or Kelly support families, which the Revit samples do not have, so they are tested on the Kelly test project.
 
-Kelly test model (user decision 2026-11-03): one model kept in `C:\repo\jhkweb\RevitTestModels\`, tracked by the jhkweb root repo and outside every sibling repository, so v4 and v5 tests can both open it; Chris builds it. Saved in Revit 2024, small (a few parts on one level), with: fabrication duct and pipe parts from a fabrication configuration (which one and its path to be recorded here), a fabrication assembly with welded joints, Kelly hanger and trapeze supports with vertical members, custom data values and a few materials; no Kelly shared parameters (the tests bind their own stubs). Once it exists, a `RevitKellyModelTest` base class opens it with `OpenIsolatedCopy`, and its tests are ignored, not failed, where the file is missing.
+Kelly test projects (user decision 2026-11-03): kept in `C:\repo\jhkweb\RevitTestModels\` (the jhkweb root repo, outside every sibling repository), one per Revit version, `<year> KTR Test Project - Piping And Families.rvt`; Chris builds them. 2024 is there (137 MB, workshared): 269 fabrication parts (pipework, clevis hangers on support rods), 5 spool assemblies, weld families, 4 trapezes (T1, T4, T5) with 2–3 layout points and no structure above them, 139 materials, and the project's own JHK shared parameters (real GUIDs, so the tests bind `KellyDefinitions` stubs beside them). Fabrication configuration: "JHK Master Database 2025", the piping database (GUID `69a21195-f633-4908-531d-aecccdd482b1`). 2025 and 2026 to follow. `Abstractions/RevitKellyModelTest` opens a shared or isolated copy and picks the content (`ClevisHanger`, `Straight`, `Trapeze`, `FabricationAssembly`); a test is inconclusive when its year's project or content is missing.
 
-- [ ] **Fabrication**: `FabricationPartExtensions`, `ProductRange10Joints01Weld` (built from a `SpoolItem` of a fabrication assembly)
-- [ ] **Materials**: `MaterialExtensions` (also needs the open-file seam, above)
-- [ ] **Supports**: `HangerPlacementService`, `HangeredStraightModel`, `TrapezeVerticalMemberTools`
-- [ ] **Updaters**: `CustomDataUpdateEvaluator`, `CustomDataUpdater`
+- [x] **Fabrication**: `FabricationPartExtensions`, `ProductRange10Joints01Weld` — done 2026-11-03: 43 tests (every public member; the private bearer-size readers through `GetBearerSize` per bearer type) and 5 tests; all pass in Revit 2024 but `LogDimensionValues` (below)
+- [ ] **Materials**: `MaterialExtensions` (needs the open-file seam: `Export` opens the CSV it writes)
+- [x] **Supports**: `HangerPlacementService`, `HangeredStraightModel`, `TrapezeVerticalMemberTools` — done 2026-11-03: 5, 8 and 8 tests, all pass in Revit 2024
+- [x] **Updaters**: `CustomDataUpdateEvaluator`, `CustomDataUpdater` — done 2026-11-03: 9 and 5 tests, all pass in Revit 2024
+
+Findings from the Kelly test project:
+
+- `FabricationPartExtensions.LogDimensionValues` throws `MissingMethodException` (`LoggerServices.GetFileLogger(string, RollingInterval)`) in a test run: with the Kelly add-in disabled, Revit 2024 has already loaded another add-in's older `Serilog.dll` (Autodesk BIM 360 Issues ships one), and Kelly.Windows was built against Serilog 4.2.0. Not yet checked with the add-in loaded; the test is left failing as the evidence.
+- `GetHostSize` and `GetVerticalSupportSize` write the inch mark as two single quotes (`2''`) and as `"` (`3/8"`) respectively.
 
 ### Kelly-Revit-UI
 

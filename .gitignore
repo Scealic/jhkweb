@@ -26,3 +26,8 @@
 # Editor backups and Office lock files
 *.bak
 ~$*
+
+# Revit's own backups and temp folders beside the test models
+RevitTestModels/*_backup/
+RevitTestModels/Revit_temp/
+RevitTestModels/*.[0-9][0-9][0-9][0-9].rvt
