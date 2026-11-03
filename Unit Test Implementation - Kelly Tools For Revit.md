@@ -135,7 +135,9 @@ Found while testing (behavior pinned by the tests as it is; not changed):
 - `VerticalSupportMember.Signature` throws `NullReferenceException` while `Size` is unset, instead of returning "Signature Issue".
 - `TypeBoundSharedParameterScanner`, `SystemDocumentCache`: see above. `ComponentCategoryType` has a member 99 (`PlaceHolder`), so 99 is no "invalid value" for it.
 
-Still to do. These need fabrication parts, a fabrication configuration or Kelly support families, which the Revit samples do not have; they need a Kelly test model (or a seam) before they can be tested:
+Still to do. These need fabrication parts, a fabrication configuration or Kelly support families, which the Revit samples do not have; they need a Kelly test model (or a seam) before they can be tested.
+
+Kelly test model (user decision 2026-11-03): one model kept in a shared folder outside every repository, `C:\Repo\RevitTestModels\`, so v4 and v5 tests can both open it; Chris builds it. Saved in Revit 2024, small (a few parts on one level), with: fabrication duct and pipe parts from a fabrication configuration (which one and its path to be recorded here), a fabrication assembly with welded joints, Kelly hanger and trapeze supports with vertical members, custom data values and a few materials; no Kelly shared parameters (the tests bind their own stubs). Once it exists, a `RevitKellyModelTest` base class opens it with `OpenIsolatedCopy`, and its tests are ignored, not failed, where the file is missing.
 
 - [ ] **Fabrication**: `FabricationPartExtensions`, `ProductRange10Joints01Weld` (built from a `SpoolItem` of a fabrication assembly)
 - [ ] **Materials**: `MaterialExtensions` (also needs the open-file seam, above)
