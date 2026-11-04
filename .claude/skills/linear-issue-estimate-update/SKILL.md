@@ -84,3 +84,5 @@ For each approved issue call `save_issue` with `id` (the key) and `estimate` (th
 ## 6. Report
 
 Per team: estimates set, changed, refused (with the error), and the points total. Add an "Applied <date>" line to the report file with those numbers and commit it again. The backlog files don't change: estimates live only in Linear.
+
+Then, when any issue got the top of its team's scale (16 on the exponential scale), offer in `wrap_up` to run `linear-issue-split-review` on those issues, naming their keys. That skill splits them into pieces of 1 to 4 points and estimates the pieces itself.
