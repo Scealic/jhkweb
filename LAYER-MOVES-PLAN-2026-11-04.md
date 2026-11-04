@@ -454,3 +454,21 @@ Bottom-up. Each package is one commit. Each layer is packed and the layer above 
 | revit | P6a-revit-assigners (moves inside Trade.All) and every blind consumer edit, compiled in all 21 configurations |
 
 The in-Revit test projects (Logic, UI, Kelly-Revit) are compiled every step. They run in Revit 2024 through `revit-test.sh` when Revit 2024 is closed and a licence is available; otherwise the report says "compiled, not run".
+
+## User decisions (2026-11-04)
+
+1. **Round size: split.** Round 2a, this run, does #1 to #90 except #34, plus the rule-1 fixes #94, #95, #96 and #156. Round 2b does the other Logic, UI and Revit moves (#91 to #254) later.
+2. **#34 DataFileService: deferred** to the Kelly-Revit-Logic-v5 backlog.
+3. **Rule-1 fixes #94 to #96 and #156: accepted.**
+4. **#9 AddInServices to Kelly.Windows.Hosting: accepted.**
+
+Round 2a work packages:
+- P1a-data-verified-read
+- P2a-windows-wpf
+- P2b-windows-helpers
+- P3a-domain-layoutpoints
+- P3b-domain-spools-supports-products
+- P3c-domain-rest
+- P4a-logic-rule1-fixes
+
+Kelly-Revit-UI and Kelly-Revit are repin-only steps.
