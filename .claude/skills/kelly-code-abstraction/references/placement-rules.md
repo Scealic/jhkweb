@@ -43,6 +43,7 @@ These are hard rules. A move that breaks one is rejected, whatever it gains.
    - **Should:** it is not presentation ("Views, view models and models", below).
    
    The view, view model or model stays as a thin MVVM shell that binds, holds UI state and calls the moved code.
+7. **Every C# type gets its own file, named after the type** (the user, 2026-11-04). This covers classes, records, structs, interfaces, enums and delegates, in `src` and in tests. A type extracted or moved goes into a new file in the target folder, never beside another type. Reviewers and audits check it on every file a run adds or changes.
 
 `scripts/check-rules.pl` checks rules 1, 2, 3 and 5 mechanically; rule 2 there means the files, not the code inside them. Run it before and after.
 
