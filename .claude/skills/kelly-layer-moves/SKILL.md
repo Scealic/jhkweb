@@ -1,6 +1,6 @@
 ---
 name: kelly-layer-moves
-description: Find Kelly Tools For Revit code under C:\repo\jhkweb that belongs in a different layer (usually lower: Kelly-Revit modules → Kelly-Revit-UI / Kelly-Revit-Logic → Kelly-Domain → Kelly-Windows → Kelly-Windows-Data), or that sits too low or is duplicated across layers; then, after the user confirms the plan, move it bottom-up, packing each layer and repinning the one above. Use whenever the user asks what code can be abstracted or pushed down, whether anything is in the wrong layer or repo, to find duplication across layers, or to rerun the layer-moves analysis, even without naming a layer or repo.
+description: Find Kelly Tools For Revit code under C:\repo\jhkweb that belongs in a different layer (usually lower: Kelly-Revit modules → Kelly-Revit-UI / Kelly-Revit-Logic → Kelly-Domain → Kelly-Windows → Kelly-Windows-Data), or that sits too low or is duplicated across layers; then, after the user confirms the plan, file every recommendation as a Linear issue in a new project for the run, move the code bottom-up, packing each layer and repinning the one above, and close the issues with the commits as evidence. Use whenever the user asks what code can be abstracted or pushed down, whether anything is in the wrong layer or repo, to find duplication across layers, or to rerun the layer-moves analysis, even without naming a layer or repo.
 ---
 
 # Kelly code abstraction
@@ -38,11 +38,11 @@ Kelly-Windows-Data → Kelly-Windows → Kelly-Domain → Kelly-Revit-Logic → 
 | `references/scopes.json` | The analysis scopes: one finder per scope, together covering every source file once. |
 | `references/chain-release.md` | How moves are implemented and carried up the chain: per-layer steps, Kelly-Revit last, Changelog, commits, push, pitfalls. |
 | `references/layers.md` | Per-repo projects, configurations, test projects, where each README states its pins, Changelog heading forms. |
-| `references/report-template.md` | The plan document and the result report. |
+| `references/report-template.md` | The plan document and the after action report. |
 | `scripts/check-rules.pl` | Read-only rule check: Revit API in the Revit-free layers, dependency direction, protected files outside Kelly-Revit, namespace ≠ folder. |
 | `scripts/scope-coverage.pl` | Checks `scopes.json` covers every `.cs`/`.xaml` file exactly once, and counts each scope's files. |
 | `scripts/layer-analysis.workflow.js` | Read-only analysis: find → adversarial review → compile probe. |
-| `scripts/layer-moves.workflow.js` | Implementation, bottom-up: per layer, the stages in step 4 below, then an audit. |
+| `scripts/layer-moves.workflow.js` | Implementation, bottom-up: per layer, the stages in step 5 below, then an audit. |
 | `scripts/kbuild.sh` | Build, test, compile the in-Revit tests of, or pack a layer. Kelly-Revit builds never install. |
 | `scripts/pins.sh` | Show every repo's pin, or set one repo's `Kelly*Version` property. |
 | `scripts/revit-test.sh` | Run an in-Revit test project in Revit 2024 against this source. It disables and restores the add-in manifests. |
@@ -64,6 +64,7 @@ These come from `BuildConfigs/SHARED-AGENTS.md`, the repos' `AGENTS.md` and corr
 - Kelly-Revit builds must not install the add-in, so build through `kbuild.sh`.
 - Every layer with an in-Revit test project compiles it. The implementation also runs it in Revit 2024, only through `revit-test.sh`: that script disables the add-in for the run and restores it afterwards. If Revit 2024 is open or no licence is available, compile only and report the tests as "compiled, not run". Never rename the manifests by hand.
 - Keep each repo's `Quick-Backlog.md` current: add new items under "To Organize", and tick an item only with the commit as evidence.
+- Every recommendation the run keeps goes into Linear (workspace "jhkelly") as an issue in one new project for the run (step 4). Nothing is created in Linear before the user confirms the plan; that confirmation covers the project and its issues.
 
 ## 0. Baseline
 
@@ -127,6 +128,8 @@ Then show the user the summary and the decisions only they can make. Use `AskUse
 - anything that changes a persisted type name;
 - anything touching an approved exception.
 
+Say in the confirmation question that confirming also creates the Linear project `Layer Moves <date>` and its issues (step 4), with the number of issues per team.
+
 **Stop here until the user confirms.** Their answers go into `DECISIONS.md`: what was dropped, what was deferred, and why.
 
 ## 3. Work packages
@@ -142,7 +145,39 @@ If you worked the moves out in more detail first (code designs, review correctio
 
 The implementation steps run from the lowest layer that changes up through `revit`. Layers in between with no moves are repin-only steps (`packages: []`): they still get repinned, rebuilt, repacked and committed.
 
-## 4. Implement, bottom-up
+## 4. File the recommendations in Linear
+
+Every recommendation the user kept at the plan becomes a Linear issue, all in one new project for the run. The user's confirmation in step 2 is the approval; create them without asking again. Ask first only for what the confirmation did not cover: a project of the same name already exists, or a matching issue already sits in another project.
+
+**Teams.** Each issue goes to the team of the repo it changes ("Linear-ready items" in `C:\repo\jhkweb\.claude\skills\kelly-backlog-update\SKILL.md` has the table: Kelly-Windows-Data-v3 → KWD3, Kelly-Windows-v3 → KW3, Kelly-Domain → KD, Kelly-Revit-Logic-v5 → KTRL5, Kelly-Revit-UI → KTRUI, Kelly-Revit-v5 → KTR5; the v4 repos to their own teams). Check them with `list_teams` first; the user may have renamed or added some. A repo with no team (BuildConfigs) gets no issue: name it in the project description instead.
+
+**The project.** `list_projects` (`includeArchived: true`, follow `cursor`) for a project with the same name. Then one `save_project`:
+- `name`: `Layer Moves <yyyy-mm-dd>` (a second run on the same day: `Layer Moves <yyyy-mm-dd> Round 2`);
+- `setTeams`: every team that gets an issue; `leadTeam`: the team of the lowest layer that changes;
+- `summary`: one sentence, for example "Move the code the <date> layer review found in the wrong layer down to the lowest layer that fits.";
+- `description`: the counts (moves planned, packages, deferred), the implementation order, the plan's path `C:\repo\jhkweb\LAYER-MOVES-PLAN-<date>.md`, then a footer `---` and ``From the kelly-layer-moves run of <date>.``;
+- `state: "Planned"`, `lead: "me"`; no dates or priority unless asked.
+
+**The issues.** First search each team with `list_issues` (`query` = the type or member being moved) for an issue that already covers a move. Put a matching one in the project instead of creating a new one, and add a comment naming the package. If it already sits in another project, ask before moving it. Then `save_issue` per issue (independent calls, so send them in parallel), with `project` = the new project:
+
+| Recommendation | Issues | Title | Labels ("1 - Type") | Priority |
+|---|---|---|---|---|
+| Work package (MOVE) | one per package, in the team of the repo it commits to | `<Topic>: move <what> into <Layer>`, for example `Text helpers: move StringExtensions into Kelly-Windows` | Change | none |
+| Work package (FIX, decided at the plan) | one per package | `<Type>: <the behaviour fixed>` | Fix | from the plan |
+| Source package (switch the original, delete the copy) | a sub-issue (`parentId`) of the target package's issue, in the source repo's team | `<Topic>: switch <source layer> to the moved <what> and delete the copy` | Delete | none |
+| Repin-only step | one per layer | `Repin <Layer> on <layer below> for layer moves <date>` | Change | none |
+| Move deferred by the user | one per move | `<Type>: move into <Layer> (deferred)` | Change | Low |
+
+- **Description**, in Markdown: the goal in one sentence; the moves, one bullet each with its number from the plan, source file → target file, type or member, and risk; the review notes and the compile-probe result; the package spec's name (`P2a-windows-text`); for deferred moves, why the user deferred it. Footer: `---` then ``From `LAYER-MOVES-PLAN-<date>.md`, package <P…> (filed <date>).``. Wrap dotted names (`Kelly.Windows`) in backticks, or Linear turns them into web links.
+- **More labels:** the "4 - Function" label that fits (check the team's labels with `list_issue_labels`); in KTR5, the "5 - Feature" and "5 - Module" labels of the tool a package touches (rules in `C:\repo\jhkweb\.claude\skills\kelly-linear-projects\SKILL.md`).
+- **Order:** `blockedBy` the issue of the layer below that the package needs packed and repinned first (each package of a layer is blocked by the last package or repin step of the layer below). Source packages are blocked by their target package.
+- `state: "Todo"` for the packages of this run, `"Backlog"` for deferred moves; `assignee: "me"`; no estimate (`linear-issue-estimate-update` sets them).
+
+**Record the keys.** Add a `Linear: <KEY>` line to the top of each work package spec, and a column with the key to the move tables in the plan. Write the project link and the key per package into `DECISIONS.md`. A deferred move also goes in its repo's `Quick-Backlog.md` under "To Organize", Linear-ready, ending ` — Linear: <KEY> (<date>)`. Package issues don't: they are done in this run.
+
+If Linear can't be reached, say so, carry on with step 5, and file the issues before the report.
+
+## 5. Implement, bottom-up
 
 - **Large plans.** Run the implementation workflow:
 
@@ -167,7 +202,7 @@ The implementation steps run from the lowest layer that changes up through `revi
 
 Either way, Kelly-Revit comes last. It is where the Kelly-Revit source packages run and where every consumer edit first compiles: all 21 configurations (host and six modules × 2024, 2025, 2026), plus the in-Revit test project.
 
-## 5. Audit
+## 6. Audit
 
 Don't rely on the workflow's audit alone; check these yourself:
 - `perl $S/check-rules.pl` shows no new hit compared with the baseline;
@@ -178,21 +213,33 @@ Don't rely on the workflow's audit alone; check these yourself:
 - `pins.sh show`: each repo pins the package this run packed for the layer below it;
 - `ls /c/ProgramData/Autodesk/Revit/Addins/2024 | grep -i kelly`: the manifests are as they were at the start (an interrupted `revit-test.sh` run could leave one as `.addin.x`).
 
-## 6. Report
+**Update Linear from the audit**, not from intent (the same evidence rule as the backlog):
+- **Done:** every move of the package is done in the code and its commit exists. Set the issue `state: "Done"` and add a comment (`save_comment`) with the repo, commit sha(s), the package version packed, and the tests (passed, or "compiled, not run" for in-Revit tests that did not run).
+- **Partial:** leave it open (`In Progress`) and comment what is done, what is left and why.
+- **Skipped or dropped during the run:** `Canceled`, with a comment giving the reason.
+- **Bugs found and deliberately not fixed:** each becomes a new issue in the project, in the team of the repo it is in: title `<Type>: <what goes wrong>`, label Fix, priority from its severity (High, Medium, Low), the description from the bug record (file and line, what happens, how it was found, the test that characterizes it). Add it to that repo's `Quick-Backlog.md` under "To Organize" with ` — Linear: <KEY> (<date>)`.
+- **The project:** `Completed` when every issue is Done or Canceled; otherwise `In Progress` (deferred moves and bugs keep it open).
 
-Write `C:\repo\jhkweb\LAYER-MOVES-<date>.md` from `references/report-template.md`. It covers:
-- the result table;
+## 7. After action report
+
+Write `C:\repo\jhkweb\LAYER-MOVES-<date>.md`, the run's after action report in Markdown, from "The after action report" in `references/report-template.md`. It covers:
+- what was planned and what happened, with the result table and each package's Linear key and status;
 - what moved, by layer;
-- what was not done;
+- what was not done, and why;
 - behaviour the user may notice;
-- bugs found and deliberately not fixed;
+- bugs found and deliberately not fixed, with their Linear keys;
+- what went well, what went wrong, and what to change in the next run (and in this skill);
 - what to check.
+
+Put the same report into Linear: `save_document` with `project` = the run's project and `title` = `After Action Report - Layer Moves <date>`, and a project status update (`save_status_update`, `type: "project"`) with the counts, the health (`onTrack` when nothing is partial, `atRisk` otherwise) and one line pointing to the document.
+
+If the "what to change" list names something about this skill (a stale script, a missing rule, a pitfall), fix the skill in the same run, or say why not.
 
 Update the root working documents that name moved types (`UBIQUITOUS-LANGUAGE.md`, `SOLID Check.md`). Commit them, the plan and the report to the local root repo, with explicit paths. Never push the root repo.
 
 Reply with:
 - the result table;
-- the counts (planned, done, partial, skipped);
+- the counts (planned, done, partial, skipped) and the Linear project link with its issues' states;
 - the rules result;
 - what was compiled but not run;
 - one concrete next step. Usually that is any in-Revit tests that were not run, then pushing `develop` bottom-up when the user says so.

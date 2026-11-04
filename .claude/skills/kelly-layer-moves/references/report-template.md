@@ -55,21 +55,32 @@ exceptions, anything that changes persisted type names. Give a recommendation fo
 <The steps and work packages bottom-up, the layers that are repin-only, and what is compiled but not run (in-Revit tests).>
 ```
 
-## The result
+## The after action report
 
 ```markdown
-# Layer moves - <date>
+# Layer moves - <date>: after action report
 
 <Intro: the moves went bottom-up; every move was proposed by an analysis agent, attacked by an adversarial reviewer, compile-probed
-(whole-file moves), implemented test-first, reviewed again, built in every configuration and committed. Nothing was pushed.>
+(whole-file moves), implemented test-first, reviewed again, built in every configuration and committed. Nothing was pushed.
+Linear project: [Layer Moves <date>](<project url>), <state>.>
 
-## Result
+## What was planned
+
+<One paragraph: the scopes analysed, the moves the analysis found, how many the review and probe kept, what the user dropped or
+deferred at the plan, and the packages that came out of it.>
+
+## What happened
 
 | Repo | Run commits | Package | NUnit tests (before → after) |
 |---|---|---|---|
 | Kelly-Windows-Data | <n> (`<first sha>` … `<last sha>`) | `<version>` | <n> → <n> per configuration |
 ...
 | Kelly-Revit | `<sha>` | not a package (21 configurations built, none installed) | in Revit 2024: <n> of <n> pass (name the add-in-started failures), or "compiled, not run" |
+
+| Package | Linear | Moves | Status | Commit |
+|---|---|---|---|---|
+| P2a-windows-text | [KW3-12](<url>) | #4, #5, #9 | Done | `<sha>` |
+...
 
 - <n> moves planned: <n> done, <n> partial, <n> skipped.
 - <n> errors in <n> configurations.
@@ -97,8 +108,22 @@ different source. "None" if none.>
 ## Bugs found and deliberately NOT fixed
 
 ### High
-<file:line, what happens, how it was found; the test that characterizes it.>
+<Linear key; file:line, what happens, how it was found; the test that characterizes it.>
 ### Medium
+
+## What went well
+
+<What worked and should be kept: a review that caught a real break, a probe that turned a whole-file move into an extraction, a
+package size that committed cleanly.>
+
+## What went wrong
+
+<Each problem: what happened, its cost (time, rework, a failed run), and its cause. Plain facts, no blame. "Nothing" if nothing.>
+
+## What to change next time
+
+<Concrete changes for the next run, each tied to a "What went wrong" item: a rule for placement-rules.md, a script fix, a scope
+split, a check to add. Say which were already made to the skill in this run.>
 
 ## Things to check
 
