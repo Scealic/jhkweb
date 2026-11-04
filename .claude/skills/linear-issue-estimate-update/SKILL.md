@@ -1,5 +1,5 @@
 ---
-name: kelly-linear-estimates
+name: linear-issue-estimate-update
 description: Estimate, or re-estimate, every issue in every Linear team of the "jhkelly" workspace - read each issue (and, for the Kelly teams, the code it names in its repository under C:\repo\jhkweb), propose a point estimate on that team's scale, write the proposal to a dated report, and after the user approves, set the estimates in Linear. Use whenever the user asks to estimate, size, point, re-estimate or update the estimates of Linear issues, for all teams, one team, one project or a list of issues, or asks which issues have no estimate, even without saying "estimate".
 ---
 
