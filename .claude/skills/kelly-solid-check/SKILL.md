@@ -1,5 +1,5 @@
 ---
-name: solid-check
+name: kelly-solid-check
 description: Re-check the Kelly Tools For Revit repos against the SOLID principles and update "C:\repo\jhkweb\SOLID Check.md" (and each repo's README "SOLID principles" section) with what changed. Use when the user says "update this SOLID analysis", "update the SOLID check", "re-check SOLID", "how do the repos stand on SOLID now", or asks to refresh the SOLID ratings after recent work.
 ---
 
@@ -16,7 +16,7 @@ Read `SOLID Check.md` in full first. The user edits it too (renames, ticked boxe
 Run the measurement script with the last re-check's date and time:
 
 ```bash
-bash /c/repo/jhkweb/.claude/skills/solid-check/scripts/measure.sh "2026-10-20 10:00"
+bash /c/repo/jhkweb/.claude/skills/kelly-solid-check/scripts/measure.sh "2026-10-20 10:00"
 ```
 
 It prints, read-only:

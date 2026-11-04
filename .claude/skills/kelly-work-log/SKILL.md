@@ -1,5 +1,5 @@
 ---
-name: work-log
+name: kelly-work-log
 description: Write the day's work log of Chris Hildebran from the commits in every repository under C:\repo\jhkweb - a "yyyy.mm.dd Work Log Of Chris Hildebran.md" in the Notes-JHKelly repo, a one-page "yyyy.mm.dd Work Summary Of Chris Hildebran.md" for senior management, and a separate private "yyyy.mm.dd Claude Code Savings Of Chris Hildebran.md" report. Takes an optional date (yyyy.mm.dd or yyyy-mm-dd; default today). Use whenever the user asks for the work log, the work summary or the Claude Code savings report, to write, redo, backfill or update the log for a day, or when the "Work Log For Today" scheduled task runs.
 ---
 

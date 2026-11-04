@@ -1,5 +1,5 @@
 ---
-name: ribbon-buttons
+name: kelly-ribbon-buttons
 description: Re-analyze the IExternalCommands of the Kelly Tools For Revit add-in (Kelly-Revit-v4 and/or Kelly-Revit-v5) by reading each command's code and everything it calls, then (1) create or rewrite the ToolTip on the ribbon push button that calls it, and (2) create ribbon icons, drawn from that tooltip in JHK green, for every button whose image is missing or still the "Scrum" placeholder. Use whenever the user asks to update, rewrite, fix, add, check or "re-analyze" tooltips, ribbon button descriptions or help text; to make, draw, design, replace or fix ribbon icons, button images or the Scrum placeholder images; when a new command or push button is added; or asks what a ribbon button actually does. Applies to all buttons, one tab or module, a folder, or a single named command.
 ---
 
@@ -46,7 +46,7 @@ The user may ask for only one of the two jobs; then do only that one. For icons,
 ## 2. Inventory
 
 ```bash
-bash /c/repo/jhkweb/.claude/skills/ribbon-buttons/scripts/inventory.sh /c/repo/jhkweb/Kelly-Revit-v5 [path filter]
+bash /c/repo/jhkweb/.claude/skills/kelly-ribbon-buttons/scripts/inventory.sh /c/repo/jhkweb/Kelly-Revit-v5 [path filter]
 ```
 
 It prints two kinds of tab-separated rows:
