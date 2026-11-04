@@ -66,7 +66,7 @@ Repinned only. These are the consumer edits that made them compile:
 - Three view filter commands call Domain's `ColoredSignatureFilterRules.ToFilterRuleModels`.
 - The layout point import names Logic's `LayoutPointCsvFormat.HasAcceptedHeader` in full.
 
-## What was not done
+## What was not done (round 2a; since finished, see "Source-side pass")
 
 **82 moves are partial**:
 - #1, whose source is Kelly-Domain;
@@ -87,7 +87,7 @@ Kelly-Revit-Logic-v5 and Kelly-Revit-v5 each have a Quick-Backlog item for it un
 
 ## Behaviour the user may notice
 
-None. All the code that runs is the code that ran before: the moved copies are not called yet, except #94 to #96, #156, #8, #12, #13 and #14, which are character-for-character moves.
+None intended. After the source-side pass the callers run the lower copies, each checked line by line against its original. The one known difference is #60: when the unit selection throws after the read, the `StreamReader` is now already closed. #4 and #57 were left alone because switching them would change behaviour.
 
 ## Bugs found and not fixed
 
