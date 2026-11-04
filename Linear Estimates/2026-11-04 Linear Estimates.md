@@ -25,6 +25,8 @@ Scale: KTR5 uses the exponential scale (1, 2, 4, 8, 16). No other team has any e
 | HASAWB | 7 | 6 | 0 | 0 | 1 | 9 | 6 |
 | **Total** | 312 | 226 | 10 | 62 | 14 | 1200 | 44 |
 
+**Applied 2026-11-04:** all 236 approved estimates set and confirmed in Linear (226 new, 10 changed; 62 unchanged and 14 parents needed no call; 0 refused). KTR5 105, KTRUI 3, KTRL5 7, KTR4 41, KTRL4 1, KW3 10, KW2 1, KWD3 4, KD 20, Hasa teams 44.
+
 KWD2, KWDC, KWDJ, KWDSS and KWDSL have no issues.
 
 ## Changes to existing estimates
