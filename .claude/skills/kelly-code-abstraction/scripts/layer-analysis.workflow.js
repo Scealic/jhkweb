@@ -30,8 +30,9 @@ anything under ${R}, and run no git command that changes state. Use Bash (Git Ba
 
 ## Rules
 READ FIRST: ${SKILL}/references/placement-rules.md. It defines the six layers and what belongs in each, the user's hard rules
-(Kelly-Windows and Kelly-Windows-Data know nothing of the Revit API; IExternalCommand classes, *View.xaml(.cs), *View.cs and
-*ViewModel.cs stay in Kelly-Revit; availability classes stay with their commands), what "a more appropriate layer" means
+(Kelly-Windows and Kelly-Windows-Data know nothing of the Revit API; the IExternalCommand, *View.xaml(.cs), *View.cs and
+*ViewModel.cs FILES stay in Kelly-Revit, but any code inside a view, view model or model that is not presentation moves to the
+lowest layer that fits, whatever its size (rule 6); availability classes stay with their commands), what "a more appropriate layer" means
 (the LOWEST layer whose concern fits and whose references satisfy the code; code can also sit too low), what makes a move unsafe,
 and the move record. Follow it exactly.
 `
@@ -121,9 +122,11 @@ ${scopeText(s)}
 ${s.guidance}
 
 Follow "Finding moves" in placement-rules.md. List every .cs and .xaml file in scope with find, read each one, and
-classify it (and any extractable type or substantive member) as KEEP or MOVE from its real dependencies. For each move grep all six
-repos (src, modules and test folders) for consumers and prerequisites. Every kept file gets a short reason in keep.
-Be precise and conservative, and do not miss anything in your scope.`
+classify it (and any type, member or piece of code inside it that should move) as KEEP or MOVE from its real dependencies.
+Read every view, view model and model line by line ("Views, view models and models" in placement-rules.md): every rule,
+check, conversion, calculation, query or file access in them that is not presentation is a move, however short. For each move
+grep all six repos (src, modules and test folders) for consumers and prerequisites. Every kept file gets a short reason in keep.
+Be precise, and do not miss anything in your scope.`
 }
 
 function reviewPrompt(moves, scopeKey) {

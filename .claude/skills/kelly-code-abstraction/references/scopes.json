@@ -48,7 +48,7 @@
       "Kelly-Revit-v5/modules/Trade.All/Commands/ProjectDirectoryOpen",
       "Kelly-Revit-v5/modules/Trade.All/Commands/ScheduleExport"
     ],
-    "guidance": "AllTrade tools. Look for Revit database logic inside commands that belongs in Kelly-Revit-Logic-v5 (layout points, schedules, connectors, tags), Revit-free file, CSV and path code that belongs in Kelly-Windows or Kelly-Domain, and helpers repeated across these tools. Office interop and ExcelDataReader stay in Kelly-Revit."
+    "guidance": "AllTrade tools. Look for Revit database logic inside commands, views, view models and models that belongs in Kelly-Revit-Logic-v5 (layout points, schedules, connectors, tags), Revit-free file, CSV and path code that belongs in Kelly-Windows or Kelly-Domain, and helpers repeated across these tools. Office interop and ExcelDataReader stay in Kelly-Revit."
   },
   {
     "key": "alltrade-tools-b",
@@ -60,7 +60,7 @@
       "Kelly-Revit-v5/modules/Trade.All/Commands/Updaters",
       "Kelly-Revit-v5/modules/Trade.All/Commands/Views"
     ],
-    "guidance": "AllTrade tools. Look for spool, module, support, updater and view-filter logic inside commands and view models that Kelly-Revit-Logic-v5 (Spools, Supports, Updaters, Views) should own, Revit-free spool and naming rules that belong in Kelly-Domain, and helpers repeated across these tools."
+    "guidance": "AllTrade tools. Look for spool, module, support, updater and view-filter logic inside commands, views, view models and models that Kelly-Revit-Logic-v5 (Spools, Supports, Updaters, Views) should own, Revit-free spool and naming rules that belong in Kelly-Domain, and helpers repeated across these tools."
   },
   {
     "key": "alltrade-ribbon",
@@ -72,13 +72,13 @@
     "key": "pipe-duct-trade",
     "repo": "Kelly-Revit-v5",
     "paths": ["Kelly-Revit-v5/modules/Trade.Pipe", "Kelly-Revit-v5/modules/Trade.Duct"],
-    "guidance": "The PipeTrade and DuctTrade modules. Look for MEP, fabrication and connector logic inside commands that belongs in Kelly-Revit-Logic-v5 (Mep, Fabrication, Connectors), logic the two modules duplicate between them or with AllTrade, and ribbon or availability code a Kelly-Revit-UI base should own."
+    "guidance": "The PipeTrade and DuctTrade modules. Look for MEP, fabrication and connector logic inside commands, views, view models and models that belongs in Kelly-Revit-Logic-v5 (Mep, Fabrication, Connectors), logic the two modules duplicate between them or with AllTrade, and ribbon or availability code a Kelly-Revit-UI base should own."
   },
   {
     "key": "contenter-manager-developer",
     "repo": "Kelly-Revit-v5",
     "paths": ["Kelly-Revit-v5/modules/Trade.Contenter", "Kelly-Revit-v5/modules/Trade.Manager", "Kelly-Revit-v5/modules/Trade.Developer"],
-    "guidance": "The Contenter, Manager and Developer modules. Look for family, parameter and project logic inside commands that belongs in Kelly-Revit-Logic, Revit-free data and report code that belongs in Kelly-Domain or Kelly-Windows-Data, and helpers duplicated with AllTrade. Developer tools are diagnostics (WindowMockup, AvailabilityProbe); keep them unless their logic is reusable."
+    "guidance": "The Contenter, Manager and Developer modules. Look for family, parameter and project logic inside commands, views, view models and models that belongs in Kelly-Revit-Logic, Revit-free data and report code that belongs in Kelly-Domain or Kelly-Windows-Data, and helpers duplicated with AllTrade. Developer tools are diagnostics (WindowMockup, AvailabilityProbe); keep them unless their logic is reusable."
   },
   {
     "key": "ui",

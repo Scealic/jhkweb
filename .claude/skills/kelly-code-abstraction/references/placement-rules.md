@@ -6,7 +6,7 @@ The rules every finder, reviewer and implementer of a layer analysis works from.
 
 - The layers
 - The user's rules
-- What "a more appropriate layer" means
+- What "a more appropriate layer" means (and views, view models and models)
 - What makes a move unsafe or needs extra work
 - The move record
 - Finding moves
@@ -34,12 +34,17 @@ Each project has `src/GlobalUsings.cs` (modules: `modules/<Module>/GlobalUsings.
 These are hard rules. A move that breaks one is rejected, whatever it gains.
 
 1. **Kelly-Windows and Kelly-Windows-Data must not know anything about the Revit API**: no Autodesk types or references, and no Revit behaviour encoded in names, comments or string literals. Kelly-Domain stays Revit-free too.
-2. **These stay in Kelly-Revit**: every class implementing `IExternalCommand` (directly or through `IExternalCommandBase`/`IExternalCommandMvvm`), every `*View.xaml` with its `*View.xaml.cs`, every `*View.cs` and every `*ViewModel.cs`. Logic *inside* those files may still move down: an extra non-protected type declared in the same file, or a substantive helper method (roughly 15 lines or more, or duplicated across commands) with no RevitAPIUI, Telerik or WPF dependency. The protected class stays and calls the new API.
+2. **These files stay in Kelly-Revit**: every class implementing `IExternalCommand` (directly or through `IExternalCommandBase`/`IExternalCommandMvvm`), every `*View.xaml` with its `*View.xaml.cs`, every `*View.cs` and every `*ViewModel.cs`. The file and its class stay. The code inside a view, view model or model does not have to (rule 6). Code inside a command moves on the same terms as any other code.
 3. **Approved exceptions**: the abstract framework types in Kelly-Revit-UI (the command contracts, `CommandBase`, `ViewModel`, `IView`, `IViewModel`) and the Revit-free generic `ProgressView` in Kelly-Windows. Concrete commands, views and view models never leave Kelly-Revit. Do not propose moving an exception without asking the user.
 4. **Availability classes live in the command's assembly.** Revit resolves `PushButtonData.AvailabilityClassName` (the class's `Type.FullName`) in the command's assembly. Shared rules go into a Kelly-Revit-UI base class (`DocumentCommandAvailability`, `SelectionMadeCommandAvailability`) and a small sealed leaf class stays in the module (`IsSelectionMade : SelectionMadeCommandAvailability { }`). The Developer module's Availability Probe tests whether Revit accepts an assembly-qualified class from another assembly; until the user reports that it does, keep the leaf classes.
 5. **Only code specific to a layer's concern belongs in it, and the namespace matches the folder** (`<RootNamespace>.<Folder>.<Subfolder>`; modules use `Kelly.Revit.<Module>.<Folder>`).
+6. **Any code inside a view, view model or model may move down when it can and should** (the user's decision, 2026-11-04). This covers the code in a `*View.xaml.cs`, `*View.cs`, `*ViewModel.cs` or model, whatever its size, its form (a method, part of a method, a property's logic, a constant, a nested or extra type) and its dependencies.
+   - **Can:** the target layer's references satisfy it (the placement table below).
+   - **Should:** it is not presentation ("Views, view models and models", below).
+   
+   The view, view model or model stays as a thin MVVM shell that binds, holds UI state and calls the moved code.
 
-`scripts/check-rules.pl` checks rules 1, 2, 3 and 5 mechanically. Run it before and after.
+`scripts/check-rules.pl` checks rules 1, 2, 3 and 5 mechanically; rule 2 there means the files, not the code inside them. Run it before and after.
 
 ## What "a more appropriate layer" means
 
@@ -67,6 +72,34 @@ An upward move is valid only if nothing left in the source layer, or below it, s
 **Duplication across layers or folders** counts as a move: helpers, extension methods, constants, enums, models, converters, colour tables, string/file/path/number helpers, collector or transaction code re-implemented in several commands, or a re-implementation of something a lower layer already has. Report one move per redundant copy, with the lowest appropriate layer owning the single implementation. Only report duplication you have read, not similar names.
 
 **Mixed types**: split them. The Revit-free part moves down; an extension method over the Revit type stays in Logic and calls it.
+
+### Views, view models and models
+
+Read every view, view model and model line by line (rule 6).
+- **A view** is any XAML window, page or user control with its code-behind. That includes `*View.xaml(.cs)`, `*View.cs` and windows not named `*View`, such as `OletCheckWindow.xaml.cs`.
+- **A model** is any class a view or view model binds to, fills or builds from data: rows, items, settings, records and DTOs, whatever its name. Examples are `ApplicationAboutModel` in Trade.All, and `ModuleCreatorSettings` and `LayoutPointExportCandidate`, which earlier runs moved to Kelly-Domain and Kelly-Revit-Logic. A model is not a protected file, so it can also move whole.
+
+Code that **moves**, to the lowest layer whose concern fits, however short (a one-line rule counts; round 1 moved "a weld initialism starting with S is Shop" into `WeldLocationTools`):
+
+| Code in a view, view model or model | Usually goes to |
+|---|---|
+| Kelly business rules, validation, naming and numbering (spool, module and line numbers), unit choices, quality flags | Kelly-Domain |
+| Parsing, formatting and converting values (lengths, fractions, text, numbers), calculations, sorting, grouping and filtering of plain data, with no Kelly meaning | Kelly-Windows |
+| File, CSV, JSON and settings reading and writing | Kelly-Windows-Data, or the format libraries through Kelly-Windows or Kelly-Domain |
+| Revit database work: collectors, element and parameter reads and writes, transactions (`OperationService`), geometry | Kelly-Revit-Logic |
+| UI behaviour more than one tool needs: generic WPF converters, behaviours and helpers | Kelly-Windows |
+| UI behaviour more than one tool needs that uses RevitAPIUI, selection, Telerik or ribbon types | Kelly-Revit-UI |
+| The same code in two or more views, view models, models or commands | one copy in the lowest layer that fits; the others call it |
+| A model whose data or rules are a Kelly concept | the model moves whole, or is split: Kelly-Domain if Revit-free, Kelly-Revit-Logic if it needs RevitAPI only |
+
+Code that **stays**, because it is presentation:
+- bindable properties, `INotifyPropertyChanged` plumbing, `ICommand` wiring, and `CanExecute` that only reads UI state;
+- UI state (selection, visibility, enabled and busy flags), opening and closing windows and dialogs, and code-behind event handlers that only forward to the view model;
+- the orchestration that calls the moved code in order, with its messages through `UserPrompt`;
+- a row or item model that exists only to bind one tool's grid (display text, check boxes); rules inside it still move;
+- RevitAPIUI, `ExternalEvent` or Telerik code that only one tool uses and no other tool repeats.
+
+The moved code keeps its behaviour exactly: the same conditions, order, messages and defaults. It gets tests in its new layer, written test-first. The shell calls it, and a guard test checks that the old copy is gone (for example `TryParseDesiredElevation_LivesInConstructionServices_NotInTheViewModel`).
 
 Constraints on every move:
 
@@ -113,23 +146,23 @@ A move's key is `sourceRepo:sourcePath#symbol`.
 For each scope (`references/scopes.json`):
 
 1. List every `.cs` and `.xaml` file in the scope (exclude `bin`, `obj`). Read each one; count them as `filesReviewed`.
-2. In Kelly-Revit scopes, decide first whether a file is protected (rule 2). Protected files stay; still scan them for extractable types and substantive helpers.
-3. Decide KEEP or MOVE for each file, type or substantive member from its real dependencies.
+2. In Kelly-Revit scopes, decide first whether a file is protected (rule 2). A protected file stays, but read it all the way through: in a view, view model or model, every piece of code that is not presentation is a candidate ("Views, view models and models").
+3. Decide KEEP or MOVE for each file, type, member or piece of code from its real dependencies.
 4. For each move, grep all six repos for consumers and for what it depends on that would also have to move (prerequisites).
 5. Give every file you keep a short reason ("IExternalCommand", "ViewModel", "uses UIDocument", "ribbon", "already in the right layer").
 
-Be precise and conservative: propose a move only when you can name the target folder and namespace and you have checked the dependencies. Ignore trivial one-liners.
+Be precise: propose a move only when you can name the target folder and namespace and you have checked the dependencies. Leave out pure presentation and calls that only forward. A short rule, check or conversion still counts.
 
 ## Reviewing moves
 
 Each reviewer tries to **refute** the moves it is given. Read the source and grep yourself; do not trust the proposal. Check:
 
-1. the user's rules (Revit-free lower layers; protected Kelly-Revit types stay; availability classes stay with their commands);
+1. the user's rules (Revit-free lower layers; protected Kelly-Revit files stay, though the code inside a view, view model or model may move; availability classes stay with their commands);
 2. concern fit per layer (generic, Kelly-specific, Revit database, Revit UI framework, one tool). Is there an even lower valid layer, or is the proposed one too low?
 3. every dependency exists in the target (nothing from a higher layer, no RevitAPIUI in Logic, no Revit at all in Domain, Windows or Data);
 4. runtime identity risks (reflection, resources, pack URIs, settings, host statics, class-name strings, persisted type names, `#if REVIT20xx`);
 5. for upward moves, nothing left in the source layer or below still uses the code;
-6. for type and member extractions, the gain is real and not churn;
+6. for type and member extractions, the gain is real and not churn. Code taken out of a view, view model or model that is not presentation is a gain whatever its size: it becomes testable without the window. Reject it only as presentation, or when the target cannot satisfy it;
 7. name clashes in the target or in consumers' global usings.
 
 Verdicts: `accept`, `modify` (right idea; correct the target, folder or namespace, or add required changes) or `reject`. Reject when it is unclear the move is safe and an improvement.

@@ -1,6 +1,6 @@
 ---
 name: kelly-code-abstraction
-description: Analyze every Kelly Tools For Revit repository under C:\repo\jhkweb for code that can be abstracted to a more appropriate architectural layer, usually a lower, more general one (Kelly-Revit modules → Kelly-Revit-UI or Kelly-Revit-Logic → Kelly-Domain → Kelly-Windows → Kelly-Windows-Data), but also code that sits too low or is duplicated across layers. Then, once the user confirms the plan, move it there bottom-up, building each layer's new NuGet package and repinning the layers above as it goes. The hard rules are that Kelly-Windows and Kelly-Windows-Data know nothing of the Revit API, and that IExternalCommands, *View.xaml, *View.cs and *ViewModel.cs stay in Kelly-Revit. Use this skill whenever the user asks what code can be abstracted, where code could move to a more abstract or more appropriate layer, about "code abstraction across repositories", whether anything is in the wrong layer or repo, to push shared code down the layers, to find code duplicated across the layers, or to rerun the layer-moves analysis, even if they don't name a layer or a repo.
+description: Analyze every Kelly Tools For Revit repository under C:\repo\jhkweb for code that can be abstracted to a more appropriate architectural layer, usually a lower, more general one (Kelly-Revit modules → Kelly-Revit-UI or Kelly-Revit-Logic → Kelly-Domain → Kelly-Windows → Kelly-Windows-Data), but also code that sits too low or is duplicated across layers. Then, once the user confirms the plan, move it there bottom-up, building each layer's new NuGet package and repinning the layers above as it goes. The hard rules are that Kelly-Windows and Kelly-Windows-Data know nothing of the Revit API, and that the IExternalCommand, *View.xaml, *View.cs and *ViewModel.cs files stay in Kelly-Revit, though any code inside a view, view model or model that can and should live lower moves down. Use this skill whenever the user asks what code can be abstracted, where code could move to a more abstract or more appropriate layer, about "code abstraction across repositories", whether anything is in the wrong layer or repo, to push shared code down the layers, to find code duplicated across the layers, or to rerun the layer-moves analysis, even if they don't name a layer or a repo.
 ---
 
 # Kelly code abstraction
@@ -11,6 +11,8 @@ This skill does the user's original request:
 > - The Kelly-Windows repo should not know anything about the revit api.
 > - The Kelly-Windows.data repo should not know anything about the revit api.
 > - Leave all of the following types in the Kelly.Revit repo: IExternalCommands, \*View.xaml, \*View.cs, \*ViewModel.cs
+
+On 2026-11-04 the user widened the last rule: "I just want to include or change the MVVM rules so it ok to abstract any code within a view, view mode or model that can/should be abstracted." The files and their classes stay in Kelly-Revit. Any code inside them that is not presentation moves to the lowest layer that fits, whatever its size (rule 6 and "Views, view models and models" in `references/placement-rules.md`).
 
 The first run (2026-10-12) planned 173 moves and did 169 of them. It changed no behaviour and broke none of the rules. This skill makes that run repeatable on today's code: six layers (Kelly-Revit-UI has been added since), and Kelly-Revit as a host plus six modules.
 
