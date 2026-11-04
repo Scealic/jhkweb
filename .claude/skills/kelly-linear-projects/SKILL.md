@@ -14,7 +14,8 @@ Creating projects in Linear is outward-facing: **never create, rename or delete 
 Run these together:
 
 - **Teams:** the Linear connector's `list_teams`. The user may have renamed or added teams since the mapping table was written. The connector cannot create teams.
-- **Existing projects:** `list_projects` with `includeArchived: true` and `fields: ["name","teams","status","summary"]`. Follow `cursor` until `hasNextPage` is false. KTR5 already holds about 140 projects, **one per command** (`<Tool> (Command)`, for example "Layout Point Export (Command)"), plus "Scope (User Control)", "Application Service" and similar. The Hasa team's projects belong to another product: leave them out.
+- **Existing projects:** `list_projects` with `includeArchived: true` and `fields: ["name","teams","status","summary"]`. Follow `cursor` until `hasNextPage` is false. The Hasa team's projects belong to another product: leave them out.
+- **Features are labels, not projects** (since 2026-11-04, `C:\repo\jhkweb\Linear Feature Labels\2026-11-04 KTR5 Feature Labels Plan.md`). In KTR5 the feature an issue concerns (a command, user control, cache, event handler or service) is a label in the multi-select team group "5 - Feature" (for example "Layout Point Export"), and its add-in module a label in "5 - Module" (Trade.All, Trade.Pipe, Trade.Duct, Trade.Contenter, Trade.Manager, Trade.Developer, Host). The old one-per-command projects (`<Tool> (Command)`) are Completed; never file issues in them or make new ones. Read the features with `list_issue_labels` (team KTR5, `name` filter or `includeGroups`).
 - **Open backlog items** per repository, with their function heading, type and Linear key:
 
 ```bash
@@ -27,7 +28,8 @@ Also look in `C:\repo\jhkweb` for plans that span repositories (for example the 
 
 Group the open items into **theme projects**: a goal several issues serve, that can be finished and marked Completed.
 
-- **Don't duplicate.** No new project whose goal an existing one already covers. A fix to one tool goes in that tool's existing `(Command)` project, not a new per-tool project. When a theme cuts across many tools (a review that found bugs in a dozen tools), one theme project is fine; say that its issues could go in the per-command projects instead.
+- **Don't duplicate.** No new project whose goal an existing one already covers. A project is bounded work that ends (a new tool being built, a migration, a refactor across tools), never a permanent home for a feature: a fix to one tool gets that tool's "5 - Feature" label and needs no project. When a theme cuts across many tools (a review that found bugs in a dozen tools), one theme project is fine, and its issues carry every feature label they touch.
+- **Set the feature labels when filing** (KTR5): give each issue filed in a project its "5 - Feature" and "5 - Module" labels with `save_issue` `addLabels`, creating a missing feature label in the group first (`save_issue_label`, `parent` "5 - Feature", the KTR5 team id). Ask before creating more than a few.
 - **Cross-repository work is one project with several teams**, listed under its lead repository: the same bug in v4 and v5 (one issue per team), a layer move (the source layer, the target layer and the layers that are repinned), an item that appears in every repository (the "TODO notes" sweep). The first team is the lead team.
 - **No project for one issue**, and none for a repository with nothing open. Name those repositories under "No project suggested" with the reason.
 - **No team, no project:** BuildConfigs, Kelly-Revit-Data-Exporter, the VCS schemas and the index's Other have no Linear team, and a project needs at least one. Re-check `list_teams` before saying so.
