@@ -1,6 +1,6 @@
 # KTR5: projects to feature labels (plan, 2026-11-04)
 
-Status: **draft for review.** Only step 0 (the multi-select check) has been run in Linear; nothing else has changed.
+Status: **applied 2026-11-04** (see "Results" at the end).
 
 ## Goal
 
@@ -202,3 +202,26 @@ module's sub-team and the issues move to that sub-team first.
 4. **Modules**: a "5 - Module" label group, not sub-teams (step 4). It is made **multi-select** like "5 - Feature", because issues such as KTR5-4697
    (Developer and Trade.All) span modules; the step 0 check showed multi-select works.
 5. **Other Kelly teams**: KTR5 first; decide on the others after seeing how it works.
+
+## Results (applied 2026-11-04)
+
+- **Counts corrected:** KTR5 had 158 projects, not 151: 155 feature projects (12 kept, 143 retired), General, Project Report SQL Export and Global.
+- **Labels:** "5 - Feature" (multi-select) holds 158 labels: one per feature project (2 made in step 0, 153 by the run) plus User Report, Window
+  Mockup and Fabrication Part Missing ITM Report. "5 - Module" (multi-select) holds Trade.All, Trade.Pipe, Trade.Duct, Trade.Contenter,
+  Trade.Manager, Trade.Developer and Host; named after the DLLs so they don't clash with the Role labels Manager and Developer.
+- **Module mapping:** from the code (`Kelly-Revit-v5/modules/Trade.*`, `src`, Kelly-Revit-Logic-v5, Kelly-Revit-UI, Kelly-Domain, Kelly-Windows-v3
+  = Host). Tools with no trace in the code (Element Select By Context, Pipe Offset Create, Family Instance End Swap, Stratus Package Quality Check
+  View Creator, Tagged Hangers Hide View Filter, View Open, Valve Tag Assign, Shop and Field Line Color View Filter, Optimized Pipe View Filter,
+  Detailer View 3D Create, Family Shared Parameter Manager, Spool Creator V1) got their module by best guess.
+- **Issues:** about 470 issues (open and closed) in the feature projects got their feature and module labels; about 70 open issues were taken out of
+  retired projects (35 of them the Reload Data sub-issues KTR5-4528 to 4562, 34 of which are archived). 19 open General issues were taken out of
+  General. Every open issue in the tables above got its labels (4704: the 10 color view filter labels; 4064: the four Auto Assign Switch labels).
+- **Projects:** 146 set to Completed (143 feature projects, General, Project Report SQL Export, Global); the Linear MCP cannot archive, so archive
+  them in Linear's projects view if they should be hidden. They keep their project labels ("Command", "Detailer", …) and their Initiatives
+  ("KTR - Detailer", "KTR Detailer - Utilities", "KTR - Application", …), which now count them as completed.
+- **Kept, still in progress (12):** Dockable Assigner System, Element Select By Context, Pipe Offset Create, Family Instance End Swap, Auto Updater
+  Configurations, Duct QA Length, Valve Tag Assign (Idea), Stratus Detailing Package Views Create With User Interface, Duct QA Mirror, Spool
+  Creator V2, Detailer View 3D Create, Project Session (Service).
+- **Check:** after the run, KTR5's only started projects are the 12 kept ones, and no backlog, Todo or started issue is in a Completed project.
+  Some API replies came back stale; KTR5-4064, 4646 and 4666 were re-applied and confirmed by a fresh listing.
+- **Skills:** `kelly-linear-projects`, `kelly-backlog-update` and `.claude/CLAUDE.md` updated (commit aec5ea7).
