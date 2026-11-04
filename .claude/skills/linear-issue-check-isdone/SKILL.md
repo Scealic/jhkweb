@@ -36,31 +36,31 @@ Before checking, `git -C <repo> fetch` is not needed and not wanted: the evidenc
 The volume is large (KTR5 alone has about 160 open issues). Send one subagent per team, or per 100 issues of a big team, all in one message so they run in parallel. Each gets the team, its repository path, the issue keys with their full titles, descriptions and comments, the verdicts below and these instructions:
 
 - **Only read**: no `save_issue`, no `save_comment`, no edits, no builds, no tests.
-- Split the issue into the separate things it asks for (each tool, type, behaviour, file, doc or test it names, and each step of a "Steps to reproduce"). An issue moved from a backlog (footer "From `…/Quick-Backlog.md` › …") asks for exactly what its backlog line says.
-- For each part, find it in the code: Grep and Glob in the repository (the ribbon commands under `modules/` for KTR5/KTR4, `src/` for the lower layers), read the code enough to see it really does what is asked, not just that a name exists.
+- List what the issue asks for, as a checklist for this check only (each tool, type, behaviour, file, doc or test it names, and each step of a "Steps to reproduce"); nothing is created in Linear. An issue moved from a backlog (footer "From `…/Quick-Backlog.md` › …") asks for exactly what its backlog line says.
+- For each checklist item, find it in the code: Grep and Glob in the repository (the ribbon commands under `modules/` for KTR5/KTR4, `src/` for the lower layers), read the code enough to see it really does what is asked, not just that a name exists.
 - Look for the change that did it: `git -C <repo> log develop --oneline -i --grep=<key or keyword>`, the `Changelog.md` headings, and the repository's `Quick-Backlog.md` (a ticked line ending ` — Linear: <KEY>` or with `— done <date> (commit …)`).
-- Uncommitted work in the working tree does **not** count: the part is not done until it is committed on `develop`.
+- Uncommitted work in the working tree does **not** count: an item is not done until it is committed on `develop`.
 - Where the repository requires tests (every repository except the v4 Revit layers, see its `AGENTS.md`), a code change the issue asks for needs its test too; a missing test makes the issue Partial. A public-surface change also needs its `README.md`/`Changelog.md` update.
 - Return one line per issue:
 
 ```
-KEY | Done / Partial / Not started / Can't tell | <one-sentence rationale> | Evidence: <commit hash(es), files, types, tests, backlog line> | Missing: <the parts not found, or ->
+KEY | Done / Partial / Not started / Can't tell | <one-sentence rationale> | Evidence: <commit hash(es), files, types, tests, backlog line> | Missing: <the checklist items not found, or ->
 ```
 
 Verdicts:
 
 | Verdict | When |
 |---|---|
-| **Done** | Every part is in committed code on `develop` and does what the issue asks, with a commit or a ticked backlog line to point to, and the tests and docs the repository requires. Nothing in the issue or its comments is left. |
-| **Partial** | Some parts are done, at least one is not (name it). |
-| **Not started** | No part of it is in the code. |
+| **Done** | Every checklist item is in committed code on `develop` and does what the issue asks, with a commit or a ticked backlog line to point to, and the tests and docs the repository requires. Nothing in the issue or its comments is left. |
+| **Partial** | Some checklist items are done, at least one is not (name it). |
+| **Not started** | No item of it is in the code. |
 | **Can't tell** | The issue is too vague to check, the work is outside the code (a meeting, a decision, a Revit model, a test run, an install, a release, an issue another person must confirm), or it is about runtime behaviour that only a run in Revit could show. |
 
 The rationale is one sentence that names what the code shows, for example: "`PipeSlopeCommand` now skips unsloped systems and `PipeSlopeCommandTests` covers it (commit `a1b2c3d`)."
 
 ## 3. Verify every Done
 
-A Done is a change in a shared system, so **re-check each one yourself before marking it**, not on a subagent's word: read the evidence it cites (`git -C <repo> show --stat <hash>`, the files and the tests) against the issue's full text. Downgrade to Partial or Can't tell when any part is unproved, when the commit only touches the area without finishing it, or when the issue names a Revit year, a version (v4 and v5) or a layer the change did not reach. Downgrade when the only evidence is a ticked backlog line with no commit.
+A Done is a change in a shared system, so **re-check each one yourself before marking it**, not on a subagent's word: read the evidence it cites (`git -C <repo> show --stat <hash>`, the files and the tests) against the issue's full text. Downgrade to Partial or Can't tell when any checklist item is unproved, when the commit only touches the area without finishing it, or when the issue names a Revit year, a version (v4 and v5) or a layer the change did not reach. Downgrade when the only evidence is a ticked backlog line with no commit.
 
 ## 4. Mark Done
 
