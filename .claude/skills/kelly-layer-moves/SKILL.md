@@ -133,6 +133,7 @@ Then show the user the summary and the decisions only they can make. Use `AskUse
 
 From the confirmed plan, write one `<scratch>/packages/P<n><letter>-<layer>-<topic>.md` per work package, following "Work packages and DECISIONS.md" in `placement-rules.md`:
 - group moves by target layer, then by concern;
+- give every move whose source is above its target a **source package** too, in the source layer's step: it switches the original to the new member and deletes the copy (see "Work packages and DECISIONS.md"). Without one the original stays and keeps running, which happened to 82 moves in round 2a;
 - about 25 moves at most per package, each package becoming one commit;
 - each move carries its record, the review notes and the probe result;
 - a package is a MOVE (behaviour kept exactly) or, only when the user decided it at the plan, a FIX (changes only the behaviour the spec names). Never mix the two in one package.
@@ -164,13 +165,14 @@ The implementation steps run from the lowest layer that changes up through `revi
   If it logs `STOPPING`, read that step's record, fix the cause inline, and resume with `resumeFromRunId` or finish the remaining layers by hand.
 - **Small plans** (roughly 15 moves or fewer): follow `references/chain-release.md` yourself, one layer at a time.
 
-Either way, Kelly-Revit comes last. It is where every blind consumer edit first compiles: all 21 configurations (host and six modules × 2024, 2025, 2026), plus the in-Revit test project.
+Either way, Kelly-Revit comes last. It is where the Kelly-Revit source packages run and where every consumer edit first compiles: all 21 configurations (host and six modules × 2024, 2025, 2026), plus the in-Revit test project.
 
 ## 5. Audit
 
 Don't rely on the workflow's audit alone; check these yourself:
 - `perl $S/check-rules.pl` shows no new hit compared with the baseline;
-- each move's status (done, partial, skipped, missing), checked in the code;
+- each move's status (done, partial, skipped, missing), checked in the code. A move is done only when its source no longer holds the original. List each move's source file and check it in `git diff --name-only <base>..HEAD` of the source repo; an untouched source means the move is partial;
+- every type the run added or changed is in its own file (rule 7);
 - `git -C <repo> log --stat <base>..HEAD` per repo has only this run's files;
 - the user's baseline files are still uncommitted and unchanged by you (`git diff` on them);
 - `pins.sh show`: each repo pins the package this run packed for the layer below it;

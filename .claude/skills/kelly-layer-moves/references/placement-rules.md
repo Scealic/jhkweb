@@ -186,4 +186,9 @@ After the user confirms the plan, write the implementation inputs into `<scratch
 
 - `DECISIONS.md`: the user's decisions on the plan, the moves dropped and deferred (with why), the behaviour rule (preserve behaviour exactly; record bugs, don't fix them), the probe findings, and these hard rules.
 - `P<n><letter>-<layer>-<topic>.md`, one per work package: group accepted moves by **target** layer (bottom-up), then by folder or concern, about 25 moves at most. Number the moves once across all packages (`#1` … `#N`) and keep those numbers in the report. Each move lists its record, the review notes and the probe result.
-- A move whose source is above its target (the usual case) is implemented in the target layer's step, together with the consumer edits in the layers above, which are written blind and compiled when their layer's turn comes.
+- A move whose source is above its target (the usual case) has two halves, and each is its own package:
+  - **the target half**, in the target layer's step: the new member, written test-first;
+  - **the source half**, in the source layer's step (`P<n><letter>-<layer>-source-<topic>`): check that the original matches the new member line by line, write a guard test that the old copy is gone, replace the original with a call to the new member (or delete it and repoint every caller), and remove the aliases or disambiguations that only chose between the two copies.
+
+  Never leave the source half as a `requiredChanges` note for "the layer above". Round 2a (2026-11-04) did that, and 82 moves ended up with both copies and only the old one called. A public member removed from Kelly-Revit-Logic or Kelly-Revit-UI is listed with its callers above it, and the source package of each layer above repoints them.
+- The audit checks every move's source: the original is gone or forwards to the new member, and `grep` finds no second implementation.
