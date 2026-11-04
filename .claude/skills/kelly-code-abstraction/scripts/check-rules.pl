@@ -24,7 +24,7 @@ my @projects = (
   ['Kelly-Domain/src',       'Kelly.Domain',       2],
   ['Kelly-Revit-Logic-v5/src',  'Kelly.Revit.Logic',  3],
   ['Kelly-Revit-UI/src',     'Kelly.Revit.UI',     4],
-  ['Kelly-Revit-v5/src',        'Kelly.Revit',        5],
+  ['Kelly-Revit-v5/src',        'Kelly.Revit.Core',   5],
 );
 for my $m (glob "$root/Kelly-Revit-v5/modules/*") {
   next unless -d $m;

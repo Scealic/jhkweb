@@ -47,7 +47,7 @@ The right layer is the **lowest layer whose concern matches the code and whose r
 
 | The code uses or encodes | Belongs in |
 |---|---|
-| Host statics (`App.*`, `App.ServiceProvider`, `App.UiControlledApplication`), `Kelly.Revit.Properties.Settings`/`Resources`, Office interop, ExcelDataReader, one module's resources | Kelly-Revit: the module that uses it, or the host if only the host does |
+| Host statics (`App.*`, `App.ServiceProvider`, `App.UiControlledApplication`), `Kelly.Revit.Core.Properties.Settings`/`Resources`, Office interop, ExcelDataReader, one module's resources | Kelly-Revit: the module that uses it, or the host if only the host does |
 | RevitAPIUI (`UIDocument`, `UIApplication`, `Selection`, `ISelectionFilter`, `TaskDialog`, `ExternalEvent`/`IExternalEventHandler`, `DockablePane`), AdWindows, Telerik or ribbon types, **and** is reusable framework shared by tools or modules | Kelly-Revit-UI |
 | The same, but specific to one tool | that tool's module |
 | Only RevitAPI.dll (`Autodesk.Revit.DB.*`, `ApplicationServices`, `Attributes`, `DB.Events`, `ExtensibleStorage`, `Creation`) | Kelly-Revit-Logic |
