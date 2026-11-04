@@ -3,6 +3,7 @@
 # A Complete line before the first heading 2 counts the whole file (the per-repo Quick-Backlog.md files);
 # one under a heading 2 counts that section only.
 # Counts every checkbox, sub-items included; [x] (also struck-through superseded items) is closed.
+# Empty "- [ ] " placeholders (the index's "Add To Linear as Issue" lines) are not counted.
 # Usage: percent.sh [file ...]   (default: every C:\repo\jhkweb\*\Quick-Backlog.md)
 
 if [ $# -eq 0 ]; then
@@ -13,7 +14,7 @@ for file in "$@"; do
     awk '
         { lines[NR] = $0 }
         /^## / { h++ }
-        /^ *- \[[ xX]\]/ { total[h]++; all++ }
+        /^ *- \[[ xX]\] *[^ \r]/ { total[h]++; all++ }
         /^ *- \[[xX]\]/ { done[h]++; alldone++ }
         END {
             h = 0

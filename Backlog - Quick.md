@@ -30,7 +30,7 @@ Since 2026-11-02 each repository keeps its own backlog in `Quick-Backlog.md` at 
 
 ### Add To Linear as Issue
 
-- [ ] 
+- [ ] Deprecate the Component and Product IUpdaters and Manual Updaters in Kelly Tools For Revit Version 5 (Per Adam Fuller on 11/3/2026)
 
 ## [Kelly-Revit-UI](Kelly-Revit-UI/Quick-Backlog.md)
 
@@ -88,10 +88,9 @@ Since 2026-11-02 each repository keeps its own backlog in `Quick-Backlog.md` at 
 
 ## Other
 
-**Complete: 50% (1 of 2)**
+**Complete: 100% (1 of 1)**
 
 ### To Organize
 
-- [ ] Deprecate the Component and Product IUpdaters and Manual Updaters in Kelly Tools For Revit Version 5 (Per Adam Fuller on 11/3/2026)
+- [ ] 
 - [x] IN the Repository backlogs table in the  "Backlog - Quick.md" file,  add a link to each repos "Quick-Backlog.md" file so it can be navigated to easily. — done 2026-11-04: the table already linked every Quick-Backlog.md; added an "Add To Linear as Issue" section per repository with a Linear team instead, filed into Linear by the kelly-backlog-update skill
-
