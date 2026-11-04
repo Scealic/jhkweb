@@ -274,3 +274,158 @@ The user's answers to the open questions; every question not listed here takes t
 - KTRL5-3: the KTR5 module pieces wait for round 2b (blocked-by note), so each site is converted once in Logic.
 - KTR5-4170: keep the stored `SignatureHash` and its status; comparers only for in-memory matching.
 - KTR5-4678: v5 only.
+
+## Applied 2026-11-04
+
+All 14 splits applied in Linear: 70 new pieces plus 4 standalone KTR5 issues for the round 2a moves (KTR5-4722 to 4725), 0 refused calls. HASAWB-14, HASAWB-15, KTR5-4637 and KTR5-4580 became sub-issues; each original lost its estimate and got a "Split on 2026-11-04" line. KTR5-4679 is Canceled. Round 2a moves #19 to #31 were not filed: they are done, uncommitted, in the Kelly-Revit-v5 working tree. Not linked: KTR5-4683 overlaps KTR5-4698 (`ModuleManageViewModel`).
+
+### Group A
+
+KTR5-4689 → KW3-15 (KW3, 4) `ShellTools`, `ClipboardTools`, `UserPrincipalExtensions`: add seams and tests
+KTR5-4689 → KTRUI-10 (KTRUI, 4) Tests for the 16 untested Kelly-Revit-UI types
+KTR5-4689 → KTR5-4703 (KTR5, 2) Add-in host: tests for `Caches`, the 4 event handlers, `Resources`, `ApplicationSessionService`
+KTR5-4689 → KTR5-4705 (KTR5, 4) Trade.All assigners: tests for the combo boxes, settings and event handlers
+KTR5-4689 → KTR5-4708 (KTR5, 4) Trade.All view models: Spools, Supports, Layout Points, Module Creator
+KTR5-4689 → KTR5-4709 (KTR5, 4) Trade.All other commands: Vicious, About, Arranger, Excel, updater helpers
+KTR5-4689 → KTR5-4710 (KTR5, 2) Trade.All ribbon items: tests for the 24 stacked buttons and enablers
+KTR5-4689 → KTR5-4711 (KTR5, 4) Contenter, Developer, Duct and Pipe modules: tests for the 15 untested types
+KTR5-4689 → KTR5-4712 (KTR5, 1) Tests.Revit: the 4 tests that need the add-in started fail with it disabled
+KTR5-4678 → KTR5-4713 (KTR5, 4) Vicious Point To Pipe: move the view's code-behind logic into the view model
+KTR5-4678 → KTR5-4714 (KTR5, 4) Vicious Point To Pipe: break up `ViciousFileBasedSystemPipePlaceTools`
+KTR5-4678 → KTR5-4715 (KTR5, 4) Vicious Straights Racker: clean up `ViciousInstanceElevationAssignViewModel`
+KTR5-4678 → KTR5-4716 (KTR5, 4) Vicious Instance Rotate Move: clean up the command
+KTR5-4678 → KTR5-4717 (KTR5, 2) Vicious Fabrication Hanger Place: clean up command and options window
+KTR5-4678 → KTR5-4718 (KTR5, 2) Vicious Instance Level Assign and Instance Disconnect: clean up
+KTR5-3827 → KD-38 (KD, 4) Pipe offset geometry: points for lateral, vertical and rolling offsets
+KTR5-3827 → KTRL5-45 (KTRL5, 4) Pipe offset: create the offset in an MEP pipe run
+KTR5-3827 → KTRL5-46 (KTRL5, 4) Pipe offset: create the offset in a fabrication part run
+KTR5-3827 → KTR5-4719 (KTR5, 4) Pipe Offset Create: command, window and push button in Trade.Pipe
+
+Order: KD-38 blocks KTRL5-45 and KTRL5-46; KTRL5-45 and KTRL5-46 block KTR5-4719.
+Originals KTR5-4689, KTR5-4678, KTR5-3827: estimate cleared, split line appended; status, labels and project unchanged.
+Project "Pipe Offset Create (Command)" set only on KTR5-4719 (the project's only team is KTR5).
+Refused calls: none.
+
+### Group B
+
+KTR5-4170 → KD-37 (KD, 2) `SupportTagNumbering.NextTag`: find identical supports with an `IEqualityComparer<T>`
+KTR5-4170 → KTRL5-32 (KTRL5, 2) `VerticalSupportMemberComparer`
+KTR5-4170 → KTRL5-34 (KTRL5, 4) `SuspendedSupportComparer`: use it in `GetNextTag` and the signature-tag match grouping
+KTR5-4170 → KTRL5-36 (KTRL5, 2) `FabricationPartGeometryComparer`
+KTR5-4170 → KTR5-4697 (KTR5, 2) Fabrication Part Dimension Log and Suspended Support Manager: use the comparers
+KTR5-3144 → KTR5-4699 (KTR5, 1) Spool Creator V1: reproduce the assembly creation failure on family instances
+KTR5-3144 → KTRL5-37 (KTRL5, 2) `Spool`: nudge family instances 1/32" before `AssemblyInstance.Create`
+KTR5-3144 → KTR5-4701 (KTR5, 1) Spool Creator V1: repin and verify on the failing families
+KTR5-3279 → KTRL5-38 (KTRL5, 4) `PhysicalElementEntity`: report property errors through `ModelBase`
+KTR5-3279 → KTRL5-39 (KTRL5, 2) `SuspendedSupport` and `VerticalSupportMember`: validation rules for the editable properties
+KTR5-3279 → KTR5-4702 (KTR5, 2) Suspended Support Manager: mark rows with invalid properties
+KTR5-4480 → KTRL5-40 (KTRL5, 4) `OperationService`: per-element loop helper that logs and skips a failed element
+KTR5-4480 → KTRL5-41 (KTRL5, 4) Per-element catch in the Logic change loops: Elements, Fabrication, Spools, Supports, Updaters
+KTR5-4480 → KTRL5-42 (KTRL5, 4) Per-element catch in the other Logic change loops: Views, Documents, Families, Layout Points, MEP, …
+KTR5-4480 → KTR5-4704 (KTR5, 2) Per-element catch in the Trade.All color filter assigners
+KTR5-4480 → KTR5-4706 (KTR5, 4) Per-element catch in the spool and support managers
+KTR5-4480 → KTR5-4707 (KTR5, 2) Per-element catch in the remaining module commands
+
+Blocks: KD-37 → KTRL5-34; KTRL5-32 → KTRL5-34; KTRL5-34 → KTR5-4697; KTRL5-36 → KTR5-4697; KTR5-4699 → KTRL5-37; KTRL5-37 → KTR5-4701; KTRL5-38 → KTR5-4702; KTRL5-39 → KTR5-4702; KTRL5-40 → KTRL5-41, KTRL5-42, KTR5-4704, KTR5-4706, KTR5-4707
+
+Related: KTR5-4170 ↔ KTR5-3277, KD-7; KTR5-3144 ↔ KTR5-4512; KTR5-4480 ↔ KTRL5-3, KTR5-4637; KTR5-4706 ↔ KTR5-4637 (piece 5). KTR5-3279 ↔ KTR5-2967 was already linked.
+
+Originals: estimate cleared and the "Split on 2026-11-04 into sub-issues ..." line appended on all four; status, labels and project unchanged.
+
+Notes: pieces carry the type label from the table (Add/Change/Fix); the originals have no function label. Project set on the KTR5 pieces only (General, Spool Creator V1 (Command), Suspended Support Manager (Command) are KTR5-only projects); KD/KTRL5 pieces have none. Priority copied (High for the KTR5-3144 pieces, none otherwise).
+
+Refused calls: none.
+
+### Group C
+
+KTRL5-5 → KTRL5-24 (KTRL5, 4) Updater element services: resolve the 23 "Implement Data Point" notes
+KTRL5-5 → KTRL5-25 (KTRL5, 2) Spool: write uniform line, spool, module number and group to the assembly
+KTRL5-5 → KTRL5-26 (KTRL5, 4) Spools: type JhkTag as Tag, give IsSpoolAble a result, plan a LineNumber type
+KTRL5-5 → KTRL5-27 (KTRL5, 2) SuspendedSupport: settle the 6 notes on its shape and property notifications
+KTRL5-5 → KTRL5-28 (KTRL5, 2) Service and System document caches: name and place them as data-store caches
+KTRL5-5 → KTRL5-29 (KTRL5, 2) Size data model, annotation arranger, layout point recipe: last 5 notes
+KTRL5-3 → KTRL5-30 (KTRL5, 2) OperationService.Run: Elements, Families, Projects, Mep and Updaters sites
+KTRL5-3 → KTRL5-31 (KTRL5, 2) OperationService.Run: Fabrication, Spools and Supports sites
+KTRL5-3 → KTRL5-33 (KTRL5, 2) OperationService.Run: Views, Layout Points and Arrangement sites
+KTRL5-3 → KTRL5-35 (KTRL5, 2) OperationService.Run: decide the 3 Logic sites that commit partial work
+KTRL5-3 → KTR5-4696 (KTR5, 2) OperationService.Run: assigner filter, Duct, Manager and Rotate Move commands
+KTRL5-3 → KTR5-4698 (KTR5, 2) OperationService.Run: Layout Point Export, Module Manage, Spool Create, Support Manager
+KTRL5-3 → KTR5-4700 (KTR5, 2) OperationService.Run: decide Many Connect, Custom Data Updater V2, Layout Point CSV, Spool Create
+KTRL5-1 → KTRL5-43 (KTRL5, 2) CustomDataUpdateEvaluator: switch ResolveRecord to Domain TryResolveRecord (#57)
+KTRL5-1 → KTRL5-44 (KTRL5, 1) Pack `Kelly.Revit.Logic` with the round 2a source-side deletions (P6a, P6b)
+KTRL5-1 → KTRUI-11 (KTRUI, 1) Repin `Kelly.Revit.Logic` to the package without the moved copies
+
+Links:
+- All 16 pieces are sub-issues of their original (KTR5-4696/4698/4700 and KTRUI-11 cross-team).
+- KTRL5-28 relatedTo KTRL5-2 (named in its description).
+- KTRL5-44 blocks KTRUI-11; KTRUI-11 blocks KTR5-4580.
+- KTR5-4637 parent = KTRL5-3.
+- KTR5-4580 parent = KTRL5-1; note on `LayoutPointFromCommaSeparatedValueImportViewModel.cs:220` appended.
+- KTRL5-5 relatedTo KTR5-4136, KTR5-4680; KTRL5-3 relatedTo KTR5-4480.
+
+Originals:
+- KTRL5-5: estimate cleared; description count updated to 45; split line appended.
+- KTRL5-3: retitled "Move the 66 remaining OperationService call sites to Run and Run<T>"; estimate cleared; split line appended (incl. KTR5-4637, category D sites stay).
+- KTRL5-1: estimate cleared; split line appended (incl. KTR5-4580 and the block chain).
+- Status, labels, project unchanged on all three.
+
+Refused calls: none.
+Note: KTR5-4683 "Use OperationService.IsCommitted in ModuleManageViewModel" overlaps KTR5-4698 (ModuleManageViewModel x2); not linked (not in the approved plan).
+
+### Group D
+
+#### Applied 2026-11-04 (group D: KTR4-18, KW3-1)
+
+#### KTR4-18 (sub-issues; each relatedTo KTRL5-5; estimate cleared, split line appended)
+KTR4-18 → KTR4-66 (KTR4, 4) Assigner combo boxes: one base class for the six, ComboBoxExtensions as a helper
+KTR4-18 → KTR4-67 (KTR4, 2) Assigner view-filter commands: share their common code
+KTR4-18 → KTR4-68 (KTR4, 4) Vicious commands, Arranger, Spool Sheet Open: scope collector and refactor notes
+KTR4-18 → KTR4-69 (KTR4, 4) Layout Point, Spool Manager, Support Manager, Weld Location, Duct and User Report notes
+KTR4-18 → KTR4-70 (KTR4, 4) Updater element services: resolve the "Implement Data Point" notes, merge the Service pair
+KTR4-18 → KTR4-71 (KTR4, 4) Spool and support models: the 14 notes
+KTR4-18 → KTR4-72 (KTR4, 2) Caches, material tools, sessions, error model, size model: the 14 notes
+KTR4-18 → KTRL4-2 (KTRL4, 2) ElementExtensions: add GetLengthInFeet, GetNominalSize, GetWeight, ResetValuesTransaction (blocks KTR4-73)
+KTR4-18 → KTR4-73 (KTR4, 1) ElementExtensions: call the Logic copies and delete the add-in's four
+
+#### KW3-1 (sub-issues; estimate cleared, split line appended)
+KW3-1 → KTR5-4720 (KTR5, 2) Point to Pipe and Rotate Move: call the Kelly.Windows helpers of moves #3, #10, #11
+KW3-1 → KTR5-4721 (KTR5, 1) Layout Point Export, About and App: call the Kelly.Windows helpers of moves #4, #15, #16
+Existing linked as related to KW3-1: KTR5-4580, KTRL5-1
+
+#### KW3-1 related (round 2a, standalone KTR5, labels Change + Architecture and services)
+KW3-1 → KTR5-4722 (KTR5, 2) Layout Point Export and Import: call the Kelly.Domain rules of moves #42 to #45
+KW3-1 → KTR5-4723 (KTR5, 2) Spool Create and Module Creator: call the Kelly.Domain rules of moves #61, #73 to #76
+KW3-1 → KTR5-4724 (KTR5, 2) Point to Pipe: call the Kelly.Domain PCF and settings rules of moves #59 and #60
+KW3-1 → KTR5-4725 (KTR5, 2) Weld Location Set, Hanger Place, Proposed Report: call the Domain rules #37, #56, #80
+
+Not filed: #19 to #31 (`ValidateRequirements` in 13 views). In the Kelly-Revit-v5 working tree all 13 views already call `ThrowIfNotReady`, with a new `test/Tests.Revit/Commands/ViewReadinessTests.cs` (uncommitted, with the UI repin to 1.26.1104.1305 and the `LayoutPointTools.HasAcceptedHeader` change of KTR5-4580). Treated as done in progress; file an issue only if that work is dropped.
+All 14 Domain moves (#37, #42-#45, #56, #59-#61, #73-#76, #80) and the six KW3-1 sites were checked: still open in Kelly-Revit-v5.
+
+#### Refused calls
+None.
+
+#### Notes
+- KTR5-4720 and KTR5-4721: Linear still renders the `Kelly.Windows` in "Done when" as a web link after a full description resend with backticks (the first occurrence stayed code); cosmetic, left as is.
+
+### Group E
+
+#### Applied splits E (2026-11-04)
+
+HASA-71 → HASAW-43 (HASAW, 4) Web: outline view area → noun → task
+HASA-71 → HASAW-44 (HASAW, 2) Web: task view grouped by noun and area
+HASA-71 → HASAW-45 (HASAW, 4) Web: mind map view of areas, nouns and components
+HASA-71 → HASAWB-33 (HASAWB, 4) Blazor: outline view area → noun → task
+HASA-71 → HASAWB-34 (HASAWB, 2) Blazor: task view grouped by noun and area
+HASA-71 → HASAWB-35 (HASAWB, 4) Blazor: mind map view of areas, nouns and components
+HASA-62 → HASAWB-36 (HASAWB, 2) Blazor parity check against the React app
+
+Links:
+- HASAWB-14 made sub-issue of HASA-62 (status In Progress unchanged)
+- HASAWB-15 made sub-issue of HASA-62 (status In Progress unchanged)
+- HASA-71 and HASA-62: estimate removed (was 16), split line appended; status, labels, project unchanged
+
+Cancel:
+- KTR5-4679 → Canceled, cancel note appended
+
+Notes: all new pieces are sub-issues, labels Frontend (views) or Product (parity check), priority None, no project (originals have none). No duplicates found by list_issues. No refused calls.
+
