@@ -31,3 +31,22 @@ for file in "$@"; do
 
     echo "$(basename "$(dirname "$file")"): $(grep -m1 "^\*\*Complete: " "$file")"
 done
+
+# Copy each repository's percent into the index table ("| [Repo](Repo/Quick-Backlog.md) ... | N% (d of t) |"),
+# reading the whole-file Complete line of every */Quick-Backlog.md. Runs on every call.
+index="/c/repo/jhkweb/Backlog - Quick.md"
+if [ -f "$index" ]; then
+    perl -i -pe '
+        BEGIN {
+            for my $f (glob "/c/repo/jhkweb/*/Quick-Backlog.md") {
+                my ($repo) = $f =~ m{/([^/]+)/Quick-Backlog\.md$};
+                open my $h, "<", $f or next;
+                while (<$h>) { last if /^## /; if (/^\*\*Complete: (\d+% \(\d+ of \d+\))\*\*/) { $pct{$repo} = $1; last } }
+            }
+        }
+        if (/^\| \[([^\]]+)\]\(\1\/Quick-Backlog\.md\)/ && exists $pct{$1}) {
+            my $r = $1; s/\| *\d+% \(\d+ of \d+\) *\|(\s*)$/| $pct{$r} |$1/;
+        }
+    ' "$index"
+    echo "index table: $(grep -c '^| \[' "$index") rows updated from the repository files"
+fi

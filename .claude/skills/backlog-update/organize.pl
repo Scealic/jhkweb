@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 # usage: organize.pl <backlog.md> <rules.tsv>
 # Moves every item (with its indented sub-items) out of the file's "To Organize" (## or ###)
-# into "## <Function>" > "### <Added|Changed|Fixed|Deleted>": an open item before the first
+# into "## <Function>" > "### <Add|Change|Fix|Delete>": an open item before the first
 # done item there, a done item at the end. Missing headings are created (a function at the end
-# of the file, a sub-heading in Added/Changed/Fixed/Deleted order). Keeps CRLF or LF.
+# of the file, a sub-heading in Add/Change/Fix/Delete order). Keeps CRLF or LF.
 # rules.tsv lines: <perl regex on the item's first line>\t<Function>\t<Sub>   (first match wins;
 # end with ".\t<Function>\t<Sub>" as a catch-all). If any item matches no rule, nothing is written.
 # Check the counts it prints, then run openfirst.pl and check.sh.
@@ -19,7 +19,7 @@ pop @L if @L && $L[-1] eq '';
 open my $sh, '<:raw', $spec or die $!; my @rules;
 for (split /\n/, do { local $/; <$sh> }) { s/\r$//; next unless /\S/; my @p = split /\t/; push @rules, [qr/$p[0]/, $p[1], $p[2]]; }
 
-my %rank = (Added => 1, Changed => 2, Fixed => 3, Deleted => 4);
+my %rank = (Add => 1, Change => 2, Fix => 3, Delete => 4);
 
 # --- extract To Organize items
 my ($ts) = grep { $L[$_] =~ /^(##|###) To Organize\s*$/ } 0..$#L; die "no To Organize" unless defined $ts;

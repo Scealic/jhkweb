@@ -1,8 +1,8 @@
-brand colors	Tools, ribbon and UI	Changed
-^- \[ \] Point to Pipe: the unit names	Code quality and cleanup	Changed
-PushButton names	Code quality and cleanup	Changed
-User Domain Report	Tools, ribbon and UI	Changed
-^- \[x\] .test/Tests.Revit	Versioning, build and install	Fixed
-^- \[x\] (Move the feet|Round 1 layer moves)	Architecture and services	Changed
-^- \[x\] Host root namespace	Code quality and cleanup	Fixed
-.	Tools, ribbon and UI	Fixed
+brand colors	Tools, ribbon and UI	Change
+^- \[ \] Point to Pipe: the unit names	Code quality and cleanup	Change
+PushButton names	Code quality and cleanup	Change
+User Domain Report	Tools, ribbon and UI	Change
+^- \[x\] .test/Tests.Revit	Versioning, build and install	Fix
+^- \[x\] (Move the feet|Round 1 layer moves)	Architecture and services	Change
+^- \[x\] Host root namespace	Code quality and cleanup	Fix
+.	Tools, ribbon and UI	Fix
