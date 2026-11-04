@@ -2,7 +2,7 @@
 # Read-only checks of the quick backlogs (step 4 and 5 of SKILL.md). Changes nothing.
 # Usage: check.sh            (every */Quick-Backlog.md and the index)
 #        check.sh file ...   (only those files; the repository counts still run)
-# Reports: open items below a done one, duplicate items within a file, mojibake,
+# Reports: open items below a done one, duplicate items within a file, mojibake, open items with no short title,
 # possible secrets, links whose target does not exist (relative to the file),
 # and the `// todo` and `new OperationService(` counts to copy into the dated notes.
 
@@ -34,6 +34,12 @@ for f in "$@"; do
         t=${t%%#*}; t=${t//%20/ }
         [ -e "$dir/$t" ] || echo "$f: $t"
     done
+done
+
+echo "== Open items with no short title (no ' — ' within the first 100 characters; see 'Linear-ready items')"
+for f in "$@"; do
+    n=$(grep -E '^\s*- \[ \]' "$f" | perl -CSD -ne 's/^\s*- \[ \] //; $i = index($_, " \x{2014} "); print if $i < 0 || $i > 100' | wc -l)
+    [ "$n" -gt 0 ] && printf '%-48s %s\n' "$f" "$n"
 done
 
 echo "== // todo comments per repository"

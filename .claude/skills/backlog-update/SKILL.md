@@ -67,16 +67,36 @@ Links are relative to the backlog file: a working document at the jhkweb root is
    - Never tick something only because it is in source: say "built, not installed" or "not tested in Revit" where that is the case.
    - Superseded items: `- [x] ~~text~~ — superseded: <why>`; they count as closed.
 5. **Deduplicate within each file** (`check.sh` lists items whose first 70 characters match; also look for the same bug worded differently). The same item may appear in the v4 and the v5 files (that is intended); within one file keep one copy, merging their notes. An item that is part of another becomes its sub-item.
-6. **Fix spelling and capitalization**: sentence case for item text, keep proper names (Kelly Tools For Revit, KTR, Revit, SQL Server, CSV, JSON, Linear, InstallShield, Contenter, type and file names). Code names in backticks. Don't change meaning; leave link targets alone. Don't name Kelly Tools For Revit or KTR in the Kelly-Windows-Data, Kelly-Windows and Kelly-Domain files.
+6. **Fix spelling and capitalization**: sentence case for item text, keep proper names (Kelly Tools For Revit, KTR, Revit, SQL Server, CSV, JSON, Linear, InstallShield, Contenter, type and file names). Code names in backticks. Don't change meaning; leave link targets alone. Don't name Kelly Tools For Revit or KTR in the Kelly-Windows-Data, Kelly-Windows and Kelly-Domain files. Make every item you file, move or touch Linear-ready (see "Linear-ready items"): give it a short title if it has none, and add the severity word where a note gives one. Leave untouched items alone; `check.sh` lists open items with no short title, for a later pass.
 7. **Recompute the percents**: run `bash "C:/repo/jhkweb/.claude/skills/backlog-update/percent.sh"` (every `*/Quick-Backlog.md`; a Complete line above the first heading 2 counts the whole file), then `bash "C:/repo/jhkweb/.claude/skills/backlog-update/percent.sh" "/c/repo/jhkweb/Backlog - Quick.md"` for the index's "Other" section. Either call also fills in the index table from the repository files. A new repository needs its row added by hand first (`| [<repo>](<repo>/Quick-Backlog.md) | 0% (0 of 0) |`).
 8. **Back up again** with the script from step 1, and confirm each file matches its newest backup (`cmp`). Run `check.sh` once more: its first four sections should be empty. Commit the index to the jhkweb root repo. The `Quick-Backlog.md` files belong to their repositories: commit them there only when the user asks, so end the turn with a `wrap_up` question offering to commit them. That covers every repository whose file changed, including those where only a dated note changed. Commit on `develop` with the path alone (`git -C <repo> commit -m "…" -- Quick-Backlog.md`), so no file the user staged goes with it, and never push unless asked.
-9. **Report**: what was ticked (with the evidence), duplicates removed, the new percents, and anything odd (missing or moved linked files, secrets). List every item that was in a "To Organize" with the file and heading it moved to (a table), and say which were ticked, so the user can find their new items: an emptied "To Organize" otherwise looks like deleted items. With many items, group them by source and target in one row ("34 open ViewModel-review bugs → Tools, ribbon and UI › Fixed"), and name single items one by one.
+9. **Report**: what was ticked (with the evidence), duplicates removed, the new percents, and anything odd (missing or moved linked files, secrets). List every item that was in a "To Organize" with the file and heading it moved to (a table), and say which were ticked, so the user can find their new items: an emptied "To Organize" otherwise looks like deleted items. With many items, group them by source and target in one row ("34 open ViewModel-review bugs → Tools, ribbon and UI › Fix"), and name single items one by one.
 
 ## Rules
 
 - Never put passwords, tokens or connection strings in a backlog. If one is there, point it out and offer to remove it.
 - Don't delete an item the user wrote; tick it, mark it superseded, or merge it with its duplicate.
 - Say "Major Version" or "v4"/"v5", never "Generation" in new text; old item text stays as written.
+
+## Linear-ready items
+
+The quick backlogs are a staging area: once Claude may connect to Linear, each repository's open items go to that repository's Linear team (or sub-team; not decided yet, see the index's Other › Process). Linear is not connected yet, so push nothing and build no sync. Keep each item ready to become one issue:
+
+| Backlog | Linear |
+|---|---|
+| Repository | Team (or sub-team) |
+| Item text before the first ` — `: a short title, under about 80 characters, that names the tool or type and the problem or goal | Issue title |
+| The rest of the item: detail, file and line, likely fix, dated notes | Description |
+| Function heading 2 (Tools, ribbon and UI, …) | Label |
+| Add / Change / Fix / Delete | Feature / Improvement / Bug / Chore (type or label) |
+| `severity high`, `medium` or `low` in the note | Priority High, Medium or Low (no severity: No priority) |
+| Sub-items | Sub-issues |
+| Done (`[x]`) and superseded items | Not moved; they stay here as the record |
+
+- **Title first.** A new item starts with its short title, then ` — `, then the detail: `- [ ] Layout Point Import: 'Specify Level?' always fails the import — The level combo binds a Level to … — found 2026-11-03 …`. When an existing item has no short title, write one in front of the current text and keep that text, word for word, as the detail. Rewording it would lose evidence.
+- **One item, one issue.** An item that holds two problems becomes two items, or a parent with sub-items.
+- **Linear key once moved.** When an item has been created in Linear, add ` — Linear: <KEY-123> (<date>)` after it, and leave it open here until it is done in Linear. An item with a Linear key is never sent again; tick it when its Linear issue is done, with the key as the evidence.
+- The same bug in v4 and v5 is one item in each add-in backlog, so it becomes one issue per team; say in each note that the other version has it too (the ViewModel-review items already do).
 
 ## Recovering lost items
 
