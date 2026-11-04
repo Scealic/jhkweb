@@ -80,7 +80,7 @@ Links are relative to the backlog file: a working document at the jhkweb root is
 
 ## Linear-ready items
 
-The quick backlogs are a staging area: each repository's open items go to that repository's Linear team (workspace "jhkelly"; teams created 2026-11-04). Push an item only after the user approves it, and build no automatic sync. Keep each item ready to become one issue.
+The quick backlogs are a staging area: each repository's items go to that repository's Linear team (workspace "jhkelly"; teams created 2026-11-04; every item that had a team was moved on 2026-11-04). Push an item only after the user approves it, and build no automatic sync. A new item added later is moved the same way, then keeps its key here. Keep each item ready to become one issue.
 
 | Repository backlog | Linear team (key) |
 |---|---|
@@ -105,11 +105,12 @@ The item maps to an issue like this:
 | Repository | Team (table above) |
 | Item text before the first ` — `: a short title, under about 80 characters, that names the tool or type and the problem or goal | Issue title |
 | The rest of the item: detail, file and line, likely fix, dated notes | Description |
-| Function heading 2 (Tools, ribbon and UI, …) | Label |
-| Add / Change / Fix / Delete | Feature / Improvement / Bug / Chore (type or label) |
-| `severity high`, `medium` or `low` in the note | Priority High, Medium or Low (no severity: No priority) |
+| Function heading 2 (Tools, ribbon and UI, …) | Label in the workspace group "4 - Function" (v4's "Architecture", "Data", "Testing" use the longer labels; To Organize: none). A new function heading needs a new label in that group first |
+| Add / Change / Fix / Delete | Label of the same name in the workspace group "1 - Type" |
+| `severity high`, `medium` or `low` in the note; deferred items | Priority High, Medium or Low; deferred: Low (otherwise No priority) |
 | Sub-items | Sub-issues |
-| Done (`[x]`) and superseded items | Not moved; they stay here as the record |
+| Description footer | `---` then ``From `<Repo>/Quick-Backlog.md` › <H2> › <H3> (moved <date>).`` Wrap dotted names (`Kelly.Windows`) in backticks or Linear makes them web links |
+| Open (`[ ]`) / done (`[x]`) / superseded items | Status Backlog / Done / Canceled. Every item moves, done ones too (user decision 2026-11-04) |
 
 - **Title first.** A new item starts with its short title, then ` — `, then the detail: `- [ ] Layout Point Import: 'Specify Level?' always fails the import — The level combo binds a Level to … — found 2026-11-03 …`. When an existing item has no short title, write one in front of the current text and keep that text, word for word, as the detail. Rewording it would lose evidence.
 - **One item, one issue.** An item that holds two problems becomes two items, or a parent with sub-items.
