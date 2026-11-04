@@ -80,11 +80,28 @@ Links are relative to the backlog file: a working document at the jhkweb root is
 
 ## Linear-ready items
 
-The quick backlogs are a staging area: once Claude may connect to Linear, each repository's open items go to that repository's Linear team (or sub-team; not decided yet, see the index's Other › Process). Linear is not connected yet, so push nothing and build no sync. Keep each item ready to become one issue:
+The quick backlogs are a staging area: each repository's open items go to that repository's Linear team (workspace "jhkelly"; teams created 2026-11-04). Push an item only after the user approves it, and build no automatic sync. Keep each item ready to become one issue.
+
+| Repository backlog | Linear team (key) |
+|---|---|
+| Kelly-Revit-v5 (all of v5) | Kelly Tools For Revit 5 (KTR5) |
+| Kelly-Revit-UI | Kelly Tools For Revit 5 › Kelly-Revit-UI (KTRUI) |
+| Kelly-Revit-Logic-v5 | Kelly Tools For Revit 5 › Kelly Revit Logic 5 (KTRL5) |
+| Kelly-Revit-v4 (all of v4) | Kelly Tools For Revit 4 (KTR4) |
+| Kelly-Revit-Logic-v4 | Kelly Tools For Revit 4 › Kelly Revit Logic 4 (KTRL4) |
+| Kelly-Windows-v3 / -v2 | Kell Windows 3 (KW3) / Kell Windows 2 (KW2) |
+| Kelly-Windows-Data-v3 / -v2 | Kell Windows Data 3 (KWD3) / Kell Windows Data 2 (KWD2) |
+| Kelly-Windows-Data-Csv / -Json | Kelly Windows Data CSV (KWDC) / JSON (KWDJ) |
+| Kelly-Windows-Data-SqlServer / -Sqlite | Kelly Windows Data SQL Server (KWDSS) / Sqlite (KWDSL) |
+| Kelly-Domain, BuildConfigs, Kelly-Revit-Data-Exporter, the VCS schemas, the index's Other | No team yet: don't push |
+
+Check the teams with the Linear connector's `list_teams` before a push; the user may have renamed or added some. The connector cannot create teams.
+
+The item maps to an issue like this:
 
 | Backlog | Linear |
 |---|---|
-| Repository | Team (or sub-team) |
+| Repository | Team (table above) |
 | Item text before the first ` — `: a short title, under about 80 characters, that names the tool or type and the problem or goal | Issue title |
 | The rest of the item: detail, file and line, likely fix, dated notes | Description |
 | Function heading 2 (Tools, ribbon and UI, …) | Label |
