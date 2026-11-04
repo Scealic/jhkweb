@@ -21,8 +21,8 @@ Moves:
 
 | Status | Count | Moves |
 |---|---|---|
-| Done | 91 | all but #4 and #57 (11 in round 2a, 80 in the source-side pass) |
-| Partial | 2 | #4 and #57: the lower copy exists, but the original stays because its behaviour differs |
+| Done | 93 | all of them: 11 in round 2a, 80 in the source-side pass, and #4 and #57 after the user chose to switch them |
+| Partial | 0 | |
 | Skipped | 0 | |
 | Deferred by the user | 1 | #34 |
 
@@ -148,10 +148,17 @@ Also noted:
 - Logic 78f5d98;
 - Kelly-Revit-v5 241a0e79, de28a2e2, 09961350 and bb256105.
 
+## #4 and #57 switched (2026-11-04, after the user said "Switch both")
+
+Both were done test-first, with red seen before the change:
+- **#57** (Kelly-Revit-Logic-v5 bc11139, docs and backlog tick cc369cb, package 5.26.1104.1425). `EvaluatePart` calls Kelly.Domain's `TryResolveRecord`, and the private `ResolveRecord` is gone. A null record index now throws `ArgumentNullException`; no caller passes one. 244 of 244 updater and Architecture tests pass in Revit 2024.
+- **#4** (Kelly-Revit-v5 33713a28, backlog tick 0e21dbc7). Layout Point To CSV Export opens the folder with `ShellTools.OpenInExplorer`, so a path with spaces now opens. 208 of 212 in Revit 2024; the 4 need the add-in started.
+- Kelly-Revit-UI is repinned to Logic 5.26.1104.1425 and packed as 1.26.1104.1426 (309f1cb and the repin before it). Kelly-Revit-v5 pins it. All 21 configurations build with 0 errors. The UI in-Revit tests were not rerun (its code is unchanged).
+- `check-rules.pl` is still at the baseline. The manifests are as at the start.
+
 ## What to check
 
-1. **Decide #4 and #57** (backlog items in Kelly-Revit-v5 and Kelly-Revit-Logic-v5).
-2. **Decide on the "Moved from … Kelly-Revit-Logic-v5, which keeps …" remarks** in Kelly-Domain (34). They name the higher layers in Domain. They are now true apart from #57, but the history is already in the Changelogs.
-3. **Confirm the pushes made at 12:06 to 13:09 were intended**, and push the rest of `develop` bottom-up when ready.
-4. **Not covered:** in-Revit tests in Revit 2025 and 2026, and an install of the v5 add-in to try the tools by hand.
-5. **Round 2b** (#91 to #254) is still to plan and run.
+1. **Decide on the "Moved from … Kelly-Revit-Logic-v5, which keeps …" remarks** in Kelly-Domain (34). They name the higher layers in Domain. They are now true, but the history is already in the Changelogs.
+2. **Confirm the pushes made at 12:06 to 13:09 were intended**, and push the rest of `develop` bottom-up when ready.
+3. **Not covered:** in-Revit tests in Revit 2025 and 2026, and an install of the v5 add-in to try the tools by hand.
+4. **Round 2b** (#91 to #254) is still to plan and run.
