@@ -132,7 +132,7 @@ Extra labels on open project issues that cover more than their project:
 | KTR5-4494 | IUpdaters: analyze what each updater needs | Auto Updaters |
 | KTR5-4726 | Deprecate the Component and Product IUpdaters and Manual Updaters | Auto Updaters, Manual Updater |
 
-### Open issues that need your call (Question 3)
+### Open issues that needed your call (Question 3; answered under Decisions)
 
 | Issue | Title (short) | Suggestion |
 |---|---|---|
@@ -155,14 +155,16 @@ Function labels already place these: KTR5-4480, 4136, 4170, 4175, 2967, 3831, 43
 
 0. Check multi-select: create the group "5 - Feature" with two labels, try both on one test issue, then remove the test labels. Choose the group or
    the `F: ` fallback.
-1. Create the 146 feature labels (plus any new ones from Question 3).
-2. Label every issue of each feature project (about 430 issues; batches per project).
-3. Label the open issues in the tables above.
-4. Clear the project of open issues in projects being archived.
-5. Archive the 137 projects (134 feature, General, Project Report SQL Export, Global). Kept projects stay.
-6. Update the `kelly-linear-projects` skill (and its line in `.claude/CLAUDE.md`): features are labels in "5 - Feature" and projects are bounded
+1. Create the feature labels: 146 from the projects (2 already exist), plus User Report, Window Mockup and Fabrication Part Missing ITM Report = 149.
+2. Label every issue of each feature project, open and closed (about 430 issues; batches per project).
+3. Label the open issues in the tables above, with the answers to Question 3.
+4. Create the group "5 - Module" with All, Pipe, Duct, Contenter, Manager, Developer and Host, map each feature label to the module whose DLL holds
+   it (from `Kelly-Revit-v5/modules/Trade.*` and `src`), and give every feature-labelled issue the module labels of its features.
+5. Clear the project of open issues in projects being archived.
+6. Archive the 137 projects (134 feature, General, Project Report SQL Export, Global). Kept projects stay.
+7. Update the `kelly-linear-projects` skill (and its line in `.claude/CLAUDE.md`): features are labels in "5 - Feature" and projects are bounded
    work only. Make `kelly-backlog-update` and the other `linear-issue-*` skills set a feature label when an issue names a tool.
-7. Spot-check: filter KTR5 by three feature labels and compare with the old project counts.
+8. Spot-check: filter KTR5 by three feature labels and compare with the old project counts.
 
 ## Option: sub-teams by trade module
 
@@ -180,10 +182,23 @@ The add-in is a host plus one DLL per ribbon tab (Trade.All, Trade.Pipe, Trade.D
 Sub-teams do not replace feature labels: features stay labels either way. If sub-teams are chosen, step 1 creates each feature label in its
 module's sub-team and the issues move to that sub-team first.
 
-## Questions
+## Decisions (answered 2026-11-04)
 
-1. **Global (Command)**: which feature is it, or should it go?
-2. **Closed issues**: label them too (history by feature, about 320 extra updates), or open issues only?
-3. **The eight issues above**: which labels?
-4. **Modules**: sub-teams per trade module, a "5 - Module" label group, or neither?
-5. **Other Kelly teams** (KTR4 and its sub-teams, KW*, KWD*, KD): do the same there after KTR5?
+1. **Global (Command)**: archive the project, no label. No Global command exists in `Kelly-Revit-v5`.
+2. **Closed issues**: label them too, so a feature's filter shows its history.
+3. **The eight issues**:
+
+   | Issue | Labels |
+   |---|---|
+   | KTR5-4626 User Domain Report by EmployeeId | new **User Report** (`Trade.Developer/Commands/UserReport`) |
+   | KTR5-4668 Windows Mockup: product-code list goes blank | new **Window Mockup** (`Trade.Developer/WindowMockup`) |
+   | KTR5-4496 Family Version tool: fails on nested families | Family Revision Setter (`Trade.Contenter/Commands/RevisionSetter`) |
+   | KTR5-4256 Content cleanup: remove unused JHK shared parameters | Unused Shared Parameter Element Delete |
+   | KTR5-4255 Content cleanup: fabrication parts whose ITM is gone | new **Fabrication Part Missing ITM Report** |
+   | KTR5-4174 Welds: write material type and wall thickness | Auto Updaters |
+   | KTR5-4704 Per-element catch in the color filter assigners | the 10 color view filter labels: System Line, System Fill, Service Line, Service Fill, Shop and Field Line, Spool Number Line, Module Number Line, Line Number Line, Detailing Package Line, Pipe And Weld Field Trim Line Color View Filter |
+   | KTR5-3937 BIM Lite: still wanted? | none until decided |
+
+4. **Modules**: a "5 - Module" label group, not sub-teams (step 4). It is made **multi-select** like "5 - Feature", because issues such as KTR5-4697
+   (Developer and Trade.All) span modules; the step 0 check showed multi-select works.
+5. **Other Kelly teams**: KTR5 first; decide on the others after seeing how it works.
