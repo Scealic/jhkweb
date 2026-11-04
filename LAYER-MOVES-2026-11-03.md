@@ -8,7 +8,7 @@ Round 1 of the abstractions found in the 2026-11-03 ViewModel review, implemente
 
 Every move came from a design that an adversarial reviewer checked. Each work package was implemented test-first as one commit. Each repo's commits were then reviewed again and fixed until every configuration built and its tests passed, and the layer was packed. An audit then read the diffs against the run's starting commits.
 
-Nothing was pushed, and the add-in was not installed.
+`develop` was pushed bottom-up on 2026-11-04 in all six repos (Kelly-Windows-v3 `9e49e89`, Kelly-Domain `05dcfd0`, Kelly-Revit-Logic-v5 `0b0469b`, Kelly-Revit-UI `d8a0c1b`, Kelly-Revit-v5 `a4b93e65`, Kelly-Revit-v4 `5cf6bdf`). The add-in was not installed.
 
 ## Result
 
@@ -140,4 +140,6 @@ Each one is pinned by a test as current behaviour and backlogged as an open item
 
 ## Next
 
-Push `develop` bottom-up: Kelly-Windows-v3, Kelly-Domain, Kelly-Revit-Logic-v5, Kelly-Revit-UI, Kelly-Revit-v5, then Kelly-Revit-v4 (backlog only).
+- Done 2026-11-04: `develop` pushed bottom-up in all six repos.
+- Click through the four windows under "Things to check" in Revit 2024; installing v5 for that needs `-p:InstallAddin=true`.
+- Design round 2 from the remaining 25 Logic and 5 UI candidates.
