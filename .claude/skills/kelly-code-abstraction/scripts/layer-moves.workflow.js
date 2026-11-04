@@ -1,7 +1,7 @@
 export const meta = {
   name: 'kelly-layer-moves',
   description: 'Implement confirmed Kelly layer moves bottom-up (v5 repos): per layer, one test-first commit per work package, an adversarial review, fixes, full builds and tests, pack, and the version docs; then an audit',
-  whenToUse: 'Step 4 of the kelly-code-abstraction skill, after the user confirmed the plan. args: { scratch, base: { "<repo>": "<sha at start>" }, steps: [{ layer: "data"|"windows"|"domain"|"logic"|"ui"|"revit", packages: ["P2a-windows-parse", ...] }, ...] } bottom-up and consecutive, from the lowest layer that changes through "revit"; a layer with no moves gets packages: [] (repin only)',
+  whenToUse: 'Step 4 of the kelly-code-abstraction skill, after the user confirmed the plan. args: { scratch, date: "yyyy-mm-dd", base: { "<repo folder>": "<sha at start>" } (every repo in steps), design?: "<path of the design file the specs name>", steps: [{ layer: "data"|"windows"|"domain"|"logic"|"ui"|"revit", packages: ["P2a-windows-parse", ...] }, ...] } bottom-up and consecutive, from the lowest layer that changes through "revit"; a layer with no moves gets packages: [] (repin only)',
   phases: [
     { title: 'Data', detail: 'Kelly-Windows-Data-v3' },
     { title: 'Windows', detail: 'Kelly-Windows-v3' },
@@ -20,6 +20,9 @@ const SP = (args && args.scratch) || ''
 if (!SP) throw new Error('pass args.scratch')
 const PK = SP + '/packages'
 const BASE = args.base || {}
+const DATE = args.date || ''
+if (!/^\d{4}-\d{2}-\d{2}$/.test(DATE)) throw new Error('pass args.date (today, yyyy-mm-dd): it dates the Changelog headings')
+const DESIGN = args.design ? ` Designs and their review corrections: ${args.design}.` : ''
 const LAYER = {
   data: { repo: 'Kelly-Windows-Data-v3', phase: 'Data', quick: 'Net80', tests: true, revit: null },
   windows: { repo: 'Kelly-Windows-v3', phase: 'Windows', quick: 'Net80', tests: true, revit: null },
@@ -34,6 +37,8 @@ const STEPS = (args.steps || []).filter(s => LAYER[s.layer])
 if (!STEPS.length) throw new Error('pass args.steps')
 for (let i = 1; i < STEPS.length; i++) if (ORDER.indexOf(STEPS[i].layer) !== ORDER.indexOf(STEPS[i - 1].layer) + 1) throw new Error('args.steps must be consecutive layers, bottom-up')
 if (STEPS[STEPS.length - 1].layer !== 'revit') throw new Error('args.steps must end with "revit": every layer above a change is repinned')
+const noBase = STEPS.map(s => LAYER[s.layer].repo).filter(r => !BASE[r])
+if (noBase.length) throw new Error(`pass args.base with the starting sha of every repo in steps; missing: ${noBase.join(', ')}`)
 
 const COMMIT = { type: 'object', properties: { package: { type: 'string' }, commit: { type: 'string' }, done: { type: 'array', items: { type: 'string' } }, skipped: { type: 'array', items: { type: 'string' } }, red: { type: 'string' }, green: { type: 'string' }, filesCommitted: { type: 'array', items: { type: 'string' } }, bugsNoted: { type: 'array', items: { type: 'string' } }, followUps: { type: 'array', items: { type: 'string' } } }, required: ['package', 'commit', 'done', 'skipped', 'red', 'green', 'filesCommitted', 'bugsNoted', 'followUps'] }
 const REVIEW = { type: 'object', properties: { findings: { type: 'array', items: { type: 'object', properties: { package: { type: 'string' }, severity: { type: 'string', enum: ['high', 'medium', 'low'] }, file: { type: 'string' }, problem: { type: 'string' }, fix: { type: 'string' } }, required: ['package', 'severity', 'file', 'problem', 'fix'] } }, checkedAndFine: { type: 'array', items: { type: 'string' } } }, required: ['findings', 'checkedAndFine'] }
@@ -64,11 +69,11 @@ function packagePrompt(step, L, pkg, packed, versions) {
   const repin = below && versions[below] ? `If this is the first package of ${L.repo} in this run, repin first: bash ${S}/pins.sh set ${L.repo} ${versions[below]}.` : ''
   return `${common(packed)}
 ## Your stage: work package ${pkg} in ${L.repo}, ONE commit
-Spec: ${PK}/${pkg}.md (it names the design in ${SP}/round1-design.json and its review corrections). ${repin}
+Spec: ${PK}/${pkg}.md.${DESIGN} ${repin}
 1. Tests first: write or change the tests the spec names and show they fail (${L.tests ? `bash ${S}/kbuild.sh ${step.layer} test ${L.quick}` : `compile with bash ${S}/kbuild.sh ${step.layer} revittests 2024; in-Revit tests run later`}). Record the red result.
 2. Change the code: a MOVE keeps behaviour exactly; a FIX changes only the behaviour the spec names. Repoint every caller in this repo.
 3. Green: bash ${S}/kbuild.sh ${step.layer} verify ${L.quick}${L.tests ? ` and bash ${S}/kbuild.sh ${step.layer} test ${L.quick}` : ''} until 0 errors and no failing test.
-4. Docs in the same commit: README (layout row, members, test count from the TestLogs), Changelog entry headed "## 2026-11-03 (not yet in a package): ..."
+4. Docs in the same commit: README (layout row, members, test count from the TestLogs), Changelog entry headed "## ${DATE} (not yet in a package): ..."
    (Kelly-Revit-v5: "(not yet in a build)"), XML docs, Quick-Backlog (the spec says which items to add or tick).
 5. Commit with explicit paths; message: one subject line under 72 characters, then bullets. Return the sha, what was done or skipped, the red and green results.
 If something in the spec cannot be done as written, do the closest safe version or skip it and say why; never edit a packed layer.`
@@ -77,7 +82,7 @@ If something in the spec cannot be done as written, do the closest safe version 
 function reviewPrompt(step, L, packed) {
   return `${common(packed)}
 ## Your stage: adversarial review of this run's commits in ${L.repo}. READ-ONLY: edit nothing, build nothing.
-See them with git -C ${R}/${L.repo} log --stat ${BASE[L.repo] || 'HEAD~10'}..HEAD and git show per commit. Specs: ${PK}/P*.md for this layer, designs in ${SP}/round1-design.json.
+See them with git -C ${R}/${L.repo} log --stat ${BASE[L.repo]}..HEAD and git show per commit. Specs: ${PK}/P*.md for this layer.${DESIGN}
 For each commit try hard to find a defect: a MOVE that changed behaviour (compare old and new code line by line: conditions, ordering, case and culture
 comparisons, null handling, exceptions, messages, return values); a FIX that changed more than it should or lacks its test; tests that do not pin what they
 claim or whose expected values are wrong; missing tests for a new member; namespace != folder; Revit wording in a Revit-free layer; a public change without
@@ -97,7 +102,7 @@ ${JSON.stringify(payload.reports, null, 1)}
 Do:
 1. Re-check each review finding against the code; fix the real ones (behaviour-preserving for moves) in a commit "Review fixes: ..." (explicit paths); list the rejected ones with the reason.
 2. All of these must pass: ${builds}${L.tests ? `; bash ${S}/kbuild.sh ${step.layer} test (all configurations; check each TestLogs file has a row per test)` : ''}${L.revit ? `; bash ${S}/kbuild.sh ${step.layer} revittests` : ''}.
-${L.revit ? `3. Run the in-Revit tests against this source: bash ${S}/revit-test.sh ${L.revit.proj} ${isRevit ? '-' : '<filter for the fixtures this run touched, or - for all>'} ${SP}/revit-${step.layer}.log ${L.revit.extra} (${L.revit.full}${isRevit ? '; run them all' : '; run all if the run changed shared code'}). A test that needs the add-in started fails in such a run by design; name those. Compare the log's rows with the tests discovered.\n` : ''}4. perl ${S}/check-rules.pl: no new hit compared with the baseline in DECISIONS.md.
+${L.revit ? `3. Run the in-Revit tests against this source: bash ${S}/revit-test.sh ${L.revit.proj} ${isRevit ? '-' : '<filter for the fixtures this run touched, or - for all>'} ${SP}/revit-${step.layer}.log ${L.revit.extra} (${L.revit.full}${isRevit ? '; run them all' : '; run all if the run changed shared code'}). A test that needs the add-in started fails in such a run by design; name those. Compare the log's rows with the tests discovered. Exit code 3 means Revit or ricaun is already running: never close it; record revitTests as "compiled, not run (Revit open)", which does not block verifyClean.\n` : ''}4. perl ${S}/check-rules.pl: no new hit compared with the baseline in DECISIONS.md.
 verifyClean = true only if every build is 0 errors, every test run passed (apart from named add-in-started tests) and the rules show nothing new.`
 }
 

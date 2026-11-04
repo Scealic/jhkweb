@@ -65,11 +65,11 @@ exceptions, anything that changes persisted type names. Give a recommendation fo
 
 ## Result
 
-| Repo | Run commit | Package | NUnit tests (before → after) |
+| Repo | Run commits | Package | NUnit tests (before → after) |
 |---|---|---|---|
-| Kelly-Windows-Data | `<sha>` | `<version>` | <n> → <n> per configuration |
+| Kelly-Windows-Data | <n> (`<first sha>` … `<last sha>`) | `<version>` | <n> → <n> per configuration |
 ...
-| Kelly-Revit | `<sha>` | not a package (21 configurations built, none installed) | in-Revit project compiled, not run |
+| Kelly-Revit | `<sha>` | not a package (21 configurations built, none installed) | in Revit 2024: <n> of <n> pass (name the add-in-started failures), or "compiled, not run" |
 
 - <n> moves planned: <n> done, <n> partial, <n> skipped.
 - <n> errors in <n> configurations.

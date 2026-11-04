@@ -11,7 +11,7 @@ die "usage: perl insert-changelog.pl <Changelog.md> <entry.md>\n" unless $change
 open(my $e, '<', $entryFile) or die "cannot read $entryFile: $!\n";
 my $entry = do { local $/; <$e> };
 close $e;
-$entry =~ /\A## \d{4}-\d{2}-\d{2} \(/ or die "the entry must start with a dated heading, e.g. '## 2026-10-20 (package 26.10.20.832): ...'\n";
+$entry =~ /\A## \d{4}-\d{2}-\d{2} \(/ or die "the entry must start with a dated heading, e.g. '## 2026-11-03 (not yet in a package): ...'\n";
 $entry .= "\n" unless $entry =~ /\n\n\z/;
 
 open(my $f, '<', $changelog) or die "cannot read $changelog: $!\n";
