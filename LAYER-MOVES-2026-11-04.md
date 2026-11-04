@@ -2,7 +2,7 @@
 
 Round 2a of [LAYER-MOVES-PLAN-2026-11-04.md](LAYER-MOVES-PLAN-2026-11-04.md). It was planned as moves #1 to #90 (without #34, deferred) plus the rule-1 fixes #94, #95, #96 and #156: 93 moves. It ran bottom-up, test-first, one commit per work package. Each layer went through an adversarial review and fixes, was built in every configuration, packed, and repinned in the layer above. The first run stopped when the session ended, partway through Logic. A second run finished Logic, Kelly-Revit-UI and Kelly-Revit. Nothing was pushed, and the add-in was not installed.
 
-**Main finding: the source side of 82 moves was never done.** For each of them the code was added to its new lower layer and tested there, but the original still runs in Kelly-Revit-Logic or Kelly-Revit, and nothing calls the new copy. Behaviour is unchanged, but the code now exists twice. See "What was not done".
+**Main finding: the source side of 82 moves was missed at first, and has since been done.** A follow-up pass the same day (see "Source-side pass") moved 80 of the 82 callers to the lower copies and deleted the originals. It skipped #4 and #57 on purpose, because their originals behave differently from the lower copies. Both wait for the user's decision.
 
 ## Result
 
@@ -21,8 +21,8 @@ Moves:
 
 | Status | Count | Moves |
 |---|---|---|
-| Done | 11 | #8, #12, #13, #14, #58, #71, #72 and the rule-1 fixes #94, #95, #96, #156 |
-| Partial | 82 | listed under "What was not done" |
+| Done | 91 | all but #4 and #57 (11 in round 2a, 80 in the source-side pass) |
+| Partial | 2 | #4 and #57: the lower copy exists, but the original stays because its behaviour differs |
 | Skipped | 0 | |
 | Deferred by the user | 1 | #34 |
 
@@ -104,15 +104,54 @@ None. All the code that runs is the code that ran before: the moved copies are n
   Every type the run added has its own file.
 - `percent.sh` rewrote index rows in the root `Backlog - Quick.md`, which already had the user's uncommitted changes. It is left uncommitted for the user.
 
+## Source-side pass (2026-11-04, afternoon)
+
+The user approved finishing the 82 partial moves ("Yes, finish them"). The pass ran a source package in each source layer, then an adversarial review, fixes, builds in every configuration, a pack and the version docs. An audit checked the code, not the reports. Its base commits:
+
+| Repo | Base commit |
+|---|---|
+| Kelly-Domain | fced06c |
+| Kelly-Revit-Logic-v5 | bc6ccc5 |
+| Kelly-Revit-UI | 033177e |
+| Kelly-Revit-v5 | 0fcd56e8 |
+
+| Repo | Pass commits | Package | Tests |
+|---|---|---|---|
+| Kelly-Domain | dd30f82 (P5a, #1), b98c3fc, c005dcf | 1.26.1104.1118 | 1530 of 1530 in Net481, Net80 and Net100 |
+| Kelly-Revit-Logic-v5 | 9042387 (P6a, 23 moves), e8dfef7 (P6b, 27 of 28 moves), bb57143, 4a90609, 78f5d98 (backlog tick KTRL5-1) | 5.26.1104.1301 | In Revit 2024: 1026 of 1027 on e8dfef7 (`LogDimensionValues` needs the add-in started); after the review fixes, the 96 Architecture guards pass |
+| Kelly-Revit-UI | abf6b45 (repin only), 5e4d0b3 | 1.26.1104.1305 | 164 of 164 without Revit in 2024, 2025 and 2026; 44 of 44 in Revit 2024 |
+| Kelly-Revit-v5 | 241a0e79 (P8a, #19 to #31), de28a2e2 (P8b, 19 of 20 moves), 09961350, bb256105 (backlog tick KTR5-4580) | not a package. All 21 configurations build with 0 errors; none installed | In Revit 2024: 206 of 210. The same 4 tests need the add-in started. |
+
+What is now true in the code:
+- Logic's `Common/AddInServices.cs` and `LayoutPoints/LayoutPointCsvFormat.cs` are deleted. `ColoredSignatureExtensions` no longer has `ToFilterRuleModels`. The CSV header check is `LayoutPointTools.HasAcceptedHeader`, which calls Domain's `IsAcceptedHeader`.
+- The host and Trade.All no longer alias `AddInServices`. The three color filter commands call Domain's `ToFilterRuleModels` as an extension. No full `Kelly.Revit.Logic.LayoutPoints.LayoutPointCsvFormat` name is left.
+- The 13 views call Kelly.Windows' `ThrowIfNotReady`. No hand-built `NullReferenceException("DataContext")` or `TypeInitializationException` is left.
+- Kelly-Domain's `DataStore.Load` reads through `DataDirectory.ReadAllVerified`, and its private `ReadChecked` is gone.
+- The Logic and Kelly-Revit layout point, spool, module, support, weld, product and helper callers call the lower copies. Guard tests (`MovedToKellyDomainTests`, `MovedToKellyWindowsTests`, `LowerLayerRulesTests`, `ViewReadinessTests`) fail if an original comes back.
+- `check-rules.pl` is unchanged from the baseline for rules 1 to 4. Every type the pass added has its own file, and no new test `Author` has a date.
+- The manifests are as at the start: `Kelly Tools For Revit 5.addin` is active and `Kelly Tools For Revit.addin.x` is disabled. No Revit, ricaun or testhost process was left running.
+
+Skipped on purpose, each a To Organize backlog item that waits for the user's decision:
+- **#4 Layout Point To CSV Export** still calls `Process.Start("explorer.exe", directoryPost)`. `ShellTools.OpenInExplorer` quotes the path, so a folder with spaces would then open correctly. That is a behaviour change.
+- **#57 `CustomDataUpdateEvaluator.ResolveRecord`** stays. Domain's `TryResolveRecord` throws `ArgumentNullException` for a null dictionary up front, while the original reports "Missing {identity} Error" for a part with no identity. No caller passes null.
+
+Also noted:
+- Kelly-Revit-v5 `Quick-Backlog.md` has three other new items:
+  - three commands never call `ValidateRequirements`;
+  - the Module Creator view model tests repeat Domain's numbering rule;
+  - the #60 entry, where the `StreamReader` now closes before the unit selection.
+- `LayoutPointRecipeIngredients.GetIdNumber` still has a "Control Point" literal (no move covers it).
+- The optional #33 `Product.UsesProductRates` predicate was not added.
+
+**Push state** (found by the audit, not done by this run): Kelly-Domain up to adbf979, Kelly-Revit-Logic-v5 up to 4a90609 and Kelly-Revit-UI up to 5e4d0b3 are already on `origin/develop`. They were pushed between 12:06 and 13:09, from outside the run. Still unpushed:
+- Kelly-Domain 173696b (the other session's KD-10 tick);
+- Logic 78f5d98;
+- Kelly-Revit-v5 241a0e79, de28a2e2, 09961350 and bb256105.
+
 ## What to check
 
-1. **Finish the source side of the 82 partial moves:**
-   - a Domain package for #1;
-   - a Logic package that deletes or forwards its copies, adds `LayoutPointTools.HasAcceptedHeader` and drops the Logic `AddInServices`;
-   - repin Kelly-Revit-UI;
-   - a Kelly-Revit package that points the views, view models and commands at the new members and drops the aliases.
-
-   Then repack Logic and UI, rebuild all 21 configurations and rerun the in-Revit tests.
-2. **Decide on the "Moved from … Kelly-Revit-Logic-v5, which keeps …" remarks** in Kelly-Domain (34). The history is already in the Changelogs, so dropping the remarks would keep the higher layers' names out of Domain.
-3. **Fix the skill** so a move's source-side edits are their own package in the source layer, and the audit checks that each move's source no longer has the code.
-4. **Push `develop`** bottom-up only when the user says so.
+1. **Decide #4 and #57** (backlog items in Kelly-Revit-v5 and Kelly-Revit-Logic-v5).
+2. **Decide on the "Moved from … Kelly-Revit-Logic-v5, which keeps …" remarks** in Kelly-Domain (34). They name the higher layers in Domain. They are now true apart from #57, but the history is already in the Changelogs.
+3. **Confirm the pushes made at 12:06 to 13:09 were intended**, and push the rest of `develop` bottom-up when ready.
+4. **Not covered:** in-Revit tests in Revit 2025 and 2026, and an install of the v5 add-in to try the tools by hand.
+5. **Round 2b** (#91 to #254) is still to plan and run.
