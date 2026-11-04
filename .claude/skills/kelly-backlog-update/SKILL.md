@@ -93,7 +93,8 @@ The quick backlogs are a staging area: each repository's open items go to that r
 | Kelly-Windows-Data-v3 / -v2 | Kell Windows Data 3 (KWD3) / Kell Windows Data 2 (KWD2) |
 | Kelly-Windows-Data-Csv / -Json | Kelly Windows Data CSV (KWDC) / JSON (KWDJ) |
 | Kelly-Windows-Data-SqlServer / -Sqlite | Kelly Windows Data SQL Server (KWDSS) / Sqlite (KWDSL) |
-| Kelly-Domain, BuildConfigs, Kelly-Revit-Data-Exporter, the VCS schemas, the index's Other | No team yet: don't push |
+| Kelly-Domain | Kelly Domain (KD) |
+| BuildConfigs, Kelly-Revit-Data-Exporter, the VCS schemas, the index's Other | No team yet: don't push |
 
 Check the teams with the Linear connector's `list_teams` before a push; the user may have renamed or added some. The connector cannot create teams.
 
