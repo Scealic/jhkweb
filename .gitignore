@@ -1,5 +1,6 @@
 # The repos inside this folder each have their own git history and GitHub remote.
 # This repo tracks only the working documents around them.
+/branding/
 /BuildConfigs/
 /Kelly-Domain/
 /Kelly-Revit-Data-Exporter/
