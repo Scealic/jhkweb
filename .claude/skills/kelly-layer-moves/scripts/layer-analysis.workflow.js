@@ -1,7 +1,7 @@
 export const meta = {
   name: 'kelly-layer-analysis',
   description: 'Read-only: find Kelly code that belongs in a more abstract (or otherwise more appropriate) layer, refute each proposed move, and compile-probe whole-file moves in scratch copies',
-  whenToUse: 'Phase 1 of the kelly-code-abstraction skill. args: { scratch: "<scratchpad path, Git Bash form>", scopes: <the array in references/scopes.json>, only?: ["scope key", ...] }',
+  whenToUse: 'Phase 1 of the kelly-layer-moves skill. args: { scratch: "<scratchpad path, Git Bash form>", scopes: <the array in references/scopes.json>, only?: ["scope key", ...] }',
   phases: [
     { title: 'Map', detail: 'one finder per scope classifies every file and proposes moves' },
     { title: 'Review', detail: 'adversarial reviewers try to refute each proposed move' },
@@ -10,7 +10,7 @@ export const meta = {
 }
 
 const R = '/c/repo/jhkweb'
-const SKILL = R + '/.claude/skills/kelly-code-abstraction'
+const SKILL = R + '/.claude/skills/kelly-layer-moves'
 const SP = (args && args.scratch) || ''
 if (!SP) throw new Error('pass args.scratch (the session scratchpad, Git Bash form)')
 const ALL_SCOPES = (args && args.scopes) || []

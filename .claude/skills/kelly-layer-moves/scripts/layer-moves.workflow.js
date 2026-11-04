@@ -1,7 +1,7 @@
 export const meta = {
   name: 'kelly-layer-moves',
   description: 'Implement confirmed Kelly layer moves bottom-up (v5 repos): per layer, one test-first commit per work package, an adversarial review, fixes, full builds and tests, pack, and the version docs; then an audit',
-  whenToUse: 'Step 4 of the kelly-code-abstraction skill, after the user confirmed the plan. args: { scratch, date: "yyyy-mm-dd", base: { "<repo folder>": "<sha at start>" } (every repo in steps), design?: "<path of the design file the specs name>", steps: [{ layer: "data"|"windows"|"domain"|"logic"|"ui"|"revit", packages: ["P2a-windows-parse", ...] }, ...] } bottom-up and consecutive, from the lowest layer that changes through "revit"; a layer with no moves gets packages: [] (repin only)',
+  whenToUse: 'Step 4 of the kelly-layer-moves skill, after the user confirmed the plan. args: { scratch, date: "yyyy-mm-dd", base: { "<repo folder>": "<sha at start>" } (every repo in steps), design?: "<path of the design file the specs name>", steps: [{ layer: "data"|"windows"|"domain"|"logic"|"ui"|"revit", packages: ["P2a-windows-parse", ...] }, ...] } bottom-up and consecutive, from the lowest layer that changes through "revit"; a layer with no moves gets packages: [] (repin only)',
   phases: [
     { title: 'Data', detail: 'Kelly-Windows-Data-v3' },
     { title: 'Windows', detail: 'Kelly-Windows-v3' },
@@ -14,7 +14,7 @@ export const meta = {
 }
 
 const R = '/c/repo/jhkweb'
-const SKILL = R + '/.claude/skills/kelly-code-abstraction'
+const SKILL = R + '/.claude/skills/kelly-layer-moves'
 const S = SKILL + '/scripts'
 const SP = (args && args.scratch) || ''
 if (!SP) throw new Error('pass args.scratch')

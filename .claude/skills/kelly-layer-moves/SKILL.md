@@ -1,5 +1,5 @@
 ---
-name: kelly-code-abstraction
+name: kelly-layer-moves
 description: Find Kelly Tools For Revit code under C:\repo\jhkweb that belongs in a different layer (usually lower: Kelly-Revit modules → Kelly-Revit-UI / Kelly-Revit-Logic → Kelly-Domain → Kelly-Windows → Kelly-Windows-Data), or that sits too low or is duplicated across layers; then, after the user confirms the plan, move it bottom-up, packing each layer and repinning the one above. Use whenever the user asks what code can be abstracted or pushed down, whether anything is in the wrong layer or repo, to find duplication across layers, or to rerun the layer-moves analysis, even without naming a layer or repo.
 ---
 
@@ -50,7 +50,7 @@ Kelly-Windows-Data → Kelly-Windows → Kelly-Domain → Kelly-Revit-Logic → 
 
 The layer table, the user's rules and what belongs where live once, in `placement-rules.md`. Paths, pins and versions live in `layers.md`. Change them there, not here.
 
-`S=/c/repo/jhkweb/.claude/skills/kelly-code-abstraction/scripts`. Use Git Bash, never PowerShell.
+`S=/c/repo/jhkweb/.claude/skills/kelly-layer-moves/scripts`. Use Git Bash, never PowerShell.
 
 ## Ground rules
 
@@ -69,7 +69,7 @@ These come from `BuildConfigs/SHARED-AGENTS.md`, the repos' `AGENTS.md` and corr
 
 ```bash
 cd /c/repo/jhkweb
-S=/c/repo/jhkweb/.claude/skills/kelly-code-abstraction/scripts
+S=/c/repo/jhkweb/.claude/skills/kelly-layer-moves/scripts
 for r in Kelly-Windows-Data-v3 Kelly-Windows-v3 Kelly-Domain Kelly-Revit-Logic-v5 Kelly-Revit-UI Kelly-Revit-v5; do
   git -C $r fetch -q --prune origin
   echo "== $r: $(git -C $r branch --show-current) | $(git -C $r rev-parse --short HEAD) | $(git -C $r status -sb | head -1) | behind main $(git -C $r rev-list --count HEAD..origin/main) (non-merge $(git -C $r log --oneline --no-merges HEAD..origin/main | wc -l))"

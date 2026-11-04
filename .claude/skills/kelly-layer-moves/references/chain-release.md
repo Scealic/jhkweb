@@ -4,7 +4,7 @@ How the accepted moves reach the add-in. Each layer is a NuGet package, and each
 
 `layers.md` lists the paths, test projects and pin properties, where each README states its pin, and each Changelog's heading form. `scripts/layer-moves.workflow.js` follows this procedure for large plans. Follow it yourself for small ones.
 
-Scripts (Git Bash; `S=/c/repo/jhkweb/.claude/skills/kelly-code-abstraction/scripts`):
+Scripts (Git Bash; `S=/c/repo/jhkweb/.claude/skills/kelly-layer-moves/scripts`):
 
 | Script | Use |
 |---|---|
