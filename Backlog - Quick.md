@@ -85,15 +85,3 @@ Since 2026-11-02 each repository keeps its own backlog in `Quick-Backlog.md` at 
 ### Add To Linear as Issue
 
 - [ ] 
-
-## Other
-
-**Complete: 100% (1 of 1)**
-
-### To Organize
-
-- [ ] 
-
-### Process
-
-- [x] Backlog index: link each repository's Quick-Backlog.md — In the Repository backlogs table in the "Backlog - Quick.md" file, add a link to each repo's "Quick-Backlog.md" file so it can be navigated to easily. — done 2026-11-04: the table already linked every Quick-Backlog.md; added an "Add To Linear as Issue" section per repository with a Linear team instead, filed into Linear by the kelly-backlog-update skill
