@@ -1,4 +1,5 @@
 ---
+name: kelly-daily-report
 description: Commit and pull-request activity report across every repo under C:\repo\jhkweb
 argument-hint: "[date range — e.g. 'today', '2026-09-15..2026-09-22'; default: yesterday and today]"
 allowed-tools: Bash(git*), Bash(date*), Bash(for*), Bash(ls*), Read, Write
