@@ -1,6 +1,6 @@
 # KTR5: projects to feature labels (plan, 2026-11-04)
 
-Status: **draft for review. Nothing has been changed in Linear.**
+Status: **draft for review.** Only step 0 (the multi-select check) has been run in Linear; nothing else has changed.
 
 ## Goal
 
@@ -25,6 +25,9 @@ several. Projects go back to what Linear means them for: bounded work that start
   - **Multi-select works:** use a label group "5 - Feature" (this plan).
   - **Single-select only:** use ungrouped team labels prefixed `F: ` (`F: Spool Manager`). They sort together in the picker, and an issue can carry
     several. Everything else in this plan stays the same.
+- **Step 0 done 2026-11-04: multi-select works.** The KTR5 group "5 - Feature" was created with group type `multiSelect` (color #016043), with the
+  labels "Spool Manager" and "Suspended Support Manager". Both were applied to KTR5-4706 at once and both stayed on it; they were then removed, so the
+  issue has only "Change" again. The group and the two labels are kept for step 1. The `F: ` fallback is not needed.
 
 ## Naming
 
