@@ -30,7 +30,7 @@ Since 2026-11-02 each repository keeps its own backlog in `Quick-Backlog.md` at 
 
 ### Add To Linear as Issue
 
-- [ ] Deprecate the Component and Product IUpdaters and Manual Updaters in Kelly Tools For Revit Version 5 (Per Adam Fuller on 11/3/2026)
+- [ ] 
 
 ## [Kelly-Revit-UI](Kelly-Revit-UI/Quick-Backlog.md)
 
