@@ -27,6 +27,8 @@ Parents keep what they have (never cleared): KTR5-3800 has 0 and KTR5-4604 has 2
 | HASAI | 5 | 0 | 0 | 5 | 0 | 10 | 5 |
 | **Total** | **370** | **1** | **33** | **307** | **29** | **1128** | **55** |
 
+**Applied 2026-11-04:** all 34 approved estimates set and confirmed in Linear (1 new, 33 changed; 0 refused). KTR5 27 (1 new, 26 changed), KTR4 3, Hasa teams 4 (HASA 3, HASADB 1). Five first responses (KTR5-3934, 3935, 4020, 4123, 4125) showed the old value; a resend read back the new one, and their updatedAt shows the first call had saved.
+
 ## Changes to existing estimates
 
 These overwrite a value someone set; most were set by hand before the first run, which kept them.
