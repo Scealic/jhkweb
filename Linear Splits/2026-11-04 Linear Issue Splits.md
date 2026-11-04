@@ -261,3 +261,16 @@ Proposed by the `linear-issue-split-review` skill for the 15 open issues estimat
 - KTR4-18: Should the v4 notes be handled in v4 at all, or only those with a v5 counterpart, done in both at once?
 - HASA-71: Are the three views read-only for now (as drafted), or should editing in them be a further piece? Do they include completed tasks? Should the Mac and iOS pieces be created now instead of when scheduled?
 - HASA-62: Should the Done HASAWB-1 to HASAWB-13 (and HASAWB-22) also become sub-issues of HASA-62 for the record, or stay as they are? Is HASA-62 done when parity and hosting are reached (as drafted), or does it stay open while both web apps exist?
+
+## Answers (2026-11-04)
+
+The user's answers to the open questions; every question not listed here takes the drafted reading.
+
+- KTR5-4679: Cancel it (covered by the layer-moves and SOLID-check skills).
+- KTR5-3827: both MEP pipes and fabrication parts; the user picks the fitting angle.
+- KTR4-18: all 9 v4 pieces, each related to its v5 counterpart in KTRL5-5.
+- KW3-1: file the 27 other Kelly-Revit-sourced round 2a moves as standalone KTR5 issues related to KW3-1, grouped by seam.
+- KTR5-4480: commit the elements that succeeded and report the failed ones.
+- KTRL5-3: the KTR5 module pieces wait for round 2b (blocked-by note), so each site is converted once in Logic.
+- KTR5-4170: keep the stored `SignatureHash` and its status; comparers only for in-memory matching.
+- KTR5-4678: v5 only.
