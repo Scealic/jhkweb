@@ -171,7 +171,9 @@ How components join, terminate, and hang.
 - **Weld Type** — A weld classification (Name, Abbreviation, Initialism) linkable to a Component.
   _(`dbo.WeldType`)_
 - **Weld Location** — **Where** a weld occurs on piping: **Shop**, **Shop Tack**, **Field**, **Field Fit**,
-  or **Field Fit Tack**. Each has its own KTR set-command. _(`Kelly-Revit` `WeldLocation…SetCommand`)_
+  or **Field Fit Tack**. Each has its own KTR set-command. The **Bill Of Material type** follows from it: a location
+  whose initialism starts with S (Shop, Shop Tack) is **Shop**, every other is **Field** (one rule since 2026-11-03).
+  _(`Kelly-Revit` `WeldLocation…SetCommand`; rule in Kelly.Domain `WeldLocationTools.GetBillOfMaterialType`)_
 - **Support Type** — A hanger/support classification (unique Name + Initialism) linkable to a Component.
   _(`dbo.SupportType`)_
 - **Component Support Type / Component Weld Type** — Many-to-many link tables joining a Component to its
@@ -352,10 +354,12 @@ The physical vocabulary detailers and fabricators actually speak.
 - **Spool** — A **fabrication spool**: a grouping of parts released together for shop fabrication. KTR
   create/rename/clean/manage tooling enforces rules that remove non-spoolable parts or parts with an invalid
   Product Range. _(KTR `SpoolCreate`, `SpoolManager`, `SpoolCleaner`; `SpoolNumberRecord`)_
-- **Spool Number** — The identifier assigned to a spool. _(`SpoolNumberRecord` — JSON/in-memory backed)_
+- **Spool Number** — The identifier assigned to a spool: `[line number]-[category]-[sequence]`, for example
+  `0BA-SPL-001`. _(`SpoolNumberRecord` — JSON/in-memory backed; naming rules in Kelly.Domain `SpoolNumber`)_
 - **Module** — A higher-level **prefabricated assembly** grouping, with its own Module Number (prefix + type
   + sequence). _(KTR `ModuleCreator…`; `ModuleNumberRecord`)_
-- **Module Number** — The identifier assigned to a module. _(`ModuleNumberRecord`)_
+- **Module Number** — The identifier assigned to a module: `[prefix]-[module type]-[sequence]`, the sequence
+  padded to three digits, for example `B1-MOD-007`. _(`ModuleNumberRecord`; rules in Kelly.Domain `ModuleNumber`)_
 - **Line Number** — A **piping line** identifier, used as an attribution/filter dimension.
   _(`LineNumberRecord`)_
 - **Penetration / Sleeve** — A wall/floor **penetration** and its **sleeve**; KTR tags both.
