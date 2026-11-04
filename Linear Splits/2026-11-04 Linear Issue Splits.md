@@ -10,8 +10,8 @@ Proposed by the `linear-issue-split-review` skill for the 15 open issues estimat
 | KTRL5 | 3 | 0 | 3 | 0 | 16 | 0 |
 | KTR5 | 8 | 0 | 7 | 1 | 36 | 0 |
 | KTR4 | 1 | 0 | 1 | 0 | 9 | 0 |
-| HASA | 2 | 0 | 2 | 0 | 9 | 0 |
-| **Total** | 15 | 0 | 14 | 1 | 72 | 0 |
+| HASA | 2 | 0 | 2 | 0 | 7 | 2 |
+| **Total** | 15 | 0 | 14 | 1 | 70 | 2 |
 
 ## [KW3-1](https://linear.app/jhkelly/issue/KW3-1) Repoint the layers above to the helpers moved down in round 2 (#2 to #18) (16)
 
