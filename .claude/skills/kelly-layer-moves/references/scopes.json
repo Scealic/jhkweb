@@ -142,8 +142,7 @@
       "Kelly-Domain/src/Definitions",
       "Kelly-Domain/src/Fabrication",
       "Kelly-Domain/src/Identifiers",
-      "Kelly-Domain/src/LayoutPoints",
-      "Kelly-Domain/src/Measurements"
+      "Kelly-Domain/src/LayoutPoints"
     ],
     "guidance": "Look for generic non-Kelly code that belongs in Kelly-Windows (converters, math, geometry and fraction helpers), generic caching or data-access code that belongs in Kelly-Windows-Data, WPF IValueConverters (generic: Kelly-Windows; Kelly-specific: stay), anything only Revit-coupled code uses that encodes Revit behaviour (belongs in Kelly-Revit-Logic, only if nothing in Domain or below uses it), and namespace/folder mismatches."
   },
