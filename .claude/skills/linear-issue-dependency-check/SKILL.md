@@ -65,7 +65,7 @@ Rules:
 - **Order follows the layers**: a lower layer blocks an upper one, never the reverse (Kelly-Windows-Data → Kelly-Windows → Kelly-Domain → Kelly-Revit-Logic → Kelly-Revit-UI → Kelly-Revit). Within one repository, the issue that adds a type blocks the one that uses it.
 - **v4 and v5 never block each other**: they are separate products; use `relatedTo`.
 - **A Done or Canceled issue blocks nothing**: if the blocker is already finished and its code is on `develop`, add nothing (say so in the report). If it is Done but the code is missing, report it as a finding; don't relate.
-- **Already related**: skip a relation that exists in either direction, and report a relation that points the wrong way (A blocks B, but B is the lower layer) for the user to fix; don't remove it.
+- **Already related**: skip a relation that exists in either direction. The exception is a pair that is only Related while the text gives an order ("waiting on", "feeds", "builds on", "holds the rows of"): propose Blocked By or Blocking. Linear then replaces the Related link (a pair holds one relation), so say "replaces the Related link" in the comment. Report a relation that points the wrong way (A blocks B, but B is the lower layer) for the user to fix; don't remove it.
 - **No cycles**: before adding `blockedBy X`, follow X's own `blockedBy` chain (`get_issue` with `includeRelations`); if it reaches the checked issue, report it instead.
 - **Parent and sub-issue**: don't add blocking relations between an issue and its own parent; Linear already orders them. Between sibling sub-issues, add them as usual.
 
