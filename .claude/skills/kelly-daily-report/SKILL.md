@@ -11,15 +11,24 @@ any date you assume.
 
 ## Repo layout
 
-`C:\repo\jhkweb` is **not** a git repo — each subfolder is an independent repo in the `jhkweb` GitHub
-org. Loop over subfolders containing `.git` and always use `git -C <folder>`; never `cd`.
-`Kelly-Windows` and `Kelly-Windows-Data` delete `develop` on merge, so a missing `origin/develop`
-there is expected.
+Each subfolder of `C:\repo\jhkweb` that contains `.git` is an independent repo with its own GitHub
+remote. Loop over them and always use `git -C <folder>`; never `cd`. Since 2026-11-02 the root itself
+is also a git repo (branch `main`, no remote) that tracks only the working documents at that level.
+Report its commits as a repo named `jhkweb (root docs)`, but skip `fetch` and the PR steps for it.
+
+Repo names carry their own major version (since 2026-10-27): `Kelly-Windows-Data-v2`/`-v3`,
+`Kelly-Windows-v2`/`-v3`, `Kelly-Domain`, `Kelly-Revit-Logic-v4`/`-v5`, `Kelly-Revit-UI`,
+`Kelly-Revit-v4`/`-v5`, plus BuildConfigs, the format libraries, the exporter and the two VCS
+schema repos. Work happens on `develop`. A develop→main pull request can delete the remote
+`develop`, so a missing `origin/develop` is expected after a merge. The VCS schema repos
+(`VCS-Database-General-Schema`, `VCS-Database-Content-Schema`) use `production`, not `main`, as
+their default branch: use `origin/production` for them in steps 4 and 5.
 
 ## Gathering the data
 
-Run these per repo. `gh` is not installed and git credentials must not be probed, so PR data comes
-from `refs/pull/*`.
+Run these per repo. `gh` is installed but not logged in, and git credentials must not be probed, so
+PR data comes from `refs/pull/*`. If `gh auth status` reports a login, `gh pr list --state all` can
+give the open/closed state the caveat below cannot.
 
 1. Refresh, or the report will be built on stale refs:
    `git -C "$d" fetch --all --prune --quiet`
