@@ -5,6 +5,7 @@
 # Reports: open items below a done one, duplicate items within a file, mojibake, open items with no short title,
 # possible secrets, links whose target does not exist (relative to the file),
 # and the `// todo` and `new OperationService(` counts to copy into the dated notes.
+# Empty "- [ ] " placeholders (the index's "Add To Linear as Issue" lines) are skipped.
 
 root=/c/repo/jhkweb
 cd "$root" || exit 1
@@ -17,7 +18,7 @@ done
 
 echo "== Duplicate items within a file (first 70 characters)"
 for f in "$@"; do
-    grep -oE '^\s*- \[.\] .{0,70}' "$f" | sed -E 's/^\s*- \[.\] //' | sort | uniq -d | sed "s|^|$f: |"
+    grep -oE '^\s*- \[.\] \S.{0,69}' "$f" | sed -E 's/^\s*- \[.\] //' | sort | uniq -d | sed "s|^|$f: |"
 done
 
 echo "== Mojibake (double-encoded UTF-8)"
@@ -38,7 +39,7 @@ done
 
 echo "== Open items with no short title (no ' — ' within the first 100 characters; see 'Linear-ready items')"
 for f in "$@"; do
-    n=$(grep -E '^\s*- \[ \]' "$f" | perl -CSD -ne 's/^\s*- \[ \] //; $i = index($_, " \x{2014} "); print if $i < 0 || $i > 100' | wc -l)
+    n=$(grep -E '^\s*- \[ \]' "$f" | perl -CSD -ne 's/^\s*- \[ \] //; next unless /\S/; $i =index($_, " \x{2014} "); print if $i < 0 || $i > 100' | wc -l)
     [ "$n" -gt 0 ] && printf '%-48s %s\n' "$f" "$n"
 done
 
