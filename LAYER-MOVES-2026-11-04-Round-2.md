@@ -177,4 +177,4 @@ The 6 medium defects and the 4 partial moves were fixed bottom-up in one pass. E
 - **KD-47:** the `PointToPipe.txt` literal was in Kelly-Revit-v5's Point To Pipe window, not in Logic as the report said.
 - **Behaviour changes users may notice:** the Suspended Support Manager no longer treats a rolled-back edit as done. The layout discipline updater matches services ignoring case. A UNC path containing `C:\` is "Network Drive". A folder that cannot be created now stops with a "Directory Error".
 - **Left open:** the 11 low-severity defects. Kelly.Domain's `ServiceSignatureTools.FindServiceExact` no longer has a caller, and can be deleted in the next Domain change.
-- **Still to do:** close Revit 2024 (PID 31420 still open at 08:30) and run the in-Revit tests for Logic, UI and Kelly-Revit; then do the hand check; then install and push.
+- **Still to do:** run the in-Revit tests (Revit 2024 was closed at 08:27) for Logic, UI and Kelly-Revit; then do the hand check; then install and push.
