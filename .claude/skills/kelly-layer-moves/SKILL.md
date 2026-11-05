@@ -17,6 +17,7 @@ On 2026-11-04 the user widened the last rule: "I just want to include or change 
 Runs so far:
 - **2026-10-12:** planned 173 moves and did 169 of them, with no behaviour changed and no rule broken.
 - **2026-11-03, round 1:** 14 work packages from a view model review, through Kelly-Windows-v3, Kelly-Domain and Kelly-Revit-Logic-v5, all done and pushed on 2026-11-04 (`LAYER-MOVES-PLAN-2026-11-03.md`, `LAYER-MOVES-2026-11-03.md`).
+- **2026-11-04, round 2:** 302 moves in 42 packages through all six layers, filed in Linear (project "Layer Moves 2026-11-04 Round 2"); 38 done, 4 partial (`LAYER-MOVES-PLAN-2026-11-04-Round-2.md`, `LAYER-MOVES-2026-11-04-Round-2.md`).
 
 This skill makes those runs repeatable on today's code: six layers, and Kelly-Revit as a host plus six modules.
 
@@ -139,7 +140,9 @@ From the confirmed plan, write one `<scratch>/packages/P<n><letter>-<layer>-<top
 - give every move whose source is above its target a **source package** too, in the source layer's step: it switches the original to the new member and deletes the copy (see "Work packages and DECISIONS.md"). Without one the original stays and keeps running, which happened to 82 moves in round 2a;
 - about 25 moves at most per package, each package becoming one commit;
 - each move carries its record, the review notes and the probe result;
-- a package is a MOVE (behaviour kept exactly) or, only when the user decided it at the plan, a FIX (changes only the behaviour the spec names). Never mix the two in one package.
+- a package is a MOVE (behaviour kept exactly) or, only when the user decided it at the plan, a FIX (changes only the behaviour the spec names). Never mix the two in one package;
+- a move's `requiredChanges` that touch a **lower** layer (a constant in Kelly-Domain, a mapping in Kelly-Revit-UI's prompt) become a target package in that lower layer's step, or the move waits for the next round. Never leave them as notes: the lower layer is packed before the move runs, so they cannot be made then. Round 2 of 2026-11-04 left four packages partial this way;
+- "Moved from …" provenance goes in the Changelog entry, not in XML docs of the Revit-free layers (it names the higher layers there).
 
 If you worked the moves out in more detail first (code designs, review corrections), save them as one file in the scratchpad, for example `<scratch>/design.json`. Name it in each spec, and pass it to the workflow as `args.design`.
 
@@ -178,6 +181,8 @@ Every recommendation the user kept at the plan becomes a Linear issue, all in on
 If Linear can't be reached, say so, carry on with step 5, and file the issues before the report.
 
 ## 5. Implement, bottom-up
+
+Before starting, run `tasklist | grep -i -E "Revit.exe|ricaun"`. If Revit 2024 is open, ask the user to close it: with it open, every in-Revit test of the run is only compiled (round 2 of 2026-11-04 ran about 2,100 that way).
 
 - **Large plans.** Run the implementation workflow:
 
