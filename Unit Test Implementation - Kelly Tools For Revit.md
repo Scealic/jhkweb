@@ -4,10 +4,12 @@ Restarted 2026-11-02. The goal is the shared rule in `BuildConfigs/SHARED-AGENTS
 
 ## Coverage re-examined (2026-11-05)
 
+Re-run with the `kelly-test-coverage` skill (`C:\Users\childebran\.claude\skills\kelly-test-coverage`): it runs the measures below, compares them with the latest section here, and adds a new dated section above it.
+
 Eight repos: the six v5 layers and the two format libraries v5 pins. Two measures:
 
 - **Line and branch coverage** (coverlet, Net80) where it can be measured: the three lower layers. Csv and Json have no `coverlet.collector` reference, and the Revit layers run inside Revit under ricaun, where coverlet does not reach. Two things are needed for a run: `-p:DebugType=portable` (the shared `Output.Build.props` sets `DebugType` to `None`, so coverlet finds no PDB and reports 0 lines), and a runsettings `Include` of the Kelly assemblies only (otherwise coverlet tries to instrument `Kelly.Markdown.TestLogger.dll`, which VSTest has locked, and gives up).
-- **Members named in a test**, for every repo: a Roslyn scan (`Unit Test Coverage/scan.cs`) lists each public or internal type and its methods, properties, events, constructors, indexers and operators (any access modifier), and counts a member as covered when its name appears in a test file that also names the type (or calls it, for extension methods). That is the shared rule's measure ("every type member has an NUnit test"), but approximate: a member reached only through another member, or by reflection over all members (`RecordTests`, `EnumMembersTests`), counts as not named; a common name (`Name`, `Id`) can count as named when it is not tested. The full list is in `Unit Test Coverage/2026-11-05 Coverage Gaps.csv`.
+- **Members named in a test**, for every repo: a Roslyn scan (`scan.cs`, now in the `kelly-test-coverage` skill: `C:\Users\childebran\.claude\skills\kelly-test-coverage\scripts`) lists each public or internal type and its methods, properties, events, constructors, indexers and operators (any access modifier), and counts a member as covered when its name appears in a test file that also names the type (or calls it, for extension methods). That is the shared rule's measure ("every type member has an NUnit test"), but approximate: a member reached only through another member, or by reflection over all members (`RecordTests`, `EnumMembersTests`), counts as not named; a common name (`Name`, `Id`) can count as named when it is not tested. The full list is in `Unit Test Coverage/2026-11-05 Coverage Gaps.csv`.
 
 | Repo | Tests run on 2026-11-05 | Types with a test | Members named in a test | Lines / branches covered |
 |---|---|---|---|---|
