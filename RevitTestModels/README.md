@@ -2,6 +2,8 @@
 
 Kelly test models for the in-Revit tests of the Kelly Tools For Revit repositories (v4 and v5). They sit here, in the jhkweb root repository and outside every sibling repository, so every repository's tests can open them.
 
+The models are stored in Git LFS (`*.rvt` in the root `.gitattributes`), because GitHub rejects files over 100 MB; a clone needs Git LFS installed to get the models rather than pointer files. Commit a model only when it changes on purpose: every committed version counts against the GitHub LFS storage quota.
+
 The tests never change a model here: they open an isolated copy (`OpenIsolatedCopy`) and delete it afterwards. A test whose model is missing is ignored, not failed.
 
 ## Kelly fabrication test model (to be built)
