@@ -19,18 +19,18 @@ The second layer-moves run of 2026-11-04, on `develop` after round 1 (`LAYER-MOV
 
 ## Moves by target layer
 
-### Kelly-Windows-Data (work package P1a-data-services, Linear team KWD3)
+### Kelly-Windows-Data (work package P1a-data-services, Linear )
 
-Source packages: Kelly-Domain (KD).
+Source packages: Kelly-Domain (KD). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
 | #1 | Kelly-Domain `src/Data/DataStore.cs` | `DataStore.FirstByKey` | `src/Services` | member | low | accept |
 | #2 | Kelly-Domain `src/Data/DataStore.cs` | `DataStore.BySqlKeys` | `src/Services` | member | low | accept |
 
-### Kelly-Windows (work package P2a-windows-collections-files, Linear team KW3)
+### Kelly-Windows (work package P2a-windows-collections-files, Linear )
 
-Source packages: Kelly-Domain (KD), Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
+Source packages: Kelly-Domain (KD), Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -58,9 +58,9 @@ Source packages: Kelly-Domain (KD), Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5
 | #24 | Kelly-Revit-Logic `src/Common/TaskDialogSimple.cs` | `TaskDialogSimple.TaskDialogError, TaskDialogInformation, TaskDialogWarning` | `src/Prompts` | member | medium | modify |
 | #25 | Kelly-Revit `modules/Trade.All/Commands/Layout/LayoutPointExport/LayoutPointToCommaSeparatedValueFileExportView.xaml.cs` | `LayoutPointToCommaSeparatedValueFileExportView.CenterOnCurrentMonitor` | `src/Wpf` | member | medium | modify |
 
-### Kelly-Domain (work package P3a-domain-common-definitions, Linear team KD)
+### Kelly-Domain (work package P3a-domain-common-definitions, Linear )
 
-Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
+Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -88,9 +88,9 @@ Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
 | #47 | Kelly-Revit-Logic `src/Caches/LineNumberDocumentCache.cs` | `LineNumberDocumentCache..ctor (default "DEFAULT-LN-001")` | `src/Identifiers` | member | low | accept |
 | #48 | Kelly-Revit-Logic `src/Updaters/ElementDataModel.cs` | `ElementDataModel..ctor (ProductCode parse-or-new)` | `src/Identifiers` | member | low | accept |
 
-### Kelly-Domain (work package P3b-domain-layoutpoints-pcf, Linear team KD)
+### Kelly-Domain (work package P3b-domain-layoutpoints-pcf, Linear )
 
-Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
+Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -111,9 +111,9 @@ Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
 | #63 | Kelly-Revit-Logic `src/Updaters/ElementDataModels/LayoutDisciplineElementDataModel.cs` | `LayoutDisciplineElementDataModel.UpdateElement (service lookup by signature)` | `src/Signatures` | member | low | accept |
 | #64 | Kelly-Revit-Logic `src/Updaters/ElementServices/ServiceElementWriter.cs` | `ServiceElementWriter.UpdateElements (service lookup by signature)` | `src/Signatures` | member | low | accept |
 
-### Kelly-Domain (work package P3c-domain-spools-supports, Linear team KD)
+### Kelly-Domain (work package P3c-domain-spools-supports, Linear )
 
-Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
+Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -136,9 +136,9 @@ Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
 | #81 | Kelly-Revit-Logic `src/Supports/VerticalSupportMember.cs` | `VerticalSupportMember.NestedDefinitionSet` | `src/Supports` | type | low | accept |
 | #82 | Kelly-Revit-Logic `src/Updaters/ElementServices/SuspendedSupportElementService.cs` | `SuspendedSupportElementService.NestedDefinitionSet` | `src/Supports` | type | low | accept |
 
-### Kelly-Domain (work package P3d-domain-views-vocabulary, Linear team KD)
+### Kelly-Domain (work package P3d-domain-views-vocabulary, Linear )
 
-Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
+Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -155,9 +155,9 @@ Source packages: Kelly-Revit-Logic (KTRL5), Kelly-Revit (KTR5).
 | #93 | Kelly-Revit-Logic `src/LayoutPoints/LayoutPointRecipeIngredients.cs` | `LayoutPointRecipeIngredients.GetIdNumber ("Control Point" literal)` | `src/Vocabulary` | member | low | accept |
 | #94 | Kelly-Revit-Logic `src/Views/ProductRangeScheduleExtensions.cs` | `ProductRangeScheduleExtensions.CreateProductRangeSchedules ("JHK Product Range" literal)` | `src/Vocabulary` | member | low | accept |
 
-### Kelly-Revit-Logic (work package P4a-logic-arrangement-common, Linear team KTRL5)
+### Kelly-Revit-Logic (work package P4a-logic-arrangement-common, Linear )
 
-Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5).
+Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -174,9 +174,9 @@ Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5).
 | #105 | Kelly-Revit `modules/Trade.Developer/Commands/SelectFieldTrimEnd/SelectFieldTrimEndCommand.cs` | `SelectFieldTrimEndCommand.Execute (end connector filter)` | `src/Connectors` | member | low | accept |
 | #106 | Kelly-Revit-UI `src/Selection/FamilyInstanceHavingConnectorsSelectionFilter.cs` | `FamilyInstanceHavingConnectorsSelectionFilter.AllowElement` | `src/Connectors` | member | low | accept |
 
-### Kelly-Revit-Logic (work package P4b-logic-documents-elements, Linear team KTRL5)
+### Kelly-Revit-Logic (work package P4b-logic-documents-elements, Linear )
 
-Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5).
+Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -204,9 +204,9 @@ Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5).
 | #128 | Kelly-Revit-UI `src/Mvvm/ViewModel.cs` | `ViewModel.AddScope` | `src/Entities` | member | low | modify |
 | #129 | Kelly-Revit-UI `src/Mvvm/ViewModel.cs` | `ViewModel.AddScopes` | `src/Entities` | member | low | modify |
 
-### Kelly-Revit-Logic (work package P4c-logic-fabrication-families, Linear team KTRL5)
+### Kelly-Revit-Logic (work package P4c-logic-fabrication-families, Linear )
 
-Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5).
+Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -234,9 +234,9 @@ Source packages: Kelly-Revit-UI (KTRUI), Kelly-Revit (KTR5).
 | #151 | Kelly-Revit `modules/Trade.All/Commands/Layout/LayoutPointImport/LayoutPointFromCommaSeparatedValueImportViewModel.cs` | `LayoutPointFromCommaSeparatedValueImportViewModel.SetPointType` | `src/LayoutPoints` | member | low | accept |
 | #152 | Kelly-Revit `modules/Trade.All/Commands/Layout/LayoutPointImport/LayoutPointFromCommaSeparatedValueImportViewModel.cs` | `LayoutPointFromCommaSeparatedValueImportViewModel.ImportPoints (failure classification)` | `src/LayoutPoints` | member | low | accept |
 
-### Kelly-Revit-Logic (work package P4d-logic-mep-operations, Linear team KTRL5)
+### Kelly-Revit-Logic (work package P4d-logic-mep-operations, Linear )
 
-Source packages: Kelly-Revit (KTR5).
+Source packages: Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -263,9 +263,9 @@ Source packages: Kelly-Revit (KTR5).
 | #173 | Kelly-Revit-Logic `src/Parameters/InternalDefinitionExtensions.cs` | `InternalDefinitionExtensions.GetCategoryIds` | `src/Parameters` | member | low | accept |
 | #174 | Kelly-Revit-Logic `src/Views/DataContextViewFilterTools.cs` | `DataContextViewFilterTools.CreateAndApplyFillAndLine (shared parameter element lookup)` | `src/Parameters` | member | low | accept |
 
-### Kelly-Revit-Logic (work package P4e-logic-signatures-spools, Linear team KTRL5)
+### Kelly-Revit-Logic (work package P4e-logic-signatures-spools, Linear )
 
-Source packages: Kelly-Revit (KTR5).
+Source packages: Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -293,9 +293,9 @@ Source packages: Kelly-Revit (KTR5).
 | #196 | Kelly-Revit-Logic `src/Spools/Spool.cs` | `Spool.RecomputeSuspension` | `src/Spools` | type | low | accept |
 | #197 | Kelly-Revit-Logic `src/Spools/SpoolItemBuiltInCategorySet.cs` | `NumberableSpoolItemBuiltInCategorySet` | `src/Spools` | file | low | accept |
 
-### Kelly-Revit-Logic (work package P4f-logic-supports-updaters, Linear team KTRL5)
+### Kelly-Revit-Logic (work package P4f-logic-supports-updaters, Linear )
 
-Source packages: Kelly-Revit (KTR5).
+Source packages: Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -322,9 +322,9 @@ Source packages: Kelly-Revit (KTR5).
 | #218 | Kelly-Revit-Logic `src/Updaters/ElementDataModels/SizeElementDataModel.cs` | `SizeElementDataModel.UpdateOvalIngredients` | `src/Updaters/ElementDataModels` | member | low | accept |
 | #219 | Kelly-Revit-Logic `src/Updaters/ElementServices/SuspendedSupportElementService.cs` | `SuspendedSupportElementService.UpdateElements (trapeze and pipe hanger branches)` | `src/Updaters/ElementServices` | member | low | accept |
 
-### Kelly-Revit-Logic (work package P4g-logic-views, Linear team KTRL5)
+### Kelly-Revit-Logic (work package P4g-logic-views, Linear )
 
-Source packages: Kelly-Revit (KTR5).
+Source packages: Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -338,9 +338,9 @@ Source packages: Kelly-Revit (KTR5).
 | #227 | Kelly-Revit-Logic `src/Views/FilterExtensions.cs` | `FilterExtensions.CreateLineAndFillOverrides (both overloads) and CreateLineOverrides (both overloads)` | `src/Views` | member | low | accept |
 | #228 | Kelly-Revit-Logic `src/Views/ViewFilterSets.cs` | `ViewFilterSets.BomTypeEqualsField, BomTypeEqualsModule, BomTypeEqualsShop, FieldTrimIsGreaterThanZero (shared skeleton)` | `src/Views` | member | low | accept |
 
-### Kelly-Revit-UI (work package P5a-ui-commands-grids, Linear team KTRUI)
+### Kelly-Revit-UI (work package P5a-ui-commands-grids, Linear )
 
-Source packages: Kelly-Revit (KTR5).
+Source packages: Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -366,9 +366,9 @@ Source packages: Kelly-Revit (KTR5).
 | #248 | Kelly-Revit `modules/Trade.All/Commands/Spools/SpoolManager/SpoolManagerView.xaml.cs` | `SpoolManagerView.RebindGridAll` | `src/Grids` | member | low | accept |
 | #249 | Kelly-Revit `modules/Trade.All/Commands/Supports/SuspendedSupportManage/SuspendedSupportManageView.xaml.cs` | `SuspendedSupportManageView.ResetRadGridView (grid descriptor reset)` | `src/Grids` | member | low | accept |
 
-### Kelly-Revit-UI (work package P5b-ui-ribbon, Linear team KTRUI)
+### Kelly-Revit-UI (work package P5b-ui-ribbon, Linear )
 
-Source packages: Kelly-Revit (KTR5).
+Source packages: Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -398,9 +398,9 @@ Source packages: Kelly-Revit (KTR5).
 | #273 | Kelly-Revit `modules/Trade.All/Commands/Assigners/SpoolNumberContext/ComboBox/AssignerSpoolNumberComboBox.cs` | `AssignerSpoolNumberComboBox.CreateProjectComboBoxMembers` | `src/Ribbon` | member | medium | accept |
 | #274 | Kelly-Revit `modules/Trade.All/Commands/Assigners/SpoolNumberContext/ComboBox/AssignerSpoolNumberComboBox.cs` | `AssignerSpoolNumberComboBox.CreateBasicComboBoxMembers / CreateProjectComboBoxMembers (3 overloads)` | `src/Ribbon` | member | medium | accept |
 
-### Kelly-Revit-UI (work package P5c-ui-ribbon-scope, Linear team KTRUI)
+### Kelly-Revit-UI (work package P5c-ui-ribbon-scope, Linear )
 
-Source packages: Kelly-Revit (KTR5).
+Source packages: Kelly-Revit (KTR5). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -427,9 +427,9 @@ Source packages: Kelly-Revit (KTR5).
 | #295 | Kelly-Revit `modules/Trade.All/Commands/Spools/SpoolManager/SpoolManagerViewModel.cs` | `SpoolManagerViewModel.SetSelectedObjects (select and zoom)` | `src/Selection` | member | low | modify |
 | #296 | Kelly-Revit `modules/Trade.Pipe/Commands/OletChecker/Support/SelectionExternalEventHandler.cs` | `SelectionExternalEventHandler.Execute (set selection, then ShowElements when zooming)` | `src/Selection` | member | low | accept |
 
-### Kelly-Revit (work package P6a-revit-assigners-scheduleexport, Linear team KTR5)
+### Kelly-Revit (work package P6a-revit-assigners-scheduleexport, Linear )
 
-Source packages: none (same layer).
+Source packages: none (same layer). Linear project: [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c).
 
 | # | Source | Symbol | Into | Kind | Risk | Review |
 |---|---|---|---|---|---|---|
@@ -538,3 +538,7 @@ Bottom-up, one commit per package, then the source packages in their source laye
 6. **Kelly-Revit** (`Kelly-Revit-v5`): P6a-revit-assigners-scheduleexport; source side of P2a-windows-collections-files, P3a-domain-common-definitions, P3b-domain-layoutpoints-pcf, P3c-domain-spools-supports, P3d-domain-views-vocabulary, P4a-logic-arrangement-common, P4b-logic-documents-elements, P4c-logic-fabrication-families, P4d-logic-mep-operations, P4e-logic-signatures-spools, P4f-logic-supports-updaters, P4g-logic-views, P5a-ui-commands-grids, P5b-ui-ribbon, P5c-ui-ribbon-scope
 
 In-Revit tests (Logic, UI, Kelly-Revit) are compiled at every step and run in Revit 2024 through `revit-test.sh` when Revit 2024 is closed and a licence is available; otherwise they are reported "compiled, not run".
+
+## Linear
+
+Project [Layer Moves 2026-11-04 Round 2](https://linear.app/jhkelly/project/layer-moves-2026-11-04-round-2-69c9c35f968c): 17 target issues (KWD3-11, KW3-16, KD-39 to KD-42, KTRL5-47 to KTRL5-53, KTRUI-12 to KTRUI-14, KTR5-4727) and 25 source sub-issues (KD-43, KD-44, KTRL5-54 to KTRL5-58, KTRUI-15 to KTRUI-17, KTR5-4728 to KTR5-4742).
