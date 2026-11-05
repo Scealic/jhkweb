@@ -159,3 +159,22 @@ Each is a Linear issue in the project. Behaviour was kept and each one is pinned
 ## Next
 
 Close Revit 2024 and run the in-Revit tests for Kelly-Revit-Logic, Kelly-Revit-UI and Kelly-Revit with `revit-test.sh`. Then push `develop` bottom-up.
+
+## Follow-up sweep (2026-11-05)
+
+The 6 medium defects and the 4 partial moves were fixed bottom-up in one pass. Each layer was packed and the layer above repinned. Nothing was installed or pushed.
+
+| Repo | Commits | Package | Items | Tests |
+|---|---|---|---|---|
+| Kelly-Windows-v3 | `361f7e7`, `6ca04a6` | `3.26.1105.810` | KW3-17, KW3-18 | 835 of 835 pass (Net481, Net80, Net100) |
+| Kelly-Domain | `fea4acf`, `3639c9c` | `1.26.1105.812` | KD-47, KD-48 | 1804 of 1804 pass (Net481, Net80, Net100) |
+| Kelly-Revit-Logic-v5 | `977fd9f`, `df838f8` | `5.26.1105.816` | KTRL5-59, KTRL5-60, KD-48 switch | in-Revit tests compiled 2024-2026, **not run** |
+| Kelly-Revit-UI | `f45ef5c`, `b3fedfb`, `64a0f13`, `f58eeb7` | `1.26.1105.818`, then `1.26.1105.821` | KTRUI-18, KTR5-4744 | 230 of 230 pass (2024-2026); in-Revit tests compiled, **not run** |
+| Kelly-Revit-v5 | `e7480dc8`, `c7029201` | not a package; all 21 configurations build, not installed | KTR5-4728 (Racker), KTR5-4746, KD-47 switch | in-Revit tests compiled 2024-2026, **not run** |
+
+- **Linear:** KW3-17, KW3-18, KD-47, KD-48 and KTRUI-18 are Done. KTRL5-59, KTRL5-60, KTR5-4744 and KTR5-4746, and the partial parents KTRL5-47, KTRL5-52, KTR5-4728 and KTR5-4740, are in **Testing** until the in-Revit run.
+- **KTR5-4744** was fixed in Kelly-Revit-UI (`SelectOrAddProjectMember` returns whether the value is current), not in the add-in. A live ribbon combo box can't be built in a test, so it needs the hand check of the adopt buttons.
+- **KD-47:** the `PointToPipe.txt` literal was in Kelly-Revit-v5's Point To Pipe window, not in Logic as the report said.
+- **Behaviour changes users may notice:** the Suspended Support Manager no longer treats a rolled-back edit as done. The layout discipline updater matches services ignoring case. A UNC path containing `C:\` is "Network Drive". A folder that cannot be created now stops with a "Directory Error".
+- **Left open:** the 11 low-severity defects. Kelly.Domain's `ServiceSignatureTools.FindServiceExact` no longer has a caller, and can be deleted in the next Domain change.
+- **Still to do:** close Revit 2024 (PID 31420 still open at 08:30) and run the in-Revit tests for Logic, UI and Kelly-Revit; then do the hand check; then install and push.
