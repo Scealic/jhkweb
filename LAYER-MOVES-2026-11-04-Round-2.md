@@ -178,3 +178,14 @@ The 6 medium defects and the 4 partial moves were fixed bottom-up in one pass. E
 - **Behaviour changes users may notice:** the Suspended Support Manager no longer treats a rolled-back edit as done. The layout discipline updater matches services ignoring case. A UNC path containing `C:\` is "Network Drive". A folder that cannot be created now stops with a "Directory Error".
 - **Left open:** the 11 low-severity defects. Kelly.Domain's `ServiceSignatureTools.FindServiceExact` no longer has a caller, and can be deleted in the next Domain change.
 - **Still to do:** run the in-Revit tests (Revit 2024 was closed at 08:27) for Logic, UI and Kelly-Revit; then do the hand check; then install and push.
+
+### In-Revit results (Revit 2024, add-in disabled, 2026-11-05)
+
+- **Kelly-Revit-UI:** 91 of 91 pass.
+- **Sweep tests:** they all pass in targeted runs. Logic `OperationServiceTests`, `ElementDataModelsTests`, `SuspendedSupportOperationsTests` and the moves fixtures pass 106 of 107; the one failure was the sweep's own comment naming `FindServiceExact`, fixed in `0f649d3`, after which the fixture passes 23 of 23. In Kelly-Revit, the Racker tests and `FamilyDocumentEnabler_DerivesFromDocumentCommandAvailability` pass. Linear: KTRL5-59, KTRL5-60 and KTR5-4746 are Done; KTR5-4744 stays in Testing for the hand check; the partial parents stay in Testing.
+- **Kelly-Revit-Logic, full suite: hangs.** About three minutes in, Revit stops working (the journal shows only heartbeat lines after 08:30), and the run ends at the 45-minute `NUnit.Timeout` with "No test is available": every result is lost. The 11-04 run also stopped early (133 of 1437). The cause predates the sweep and is not yet found; the next step is to bisect it fixture by fixture.
+- **Kelly-Revit, full run: 700 of 709 pass, and the run is incomplete.** A filtered run of `LowerLayerRulesTests` alone found 889 cases, so the full run dropped tests without reporting them. Of the 9 failures:
+  - 4 need the add-in started (the `ApplicationLoggerTests` and `EventServiceTests` cases), which can't happen while it's disabled.
+  - 4 are `MissingMethodException` for `Kelly.Windows.Logging.LoggerServices.GetFileLogger(string, Serilog.RollingInterval)` when reading the Custom Data Updater V1 IL. This looks like a Serilog version clash with another add-in loaded in Revit (pyRevit reports an assembly version conflict), and it depends on load order.
+  - 1 was the stale `DistributeTagsAround_CallsTheOverloadThatOwnsTheGroup`: the call moved into a `CommandRunner.Run` lambda in P6n. Fixed in `3a8ac6e5`; it passes.
+- **Filtered Kelly-Revit runs** take one case at a time and hit the project's default 10-minute `NUnit.Timeout` (473 cases reported "Timeout 10 minutes"). Filter by exact test names, or raise the timeout as Logic does.
