@@ -1,0 +1,1581 @@
+Repo,Access or kind,Folder,Type,Member,Status
+Kelly-Windows-Data-v3,public,Caching,ICache,CacheName,member not named in a test of its type
+Kelly-Windows-Data-v3,public,Caching,ICache,Objects,member not named in a test of its type
+Kelly-Windows-Data-v3,public,Caching,ICache,ClearCache,member not named in a test of its type
+Kelly-Windows-Data-v3,public,Caching,ICache,FillCache,member not named in a test of its type
+Kelly-Windows-Data-v3,public,Caching,ICache,GetData,member not named in a test of its type
+Kelly-Windows-Data-v3,private,Services,DataDirectory,CountOf,member not named in a test of its type
+Kelly-Windows-Data-v3,private,Services,DataDirectory,LoadableTypes,member not named in a test of its type
+Kelly-Windows-Data-v3,public,Services,DataFolderWriter,Folder,member not named in a test of its type
+Kelly-Windows-Data-v3,public,Services,DataFolderWriter,Dispose,member not named in a test of its type
+Kelly-Windows-Data-v3,private,Services,DataFolderWriter,TemporaryPath,member not named in a test of its type
+Kelly-Windows-Data-v3,private,Services,DataFolderWriter,ThrowIfCommitted,member not named in a test of its type
+Kelly-Windows-Data-v3,private,Services,RecordMapper,Convert,member not named in a test of its type
+Kelly-Windows-Data-v3,private,Services,RecordMapper,MapRemaining,member not named in a test of its type
+Kelly-Windows-Data-Csv,private,.,CsvDataFileReader,NullableColumnTypes,member not named in a test of its type
+Kelly-Windows-Data-Csv,private,.,CsvDataFileReader,UseFormat,member not named in a test of its type
+Kelly-Windows-Data-Csv,public,.,CsvDataWriter,Dispose,member not named in a test of its type
+Kelly-Windows-Data-Csv,private,.,CsvTable,FormatField,member not named in a test of its type
+Kelly-Windows-Data-Csv,private,.,CsvTable,OpenReader,member not named in a test of its type
+Kelly-Windows-Data-Csv,private,.,CsvTable,ReadConfiguration,member not named in a test of its type
+Kelly-Windows-Data-Json,private,.,JsonDataWriter,CreateSettings,member not named in a test of its type
+Kelly-Windows-Data-Json,private,.,JsonFileRepository,Clone,member not named in a test of its type
+Kelly-Windows-Data-Json,private,.,JsonFileRepository,LoadFromDisk,member not named in a test of its type
+Kelly-Windows-Data-Json,private,.,JsonFileRepository,LoadStrict,member not named in a test of its type
+Kelly-Windows-Data-Json,private,.,JsonFileRepository,SaveToDisk,member not named in a test of its type
+Kelly-Windows-Data-Json,private,.,JsonFileRepository,TryLoad,member not named in a test of its type
+Kelly-Windows-v3,private,Common,BoolAttribute,DesiredValue,member not named in a test of its type
+Kelly-Windows-v3,public,Common,FlagExistsConverter,ConvertBack,member not named in a test of its type
+Kelly-Windows-v3,public,Files,FileServices,VettedDirectoryInfo,member not named in a test of its type
+Kelly-Windows-v3,private,Files,FileServices,SetVettedFullPath,member not named in a test of its type
+Kelly-Windows-v3,private,Files,FileServices,ThrowIfNoContent,member not named in a test of its type
+Kelly-Windows-v3,private,Files,FileServices,VetDirectoryPath,member not named in a test of its type
+Kelly-Windows-v3,private,Files,FileServices,VetFileName,member not named in a test of its type
+Kelly-Windows-v3,public,Files,ShellTools,OpenInExplorer,member not named in a test of its type
+Kelly-Windows-v3,public,Files,ShellTools,OpenInExplorer,member not named in a test of its type
+Kelly-Windows-v3,private,Hosting,ServiceProvider,Services,member not named in a test of its type
+Kelly-Windows-v3,private,Hosting,ServiceProvider,NotStartedMessage,member not named in a test of its type
+Kelly-Windows-v3,public,Logging,LoggerServices,IncludeTimeStamp,member not named in a test of its type
+Kelly-Windows-v3,private,Logging,LoggerServices,GetFullPath,member not named in a test of its type
+Kelly-Windows-v3,private,Measurements,ConstructionServices,RoundPartialInchDown,member not named in a test of its type
+Kelly-Windows-v3,private,Measurements,ConstructionServices,RoundPartialInchUp,member not named in a test of its type
+Kelly-Windows-v3,public,Measurements,MeasurementModel,LengthUnits,member not named in a test of its type
+Kelly-Windows-v3,public,Measurements,RoundAmount,OneEighth,member not named in a test of its type
+Kelly-Windows-v3,public,Measurements,RoundAmount,OneFourth,member not named in a test of its type
+Kelly-Windows-v3,public,Measurements,RoundAmount,OneHalf,member not named in a test of its type
+Kelly-Windows-v3,public,Measurements,RoundAmount,OneSixTeenth,member not named in a test of its type
+Kelly-Windows-v3,public,Measurements,RoundAmount,OneSixTeenthOfAnInch,member not named in a test of its type
+Kelly-Windows-v3,public,Measurements,RoundAmount,OneSixtyFourth,member not named in a test of its type
+Kelly-Windows-v3,public,Measurements,RoundAmount,OneTwoFiftySixth,member not named in a test of its type
+Kelly-Windows-v3,private,Measurements,RoundAmount,LengthOfDecimal,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,ColorWrapper,Id,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,QualityCheckColors,Danger,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,QualityCheckColors,Good,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,QualityColorConverter,ConvertBack,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,ValidValueColors,False,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,ValidValueColors,FalseLight,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,ValidValueColors,Neutral,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,ValidValueColors,True,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,ValidValueColors,TrueLight,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,ValidValueColors,White,member not named in a test of its type
+Kelly-Windows-v3,public,Palettes,ValueToColorConverter,ConvertBack,member not named in a test of its type
+Kelly-Windows-v3,protected,Persistence,ModelBase,OnPropertyChanged,member not named in a test of its type
+Kelly-Windows-v3,public,Reflection,CodeLocations,GetFullCodePath,member not named in a test of its type
+Kelly-Windows-v3,private,Reflection,ObjectDumper,FormatSimple,member not named in a test of its type
+Kelly-Windows-v3,private,Reflection,ObjectDumper,IsSimple,member not named in a test of its type
+Kelly-Windows-v3,private,Reflection,ObjectDumper,TypeName,member not named in a test of its type
+Kelly-Windows-v3,private,Reflection,ObjectDumper,Write,member not named in a test of its type
+Kelly-Windows-v3,private,Reflection,ObjectDumper,WriteDictionary,member not named in a test of its type
+Kelly-Windows-v3,private,Reflection,ObjectDumper,WriteEnumerable,member not named in a test of its type
+Kelly-Windows-v3,private,Reflection,ObjectDumper,WriteProperties,member not named in a test of its type
+Kelly-Windows-v3,private,Text,StringBuilderExtensions,ToQuotedCsvField,member not named in a test of its type
+Kelly-Windows-v3,public,Text,StringExtensions,FixInch,member not named in a test of its type
+Kelly-Windows-v3,public,Text,StringExtensions,StripAllButAlphaNumericSpacesHypenUnder,member not named in a test of its type
+Kelly-Windows-v3,class,Workstation,UserPrincipalExtensions,,type not named in any test
+Kelly-Windows-v3,public,Workstation,UserPrincipalExtensions,GetManager,member not named in a test of its type
+Kelly-Windows-v3,public,Workstation,UserPrincipalExtensions,GetTitle,member not named in a test of its type
+Kelly-Windows-v3,private,Workstation,WorkstationModel,GetMemoryCapacity,member not named in a test of its type
+Kelly-Windows-v3,class,Wpf,ClipboardTools,,type not named in any test
+Kelly-Windows-v3,public,Wpf,ClipboardTools,GetText,member not named in a test of its type
+Kelly-Windows-v3,public,Wpf,ClipboardTools,SetText,member not named in a test of its type
+Kelly-Windows-v3,public,Wpf,ClipboardTools,SetText,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,CurrentObjectLabel,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,CurrentObjectName,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,Dispatcher,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,LastRenderMilliseconds,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessElapsedTime,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessElapsedTimeLabel,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessElapsedTimeMessage,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessItemCountLabel,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessItemCountMessage,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessLabel,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessPercentCompleteLabel,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessRemainingTime,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessRemainingTimeLabel,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessRemainingTimeMessage,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessStopwatch,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessedItems,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProcessedItemsShown,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,ProgressBar,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,View,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,Advance,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,Count,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressBarService,Render,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressReporter,DefaultFactory,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressReporterExtensions,TrackIterator,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,ProgressView,RemoveSystemMenu,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,WindowBehaviors,OnSizeChanged,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,WindowExtensions,GetEffectiveHeight,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,WindowExtensions,GetEffectiveSize,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf,WindowExtensions,GetWorkingArea,member not named in a test of its type
+Kelly-Windows-v3,private,Files/Xlsx,MinimalXlsxWriter,AddEntry,member not named in a test of its type
+Kelly-Windows-v3,private,Files/Xlsx,MinimalXlsxWriter,ContentTypesXml,member not named in a test of its type
+Kelly-Windows-v3,private,Files/Xlsx,MinimalXlsxWriter,EstimateColumnWidths,member not named in a test of its type
+Kelly-Windows-v3,private,Files/Xlsx,MinimalXlsxWriter,RootRelationshipsXml,member not named in a test of its type
+Kelly-Windows-v3,private,Files/Xlsx,MinimalXlsxWriter,StylesXml,member not named in a test of its type
+Kelly-Windows-v3,private,Files/Xlsx,MinimalXlsxWriter,WorkbookRelationshipsXml,member not named in a test of its type
+Kelly-Windows-v3,private,Files/Xlsx,MinimalXlsxWriter,WorkbookXml,member not named in a test of its type
+Kelly-Windows-v3,private,Files/Xlsx,MinimalXlsxWriter,WorksheetXml,member not named in a test of its type
+Kelly-Windows-v3,internal,Wpf/Native,NativeMethods,SetWindowLong,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf/Native,ScreenInfo,EnumDisplayMonitors,member not named in a test of its type
+Kelly-Windows-v3,private,Wpf/Native,ScreenInfo,MonitorFromWindow,member not named in a test of its type
+Kelly-Domain,public,Caches,DataFiles,ProductRanges,member not named in a test of its type
+Kelly-Domain,public,Caches,DataFiles,Services,member not named in a test of its type
+Kelly-Domain,public,Caches,DataFiles,Systems,member not named in a test of its type
+Kelly-Domain,public,Caches,DataFiles,Terminologies,member not named in a test of its type
+Kelly-Domain,public,Caches,DataFiles,Get,member not named in a test of its type
+Kelly-Domain,public,Caches,DataFiles,IsRegistered,member not named in a test of its type
+Kelly-Domain,protected,Caches,ExternalParameterDefinitionCache,OnCacheCleared,member not named in a test of its type
+Kelly-Domain,protected,Caches,ExternalParameterDefinitionCache,OnCacheFilled,member not named in a test of its type
+Kelly-Domain,protected,Caches,ProductRangeCache,CreateModel,member not named in a test of its type
+Kelly-Domain,record,Categories,BuiltInCategoryMetaRecord,,type not named in any test
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,AllowsBoundParameters,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,BuiltInCategoryId,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,CanAddSubcategory,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,CategoryName,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,CategoryType,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,ElementId,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,HasMaterialQuantities,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,Id,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,IsSubCategory,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,IsVisibleInUi,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,ParentCategoryName,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryMetaRecord,RevitVersion,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryRecord,ElementId,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryWrapper,BuiltInCategoryValue,member not named in a test of its type
+Kelly-Domain,public,Categories,BuiltInCategoryWrapper,IsBound,member not named in a test of its type
+Kelly-Domain,public,Categories,CategoryTypeRecord,IsValidForStratus,member not named in a test of its type
+Kelly-Domain,public,Categories,CategoryTypeRecord,NameAbbreviation,member not named in a test of its type
+Kelly-Domain,public,Connectors,ConnectorGrouping,Example,member not named in a test of its type
+Kelly-Domain,public,Connectors,ConnectorGrouping,Id,member not named in a test of its type
+Kelly-Domain,public,Connectors,ConnectorGroupingRecord,Example,member not named in a test of its type
+Kelly-Domain,public,Connectors,ConnectorPreparationsRecord,DomainName,member not named in a test of its type
+Kelly-Domain,public,Connectors,ConnectorPreparationsRecord,PreparationName,member not named in a test of its type
+Kelly-Domain,public,Connectors,ConnectorPreparationsRecord,ShapeName,member not named in a test of its type
+Kelly-Domain,private,Connectors,ConnectorSizeFormatter,GetBranchString,member not named in a test of its type
+Kelly-Domain,private,Connectors,ConnectorSizeFormatter,GetRunString,member not named in a test of its type
+Kelly-Domain,private,Data,DataStore,OrEmpty,member not named in a test of its type
+Kelly-Domain,public,Definitions,DefinitionRegistry,IsRegistered,member not named in a test of its type
+Kelly-Domain,public,Definitions,DefinitionRegistry,Resolve,member not named in a test of its type
+Kelly-Domain,public,Identifiers,DetailingPackage,Equals,member not named in a test of its type
+Kelly-Domain,public,Identifiers,DetailingPackage,Equals,member not named in a test of its type
+Kelly-Domain,public,Identifiers,DetailingPackage,GetHashCode,member not named in a test of its type
+Kelly-Domain,public,Identifiers,DetailingPackage,ToString,member not named in a test of its type
+Kelly-Domain,private,Identifiers,LayoutPointId,IsAsciiLetter,member not named in a test of its type
+Kelly-Domain,public,Identifiers,LineNumber,GetHashCode,member not named in a test of its type
+Kelly-Domain,public,Identifiers,LineNumber,ToString,member not named in a test of its type
+Kelly-Domain,public,Identifiers,ProductCode,Equals,member not named in a test of its type
+Kelly-Domain,public,Identifiers,ProductCode,Equals,member not named in a test of its type
+Kelly-Domain,public,Identifiers,ProductCode,GetHashCode,member not named in a test of its type
+Kelly-Domain,public,Identifiers,ProductCode,ToString,member not named in a test of its type
+Kelly-Domain,private,Identifiers,Tag,Sequence,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinition,DocumentBindings,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinition,IsDeprecated,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinition,IsForceDeleteFromDocument,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinition,SortOrderPrimary,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinition,SortOrderSecondary,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,DefaultValue,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,DefinitionDataCategory,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,DefinitionDataType,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,DefinitionDescription,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,DefinitionGroup,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,DefinitionUserModifiable,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,DefinitionVisible,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,ElementBindings,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,GroupTypeTableId,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,InternalNotes,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,IsAllowVaryBetweenGroupInstance,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,IsAutoLoad,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,IsDeleteFromExternalDefinition,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,ParameterUnit,member not named in a test of its type
+Kelly-Domain,private,Parameters,ExternalParameterDefinition,StorageType,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,DefaultValue,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,DefinitionDataCategory,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,DefinitionDataType,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,DefinitionDescription,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,DefinitionGroup,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,DocumentBindings,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,ElementBindings,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,GroupInProperties,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,InternalNotes,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,IsAllowVaryBetweenGroupInstance,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,IsDeleteFromExternalDefinition,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,ParameterUnit,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,SortOrderPrimary,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,SortOrderSecondary,member not named in a test of its type
+Kelly-Domain,public,Parameters,ExternalParameterDefinitionRecord,StorageType,member not named in a test of its type
+Kelly-Domain,private,Pcf,Shortcut,NotifyPropertyChanged,member not named in a test of its type
+Kelly-Domain,private,Pcf,VicMaterial,NotifyPropertyChanged,member not named in a test of its type
+Kelly-Domain,public,Products,Component,BusinessDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,CategoryDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,CategoryTypeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,CategoryTypeDotProductRange,member not named in a test of its type
+Kelly-Domain,public,Products,Component,ConnectorMappingId,member not named in a test of its type
+Kelly-Domain,public,Products,Component,FinishDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,MaterialCodeDotNameAbbreviation,member not named in a test of its type
+Kelly-Domain,public,Products,Component,MaterialGradeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,MaterialSpecificationDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,MaterialTypeDotDescription,member not named in a test of its type
+Kelly-Domain,public,Products,Component,MaterialTypeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,MaterialTypeDotNameAbbreviation,member not named in a test of its type
+Kelly-Domain,public,Products,Component,TradeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,TradeId,member not named in a test of its type
+Kelly-Domain,private,Products,Component,BusinessModelDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,CatalogGroupDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,ComponentGroupDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,ComponentModifierDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,ConnectionTypeDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,FabricationPatternDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,FabricationPatternDotPattern,member not named in a test of its type
+Kelly-Domain,private,Products,Component,FabricationPatternOptionsTypeDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,FileName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,FileNameModifierDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,FilePath,member not named in a test of its type
+Kelly-Domain,private,Products,Component,FileTypeDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,IsBoughtOut,member not named in a test of its type
+Kelly-Domain,private,Products,Component,IsProjectSpecific,member not named in a test of its type
+Kelly-Domain,private,Products,Component,MainClassDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,MainClassModifierDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,MainClassModifierDotNameAbbreviation,member not named in a test of its type
+Kelly-Domain,private,Products,Component,MaterialCodeDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,MaterialGroupDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,ReducingClassDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,ReducingClassModifierDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,ReducingScheduleDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,SubCategoryDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,SubCategoryModifierAlphaDotName,member not named in a test of its type
+Kelly-Domain,private,Products,Component,SubCategoryModifierBravoDotName,member not named in a test of its type
+Kelly-Domain,public,Products,Component,GetClassDescription,member not named in a test of its type
+Kelly-Domain,public,Products,Component,GetLongDescription,member not named in a test of its type
+Kelly-Domain,public,Products,Component,GetShortDescription,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,BusinessDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,BusinessModelDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,CatalogGroupDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,CategoryDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,CategoryTypeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,CategoryTypeDotProductRange,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,ComponentGroupDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,ComponentModifierDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,ConnectionTypeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,ConnectorMappingId,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,FabricationPatternDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,FabricationPatternDotPattern,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,FabricationPatternOptionsTypeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,FileNameModifierDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,FilePath,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,FileTypeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,FinishDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,IsBoughtOut,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,IsProjectSpecific,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MainClassDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MainClassModifierDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MainClassModifierDotNameAbbreviation,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MaterialCodeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MaterialCodeDotNameAbbreviation,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MaterialConfigurationId,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MaterialGradeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MaterialSpecificationDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MaterialTypeDotDescription,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MaterialTypeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,MaterialTypeDotNameAbbreviation,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,ReducingClassDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,ReducingClassModifierDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,ReducingScheduleDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,SubCategoryDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,SubCategoryModifierAlphaDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,SubCategoryModifierBravoDotName,member not named in a test of its type
+Kelly-Domain,public,Products,ComponentAndLookupsViewRecord,TradeDotName,member not named in a test of its type
+Kelly-Domain,public,Products,GaugeRecord,Notes,member not named in a test of its type
+Kelly-Domain,public,Products,Product,ProductDotFabricationUnitRate,member not named in a test of its type
+Kelly-Domain,public,Products,Product,ProductDotId,member not named in a test of its type
+Kelly-Domain,public,Products,Product,ProductDotInstallationUnitRate,member not named in a test of its type
+Kelly-Domain,private,Products,Product,ProductDotHphCode,member not named in a test of its type
+Kelly-Domain,private,Products,Product,ProductDotLaborId,member not named in a test of its type
+Kelly-Domain,private,Products,Product,ProductDotManufacturerCode,member not named in a test of its type
+Kelly-Domain,private,Products,Product,ProductDotPartCode,member not named in a test of its type
+Kelly-Domain,private,Products,Product,ProductDotProductIndex,member not named in a test of its type
+Kelly-Domain,private,Products,Product,ProductDotThickness,member not named in a test of its type
+Kelly-Domain,private,Products,Product,ProductDotUpcCode,member not named in a test of its type
+Kelly-Domain,private,Products,Product,ProductDotWeight,member not named in a test of its type
+Kelly-Domain,public,Products,Product,GetRecord,member not named in a test of its type
+Kelly-Domain,private,Products,ProductRangeParameterDefaults,ValueDataType,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRangeParameterDefaultsRecord,ValueDataType,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotFabricationUnitRate,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotHphCode,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotId,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotInstallationUnitRate,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotLaborId,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotManufacturerCode,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotPartCode,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotProductIndex,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotThickness,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotUpcCode,member not named in a test of its type
+Kelly-Domain,public,Products,ProductRecord,ProductDotWeight,member not named in a test of its type
+Kelly-Domain,public,Projects,AddInConfiguration,IsConfigured,member not named in a test of its type
+Kelly-Domain,private,Projects,AddInConfiguration,NotConfigured,member not named in a test of its type
+Kelly-Domain,public,Projects,ConfigurationRecord,Notes,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,Address,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,Architect,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,BuildingName,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,ClientName,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,FabricationConfigurationId,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,FilePath,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,FileStore,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,GeneralContractor,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,IsActive,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,IsBimLite,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,IssueDate,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,MarketSector,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,NameAbbreviation,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,NameInternal,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,Number,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,NumberInternal,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,OrganizationDescription,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,OrganizationName,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,RulesOfCreditConstructionSignOff,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,RulesOfCreditIssuedForConstruction,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,RulesOfCreditModel,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,Status,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectRecord,Title,member not named in a test of its type
+Kelly-Domain,private,Projects,ProjectSystemQueries,NameAndAbbreviationKey,member not named in a test of its type
+Kelly-Domain,public,Projects,ProjectToSystemRecord,ProjectId,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceData,ColorAutoCad,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceData,LayoutColorName,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceData,LayoutDiscipline,member not named in a test of its type
+Kelly-Domain,private,Projects,ServiceData,ActivityCode,member not named in a test of its type
+Kelly-Domain,private,Projects,ServiceData,Discipline,member not named in a test of its type
+Kelly-Domain,private,Projects,ServiceData,DisciplineSubName,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceDataRecord,ActivityCode,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceDataRecord,ColorAutoCad,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceDataRecord,Discipline,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceDataRecord,DisciplineSubName,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceDataRecord,LayoutColorName,member not named in a test of its type
+Kelly-Domain,public,Projects,ServiceDataRecord,LayoutDiscipline,member not named in a test of its type
+Kelly-Domain,public,Projects,SystemData,ActivityCode,member not named in a test of its type
+Kelly-Domain,public,Projects,SystemData,ColorAutoCad,member not named in a test of its type
+Kelly-Domain,private,Projects,SystemData,Discipline,member not named in a test of its type
+Kelly-Domain,private,Projects,SystemData,DisciplineSubName,member not named in a test of its type
+Kelly-Domain,private,Projects,SystemData,LayoutColorName,member not named in a test of its type
+Kelly-Domain,private,Projects,SystemData,LayoutDiscipline,member not named in a test of its type
+Kelly-Domain,public,Projects,SystemRecord,ActivityCode,member not named in a test of its type
+Kelly-Domain,public,Projects,SystemRecord,ColorAutoCad,member not named in a test of its type
+Kelly-Domain,public,Projects,SystemRecord,Discipline,member not named in a test of its type
+Kelly-Domain,public,Projects,SystemRecord,DisciplineSubName,member not named in a test of its type
+Kelly-Domain,public,Projects,SystemRecord,LayoutColorName,member not named in a test of its type
+Kelly-Domain,public,Projects,SystemRecord,LayoutDiscipline,member not named in a test of its type
+Kelly-Domain,private,Spools,ModuleNumber,ModuleType,member not named in a test of its type
+Kelly-Domain,private,Spools,ModuleNumber,Prefix,member not named in a test of its type
+Kelly-Domain,private,Spools,ModuleNumber,Sequence,member not named in a test of its type
+Kelly-Domain,public,Spools,ModuleNumber,GetHashCode,member not named in a test of its type
+Kelly-Domain,private,Spools,SpoolNumber,Prefix,member not named in a test of its type
+Kelly-Domain,private,Spools,SpoolNumber,Sequence,member not named in a test of its type
+Kelly-Domain,private,Spools,SpoolNumber,SpoolType,member not named in a test of its type
+Kelly-Domain,public,Spools,SpoolNumber,Equals,member not named in a test of its type
+Kelly-Domain,public,Spools,SpoolNumber,Equals,member not named in a test of its type
+Kelly-Domain,public,Spools,SpoolNumber,GetHashCode,member not named in a test of its type
+Kelly-Domain,public,Spools,SpoolNumber,ToString,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,AssignerTools,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Concatenator,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Conduit,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Coordinate,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Creator,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Data,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Database,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Duct,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Error,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Experiment,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Export,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Exporter,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,GlobalPoint,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Hardware,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Importer,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,LayoutPointVirtual,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,LocationPoint,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ManagerTools,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Material,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Parameter,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ParameterMethod,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ParameterRevitBuiltIn,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ParameterRevitShared,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Pipe,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Prefix,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Project,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ProjectInformation,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Report,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RevitAssembly,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RevitElement,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RevitView,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RevitViewSchedule,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RevitViewType,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleApprentice,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleClashDetective,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleCoordinator,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleDetailer,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleDeveloper,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleDrafter,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleEstimator,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleForeman,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleGeneralForeman,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleJourneyman,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleLeadDetailer,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleManager,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleModeler,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RolePresident,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleProjectLead,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleProjectManager,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleProjectSupport,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleScannerOperator,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleSpooler,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleSuperintendant,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleTrimbleOperator,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,RoleVicePresident,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ScopeInActiveView,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ScopeInProject,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ScopeInSelection,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Selection,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Sleeve,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Software,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Structure,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Strut,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Suffix,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Support,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,SupportRod,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Tag,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Taggers,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,TakeOff,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ThreadedRod,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Updater,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,UpdaterTools,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Updaters,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,ViewFilterTools,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Website,member not named in a test of its type
+Kelly-Domain,public,Vocabulary,Nouns,Weld,member not named in a test of its type
+Kelly-Domain,protected,Parameters/FilterRules,DetailingPackageColors,NamePrefix,member not named in a test of its type
+Kelly-Domain,protected,Parameters/FilterRules,DigitSuffixColorPalette,NamePrefix,member not named in a test of its type
+Kelly-Domain,public,Parameters/FilterRules,FilterRuleModel,FilterRuleType,member not named in a test of its type
+Kelly-Domain,public,Parameters/FilterRules,FilterRuleModel,Value,member not named in a test of its type
+Kelly-Domain,protected,Parameters/FilterRules,LineNumberColors,NamePrefix,member not named in a test of its type
+Kelly-Domain,protected,Parameters/FilterRules,ModuleNumberColors,NamePrefix,member not named in a test of its type
+Kelly-Domain,protected,Parameters/FilterRules,SpoolNameColors,NamePrefix,member not named in a test of its type
+Kelly-Domain,private,Views/Spools,SpoolBomSheetScheduleViewSettings,AssemblyName,member not named in a test of its type
+Kelly-Domain,private,Views/Spools,SpoolLengthSheetScheduleViewSettings,AssemblyName,member not named in a test of its type
+Kelly-Domain,private,Views/Spools,SpoolMtrSheetScheduleViewSettings,AssemblyName,member not named in a test of its type
+Kelly-Domain,private,Views/Spools,SpoolWeightSheetScheduleViewSettings,AssemblyName,member not named in a test of its type
+Kelly-Domain,private,Views/Spools,SpoolWeldSheetScheduleViewSettings,AssemblyName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,AnnotationArranger,MoveAnnotationElements,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,AnnotationArranger,PrepareAnnotationElements,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,AnnotationElement,Parent,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,AnnotationElement,GetMax,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,AnnotationElement,GetMin,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,AnnotationElement,ProjectedDistance,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,AnnotationElement,ProjectionOnPlane,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,CommitPreprocessor,PreprocessFailures,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,TagDistributor,CreateTagPositionPoints,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,BaseLine,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,EndLine,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,LeaderEnd,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,Side,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,TagCenter,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,TagHeight,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,TagWidth,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,TagLeader,ElbowPosition,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,GetLeaderEnd,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,GetTaggedElement,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Arrangement,TagLeader,UpdateTagPosition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,TagLeader,GetTagDimension,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Arrangement,TagLeader,UpdateLeaderPosition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Caches,DataFileService,OpenDataDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Caches,DataFileService,RevitVersion,member not named in a test of its type
+Kelly-Revit-Logic-v5,protected,Caches,DocumentCache,GetElements,member not named in a test of its type
+Kelly-Revit-Logic-v5,class,Caches,NumberedDocumentCache,,type not named in any test
+Kelly-Revit-Logic-v5,protected,Caches,NumberedDocumentCache,.ctor,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Caches,NumberedDocumentCache,Cache,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Caches,NumberedDocumentCache,GetData,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Caches,SystemDocumentCache,Store,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Caches,SystemDocumentCache,FillFromFabricationDatabase,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Caches,SystemDocumentCache,FillFromServices,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Categories,BuiltInCategoryMeta,CanAddSubcategory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Categories,BuiltInCategoryMeta,HasMaterialQuantities,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Categories,BuiltInCategoryMeta,IsVisibleInUi,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Categories,BuiltInCategoryMeta,VersionNumber,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Categories,CategoryExtensions,AddLine,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,AssemblyWarningSwallower,PreprocessFailures,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,ButtonDataWrapper,ButtonIndex,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,ButtonDataWrapper,FabricationServiceButton,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,ButtonDataWrapper,Image,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,ButtonDataWrapper,IsEnabled,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Common,ButtonDataWrapper,FabricationServiceName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Common,ObjectLogExtensions,IsList,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Common,ObjectLogExtensions,IsObservableCollection,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetApplicationDataDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetApplicationLogsDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetApplicationReportsDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetLayoutDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetLogsDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetProjectDataDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetProjectDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetProjectDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetProjectExportDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetProjectLogsDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,PathExtensions,GetTemporaryDirectory,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Common,PathExtensions,GetDirectoryInfoApplication,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Common,PathExtensions,GetDirectoryInfoProject,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Common,PathExtensions,GetProjectPath,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Common,PathExtensions,PrepareSubDirectoryPath,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,ScopeSource,GetSelectedElementIds,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Common,SuppressDuplicateInstancesWarning,PreprocessFailures,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Connectors,ConnectorExtensions,AlignsWithPipeCenterline,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Connectors,ConnectorTools,GetEndConnectedNeighborIdsIterator,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Connectors,ConnectorWrapper,ConnectorId,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Connectors,ConnectorWrapper,ConnectorName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Connectors,ConnectorWrapper,Dimensions,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Connectors,ConnectorWrapper,Order,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Connectors,ConnectorWrapper,Shape,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Connectors,ConnectorWrapper,PairedConnector,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Connectors,ConnectorWrapper,SetDimensionValue,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Connectors,ConnectorWrapper,SetDimensionValueString,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Connectors,FabricationConnectorTools,GetFabricationConfiguration,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Connectors,VictaulicConnectorTools,CollectTapData_Victaulic,member not named in a test of its type
+Kelly-Revit-Logic-v5,class,Documents,DocumentClosingEventHandler,,type not named in any test
+Kelly-Revit-Logic-v5,public,Documents,DocumentClosingEventHandler,Execute,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Documents,DocumentExtensions,GetSharedParameterElement,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Documents,DocumentExtensions,CreateRevisionDefinitionFile,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Documents,DocumentExtensions,ResolveSharedParameter,member not named in a test of its type
+Kelly-Revit-Logic-v5,internal,Documents,DocumentExtensions,CreateCollectorFromDocument,member not named in a test of its type
+Kelly-Revit-Logic-v5,internal,Documents,DocumentExtensions,CreateCollectorFromView,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Documents,DocumentExtensions,CreateCollectorFromDocument,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Documents,DocumentExtensions,CreateCollectorFromSelection,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Documents,DocumentExtensions,CreateCollectorFromSelection,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Documents,DocumentExtensions,CreateCollectorFromView,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Documents,DocumentExtensions,CreateCollectorFromView,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Documents,EventHandlerTools,LogEventHandlerArgumentName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Elements,ElementDataExtensions,GetValueAsString,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Elements,ElementExtensions,IsValidFabricationPartHanger,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Elements,ElementExtensions,ProcessFamilyInstances,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Elements,ElementExtensions,ResetValue,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementExtensions,GetWorkSharingInfo,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,AndListOfSharedParameters,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,AndListOfSharedParameters,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,AndListOfSharedParameters,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,BaseList,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,GetInternalDefinition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,NoElements,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,OrListOfCategories,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,OrListOfCategories,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementFilterTools,ParameterOfTypeStringEquals,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementInstanceModel,GetCategoryName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementInstanceModel,GetCategoryTypeName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementInstanceModel,GetElevations,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementInstanceModel,GetFamilyName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,ElementInstanceModel,GetTypeName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Elements,PenetrationTagTools,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,IElementEntity,HostElement,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,IElementEntity,Scopes,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,PropertyChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,HostElement,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkComponentId,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkDetailingPackage,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkLineNumber,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkLongDescription,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkModuleNumber,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkProductCode,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkProductId,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkSpoolNumber,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkTag,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkTagPrefix,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,JhkTagSignature,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,LevelNameAndElevation,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,Scopes,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,TagAsString,member not named in a test of its type
+Kelly-Revit-Logic-v5,protected,Entities,PhysicalElementEntity,ProductCodeScenario,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Entities,PhysicalElementEntity,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,ResetTag,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,PhysicalElementEntity,SetTag,member not named in a test of its type
+Kelly-Revit-Logic-v5,protected,Entities,PhysicalElementEntity,OnPropertyChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,VirtualElement,PropertyChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,VirtualElement,Category,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,VirtualElement,ElementIdAsString,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,VirtualElement,HostElement,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,VirtualElement,IsOwnedByOthers,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Entities,VirtualElement,Scopes,member not named in a test of its type
+Kelly-Revit-Logic-v5,protected,Entities,VirtualElement,OnPropertyChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,BillOfMaterialTypeAssigner,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,BillOfMaterialTypeAssigner,ElementsFiltered,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,BillOfMaterialTypeAssigner,ObservedClassName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,BillOfMaterialTypeAssigner,Source,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Fabrication,FabricationDatabaseTools,GetHangerButtons,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Fabrication,FabricationDatabaseTools,PlaceHangerMultiple,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Fabrication,FabricationDatabaseTools,PlaceHangerSingle,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,FabricationPartExtensions,CheckCustomData,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,FabricationPartExtensions,CheckCustomData,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,FabricationPartExtensions,LogPropertyValues,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,ProductRange10Joints01Weld,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,WeldLocationService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,WeldLocationService,OperationOwnerName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Fabrication,WeldLocationService,LongDescriptionOf,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Families,FamilySymbolExtensions,FamilyMissingMessage,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Families,TypeBoundSharedParameterScanner,TryGetGroupLabel,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Geometry,CoordinateExtensions,AppendCoordinateSection,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Geometry,CoordinateExtensions,ComputeFaceNormal,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Geometry,CoordinateExtensions,GetNormal,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Geometry,CoordinateExtensions,GetRaycastIntersector,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Geometry,CoordinateExtensions,GetRaycastView3D,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Geometry,CoordinateExtensions,IsRaycastView,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidate,OnQualityCheck,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,ElementsInDocument,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,LayoutPointNumbersLast,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,ProjectLocation,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,UseSharedCoordinates,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,CheckLengthOfDataToSave,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,CreateLayoutPointCandidates,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,CreateLayoutPointCandidates,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,GetLastLayoutPointIds,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointExportCandidateFactory,SetIsDuplicate,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointRecipeIngredients,GetDescription1,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointRecipeIngredients,GetDescription1,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointRecipeIngredients,GetDescription2,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointRecipeIngredients,GetDescription2,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointTools,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,LayoutPoints,LayoutPointTools,WriteSaved,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,Assembly,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,BranchConnector,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,BranchSizeAsString,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,Name,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,OletTapConnectorStatusAsString,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,PipeConnector,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,PipeSize,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,PipeSizeAsString,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,Service,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,Olet,TryParse,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,OletTapTools,TryConnect,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Mep,OletTapTools,GetSmallestRadiusConnector,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Mep,PointToPipeBuilder,CheckDocumentAndData,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Mep,PointToPipeBuilder,CreatePipesCore,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReader,ReadPcf,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReader,ReadTable,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Mep,PointToPipeReader,IsBlankCell,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,FailedPointCount,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,IsRolledBack,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,NotConvertedCount,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,RefusedServiceName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,AddPartialConversion,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,AddPointFailure,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,MarkRolledBack,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,RefuseConversion,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Mep,PointToPipeReport,ToMessage,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Mep,PointToPipeReport,EndSentence,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Mep,PointToPipeReport,FormatPoints,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Mep,ValveData,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,Duration,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,Notes,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,ObjectModifiedCount,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,Scope,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,TimeStamp,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,TransactionGroup,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,UserName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Operations,OperationService,Dispose,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Operations,OperationService,FailToStartNotification,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,GetEntity,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,SetName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Operations,OperationService,SetStopwatchState,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Parameters,SharedParameterElementExtensions,IsUsedByFamilySymbols,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Parameters,SharedParameterElementExtensions,IsUsedByProject,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,Address,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,Architect,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,BuildingName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,ClientName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,ElementId,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,FabricationConfigurationId,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,FilePath,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,FileStore,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,GeneralContractor,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,Id,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,IsBimLite,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,IssueDate,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,MarketSector,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,NameAbbreviation,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,NameInternal,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,Number,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,NumberInternal,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,OrganizationDescription,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,OrganizationName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,RulesOfCreditConstructionSignOff,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,RulesOfCreditIssuedForConstruction,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,RulesOfCreditModel,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,Status,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,Title,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Projects,ProjectInformationWrapper,Document,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Projects,ProjectInformationWrapper,JhkBimLiteDefinition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Projects,ProjectInformationWrapper,JhkProjectIdDefinition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Projects,ProjectInformationWrapper,JhkProjectNameDefinition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Projects,ProjectInformationWrapper,JhkProjectNumberDefinition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Projects,ProjectInformationWrapper,JhkVcRocCsoDefinition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Projects,ProjectInformationWrapper,JhkVcRocDefinition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Projects,ProjectInformationWrapper,JhkVcRocIfcDefinition,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,GetRecord,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Projects,ProjectInformationWrapper,Set,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,ElementComponent,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,ItemNumber,HasValue,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,ItemNumber,StartsWithLineNumber,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,ItemNumber,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,ItemNumberTools,ResetItemNumbers,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,Module,ComponentsCount,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,Module,HasErrors,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,Module,IsDetailed,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,Module,SpoolsCount,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Module,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,Module,GetElementIds,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,Spool,Weight,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,NumberableComponents,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,NumberableWelds,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,OnSpoolItemChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,OnSpoolItemsChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,ProcessSpoolSheetDetailViews,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,ProcessSpoolSheetOrthoViews,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,ProcessSpoolSheetScheduleViews,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,ProcessViewSheet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,RecomputeDerivedState,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,SuspendRecompute,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,UpdateItemSummaryDetailingPackages,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,UpdateItemSummaryLineNumbers,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,UpdateItemSummarySpoolNumbers,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,Spool,UpdateQualityCheckColumns,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,CategoryTypeName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,ConnectorOneDiameter,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,JhkAngle,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,JhkEnd1Preparation,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,JhkEnd2Preparation,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,JhkFabSeam,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,NominalSize,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,Report,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolItem,Weight,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,SpoolItem,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,SpoolItem,SaveTag,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolTools,CreateInvalidSpoolItemReport,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolTools,GetSpoolEligibleElements,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolTools,GetSpoolEligibleSubComponents,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Spools,SpoolTools,WriteInvalidSpoolItemReport,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,SpoolTools,ChangeSpoolItemsTransaction,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,SpoolTools,BillOfMaterialDefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,SpoolTools,RunOverSpools,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Spools,SpoolTools,RunOverItems,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,HangeredStraightModel,Button,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,HangeredStraightModel,ConnectorEndFar,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,HangeredStraightModel,ConnectorEndNear,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,HangeredStraightModel,LengthIntervalEndFar,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,HangeredStraightModel,LengthStraightResidualLast,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,HangeredStraightModel,GetActualLength,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,AllAreVerticalMemberSizesSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,AreAttachedOrExtended,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,BearerSizeAsFractionalFeetAndInches,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,BearerTypeAsString,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,JhkLayoutPointDisciplineColor,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,JhkLayoutPointDisciplineName,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,JhkSupportElevation,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,ServiceSignature,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,SignatureTagPairMatch,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,SupportElevationStoredAsString,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,TotalVerticalMemberLength,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,BearerSize,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Supports,SuspendedSupport,SetVerticalMemberExtensions,member not named in a test of its type
+Kelly-Revit-Logic-v5,protected,Supports,SuspendedSupport,OnPropertyChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,AttachVerticalSupportMemberHandlers,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,DetachVerticalSupportMemberHandlers,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,GetBearerData,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,InvalidateSignature,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,OnVerticalSupportMemberPropertyChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,OnVerticalSupportMembersCollectionChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,SetRodLengthByAlphaAndBravoDimensions,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,SetRodLengthByRodLengthDimension,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,SetRodLengthForFlatStrapHanger,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,SetRodLengthForWrapRoundHanger,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,SetRodLengthForZStrapHanger,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,SuspendedSupport,SetTotalVerticalMemberLength,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,VerticalSupportMember,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Supports,VerticalSupportMember,OnPropertyChanged,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdater,DocumentBindings,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdater,FilterElements,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdater,LogFailure,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdater,ProcessElements,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdaterManager,ProgressTitle,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdaterManager,BuildStepAlphaCreate,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdaterManager,BuildStepBravoRegisterAndTrigger,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdaterManager,BuildStepCharlieSetExecutionOrder,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdaterManager,BuildStepDeltaAbleByDefault,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,AutoUpdaterManager,CreateReport,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,CustomDataUpdater,CustomData108JhkGauge,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,ElementDataModel,ContentIdentitySet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,ElementDataModel,ProductSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters,ElementDataModel,Scopes,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Updaters,ElementService,HasElementsToChange,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Updaters,IElementService,CreateDataModels,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,FilterExtensions,GetSolidPatternFill,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,ViewExtensions,ResetFilterRulesAndCategories,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,ViewExtensions,ValidateAndFilterCategories,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,ViewFilterExtensions,ViewFilterRequirementError,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,ViewFilterFactory,CategoryIds,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Views,ViewFilterFactory,Dispose,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,ViewFilterFactory,GetFilter,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,ViewFilterFactory,GetSolidPatternFill,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,VisibilityCommon,CategoryIds,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,VisibilityCommon,Definition,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Views,VisibilityCommon,AddRuleToFilter,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,BillOfMaterialTypeDefaultElementDataModel,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ComponentElementDataModel,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ComponentElementDataModel,LookupTrigger,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ComponentElementDataModel,GetClassDescriptionScenario1,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ComponentElementDataModel,GetFinishFromElementScenario1,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ComponentElementDataModel,GetLongDescriptionScenario1,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ComponentElementDataModel,GetShortDescriptionScenario1,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ComponentElementDataModel,SetValueToJhkProductRange,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,LayoutDisciplineElementDataModel,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,MaterialElementDataModel,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,MaterialElementDataModel,MaterialCodeNameAbbreviation,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,MaterialElementDataModel,MaterialGradeName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,MaterialElementDataModel,MaterialSpecificationName,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,MaterialElementDataModel,MaterialTypeDescription,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,MaterialElementDataModel,MaterialTypeNameAbbreviation,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,MaterialElementDataModel,SelectMaterial,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ProductElementDataModel,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,ScheduleGaugeElementDataModel,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,ConnectorModels,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkShapeBranch,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkShapeBranch2,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkShapeRun,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkShapeRun2,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSize,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeBranch2Diameter,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeBranch2Height,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeBranch2Width,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeBranchDiameter,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeBranchHeight,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeBranchWidth,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeRun2Diameter,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeRun2Height,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeRun2Width,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeRunDiameter,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeRunHeight,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,JhkSizeRunWidth,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,SizeSymbols,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,InstantiateConnectorModels,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,SetGrouping,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementDataModels,SizeElementDataModel,UpdateRoundIngredients,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,BillOfMaterialDefaultUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,ComponentUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,DetailingPackageUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,EndPreparationUpdaterElementService,GetPreparation,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,FieldTrimDefaultUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,LineNumberUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,MaterialUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Updaters/ElementServices,ModuleNumberElementService,Elements,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,ModuleNumberElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Updaters/ElementServices,ModuleNumberElementService,SetValue,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,ProductUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,public,Updaters/ElementServices,RibbonSelections,DetailingPackage,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,RibbonSelections,NotRegistered,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,ScheduleGaugeUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,ServiceOfFabricationPartElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,ServiceOfNonFabricationPartElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,ServiceUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,SizeUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,SuspendedSupportElementService,LogFailure,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,SystemUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-Logic-v5,private,Updaters/ElementServices,WeldUpdaterElementService,DefinitionSet,member not named in a test of its type
+Kelly-Revit-UI,public,Commands,CommandBase,UiApplication,member not named in a test of its type
+Kelly-Revit-UI,public,Commands,CommandBase,UiDocument,member not named in a test of its type
+Kelly-Revit-UI,protected,Commands,CommandBase,CommandData,member not named in a test of its type
+Kelly-Revit-UI,interface,Commands,IExternalCommandBase,,type not named in any test
+Kelly-Revit-UI,interface,Commands,IExternalCommandMvvm,,type not named in any test
+Kelly-Revit-UI,public,Commands,IExternalCommandMvvm,InitializeCommand,member not named in a test of its type
+Kelly-Revit-UI,protected,Commands,SelectionMadeCommandAvailability,IsAvailable,member not named in a test of its type
+Kelly-Revit-UI,private,Controls,ScopeControl,OnScopeChanged,member not named in a test of its type
+Kelly-Revit-UI,private,Controls,ScopeControl,SetRadioButton,member not named in a test of its type
+Kelly-Revit-UI,private,DataFiles,DataFileLoader,ConfirmOlderData,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,AreItemsSelected,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,Command,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,ElementFilter,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,IsConstructed,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,SelectInView,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,SelectionShowInView,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,SelectionZoomTo,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,ZoomInView,member not named in a test of its type
+Kelly-Revit-UI,protected,Mvvm,ViewModel,ElementsInDocument,member not named in a test of its type
+Kelly-Revit-UI,protected,Mvvm,ViewModel,ElementsInSelection,member not named in a test of its type
+Kelly-Revit-UI,protected,Mvvm,ViewModel,ElementsInView,member not named in a test of its type
+Kelly-Revit-UI,private,Mvvm,ViewModel,ElementIdsInDocument,member not named in a test of its type
+Kelly-Revit-UI,public,Mvvm,ViewModel,InitializeLast,member not named in a test of its type
+Kelly-Revit-UI,protected,Mvvm,ViewModel,GetElements,member not named in a test of its type
+Kelly-Revit-UI,protected,Mvvm,ViewModel,GetElements,member not named in a test of its type
+Kelly-Revit-UI,protected,Mvvm,ViewModel,RebindAndSelectWithoutSync,member not named in a test of its type
+Kelly-Revit-UI,protected,Mvvm,ViewModel,SelectElements,member not named in a test of its type
+Kelly-Revit-UI,private,Mvvm,ViewModel,ValidateBaseRequirements,member not named in a test of its type
+Kelly-Revit-UI,public,Prompts,RevitUserPrompt,Show,member not named in a test of its type
+Kelly-Revit-UI,private,Prompts,RevitUserPrompt,ToPromptResult,member not named in a test of its type
+Kelly-Revit-UI,private,Prompts,RevitUserPrompt,ToTaskDialogButtons,member not named in a test of its type
+Kelly-Revit-UI,private,Prompts,RevitUserPrompt,ToTaskDialogIcon,member not named in a test of its type
+Kelly-Revit-UI,private,Prompts,RevitUserPrompt,ToTaskDialogResult,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonComboBox,ComboBoxData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonComboBox,AddItem,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonComboBox,CreateComboBoxMemberData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonComboBox,CreateComboBoxMemberData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonComboBox,GetComboBox,member not named in a test of its type
+Kelly-Revit-UI,interface,Ribbon,IRibbonPullDownButton,,type not named in any test
+Kelly-Revit-UI,public,Ribbon,IRibbonPullDownButton,Create,member not named in a test of its type
+Kelly-Revit-UI,interface,Ribbon,IRibbonPushButton,,type not named in any test
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,Assembly,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,AvailabilityClassType,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,ContextualHelp,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,ImageName,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,SuperClassName,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,Text,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,ToolTip,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,Type,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,Create,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonPushButton,SetContextualHelp,member not named in a test of its type
+Kelly-Revit-UI,interface,Ribbon,IRibbonSplitButton,,type not named in any test
+Kelly-Revit-UI,public,Ribbon,IRibbonSplitButton,SplitButtonData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,IRibbonSplitButton,Create,member not named in a test of its type
+Kelly-Revit-UI,interface,Ribbon,IRibbonStackedButton,,type not named in any test
+Kelly-Revit-UI,public,Ribbon,IRibbonStackedButton,Create,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonComboBox,ComboBoxData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonComboBox,AddItem,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonComboBox,CreateComboBoxMemberData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonComboBox,CreateComboBoxMemberData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonComboBox,CreateProjectComboBoxMember,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonComboBox,CreateProjectMemberData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonComboBox,ResetComboBox,member not named in a test of its type
+Kelly-Revit-UI,private,Ribbon,RibbonComboBox,ComboBoxMemberExists,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonExtensions,EnableItems,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonExtensions,GetItemByName,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonExtensions,GetOrCreateRibbonTab,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonExtensions,GetRibbonCombos,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonExtensions,ResolveRibbonPanel,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonExtensions,SetPowerIcon,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonExtensions,ToggleAutoAssignIcons,member not named in a test of its type
+Kelly-Revit-UI,private,Ribbon,RibbonExtensions,GenerateItemId,member not named in a test of its type
+Kelly-Revit-UI,private,Ribbon,RibbonExtensions,GetCommandAssembly,member not named in a test of its type
+Kelly-Revit-UI,private,Ribbon,RibbonExtensions,GetItemFromRibbonRowPanel,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonHost,UiControlledApplication,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonHost,Initialize,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonPushButton,ContextualHelp,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonPushButton,Create,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonPushButton,SetContextualHelp,member not named in a test of its type
+Kelly-Revit-UI,class,Ribbon,RibbonSplitButton,,type not named in any test
+Kelly-Revit-UI,protected,Ribbon,RibbonSplitButton,.ctor,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonSplitButton,SplitButtonData,member not named in a test of its type
+Kelly-Revit-UI,public,Ribbon,RibbonSplitButton,Create,member not named in a test of its type
+Kelly-Revit-UI,protected,Ribbon,RibbonSplitButton,AddItems,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetElementInstancesByCategoryAndScope,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetElementTypesByCategoryAndScope,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetElementsByScopeAndFilter,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetElementsByScopeAndFilter,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetElementsByTypeAndScope,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetInstancesByProductRange,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetInstancesByProductRange,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetSpoolEligibleElements,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetSpools,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,GetTrapezeFromSelection,member not named in a test of its type
+Kelly-Revit-UI,public,Scope,UiDocumentScopeExtensions,SelectElements,member not named in a test of its type
+Kelly-Revit-UI,class,Selection,ConnectorPickTools,,type not named in any test
+Kelly-Revit-UI,public,Selection,ConnectorPickTools,PickElementWithUnusedConnector,member not named in a test of its type
+Kelly-Revit-UI,public,Selection,SelectionExtensions,GetAssemblyInstances,member not named in a test of its type
+Kelly-Revit-UI,public,Selection,SelectionExtensions,GetAssemblyInstancesFromSelection,member not named in a test of its type
+Kelly-Revit-UI,public,Selection,SelectionExtensions,GetAssemblyTypes,member not named in a test of its type
+Kelly-Revit-v5,private,.,App,AddInId,member not named in a test of its type
+Kelly-Revit-v5,public,.,App,OnShutdown,member not named in a test of its type
+Kelly-Revit-v5,private,.,App,GetAddinGuid,member not named in a test of its type
+Kelly-Revit-v5,private,.,App,GetDefinition,member not named in a test of its type
+Kelly-Revit-v5,private,.,App,LogApplicationInformation,member not named in a test of its type
+Kelly-Revit-v5,private,.,App,OpenDataDirectory,member not named in a test of its type
+Kelly-Revit-v5,private,.,App,RegisterTelerikLicense,member not named in a test of its type
+Kelly-Revit-v5,public,.,Caches,GetComponentCache,member not named in a test of its type
+Kelly-Revit-v5,public,.,Caches,GetDataStore,member not named in a test of its type
+Kelly-Revit-v5,public,.,Caches,GetExternalParameterDefinitionsByName,member not named in a test of its type
+Kelly-Revit-v5,public,.,Caches,GetProductCache,member not named in a test of its type
+Kelly-Revit-v5,public,.,Caches,GetProductRangeCache,member not named in a test of its type
+Kelly-Revit-v5,public,.,Caches,GetServiceDataCache,member not named in a test of its type
+Kelly-Revit-v5,public,.,Caches,GetSystemDataCache,member not named in a test of its type
+Kelly-Revit-v5,public,.,Caches,GetTerminologyCache,member not named in a test of its type
+Kelly-Revit-v5,class,EventHandlers,DocumentChangedEventHandler,,type not named in any test
+Kelly-Revit-v5,public,EventHandlers,DocumentChangedEventHandler,Execute,member not named in a test of its type
+Kelly-Revit-v5,private,EventHandlers,DocumentChangedEventHandler,ForbiddenCommandNotification_Sandbox,member not named in a test of its type
+Kelly-Revit-v5,private,EventHandlers,DocumentChangedEventHandler,LogTransactions_Sandbox,member not named in a test of its type
+Kelly-Revit-v5,class,EventHandlers,ViewActivatedEventHandler,,type not named in any test
+Kelly-Revit-v5,public,EventHandlers,ViewActivatedEventHandler,Execute,member not named in a test of its type
+Kelly-Revit-v5,private,EventHandlers,ViewActivatedEventHandler,IsSameDocument,member not named in a test of its type
+Kelly-Revit-v5,class,EventHandlers,ViewActivatingEventHandler,,type not named in any test
+Kelly-Revit-v5,public,EventHandlers,ViewActivatingEventHandler,Execute,member not named in a test of its type
+Kelly-Revit-v5,private,EventHandlers,ViewActivatingEventHandler,IsSameDocument,member not named in a test of its type
+Kelly-Revit-v5,internal,Properties,Resources,Culture,member not named in a test of its type
+Kelly-Revit-v5,public,Properties,Settings,RibbonIcons,member not named in a test of its type
+Kelly-Revit-v5,public,Properties,Settings,WindowIcons,member not named in a test of its type
+Kelly-Revit-v5,public,Services,ApplicationSessionService,Start,member not named in a test of its type
+Kelly-Revit-v5,public,Services,ApplicationSessionService,Stop,member not named in a test of its type
+Kelly-Revit-v5,private,Services,EventService,DocumentSynchronized,member not named in a test of its type
+Kelly-Revit-v5,private,Services,EventService,DocumentSynchronizing,member not named in a test of its type
+Kelly-Revit-v5,class,Services,RibbonService,,type not named in any test
+Kelly-Revit-v5,public,Services,RibbonService,.ctor,member not named in a test of its type
+Kelly-Revit-v5,public,Services,RibbonService,Start,member not named in a test of its type
+Kelly-Revit-v5,public,Services,RibbonService,Stop,member not named in a test of its type
+Kelly-Revit-v5,private,Services,RibbonService,CreateTabs,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/RibbonItems,ComboBoxExtensions,GetSelectedModuleNumber,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/RibbonItems,ComboBoxExtensions,GetSelectedSpoolNumber,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.Developer/WindowMockup,WindowMockupPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.Developer/WindowMockup,WindowMockupViewModel,ProductCodes,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Developer/WindowMockup,WindowMockupViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Developer/WindowMockup,WindowMockupViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Developer/WindowMockup,WindowMockupViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,class,Trade.All/Commands/About,ApplicationAboutModel,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,.ctor,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,AppBuildVersion,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,AppVersionName,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,AssemblyLocation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,AssemblyVersion,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,AutodeskUserName,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,DocumentPath,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,DocumentTitle,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,Name,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutModel,UserAddinsAllLocation,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/About,ApplicationAboutModel,Command,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/About,ApplicationAboutModel,HostAssembly,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/About,ApplicationAboutPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutViewModel,ApplicationAboutModel,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/About,ApplicationAboutViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,class,Trade.All/Commands/Assigners,AssignerComboBoxPopulator,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Assigners,AssignerComboBoxPopulator,Register,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Assigners,AssignerComboBoxPopulator,OnDocumentOpened,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Assigners,AssignerComboBoxPopulator,PopulateComboBoxByProject,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners,AssignerHideViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners,AssignerIsolateViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners,AssignerViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Assigners,CommonAutoAssignerTools,ResetIcon,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/DataReload,AllDataReloadCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/DataReload,AllDataReloadPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/FamilySharedParameterReport,FamilySharedParameterReportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ManyConnect,ManyConnectPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/PenetrationTagAssign,PenetrationTagAssignCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/PenetrationTagAssign,PenetrationTagAssignPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ProjectDirectoryOpen,ProjectDirectoryOpenCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ProjectDirectoryOpen,ProjectDirectoryOpenPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/ScheduleExport,ExcelInteropTools,FormatWorksheet,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/ScheduleExport,ExcelInteropTools,ImportTabDelimitedText,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/ScheduleExport,ExcelInteropTools,BuildTextColumnTypes,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,ArrangerSplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,BasicToolsSplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,LayoutSplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,ModuleSplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,ScheduleExportSplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,SpoolSplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,TrapezeExtendSplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,ViewFilterApplySplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/SplitButtons,ViewFilterRemoveSplitButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons,BillOfMaterialsSetterStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons,ManualUpdaterStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/FabricationCustomDataProposedReport,FabricationCustomDataProposedReportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/FabricationCustomDataReport,FabricationCustomDataReportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/FabricationCustomDataUpdaterV1,FabricationCustomDataUpdaterPushButtonV1,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/FabricationCustomDataUpdaterV2,FabricationCustomDataUpdaterPushButtonV2,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/FabricationPartProductCodeCheckReport,FabricationPartProductCodeCheckReportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/FabricationPartVariousReport,FabricationPartVariousReportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/PartDimensionExport,FabricationPartDimensionLogPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/RevisionSetter,RevisionSetterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Contenter/Commands/RevisionSetter,RevisionSetterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/AvailabilityProbe,AvailabilityProbeCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/AvailabilityProbe,AvailabilityProbePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/CollectorTesting,CollectorTestingCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/CollectorTesting,CollectorTestingPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/CoordinateTesting,CoordinateTestingCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/CoordinateTesting,CoordinateTestingPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/Extensible,ExtensibleStorageDeleteByVendorIdCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/Extensible,ExtensibleStorageDeleteByVendorIdCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/FamilyMaterialPurger,PurgeFamilyMaterialsCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/FamilyMaterialPurger,PurgeFamilyMaterialsCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/GetForgeTypeIds,GetForgeTypeIdsCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/GetForgeTypeIds,GetForgeTypeIdsCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/JhkSharedParameterElementPurger,PurgeKellySharedParameterElementsCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/JhkSharedParameterElementPurger,PurgeKellySharedParameterElementsCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ProductRangeSchedules,ProductRangeSchedulesCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ProductRangeSchedules,ProductRangeSchedulesPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/PurgeFamilyInstances,AllFamilyInstanceDeletePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ReportCategories,CategoriesToTextCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ReportCategories,CategoriesToTextCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ReportCategoryBindings,CategoryBindingsReportCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ReportCategoryBindings,CategoryBindingsReportCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ReportFilters,FiltersToCsvCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ReportFilters,FiltersToCsvCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ReportMaterials,MaterialsToTextCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ReportMaterials,MaterialsToTextCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/Sandbox,SandboxCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/Sandbox,SandboxPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/SelectFieldTrimEnd,SelectFieldTrimEndCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/UserReport,UserReportCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/UserReport,UserReportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/Commands/ViewBrowserParameterUpdate,UpdateKellyToolsViewParametersCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Developer/RibbonItems/PullDownButtons,ListsRibbonPullDownButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/Commands/DuctItemNumberReset,DuctItemNumberResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/Commands/DuctItemNumberSet,DuctItemNumberSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/Commands/DuctLengthCheck,DuctLengthCheckCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/Commands/DuctLengthCheck,DuctLengthCheckPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/Commands/DuctMirrorCheck,DuctMirrorCheckCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/Commands/DuctMirrorCheck,DuctMirrorCheckPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/Commands/DuctRunItemNumberSet,DuctRunItemNumberSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/Commands/DuctRunItemNumberSet,DuctRunItemNumberSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/DeleteById,ElementDeletePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/OletChecker,OletCheckCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/OletChecker,OletCheckPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,CommandConnectDisconnected,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,CommandLoadElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,CommandSelectAll,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,CommandSelectDisconnected,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,CommandSelectMisAligned,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,CommandShowSelected,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,ConnectedLabelBackgroundColor,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,ConnectedLabelContent,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,DisconnectedLabelBackgroundColor,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,DisconnectedLabelContent,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,MisAlignedLabelBackgroundColor,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,MisAlignedLabelContent,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,TotalInScopeLabelContent,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,ConnectedCount,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,DisconnectedCount,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,MisAlignedCount,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,Pipes,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,StatusConnected,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,StatusError,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.Pipe/Commands/OletChecker,OletCheckViewModel,FireSelection,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/OletChecker,OletCheckWindow,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/ValveClearanceSpheres,ValveClearanceSpheresCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/ValveClearanceSpheres,ValveClearanceSpheresPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/RibbonItems/StackedButtons,WeldLocationPurpose1StackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/RibbonItems/StackedButtons,WeldLocationPurpose2StackedButtons,,type not named in any test
+Kelly-Revit-v5,class,Trade.All/Commands/Assigners/ContextValueAdder,ContextValueAddViewModel,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Assigners/ContextValueAdder,ContextValueAddViewModel,.ctor,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Assigners/ContextValueAdder,ContextValueAddViewModel,CheckBoxContent,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Assigners/ContextValueAdder,ContextValueAddViewModel,ContextValue,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Assigners/ContextValueAdder,ContextValueAddViewModel,IsConstructed,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Assigners/ContextValueAdder,ContextValueAddViewModel,IsSelected,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Assigners/ContextValueAdder,ContextValueAddViewModel,SuperClassName,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DockablePane,AssignerDockablePanel,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/UserInterfaceAssignerReset,AllAssignerResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/UserInterfaceAssignerReset,AllAssignerResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/BillOfMaterial/FieldAssign,BillOfMaterialFieldSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/BillOfMaterial/FieldAssign,BillOfMaterialFieldSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/BillOfMaterial/ModuleAssign,BillOfMaterialModuleSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/BillOfMaterial/ModuleAssign,BillOfMaterialModuleSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/BillOfMaterial/ShopAssign,BillOfMaterialShopSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/BillOfMaterial/ShopAssign,BillOfMaterialShopSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutGridPointCreate,GridLayoutPointPlaceCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutGridPointCreate,GridLayoutPointPlacePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutGridPointUpdate,GridLayoutPointUpdateCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutGridPointUpdate,GridLayoutPointUpdatePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutPointDirectoryOpen,LayoutPointFileDirectoryOpenCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutPointDirectoryOpen,LayoutPointFileDirectoryOpenPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,CommandGetCandidates,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,CommandReset,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,CommandSaveToElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,CommandSaveToFile,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,CommandScopeChange,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,CommandSelectElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,CommandSetActiveProjectLocation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,CommandUpdateCoordinates,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,DelegateCommandProgressBar,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,ExportBackgroundDwg,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,LayoutPointCandidatesByScope,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,ProjectLocation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,ProjectLocations,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,StatisticsLayoutPointsInDocument,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,StatisticsLayoutPointsInSelection,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,StatisticsLayoutPointsInView,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,UseSharedCoordinates,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,ViewPlanToExport,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,ViewPlansToExport,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,ViewPlansToExportExist,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,LayoutPointCandidates,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,LayoutPointNumbersLast,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,SaveToFile,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,ScopeChange,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,SelectedObjectsExportQualityCheck,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,SetActiveProjectLocation,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointExport,LayoutPointToCommaSeparatedValueFileExportViewModel,SetScopes,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,CommandGetPoints,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,CommandIdentifyDuplicatePoints,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,CommandImportPoints,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,CommandSetActiveProjectLocation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,CommandSetPointType,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,IsElevationRelativeToLevel,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,IsElevationRelativeToSite,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,LayoutPointFilePath,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,LayoutPointImportCandidates,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,LevelComboBoxItems,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,ProjectLocation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,ProjectLocations,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,SelectedLevel,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,SpecifyLevel,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,IdentifyDuplicates,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Layout/LayoutPointImport,LayoutPointFromCommaSeparatedValueImportViewModel,SetActiveProjectLocation,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ScheduleExport/ViewScheduleExportToCsvFiles,ViewScheduleToCommaSeparatedValueFilesExportCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ScheduleExport/ViewScheduleExportToCsvFiles,ViewScheduleToCommaSeparatedValueFilesExportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ScheduleExport/ViewScheduleExportToXlsxFile,ViewScheduleToExcelFileExportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ScheduleExport/ViewScheduleExportToXlsxFileNoExcel,ViewScheduleToXlsxFileNoExcelExportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ScheduleExport/ViewScheduleExportToXlsxFiles,ViewScheduleToExcelFilesExportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/ScheduleExport/ViewScheduleExportToXlsxFilesNoExcel,ViewScheduleToXlsxFilesNoExcelExportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,RequestClose,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,CommandContentRenderedEvent,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,CommandCreateModule,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,CommandUpdateValues,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,ExistingModuleNumberPrefixes,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,IsModulePrefixOptionExisting,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,IsModulePrefixOptionNew,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,LastModuleNumber,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,SettingsFilePath,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,FilteredElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,DelegateCommandContentRenderedEvent,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,DelegateCommandCreateModule,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/ModuleCreator,ModuleCreatorViewModel,DelegateCommandUpdateValues,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Spools/ModuleManage,ModuleManagePushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,CanItemizeComponents,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,CommandGetModuleItems,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,CommandSelectInView,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,CommandSetSelectedComponents,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,CommandUpdateBillOfMaterialType,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,CommandUpdateItemNumbers,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,ComponentsInModule,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,Modules,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,SpoolsInModule,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,GetModuleMembers,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/ModuleManage,ModuleManageViewModel,SetSelectedComponents,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Spools/SpoolCleaner,SpoolCleanByViewCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Spools/SpoolCleaner,SpoolCleanByViewPushButton,,type not named in any test
+Kelly-Revit-v5,class,Trade.All/Commands/Spools/SpoolCleaner,SpoolCleanCommon,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCleaner,SpoolCleanCommon,CleanByScope,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Spools/SpoolCreate,SpoolCreatePushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,CommandCreate,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,CommandCreateSpoolName,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,CommandCreateSpoolSequence,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,CommandReadSpoolTypesWithCategory,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,CommandReadSpoolTypesWithPrefix,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,CommandSettingsRead,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,CommandUpdateDataCacheDetailingPackages,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,CreateButtonIsEnabled,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,DetailingPackageValue,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,DetailingPackages,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SaveDetailingPackage,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SaveLineNumberToComponents,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SpecifiedSpoolName,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SpoolNameLast,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SpoolSequenceValue,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SettingFile,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SpoolEligibleElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SettingsRead,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,SettingsWrite,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolCreate,SpoolCreateViewModel,UpdateDataCacheDetailingPackages,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Spools/SpoolManager,SpoolManagerPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,BillOfMaterialTypes,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandCreateSpoolSheets,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandGetSpoolData,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandJogSpoolGrid,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandRunUpdaters,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandSetDetailingPackage,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandSetDetailingPackageFromSpoolItem,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandSetLineNumber,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandSetLineNumberFromSpoolItem,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandSetSelectedObjects,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandSetSpoolName,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandSetSpoolNameUsingSpoolItem,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandUpdateBillOfMaterialType,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandUpdateItemNumbers,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandUpdateTag,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,CommandUpdateWeldLocation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,DetailingPackages,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,LineNumbers,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,NumberableSpoolItems,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,SelectedBillOfMaterialType,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,SelectedDetailingPackage,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,SelectedLineNumber,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,SelectedTitleBlock,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,SpoolBillOfMaterials,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,SpoolItemTagTextBoxValue,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,SpoolWelds,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,TitleBlocks,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,UpdateSpoolAndItems,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,WeldLocation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,GetSpoolData,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,JogSpoolGrid,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,RunManualUpdaters,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Spools/SpoolManager,SpoolManagerViewModel,UpdateWeldLocationTerm,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Spools/SpoolSheetOpen,SpoolSheetOpenCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Spools/SpoolSheetOpen,SpoolSheetOpenPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagePushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,AllowUnHostedHangers,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,AnchorLengthList,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,CommandAttachVerticalSupportButtonClick,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,CommandSelectElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,CommandSetExtensionsButtonClick,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,CommandSetVerticalSupportSizeButtonClick,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,CommandTagSelectionButtonClick,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,FieldTrimList,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,SelectedAnchorLength,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,SelectedFieldTrimLength,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,ShowAttachedOrExtendedNot,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,ShowTagSignatureMatched,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,ShowTagSignatureMatchedNot,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,ShowTagged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,ShowTaggedNot,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,SuspendedSupportsByScope,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,VerticalSupportSizeList,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,ApplyScope,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,AttachVerticalSupportButtonOnClick,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,GetSuspendedSupportOfOrigin,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,RebuildSuspendedSupportIndex,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,ResetTags,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,CreateSelectionOperation,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,SetExtensionsButtonClick,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,SetVerticalSupportSizeButtonClick,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Supports/SuspendedSupportManage,SuspendedSupportManagerViewModel,TagSelectionButtonClick,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Supports/TrapezeSupportRodsExtend,TrapezeVerticalMemberExtendCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Supports/TrapezeSupportRodsExtend,TrapezeVerticalMemberExtendPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Supports/TrapezeSupportRodsReset,TrapezeVerticalMemberResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Supports/TrapezeSupportRodsReset,TrapezeVerticalMemberResetPushButton,,type not named in any test
+Kelly-Revit-v5,class,Trade.All/Commands/Updaters/UpdaterManual,ManualUpdaterExtensions,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Updaters/UpdaterManual,ManualUpdaterExtensions,UpdateByScope,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Views/StratusDetailingPackageViews,StratusDetailingPackageViewsCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Views/StratusDetailingPackageViews,StratusDetailingPackageViewsPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/PushButtons/ExternalCommandAvailability,IsDisabledCommandEnabler,,type not named in any test
+Kelly-Revit-v5,class,Trade.All/RibbonItems/PushButtons/ExternalCommandAvailability,IsSelectionMade,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/PushButtons/ExternalCommandAvailability,IsSingleElementSelectedCommandEnabler,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/LineNumberModuleAssemblyStackedButtons,LineNumberModuleSpoolAddToSelectedStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/LineNumberModuleAssemblyStackedButtons,LineNumberModuleSpoolAdoptStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/LineNumberModuleAssemblyStackedButtons,LineNumberModuleSpoolAutoAssignStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/LineNumberModuleAssemblyStackedButtons,LineNumberModuleSpoolFilterStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/LineNumberModuleAssemblyStackedButtons,LineNumberModuleSpoolRemoveFromSelectedStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/LineNumberModuleAssemblyStackedButtons,LineNumberModuleSpoolResetStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/ServiceSystemPackageStackedButtons,ServiceSystemPackageAddToSelectedStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/ServiceSystemPackageStackedButtons,ServiceSystemPackageAdoptStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/ServiceSystemPackageStackedButtons,ServiceSystemPackageAutoAssignStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/ServiceSystemPackageStackedButtons,ServiceSystemPackageFiltersStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/ServiceSystemPackageStackedButtons,ServiceSystemPackageRemoveFromSelectedStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/RibbonItems/StackedButtons/ServiceSystemPackageStackedButtons,ServiceSystemPackageResetStackedButtons,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Duct/RibbonItems/PushButtons/ExternalCommandAvailability,IsDuctItemNumberAbleViewCommandEnabler,,type not named in any test
+Kelly-Revit-v5,class,Trade.Duct/RibbonItems/PushButtons/ExternalCommandAvailability,IsSelectionMade,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/Coordinates/ElementInstance,ElementInstanceCoordinateReportCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/Coordinates/ElementInstance,ElementInstanceCoordinateReportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/Coordinates/Project,ProjectCoordinateReportCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/Coordinates/Project,ProjectCoordinateReportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/Family/Delete,UnusedFamilyTypeDeleteCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/Family/Delete,UnusedFamilyTypeDeletePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/SharedParameterElements/PurgeUnused,UnusedSharedParameterElementDeleteCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/SharedParameterElements/PurgeUnused,UnusedSharedParameterElementDeletePushButton,,type not named in any test
+Kelly-Revit-v5,class,Trade.Pipe/Commands/OletChecker/Support,ConnectOletsExternalEventHandler,,type not named in any test
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker/Support,ConnectOletsExternalEventHandler,Olets,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker/Support,ConnectOletsExternalEventHandler,OnComplete,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker/Support,ConnectOletsExternalEventHandler,Pipes,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker/Support,ConnectOletsExternalEventHandler,Execute,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker/Support,ConnectOletsExternalEventHandler,GetName,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker/Support,SelectionExternalEventHandler,ElementIds,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker/Support,SelectionExternalEventHandler,ZoomToElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.Pipe/Commands/OletChecker/Support,SelectionExternalEventHandler,GetName,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/WeldLocationAssign/Field,WeldLocationFieldSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/WeldLocationAssign/FieldFit,WeldLocationFieldFitSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/WeldLocationAssign/FieldFitTack,WeldLocationFieldFitTackSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/WeldLocationAssign/Shop,WeldLocationShopSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Pipe/Commands/WeldLocationAssign/ShopTack,WeldLocationShopTackSetPushButton,,type not named in any test
+Kelly-Revit-v5,class,Trade.Pipe/RibbonItems/PushButtons/ExternalCommandAvailability,IsSelectionMade,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignBottom,ArrangeAlignBottomCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignBottom,ArrangeAlignBottomPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignCenter,ArrangeAlignCenterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignCenter,ArrangeAlignCenterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignLeft,ArrangeAlignLeftCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignLeft,ArrangeAlignLeftPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignMiddle,ArrangeAlignMiddleCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignMiddle,ArrangeAlignMiddleCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignRight,ArrangeAlignRightCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignRight,ArrangeAlignRightCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignTop,ArrangeAlignTopCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/AlignTop,ArrangeAlignTopPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/DistributeAround,ArrangeDistributeTagsAroundPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/DistributeHorizontally,ArrangeDistributeHorizontallyCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/DistributeHorizontally,ArrangeDistributeHorizontallyCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/DistributeVertically,ArrangeDistributeVerticallyCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/DistributeVertically,ArrangeDistributeVerticallyCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/UntangleHorizontally,ArrangeUntangleHorizontallyCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/UntangleHorizontally,ArrangeUntangleHorizontallyCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/UntangleVertically,ArrangeUntangleVerticallyCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Arrange/UntangleVertically,ArrangeUntangleVerticallyCommandPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Vicious/Disconnect,ViciousInstanceDisconnectPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Vicious/HangerPlace,ViciousFabricationHangerInstancePlacePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignPushButton,,type not named in any test
+Kelly-Revit-v5,class,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,.ctor,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,CommandProcessElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,LevelComboBoxItems,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,SelectedLevel,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,CandidateElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,CreateObjects,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Acquired/Vicious/Level,ViciousInstanceLevelAssignViewModel,ProcessElements,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlacePushButton,,type not named in any test
+Kelly-Revit-v5,private,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceTools,ConvertExcelToDataTable,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceTools,ImportPcf,member not named in a test of its type
+Kelly-Revit-v5,class,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceViewModel,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceViewModel,.ctor,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceViewModel,LayoutPointFilePath,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceViewModel,CreateObjects,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/PointToPipe,ViciousFileBasedSystemPipePlaceViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignPushButton,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,CommandProcessElements,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,CommandSetDesiredElevation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,DesiredElevation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,DistinctElevations,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,IsAdjustForInsulation,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,IsAlignModeBottom,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,IsAlignModeTop,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,IsDesiredElevationValid,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,IsElevationSourceFromElement,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,IsElevationSourceFromManual,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,ManualValue,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,CandidateElements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,ElementInstanceModels,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,InitializeFirst,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,OnViewModelPropertyChanged,member not named in a test of its type
+Kelly-Revit-v5,public,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,ValidateRequirements,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Acquired/Vicious/Racker,ViciousInstanceElevationAssignViewModel,ProcessElements,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Acquired/Vicious/Rotate,ViciousInstanceRotateMovePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/ComboBoxAdopt,DetailingPackageAssignerValueAdoptCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/ComboBoxAdopt,DetailingPackageAssignerValueAdoptPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/ComboBoxReset,DetailingPackageAssignerToolResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/ComboBoxReset,DetailingPackageAssignerToolResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/HideFilterAssign,DetailingPackageAssignerHideViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/HideFilterAssign,DetailingPackageAssignerHideViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/IsolateFilterAssign,DetailingPackageAssignerIsolateViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/IsolateFilterAssign,DetailingPackageAssignerIsolateViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/LineColorFilterAssign,DetailingPackageLineColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/ValueAssign,DetailingPackageAssignerValueSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/DetailingPackageContext/ValueUnassign,DetailingPackageAssignerValueResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/ComboBoxAdopt,LineNumberAssignerValueAdoptCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/ComboBoxAdopt,LineNumberAssignerValueAdoptPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/ComboBoxReset,LineNumberAssignerToolResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/ComboBoxReset,LineNumberAssignerToolResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/HideFilterAssign,LineNumberAssignerHideViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/HideFilterAssign,LineNumberAssignerHideViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/IsolateFilterAssign,LineNumberAssignerIsolateViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/IsolateFilterAssign,LineNumberAssignerIsolateViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/LineColorFilterAssign,LineNumberLineColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/ValueAssign,LineNumberAssignerValueSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/LineNumberContext/ValueUnassign,LineNumberAssignerValueResetPushButton,,type not named in any test
+Kelly-Revit-v5,protected,Trade.All/Commands/Assigners/ModuleNumberContext/ComboBox,AssignerModuleNumberComboBox,Header,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/ComboBoxAdopt,ModuleNumberAssignerValueAdoptCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/ComboBoxAdopt,ModuleNumberAssignerValueAdoptPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/ComboBoxReset,ModuleNumberAssignerToolResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/ComboBoxReset,ModuleNumberAssignerToolResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/HideFilterAssign,ModuleNumberAssignerHideViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/HideFilterAssign,ModuleNumberAssignerHideViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/IsolateFilterAssign,ModuleNumberAssignerIsolateViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/IsolateFilterAssign,ModuleNumberAssignerIsolateViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/LineColorFilterAssign,ModuleNumberLineColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/Switch,ModuleValueAutoSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/Switch,ModuleValueAutoSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/ValueAssign,ModuleNumberAssignerValueSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/ValueAssign,ModuleNumberAssignerValueSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ModuleNumberContext/ValueUnassign,ModuleNumberAssignerValueResetPushButton,,type not named in any test
+Kelly-Revit-v5,protected,Trade.All/Commands/Assigners/ServiceContext/ComboBox,AssignerFabricationServiceComboBox,ExtraBasicItemTexts,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/ComboBoxAdopt,ServiceAssignerValueAdoptCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/ComboBoxAdopt,ServiceAssignerValueAdoptPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/ComboBoxReset,ServiceAssignerToolResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/ComboBoxReset,ServiceAssignerToolResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/FillColorFilterAssign,ServiceFillColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/HideFilterAssign,ServiceAssignerHideViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/HideFilterAssign,ServiceAssignerHideViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/IsolateFilterAssign,ServiceAssignerIsolateViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/IsolateFilterAssign,ServiceAssignerIsolateViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/LineColorFilterAssign,ServiceLineColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/ValueAssign,ServiceAssignerValueSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/ValueAssign,ServiceAssignerValueSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/ValueUnassign,ServiceAssignerValueResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/ServiceContext/ValueUnassign,ServiceAssignerValueResetPushButton,,type not named in any test
+Kelly-Revit-v5,protected,Trade.All/Commands/Assigners/SpoolNumberContext/ComboBox,AssignerSpoolNumberComboBox,Header,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/ComboBoxAdopt,SpoolNumberAssignerValueAdoptCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/ComboBoxAdopt,SpoolNumberAssignerValueAdoptPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/ComboBoxReset,SpoolNumberAssignerToolResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/ComboBoxReset,SpoolNumberAssignerToolResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/HideFilterAssign,SpoolNumberAssignerHideViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/HideFilterAssign,SpoolNumberAssignerHideViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/IsolateFilterAssign,SpoolNumberAssignerIsolateViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/IsolateFilterAssign,SpoolNumberAssignerIsolateViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/LineColorFilterAssign,SpoolNumberLineColorViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/LineColorFilterAssign,SpoolNumberLineColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/Switch,SpoolValueAutoSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/Switch,SpoolValueAutoSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/ValueAssign,SpoolNumberAssignerValueSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/ValueAssign,SpoolNumberAssignerValueSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/ValueUnassign,SpoolNumberAssignerValueResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SpoolNumberContext/ValueUnassign,SpoolNumberAssignerValueResetPushButton,,type not named in any test
+Kelly-Revit-v5,protected,Trade.All/Commands/Assigners/SystemContext/ComboBox,AssignerSystemComboBox,ExtraBasicItemTexts,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/ComboBoxAdopt,SystemAssignerValueAdoptCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/ComboBoxAdopt,SystemAssignerValueAdoptPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/ComboBoxReset,SystemAssignerToolResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/ComboBoxReset,SystemAssignerToolResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/FillColorFilterAssign,SystemFillColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/HideFilterAssign,SystemAssignerHideViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/HideFilterAssign,SystemAssignerHideViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/IsolateFilterAssign,SystemAssignerIsolateViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/IsolateFilterAssign,SystemAssignerIsolateViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/LineColorFilterAssign,SystemLineColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/ValueAssign,SystemAssignerValueSetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/ValueAssign,SystemAssignerValueSetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/ValueUnassign,SystemAssignerValueResetCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Assigners/SystemContext/ValueUnassign,SystemAssignerValueResetPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterAuto/StateReport,AutoUpdaterStateReportCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterAuto/StateReport,AutoUpdaterStateReportPushButton,,type not named in any test
+Kelly-Revit-v5,class,Trade.All/Commands/Updaters/UpdaterAuto/StateToggleChange,AutoUpdaterPowerIcon,,type not named in any test
+Kelly-Revit-v5,public,Trade.All/Commands/Updaters/UpdaterAuto/StateToggleChange,AutoUpdaterPowerIcon,Register,member not named in a test of its type
+Kelly-Revit-v5,private,Trade.All/Commands/Updaters/UpdaterAuto/StateToggleChange,AutoUpdaterPowerIcon,OnRunningChanged,member not named in a test of its type
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterAuto/StateToggleChange,AutoUpdaterStateTogglePushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterManual/ExecuteOnDocument,ManualUpdaterOnDocumentCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterManual/ExecuteOnDocument,ManualUpdaterOnDocumentPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterManual/ExecuteOnSelection,ManualUpdaterOnSelectionCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterManual/ExecuteOnSelection,ManualUpdaterOnSelectionPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterManual/ExecuteOnView,ManualUpdaterOnViewCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Updaters/UpdaterManual/ExecuteOnView,ManualUpdaterOnViewPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Views/ViewFilters/ShopAndField,PipeAndWeldFieldTrimLineColorViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Views/ViewFilters/ShopAndField,PipeAndWeldFieldTrimLineColorViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/SharedParameter/Bindings/ReportCreate,SharedParameterBindingsReportToMarkdownExportCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.Manager/Commands/SharedParameter/Bindings/ReportCreate,SharedParameterBindingsReportToMarkdownExportPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Views/Filters/All/DeleteUnusedInProject,AllUnusedInProjectDeleteViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Views/Filters/All/DeleteUnusedInProject,AllUnusedInProjectDeleteViewFilterPushButton,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Views/Filters/All/RemoveInView,AllInViewRemoveViewFilterCommand,,type not named in any test
+Kelly-Revit-v5,contract-class,Trade.All/Commands/Views/Filters/All/RemoveInView,AllInViewRemoveViewFilterPushButton,,type not named in any test

@@ -1,6 +1,67 @@
 # Unit Test Implementation - Kelly Tools For Revit v5
 
-Restarted 2026-11-02. The goal is the shared rule in `BuildConfigs/SHARED-AGENTS.md`: **every type member has an NUnit test**, and every change starts with a failing test (TDD). This plan covers the six Major Version 5 repos; the v4 Revit repos override TDD and are out of scope, and the format libraries (Kelly-Windows-Data-Csv, -Json, -SqlServer, -Sqlite) keep their own suites.
+Restarted 2026-11-02. The goal is the shared rule in `BuildConfigs/SHARED-AGENTS.md`: **every type member has an NUnit test**, and every change starts with a failing test (TDD). This plan covers the six Major Version 5 repos; the v4 Revit repos override TDD and are out of scope, and the format libraries (Kelly-Windows-Data-Csv, -Json, -SqlServer, -Sqlite) keep their own suites. Since 2026-11-05 the coverage check also covers Kelly-Windows-Data-Csv and -Json, which Kelly-Revit-Logic-v5 and Kelly-Revit-v5 pin (Csv 1.26.1030.933, Json 1.26.1028.1008); -SqlServer and -Sqlite are not in v5's dependencies.
+
+## Coverage re-examined (2026-11-05)
+
+Eight repos: the six v5 layers and the two format libraries v5 pins. Two measures:
+
+- **Line and branch coverage** (coverlet, Net80) where it can be measured: the three lower layers. Csv and Json have no `coverlet.collector` reference, and the Revit layers run inside Revit under ricaun, where coverlet does not reach. Two things are needed for a run: `-p:DebugType=portable` (the shared `Output.Build.props` sets `DebugType` to `None`, so coverlet finds no PDB and reports 0 lines), and a runsettings `Include` of the Kelly assemblies only (otherwise coverlet tries to instrument `Kelly.Markdown.TestLogger.dll`, which VSTest has locked, and gives up).
+- **Members named in a test**, for every repo: a Roslyn scan (`Unit Test Coverage/scan.cs`) lists each public or internal type and its methods, properties, events, constructors, indexers and operators (any access modifier), and counts a member as covered when its name appears in a test file that also names the type (or calls it, for extension methods). That is the shared rule's measure ("every type member has an NUnit test"), but approximate: a member reached only through another member, or by reflection over all members (`RecordTests`, `EnumMembersTests`), counts as not named; a common name (`Name`, `Id`) can count as named when it is not tested. The full list is in `Unit Test Coverage/2026-11-05 Coverage Gaps.csv`.
+
+| Repo | Tests run on 2026-11-05 | Types with a test | Members named in a test | Lines / branches covered |
+|---|---|---|---|---|
+| Kelly-Windows-Data-v3 | 179 passed (Net80) | 17 of 17 | 74 of 87 (85%) | **99.6% / 97.8%** |
+| Kelly-Windows-Data-Csv | 43 passed, **3 failed** (Net80) | 4 of 4 | 13 of 19 (68%) | not measured |
+| Kelly-Windows-Data-Json | 129 passed (Net80) | 9 of 9 | 40 of 46 (87%) | not measured |
+| Kelly-Windows-v3 | 835 passed (Net80) | 112 of 114 | 413 of 506 (82%) | **95.1% / 92.0%** |
+| Kelly-Domain | 1,804 passed (Net80) | 262 of 263 | 964 of 1,306 (74%) | **92.2% / 90.9%** |
+| Kelly-Revit-Logic-v5 | not run (last full run 2026-11-02: 842) | 262 of 264 | 1,243 of 1,663 (75%) | in Revit: not measured |
+| Kelly-Revit-UI | 230 passed without Revit (Net481 and Net80), 91 in Revit 2024 (both logs of 2026-11-05) | 55 of 63 | 145 of 237 (61%) | not measured |
+| Kelly-Revit-v5 | not run | 69 of 85; **27 of 85 by behavior** | 235 of 541 (43%); **88 (16%) by behavior** | in Revit: not measured |
+
+Kelly-Revit-v5 also has 356 commands, push buttons, availability classes, panels and windows, which `AddInContractTests` checks for its contract (attribute, constructors, icons) but not for what they do. 528 of its 661 `[Test]`/`[TestCase]` attributes are source-text rules (`Commands/LowerLayerRulesTests` 469, `Ribbon/RibbonMovesTests` 59): they read a `.cs` file and check a call is there, so they name a type without running it. "By behavior" is the scan run without those two files.
+
+### Since 2026-11-02
+
+Types with no test: **320 → 29**.
+
+| Repo | 2026-11-02 | 2026-11-05 | Still without a test |
+|---|---|---|---|
+| Kelly-Windows-v3 | 16 | 2 | `ClipboardTools`, `UserPrincipalExtensions` (both need a seam, above) |
+| Kelly-Domain | 76 | 1 | `BuiltInCategoryMetaRecord`: run by `RecordTests` through reflection, so in effect 0 |
+| Kelly-Revit-Logic-v5 | 127 | 2 | `DocumentClosingEventHandler`; `NumberedDocumentCache` is run through its four subclasses, so in effect 1 |
+| Kelly-Revit-UI | 16 | 8 | `IExternalCommandBase`, `IExternalCommandMvvm`, `IRibbonPullDownButton`, `IRibbonPushButton`, `IRibbonSplitButton`, `IRibbonStackedButton`, `RibbonSplitButton`, `ConnectorPickTools` |
+| Kelly-Revit-v5 | 85 | 16 | `DocumentChangedEventHandler`, `ViewActivatedEventHandler`, `ViewActivatingEventHandler`, `RibbonService`, `ApplicationAboutModel`, `AssignerComboBoxPopulator`, `ContextValueAddViewModel`, `SpoolCleanCommon`, `ManualUpdaterExtensions`, `IsSelectionMade` (three copies: Trade.All, Trade.Duct, Trade.Pipe), `ConnectOletsExternalEventHandler`, `ViciousInstanceLevelAssignViewModel`, `ViciousFileBasedSystemPipePlaceViewModel`, `AutoUpdaterPowerIcon` |
+
+### Where the member gaps are
+
+Types with the most public or internal members named in no test:
+
+- **Kelly-Windows-v3** (lines not covered): `UserPrincipalExtensions` and `ClipboardTools` 0%, `DomainGroupReport` 38%, `ShellTools` 50%, `FileInfoExtensions` 56%, `FileDialogTools` 67%; members: `RoundAmount` 7, `ValidValueColors` 6.
+- **Kelly-Domain** (lines not covered): `DefinitionSetCache<T>` 0%, the three `*Spool11X17SheetDetailViewSettings` 20%, `StandardUnits` 39% (no file-path seam, above), `ProductRangeParameterDefaults` 47%, `Product` 47%, `ExternalParameterDefinition` 53%, `Component` 57% (0% of branches), `DetailingPackage` and `LineNumber` 58%. Members: `Vocabulary/Nouns` 76 and the records (`ComponentAndLookupsViewRecord` 37, `ProjectRecord` 23, `ExternalParameterDefinitionRecord` 15) are mostly reached through reflection, not by name.
+- **Kelly-Revit-Logic-v5**: `ProjectInformationWrapper` 26, `PhysicalElementEntity` 18, `SuspendedSupport` 12, `PathExtensions` 11, `Olet` 10, `TagLeader` 10, `SpoolItem` 9, `PointToPipeReport` 9, `ConnectorWrapper` 7.
+- **Kelly-Revit-UI**: `UiDocumentScopeExtensions` 11 (needs a `UIDocument`, which a test document has not), `IRibbonPushButton` 10, `ViewModel` 9, `RibbonExtensions` 7, `RibbonComboBox` 7.
+- **Kelly-Revit-v5**: the view models: `SpoolManagerViewModel` 31, `LayoutPointToCommaSeparatedValueFileExportViewModel` 23, `SuspendedSupportManagerViewModel` 20, `SpoolCreateViewModel` 18, `LayoutPointFromCommaSeparatedValueImportViewModel` 17, `ViciousInstanceElevationAssignViewModel` 14, `OletCheckViewModel` 13, `ModuleManageViewModel` and `ModuleCreatorViewModel` 12.
+- **Format libraries**: only private helpers are unnamed (reached through the public members), plus `ICache`'s five members in Kelly-Windows-Data-v3 and `CsvDataWriter.Dispose`, `DataFolderWriter.Folder`/`Dispose`.
+
+### Found on 2026-11-05
+
+- [ ] **Kelly-Windows-Data-Csv, 3 tests fail again**: `CsvDataFormatTests.Columns_AreTheSettablePropertiesInDeclarationOrder`, `CsvDataWriterTests.Constructor_WritesTheHeaderEvenWithNoRecords`, `CsvDataWriterTests.WriteRecord_WritesTheHeaderAndOneLinePerRecord`. Commit `2fae2fa` ("Reorganize CSV tests and sample records") put `CsvSampleRecord`'s properties in alphabetical order again (header `Changed,Day,Id,...` instead of `Id,Name,Weight,...`), the same break `12bbce2` fixed on 2026-11-02. Put the record back in declaration order and stop the IDE's member sort from reaching it (a file-level ReSharper/Rider suppression, or a comment that says why the order matters).
+- [ ] **Kelly-Windows-Data-Json, 50 tests without `Author` or `Description`**: 47 bare `[Test]` attributes in `JsonFileRepositoryTests`, 3 more elsewhere in the suite. The shared rule needs both on every `[Test]` and `[TestCase]`.
+- [ ] **Kelly-Domain `LayeringTests.Domain_namespaces_are_not_named_after_Revit_layers` fails under coverlet**: it lists coverlet's injected `Coverlet.Core.Instrumentation.Tracker.Kelly.Domain_<guid>` type as an offender. Skip namespaces that start with `Coverlet.` so a coverage run passes.
+- [ ] **Csv and Json have no `coverlet.collector`**, and `DebugType=None` stops coverage everywhere: add the collector to both, and put the runsettings above in BuildConfigs so a coverage run is one command.
+- [ ] **The four Kelly-Revit-v5 tests that need the add-in started** (Known failures, above) are unchanged.
+- [ ] **No test carries a human verification date**: every `Author` in the eight repos is `"Verified By Human On:"` with no date (about 10 had one on 2026-11-02; changed tests lose it).
+
+### Next, in order
+
+1. Fix the Csv sample record (it is a failing test now).
+2. The Json `Author`/`Description` attributes, and the coverlet guard in `LayeringTests`.
+3. Kelly-Revit-UI's 8 types (the interfaces through an implementation, `RibbonSplitButton` in Revit).
+4. Kelly-Revit-v5's view models, behavior first: the scan counts 58 of 85 v5 types that no behavioral test runs.
+5. The member gaps of Logic's wrappers (`ProjectInformationWrapper`, `PhysicalElementEntity`, `SuspendedSupport`) and Domain's lowest-covered models (`Component`, `Product`, `DefinitionSetCache<T>`).
+6. A full in-Revit run of Logic, UI and Kelly-Revit-v5 with the add-in disabled: today's logs are filtered runs (Logic 23 tests, Kelly-Revit-v5 2).
 
 ## Baseline (2026-11-02)
 
@@ -175,4 +236,4 @@ Findings from the Kelly test project:
 
 ## Human verification
 
-About 10 of roughly 1,870 tests carry a date in `Author` (`Verified By Human On:yyyy.mm.dd`). Only a person adds that date, after checking the test does what its `Description` says. Changing a test removes it again.
+On 2026-11-05 none of the tests in the eight repos carries a date (on 2026-11-02 about 10 of roughly 1,870 did) in `Author` (`Verified By Human On:yyyy.mm.dd`). Only a person adds that date, after checking the test does what its `Description` says. Changing a test removes it again.
