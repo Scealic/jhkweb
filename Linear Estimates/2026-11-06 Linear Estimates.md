@@ -509,3 +509,7 @@ Open issues (triage, backlog, unstarted, started) of every team in the jhkelly w
 - KTR5-3144, KTR5-3279, KTR5-3827 and KTR5-4170 have open sub-issues, so they get no estimate (the subagent proposed 2, 4, 8 and 8).
 - KTR5-3800 (0) and KTR5-4604 (2) are parents that already have an estimate; they keep it unless you ask to clear it.
 - KW3-8 and KTR5-4699 keep 1: the subagents proposed 2 with low confidence, not clear enough to overwrite a set value.
+
+## Applied 2026-11-06
+
+35 of 37 set: KD 4, KTR5 8, KTRL5 19, KTRUI 1, KW3 1, KWD3 2 (101 points). Not applied: KTR5-4728 (2) and KTR5-4740 (4). Linear accepted both calls with no error but left them without an estimate (their updatedAt did not change). Both are KTR5 sub-issues whose parent is in another team (KW3-16, KTRUI-12). Not retried.
