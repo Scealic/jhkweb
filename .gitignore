@@ -1,13 +1,12 @@
 # The repos inside this folder each have their own git history and GitHub remote.
 # This repo tracks only the working documents around them.
 /branding/
+/KTR4/
 /BuildConfigs/
 /Kelly-Domain/
 /Kelly-Revit-Data-Exporter/
-/Kelly-Revit-Logic-v4/
 /Kelly-Revit-Logic-v5/
 /Kelly-Revit-UI/
-/Kelly-Revit-v4/
 /Kelly-Revit-v5/
 /Kelly-Windows-Data-Csv/
 /Kelly-Windows-Data-Json/
@@ -15,7 +14,6 @@
 /Kelly-Windows-Data-Sqlite/
 /Kelly-Windows-Data-v2/
 /Kelly-Windows-Data-v3/
-/Kelly-Windows-v2/
 /Kelly-Windows-v3/
 /VCS-Database-Content-Schema/
 /VCS-Database-General-Schema/
