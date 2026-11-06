@@ -56,6 +56,8 @@ Who writes JHK Product Range (and Long Description on fabrication parts) after t
 3. Add them to fabrication custom data and read them from there (changes the ITM configuration; Adam's call).
 4. Accept the loss (not recommended: breaks welds, checkbox defaults and spool numbering).
 
+First, KTRL5-79 (blocks KTRL5-8): check with Stephen and Vladimir whether every ITM and RFA already carries both values. If they all do, option 4 costs nothing.
+
 Ask Adam Fuller which, and whether Category Type, Finish and Part Category on Revit elements are still wanted.
 
 ## Phase A: remove the Product updater
