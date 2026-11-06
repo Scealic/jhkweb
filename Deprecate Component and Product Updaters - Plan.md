@@ -6,6 +6,7 @@
 - Scope: Kelly Tools For Revit Major Version 5 only. Repos touched: Kelly-Domain and Kelly-Revit-Logic-v5; Kelly-Revit-v5 for docs and the repin only.
 - Based on a read of the code on `develop`.
 - **Status 2026-11-06:** Phase A steps 1 to 6 done and committed on `develop`: Kelly-Revit-Logic-v5 02be3b5 (170 of 170 changed-fixture tests pass in Revit 2024, built for 2024 to 2026) and Kelly-Domain aa84c8a (1801 of 1801 pass in Net481, Net80, Net100). Packed and repinned the same day: Kelly.Domain 1.26.1106.1012, Kelly.Revit.Logic 5.26.1106.1012, Kelly.Revit.UI 1.26.1106.1013, Kelly-Revit-v5 built 5.26.1106.1013 (not installed). Phase B waits on KTRL5-79.
+- **Status 2026-11-06 afternoon:** Product Range on fabrication parts no longer depends on the Component updater. `FabricationPartInstancesUpdaterElementService` (ExecutionOrder 6) copies the ITM product range (`FabricationPart.ProductDataRange`) into JHK Product Range, so every reader, filter and schedule sees it through the shared parameter (Kelly-Domain c40f146 adds the definition to `JhkFabricationPartInstanceDefinitionSet`; Kelly-Revit-Logic-v5 11b992f, which also removes the `SetValue` guard on JHK Product Range; 89 of 89 tests pass in Revit 2024). Packed and repinned at Kelly.Domain 1.26.1106.1308, Kelly.Revit.Logic 5.26.1106.1308, Kelly.Revit.UI 1.26.1106.1308; Kelly-Revit-v5 5.26.1106.1308 built, and Revit 2024 runs the 2024Debug install 5.26.1106.1318 (2025 and 2026 are still on 5.26.1106.1013). KTRL5-79's email to Stephen and Vladimir went out at 8:50; no answer yet.
 
 ## What the two updaters are
 
@@ -50,14 +51,13 @@ Category Type, Finish and Part Category have no Revit-parameter readers in v5; t
 
 ## Decision needed before Phase B
 
-Who writes JHK Product Range (and Long Description on fabrication parts) after the Component updater is gone? Options:
+Who writes JHK Product Range and JHK Long Description after the Component updater is gone?
 
-1. A slim updater that writes only Product Range and Long Description (keeps ExecutionOrder before 014).
-2. Fold those two into an existing early service such as `ContentIdentityUpdaterElementService` (001).
-3. Add them to fabrication custom data and read them from there (changes the ITM configuration; Adam's call).
-4. Accept the loss (not recommended: breaks welds, checkbox defaults and spool numbering).
+- **Product Range on fabrication parts: settled (2026-11-06).** The fabrication part instances updater (006) copies the ITM's `ProductDataRange`. It still needs every ITM to have its product data range filled in.
+- **Long Description on fabrication parts: open.** The same updater could copy the ITM's long description (`BuiltInParameter.FABRICATION_PRODUCT_DATA_LONG_DESCRIPTION`), the way it copies Product Range. The Component updater builds it from the data files instead (`Component.GetLongDescription`), so the text may differ.
+- **Product Range and Long Description on families (RFAs): open.** Families have no ITM product data; they keep these values only if the family content carries them.
 
-First, KTRL5-79 (blocks KTRL5-8): check with Stephen and Vladimir whether every ITM and RFA already carries both values. If they all do, option 4 costs nothing.
+KTRL5-79 (blocks KTRL5-8) asks Stephen and Vladimir whether every ITM has its product data range (and long description) filled in, and whether every RFA carries JHK Product Range and JHK Long Description.
 
 Ask Adam Fuller which, and whether Category Type, Finish and Part Category on Revit elements are still wanted.
 
@@ -83,7 +83,7 @@ TDD: change the tests first, see them fail to compile or fail, then change `src`
 
 ## Phase B: remove the Component updater (after the decision)
 
-1. Put the replacement writer of Product Range / Long Description in place first, with tests, at an ExecutionOrder before 014.
+1. Put the replacement writer of Product Range / Long Description in place first, with tests, at an ExecutionOrder before 014. Done for Product Range on fabrication parts (fabrication part instances updater, 2026-11-06).
 2. Remove `ComponentAutoUpdaterConfiguration` and `ComponentManualUpdaterConfiguration` from the two lists; delete them, `ComponentUpdaterElementService` and `ComponentElementDataModel`.
 3. Kelly-Domain: delete `ComponentDefinitionSet` if nothing uses it; check `ComponentValueTools` and `ContentTools.GetScenarioThree*` (used only by `ComponentElementDataModel`) and whether `Component.GetClassDescription` / `GetLongDescription` / `GetShortDescription` still have callers. `DataFiles.FindComponent` stays (Material, ScheduleGauge, Size).
 4. Tests as in Phase A (Component cases in the same five fixtures, plus `CommonDefinitionsMovesTests` if it names the set).
