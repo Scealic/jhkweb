@@ -95,6 +95,26 @@ Paid in every session. Over 400 characters: split-review 895, docs-update 806, d
 - `kelly-docs-update`: 9336 bytes; `drift.sh` and `stamp.pl` already do the mechanical work (only its 806-character description is long, item 7).
 - `kelly-linear-projects`: 6813 bytes, no subagents or large-input flags beyond its description (item 7).
 
+## Applied after this re-check (checked 2026-11-06)
+
+All seven recommendations were applied in the skills repo between 14:12 and 14:26 on 2026-11-05 (commits 6a68a30, 81c68ae, b5975f3, 86bd24c, d048f17, 410d343). On 2026-11-06, `measure.sh` gives these numbers:
+
+| Recommendation | Status | Evidence on 2026-11-06 |
+|---|---|---|
+| 1. work-log | Done | `day-facts.sh`, `day-digest.pl` and `day-cost.pl` are committed and wired in (SKILL.md:84-95, "Never read the `.jsonl` transcripts directly"). The skill runs on Sonnet (`model:` frontmatter). |
+| 2. Linear review skills | Done | Subagents run on Sonnet and fetch their own team's issues. `_shared/linear-teams.md` holds the team table. The "no model" lines left in §4 only mention subagents or continue a line that names Sonnet. |
+| 3. kelly-layer-moves | Done | The workflows' finder, probe, pack and docs agents run on Sonnet: 4 model settings for 3 calls in `layer-analysis.workflow.js`, 3 for 7 in `layer-moves.workflow.js`. Reviewers, implementers and the audit keep the session model on purpose. SKILL.md went from 23694 to 19372 bytes, and the Linear filing moved to `references/linear-filing.md`. |
+| 4. kelly-backlog-update | Done | SKILL.md went from 18894 to 13041 bytes. The Linear filing and recovery sections moved to `references/`. |
+| 5. tdd-coverage-check | Done | SKILL.md went from 17373 to 15496 bytes. The issue rules moved to `references/`. |
+| 6. kelly-ribbon-buttons | Done | Batch subagents run on Sonnet (SKILL.md:159). The icons moved to `references/`. SKILL.md went from 17450 to 11647 bytes. |
+| 7. Descriptions | Done | No description is over 400 characters. The total went from 9406 to 5133 characters (≈ 2351 to 1283 tokens per session). |
+
+What remains is minor:
+- One line is repeated in info-review and split-review ("Only read: no `save_issue`…").
+- `measure.sh` writes its report to the current folder when no out-file is given.
+
+The token savings have not been measured yet with `explain-usage`. The next work-log run gives the first figure.
+
 ## How to check the savings
 
 1. Before each edit, run the skill once on a fixed input (same day for `work-log`, same team for a Linear skill) and record its tokens with `explain-usage`. For `work-log`, the day's cost in its Claude Code Savings report also works.
