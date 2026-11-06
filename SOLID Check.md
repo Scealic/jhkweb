@@ -18,7 +18,7 @@ The pattern is still the same from bottom to top. The layers mostly do well on i
 **Kelly-Windows-Data** is the cleanest repo. Its types are small and do one job each, and new database engines plug in through `ServerServiceBase.CreateConnection()`.
 
 - [x] **Fat interface:** fixed 2026-10-20, and `IDatabaseDataService` is now deleted. It had 18 methods plus `Dispose` (the first check said 22, which was wrong); the nine unused async methods went on 2026-10-19 (`c526133`). Then it was split into `IDatabaseReader` (4 select methods) and `IDatabaseWriter` (5 write methods) and marked obsolete (packages Kelly.Windows.Data 26.10.20.941, Kelly.Windows 26.10.20.942, Kelly.Domain 26.10.20.946; commits `d34921f`, `9fed64c`, `5c89902`), and every consumer moved to the side it uses: 7 readers, `ApplicationSessionStore` a writer. Its last user, Kelly-Revit-Logic's `ProjectInformationWrapper`, now names `SqlServerService`, so it was deleted (Kelly.Windows.Data 26.10.20.957, repinned through Kelly.Windows 26.10.20.958 and Kelly.Domain 26.10.20.959, commits `f118aaa`, `5ac7787`, `166cbf8`; Kelly.Revit.Logic 26.10.20.1031, Kelly.Revit.UI 26.10.20.1033 and the add-in repinned but not yet committed). It added only `IDisposable`, and `ServerServiceBase.Dispose` is a no-op, so `SqlServerService` stays usable in `using`. The two test fakes lost their dead async methods (the reader-only fake in `SqlRecordCacheTests` has 4 members, was 19).
-- [ ] **Hard-wired cache:** `CacheBase` creates `new SqlServerService(...)` itself (`Caching/CacheBase.cs:8`), and it doesn't implement the parallel `ICache` interface.
+- [ ] **Hard-wired cache:** `CacheBase` creates `new SqlServerService(...)` itself (`Caching/CacheBase.cs:8`), and it doesn't implement the parallel `ICache` interface. — Linear: KWD3-12 (2026-11-06)
 
 **Kelly-Windows**
 
@@ -26,22 +26,22 @@ The pattern is still the same from bottom to top. The layers mostly do well on i
 - [x] **Bypassed prompt seam:** fixed 2026-10-19 (`2ad3c02`). `HandleIt` reports through `UserPrompt` and throws if none is registered; argument checks throw instead of prompting. No `MessageBox` is left in `src`.
 - [x] **Mixed jobs:** fixed 2026-10-19 (`9d4be62`). `IModel` is gone; `Persistence/ModelBase` keeps only `INotifyPropertyChanged`/`INotifyDataErrorInfo`.
 - [x] **Lookup bug:** fixed 2026-10-19 (`7b63f6a`, `e214a7e`). `GetService<T>` tries the exact type first, then a single assignable service, and throws when none or several match.
-- [ ] **Still open:** `Persistence/SqlRecordCache.cs` keeps a convenience constructor that does `new SqlServerService`, so SQL Server knowledge stays in the Windows layer. (The WPF `ProgressBarService` is now created only behind the `ProgressReporter` seam, not by `ServiceProvider`.)
+- [ ] **Still open:** `Persistence/SqlRecordCache.cs` keeps a convenience constructor that does `new SqlServerService`, so SQL Server knowledge stays in the Windows layer. (The WPF `ProgressBarService` is now created only behind the `ProgressReporter` seam, not by `ServiceProvider`.) — Linear: KW3-24 (2026-11-06)
 
 **Kelly-Domain**
 
 - [x] **Good:** its own interfaces are narrow, it has very few `switch` statements, and every class that reaches the database takes an injected `IDatabaseReader` or `IDatabaseWriter` (was `IDatabaseDataService`, deleted 2026-10-20). New since the first check: `Projects/ApplicationSessionStore` (2026-10-19) owns the session's stored procedures and takes the data service in its constructor, so `ApplicationSession` only describes itself.
-- [ ] **Global registries:** `DefinitionRegistry` and `ServerData` are global service locators. `DefinitionSetBase` resolves from `DefinitionRegistry` in its constructor (`Definitions/DefinitionSetBase.cs:16`), and `DefinitionSetCache` freezes the result in a static `Lazy` for the life of the process.
-- [ ] **Infrastructure in the domain:** still present. 14 files name `USP_` stored procedures; `GaugeNameResolver` creates `new SqlServerService` (`Products/GaugeNameResolver.cs:9`), as do the string-constructor overloads of `ConnectorPreparationResolver` and `ConnectorSizeDataResolver`; `PcfReaderController` and `StandardUnits` read the file system directly.
+- [ ] **Global registries:** `DefinitionRegistry` and `ServerData` are global service locators. `DefinitionSetBase` resolves from `DefinitionRegistry` in its constructor (`Definitions/DefinitionSetBase.cs:16`), and `DefinitionSetCache` freezes the result in a static `Lazy` for the life of the process. — Linear: KD-51 (2026-11-06)
+- [ ] **Infrastructure in the domain:** still present. 14 files name `USP_` stored procedures; `GaugeNameResolver` creates `new SqlServerService` (`Products/GaugeNameResolver.cs:9`), as do the string-constructor overloads of `ConnectorPreparationResolver` and `ConnectorSizeDataResolver`; `PcfReaderController` and `StandardUnits` read the file system directly. — Linear: KD-52 (2026-11-06)
 - [x] **Stub methods:** fixed 2026-10-19 (`f78b65b`). No model implements `IModel` any more, so no `RecordInsert`/`RecordUpdate` stubs remain.
-- [ ] **Still open:** `Signatures/IColorPalette` has 10 numbered `Color00..Color09` properties instead of an indexed collection.
+- [ ] **Still open:** `Signatures/IColorPalette` has 10 numbered `Color00..Color09` properties instead of an indexed collection. — Linear: KD-53 (2026-11-06)
 
 **Kelly-Revit-Logic**
 
-- [ ] **Large static files:** `DocumentExtensions.cs` is now 1,862 lines with about 51 unrelated static methods. `Spool.cs` (1,242 lines) is a domain model that also creates views, schedules and sheets, and calls `UserPrompt` (7 times).
+- [ ] **Large static files:** `DocumentExtensions.cs` is now 1,862 lines with about 51 unrelated static methods. `Spool.cs` (1,242 lines) is a domain model that also creates views, schedules and sheets, and calls `UserPrompt` (7 times). — Linear: KTRL5-89 (2026-11-06)
 - [ ] **Few abstractions:** 92 files contain a static class (95 on 2026-10-15, 91 on 2026-10-19), and there are still only 7 interfaces.
 - [x] **Prompt seam:** every prompt in this layer goes through `UserPrompt`. Correction: the 2026-10-20 morning check listed `Common/TaskDialogSimple` and its 6 calling files as a bypass, but `TaskDialogSimple` builds a `PromptRequest` and calls `UserPrompt.Show`, and `HandleIt` does too. The one real bypass, a WPF `MessageBox` in `DocumentExtensions.Create3DViewTransaction` (whose text spoke of "setting support elevations"), was replaced on 2026-10-20 (`6504bdb`, not yet in a package): it reports through `UserPrompt`, returns `null`, and no longer throws from calling `Stop` after `RollBack`. `PenetrationTagTools.ApplyTags` had the same crash and reported each error twice; fixed 2026-10-20 (not yet committed or packed), it now reports once through `HandleIt` and returns normally.
-- [ ] **Type checks:** `FabricationPartExtensions` has 46 `is Fabrication…` checks.
+- [ ] **Type checks:** `FabricationPartExtensions` has 46 `is Fabrication…` checks. — Linear: KTRL5-90 (2026-11-06)
 - [x] **Broken contract:** fixed 2026-10-19 (`ad384df`, package 26.10.19.1145; the full in-Revit run passes, 511 of 511). `IElementEntity` no longer declares `UpdateElement` and `UpdateModel`, which `VirtualElement` implemented by throwing `NotImplementedException` and `PhysicalElementEntity` by doing nothing; nothing called them through the interface.
 - [x] **Best area:** the updater subsystem. New updaters are added as new classes without editing `AutoUpdater`, and `AutoUpdater` follows Revit's `IUpdater` rules, including never throwing into Revit.
 - [x] **Since the first check:** `BuiltInCategoryMeta` no longer implements `IModel` (`06d90b0`); list and view-name checks throw instead of prompting (`7f83118`, `99e8ca6`); progress goes through the `ProgressReporter` seam instead of a concrete window (`e7dcc0c`, `9fd2bea`); disconnecting goes through one `ConnectorTools.DisconnectAll` and the new `ElementConnectionExtensions`, and the `VictaulicConnectorTools` copies are marked obsolete (`a5cf24d`).
@@ -49,10 +49,10 @@ The pattern is still the same from bottom to top. The layers mostly do well on i
 **Kelly-Revit-UI** (since the first check: repins, the `nameof(T)` fix, `CoreCommand` renamed to `CommandBase` and `BaseRibbonPanelConfiguration` to `RibbonPanelConfigurationBase`)
 
 - [x] **Good extension points:** `DocumentCommandAvailability` is a clean template method where subclasses override only `IsAvailable`. `RibbonModuleLoader` finds modules by reflection.
-- [ ] **`ViewModel` does too much (375 lines):** it runs element queries, shows its errors (through `TaskDialogSimple`, which is `UserPrompt`; the earlier checks said it called `TaskDialog` directly, which was wrong), walks the WPF tree, and depends on the concrete `Command.UiDocument` (the view model's `CommandBase`).
-- [ ] **Unimplemented interface:** `ViewModel` (`Mvvm/ViewModel.cs:6`) still derives only from `ViewModelBase` and doesn't implement the `IViewModel` lifecycle it declares, so the lifecycle order exists only in comments.
-- [ ] **Static locator:** `RibbonHost.UiControlledApplication` is a static service locator.
-- [ ] **Bypassed prompt seam:** `RibbonExtensions` shows two Revit `TaskDialog`s directly (`RevitTaskDialog.Show`, lines 168 and 177) instead of going through `UserPrompt`. They are the layer's only ones; `RevitUserPrompt` is the seam's own Revit implementation.
+- [ ] **`ViewModel` does too much (375 lines):** it runs element queries, shows its errors (through `TaskDialogSimple`, which is `UserPrompt`; the earlier checks said it called `TaskDialog` directly, which was wrong), walks the WPF tree, and depends on the concrete `Command.UiDocument` (the view model's `CommandBase`). — Linear: KTRUI-25 (2026-11-06)
+- [ ] **Unimplemented interface:** `ViewModel` (`Mvvm/ViewModel.cs:6`) still derives only from `ViewModelBase` and doesn't implement the `IViewModel` lifecycle it declares, so the lifecycle order exists only in comments. — Linear: KTRUI-25 (2026-11-06)
+- [ ] **Static locator:** `RibbonHost.UiControlledApplication` is a static service locator. — Linear: KTRUI-26 (2026-11-06)
+- [ ] **Bypassed prompt seam:** `RibbonExtensions` shows two Revit `TaskDialog`s directly (`RevitTaskDialog.Show`, lines 168 and 177) instead of going through `UserPrompt`. They are the layer's only ones; `RevitUserPrompt` is the seam's own Revit implementation. — Linear: KTRUI-26 (2026-11-06)
 - [x] **Small bug:** fixed 2026-10-19 (`0cc6c77`, package 26.10.19.1145). `SetPowerIcon<T>` used `nameof(T)`, which always printed "T"; its message now comes from `ToItemIdErrorMessage<T>`, which names the button type, and is tested.
 
 **Kelly-Revit (the add-in)**
@@ -64,8 +64,8 @@ The pattern is still the same from bottom to top. The layers mostly do well on i
   - `SpoolManagerViewModel.cs` is 1,056 lines and runs 7 transactions plus its own dialogs.
   - The Supports and Vicious ViewModels and code-behind open raw `Transaction`s.
   - The "Acquired" Vicious code has no Logic layer at all.
-- [ ] **Duplication in Contenter:** `FabricationCustomDataUpdaterV1` and `V2` still sit side by side doing the same job.
-- [ ] **Static dependencies:**
+- [ ] **Duplication in Contenter:** `FabricationCustomDataUpdaterV1` and `V2` still sit side by side doing the same job. — Linear: KTR5-4750 (2026-11-06)
+- [ ] **Static dependencies:** — Linear: KTR5-4751 (2026-11-06)
   - 36 files show a Revit `TaskDialog` directly (`TaskDialog.Show` or `new TaskDialog`; the earlier checks counted only `TaskDialog.Show`, 25 files), against 8 that use `UserPrompt` and 7 more that go only through `TaskDialogSimple`, which is `UserPrompt`.
   - Three WPF `MessageBox.Show` calls bypass both (missed by the earlier checks): `ViciousFileBasedSystemPipePlaceTools.cs:329`, `SuspendedSupportManagerViewModel.cs:508` and `UserReportCommand.cs:25`.
   - `Command.UiDocument` (the view model's `CommandBase`, called `CoreCommand` until 2026-10-20) is used 49 times.

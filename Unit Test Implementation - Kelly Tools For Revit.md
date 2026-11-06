@@ -50,9 +50,9 @@ Types with the most public or internal members named in no test:
 ### Found on 2026-11-05
 
 - [x] — done 2026-11-05 (Kelly-Windows-Data-v2 4cde171, -v3 0cc82b1, Csv 407b510, Sqlite 973956d, exporter ab7194f): the column order no longer depends on the declaration order at all: `DataFileFormat.Columns` sorts by name (ordinal), the tests expect name order, and Csv and Sqlite each have a test with a record declared out of order that fails on the old core. Csv 47 and Sqlite 39 tests pass in Net481, Net80 and Net100 (Sqlite had 2 failures of the same cause); the exporter (145 tests) pins Csv and Sqlite 1.26.1105.1154. The data files are not re-exported yet. **Kelly-Windows-Data-Csv, 3 tests fail again**: `CsvDataFormatTests.Columns_AreTheSettablePropertiesInDeclarationOrder`, `CsvDataWriterTests.Constructor_WritesTheHeaderEvenWithNoRecords`, `CsvDataWriterTests.WriteRecord_WritesTheHeaderAndOneLinePerRecord`. Commit `2fae2fa` ("Reorganize CSV tests and sample records") put `CsvSampleRecord`'s properties in alphabetical order again (header `Changed,Day,Id,...` instead of `Id,Name,Weight,...`), the same break `12bbce2` fixed on 2026-11-02. Put the record back in declaration order and stop the IDE's member sort from reaching it (a file-level ReSharper/Rider suppression, or a comment that says why the order matters).
-- [ ] **Kelly-Windows-Data-Json, 50 tests without `Author` or `Description`**: 47 bare `[Test]` attributes in `JsonFileRepositoryTests`, 3 more elsewhere in the suite. The shared rule needs both on every `[Test]` and `[TestCase]`.
-- [ ] **Kelly-Domain `LayeringTests.Domain_namespaces_are_not_named_after_Revit_layers` fails under coverlet**: it lists coverlet's injected `Coverlet.Core.Instrumentation.Tracker.Kelly.Domain_<guid>` type as an offender. Skip namespaces that start with `Coverlet.` so a coverage run passes.
-- [ ] **Csv and Json have no `coverlet.collector`**, and `DebugType=None` stops coverage everywhere: add the collector to both, and put the runsettings above in BuildConfigs so a coverage run is one command.
+- [ ] **Kelly-Windows-Data-Json, 50 tests without `Author` or `Description`**: 47 bare `[Test]` attributes in `JsonFileRepositoryTests`, 3 more elsewhere in the suite. The shared rule needs both on every `[Test]` and `[TestCase]`. — Linear: KWDJ-2 (2026-11-06)
+- [ ] **Kelly-Domain `LayeringTests.Domain_namespaces_are_not_named_after_Revit_layers` fails under coverlet**: it lists coverlet's injected `Coverlet.Core.Instrumentation.Tracker.Kelly.Domain_<guid>` type as an offender. Skip namespaces that start with `Coverlet.` so a coverage run passes. — Linear: KD-50 (2026-11-06)
+- [ ] **Csv and Json have no `coverlet.collector`**, and `DebugType=None` stops coverage everywhere: add the collector to both, and put the runsettings above in BuildConfigs so a coverage run is one command. — Linear: KWDC-1, KWDJ-3 (2026-11-06)
 - [ ] **The four Kelly-Revit-v5 tests that need the add-in started** (Known failures, above) are unchanged.
 - [ ] **No test carries a human verification date**: every `Author` in the eight repos is `"Verified By Human On:"` with no date (about 10 had one on 2026-11-02; changed tests lose it).
 
@@ -134,9 +134,9 @@ Order: Kelly-Windows-v3 → Kelly-Domain → Kelly-Revit-Logic-v5 → Kelly-Revi
 
 Need a seam before they can be tested without side effects on the desktop or the network:
 
-- [ ] **Files**: `ShellTools.OpenInExplorer` starts `explorer.exe`. A process-starter seam would let a test check the quoted argument.
-- [ ] **Wpf**: `ClipboardTools` reads and writes the real clipboard (the user's, during a run). A clipboard seam would make it testable. Also: `SetText(List<string>)` adds "No Value was Provided" to the caller's list when it is empty, and throws on a null list.
-- [ ] **Workstation**: `UserPrincipalExtensions.GetManager`/`GetTitle` need Active Directory, so they fail off the JHK network. They could take the `DirectoryEntry` properties through a seam.
+- [ ] **Files**: `ShellTools.OpenInExplorer` starts `explorer.exe`. A process-starter seam would let a test check the quoted argument. — Linear: KW3-21 (2026-11-06)
+- [ ] **Wpf**: `ClipboardTools` reads and writes the real clipboard (the user's, during a run). A clipboard seam would make it testable. Also: `SetText(List<string>)` adds "No Value was Provided" to the caller's list when it is empty, and throws on a null list. — Linear: KW3-22 (2026-11-06)
+- [ ] **Workstation**: `UserPrincipalExtensions.GetManager`/`GetTitle` need Active Directory, so they fail off the JHK network. They could take the `DirectoryEntry` properties through a seam. — Linear: KW3-23 (2026-11-06)
 
 Found while testing (behavior pinned by the tests as it is; not changed):
 
