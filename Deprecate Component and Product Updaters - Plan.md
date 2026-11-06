@@ -5,7 +5,7 @@
 - Linear: KTRL5-8 (Logic side), KTR5-4726 (add-in side). Requested by Adam Fuller on 2026-11-03.
 - Scope: Kelly Tools For Revit Major Version 5 only. Repos touched: Kelly-Domain and Kelly-Revit-Logic-v5; Kelly-Revit-v5 for docs and the repin only.
 - Based on a read of the code on `develop`.
-- **Status 2026-11-06:** Phase A steps 1 to 6 done and committed on `develop`: Kelly-Revit-Logic-v5 02be3b5 (170 of 170 changed-fixture tests pass in Revit 2024, built for 2024 to 2026) and Kelly-Domain aa84c8a (1801 of 1801 pass in Net481, Net80, Net100). Not yet packed, repinned or in the add-in (steps 2, 7 to 9: pack Kelly-Domain, repin and pack Logic, repin Kelly-Revit-UI and Kelly-Revit-v5). Phase B waits on KTRL5-79.
+- **Status 2026-11-06:** Phase A steps 1 to 6 done and committed on `develop`: Kelly-Revit-Logic-v5 02be3b5 (170 of 170 changed-fixture tests pass in Revit 2024, built for 2024 to 2026) and Kelly-Domain aa84c8a (1801 of 1801 pass in Net481, Net80, Net100). Packed and repinned the same day: Kelly.Domain 1.26.1106.1012, Kelly.Revit.Logic 5.26.1106.1012, Kelly.Revit.UI 1.26.1106.1013, Kelly-Revit-v5 built 5.26.1106.1013 (not installed). Phase B waits on KTRL5-79.
 
 ## What the two updaters are
 
