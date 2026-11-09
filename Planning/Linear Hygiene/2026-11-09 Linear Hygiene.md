@@ -942,3 +942,97 @@ The maintainer approved the four mechanical fixes. 377 issues were updated, one 
 - **Stray write:** a subagent also set priority Low on KTR5-4060 (a Duplicate, closed 2026-11-04), which was not in the list. Its earlier priority can't be read back through the connector; check it in Linear's history and restore it if it wasn't Low.
 
 Not applied, as planned: the feature labels of 82 KTR5 issues (needs a feature pass), the 11 app-named hits (check by hand), the no-estimate and too-big issues (estimate and split skills).
+
+## Feature pass proposal (82 KTR5 issues)
+
+Two Sonnet subagents read each issue and checked named types in Kelly-Revit-v5. Existing labels are kept; these are additions. Nothing is applied yet.
+
+- **40** get existing feature labels (and modules).
+- **38** concern the whole add-in or many tools (architecture, tests, build and install, colours, settings, dead code): no feature label fits. Decision needed (below).
+- **4** need your call: KTR5-4780 (no `SpoolAutoSet` command found), KTR5-4608/4609/4610 (install-type issues named Detailer, Manager, Contenter).
+- **3 new feature labels** proposed for Trade.Developer commands that have none: Coordinate Testing (`CoordinateTestingCommand`), Collector Testing (`CollectorTestingCommand`), Select Field Trim End (`SelectFieldTrimEndCommand`), used by KTR5-4777 and KTR5-4765.
+
+| Issue | Features | Modules | Confidence | Reason |
+|---|---|---|---|---|
+| KTR5-2967 | none | Host | low | Validation across tools; test/architecture; could span modules |
+| KTR5-4773 | All Assigner Reset,Service Assigner Tool Reset,System Assigner Tool Reset,Detailing Package Assigner Tool Reset | Trade.All | medium | Assigner resets/panel in Trade.All/Commands/Assigners |
+| KTR5-4761 | none | Host,Trade.All | medium | Command base/UserPrompt switch; Rotate view is Trade.All Vicious |
+| KTR5-4751 | Document Operation (Command Service) | Host,Trade.All | low | Prompt use across 39 files; command infra, no single tool |
+| KTR5-4758 | none | Host | low | Static category sets; shared infrastructure |
+| KTR5-4788 | none | Host | high | Existing Auto Updaters label stays; only module missing |
+| KTR5-4787 | none | Host | high | Existing Application Service label stays; only module missing |
+| KTR5-4777 | NEW: Coordinate Testing,NEW: Collector Testing,NEW: Select Field Trim End | Trade.Developer | medium | CoordinateTestingCommand/CollectorTestingCommand/SelectFieldTrimEnd in Trade.Developer |
+| KTR5-4769 | none | Host | high | MissingSharedParametersDialog in src/EventHandlers |
+| KTR5-4767 | Duct Run Item Number Set | Trade.Duct | high | DuctItemNumberSetCommand in Trade.Duct |
+| KTR5-4776 | Fabrication Part Various Report,Custom Data Property Update V1 | Trade.Contenter | medium | FabricationCustomDataUpdaterCommandV1 and FabricationPartVariousReport |
+| KTR5-4750 | Custom Data Property Update V1,Custom Data Property Update V2 | Trade.Contenter | high | FabricationCustomDataUpdater V1 and V2 commands |
+| KTR5-4774 | Layout Point Export | Trade.All | high | LayoutPointToCommaSeparatedValueFileExportCommand |
+| KTR5-4772 | Service Line Color View Filter,System Line Color View Filter | Trade.All | high | Service and System line color filters |
+| KTR5-4779 | none | Host | medium | Planning task about prompt for new commands; add-in-wide |
+| KTR5-4778 | none | Host | medium | Planning; code direction for whole add-in |
+| KTR5-4770 | Document Opened (Event Handler),Document Saved (Event Handler) | Host | medium | Host event handlers in src/EventHandlers |
+| KTR5-4768 | Line Number Assigner Value Set | Trade.All | high | Value Set for Line Number in Assigners |
+| KTR5-4757 | Stratus Detailing Package Views Create | Trade.All | high | StratusDetailingPackageViewsCommand in Trade.All |
+| KTR5-4756 | Layout Point Export | Trade.All | high | Layout Point Export command |
+| KTR5-4755 | Layout Point Export | Trade.All | high | Layout Point Export command |
+| KTR5-4752 | Module Manager | Trade.All | high | ModuleManagePushButton in Trade.All/Commands/Spools |
+| KTR5-4753 | Module Manager | Trade.All | high | ModuleManagePushButton in Trade.All/Commands/Spools |
+| KTR5-4754 | Module Manager | Trade.All | high | ModuleManagePushButton in Trade.All/Commands/Spools |
+| KTR5-4766 | Vicious Instance Rotate Move | Trade.All | high | ViciousInstanceRotateMoveView in Trade.All |
+| KTR5-4775 | Many Connect,Stratus Detailing Package Views Create,Spool Creator V2 | Trade.All | medium | Named tools exist in Trade.All; "spool tools" is vague |
+| KTR5-4771 | Vicious Instance Rotate Move,Vicious File Based System Pipe Place | Trade.All | high | Rotate and Point To Pipe (FileBasedSystemPipePlace) in Trade.All |
+| KTR5-4780 | ask | Trade.All | low | No SpoolAutoSet class found; may be ModuleValueAutoSet |
+| KTR5-3937 | none | Host | low | BIM Lite product question; no tool found |
+| KTR5-2434 | none | Host | medium | Shared parameter deprecation (content/data); no tool |
+| KTR5-4322 | none | Host,Trade.All | low | XAML click handling across all views |
+| KTR5-4480 | Document Operation (Command Service) | Host | high | OperationService change loops |
+| KTR5-4493 | none | Host | high | Claude Code tooling, repo-wide |
+| KTR5-4110 | none | Host | medium | Kelly-Windows dependency removal; no module |
+| KTR5-4517 | none | Host | medium | Dead code across all repos; build/cleanup |
+| KTR5-4518 | none | Host | medium | Dead code in Kelly.Revit; whole add-in (all modules) |
+| KTR5-4519 | none | Host | high | Dead code in Kelly.Revit.Logic; lower layer |
+| KTR5-4520 | none | Host | high | Dead code in Kelly.Windows; lower layer |
+| KTR5-4521 | none | Host | high | Dead code in Kelly.Windows.Data; lower layer |
+| KTR5-4525 | Auto Updaters,Manual Updater | Host | medium | Updater element services vs command use; Logic layer |
+| KTR5-4707 | Document Operation (Command Service) | Host,Trade.All,Trade.Pipe,Trade.Duct,Trade.Contenter,Trade.Manager | low | Per-element catch across remaining module commands |
+| KTR5-4136 | Document Operation (Command Service) | Host | high | OperationService log emailing |
+| KTR5-4170 | Fabrication Part Dimension Log,Suspended Support Manager | Trade.All | medium | Both managers use the geometry signature |
+| KTR5-4175 | none | Host | high | Code style across all v5 repos; no single tool |
+| KTR5-3831 | none | Host | medium | Shared EventToCommand behaviour for XAML views |
+| KTR5-4765 | Custom Data Property Update V2,Component/Product Code Quality Assurance,NEW: Select Field Trim End | Trade.Contenter,Trade.Developer | medium | Three footer dialogs; Developer command has no label |
+| KTR5-4680 | none | Host | high | Repo-wide TODO comments sweep |
+| KTR5-4747 | View Schedule To Single Excel File Export,View Schedule To Multiple Excel File Export | Trade.All | medium | ExcelInteropTools used by the schedule exports |
+| KTR5-4745 | Module Manager | Trade.All | medium | ModuleManageView |
+| KTR5-4744 | Service Assigner Value Adopt,Spool Number Assigner Value Adopt | Trade.All | medium | AssignerValueAdoptCommand; only these two adopt labels active |
+| KTR5-4743 | Document Opened (Event Handler) | Host | high | Host DocumentOpenedEventHandler dialog text |
+| KTR5-4740 | none | Host,Trade.All | medium | Commands and Grids moves across many commands |
+| KTR5-4728 | Layout Point Export,View Schedule To Single Excel File Export | Trade.All | low | Layer-move source half over several tools |
+| KTR5-4708 | Spool Creator V2,Spool Manager,Spool Cleaner,Suspended Support Manager,Module Create,Layout Point Import,Layout Point Export,Context Value Create | Trade.All | medium | Trade.All view models named |
+| KTR5-4696 | Vicious Instance Rotate Move,Duct Run Item Number Set | Trade.All,Trade.Duct | low | 12 Run sites, also assigner filters and ElementDelete |
+| KTR5-4705 | none | Trade.All | medium | Tests for 19 assigner types |
+| KTR5-4703 | Document Opened (Event Handler),Project Session (Service) | Host | medium | Host tests for event handlers and session service |
+| KTR5-4693 | none | Host | high | Whole add-in must work offline; release requirement |
+| KTR5-4627 | none | Host | medium | Brand colours across UI and modules |
+| KTR5-4634 | Olet Checker | Trade.Pipe | medium | Status colours in OletCheckViewModel |
+| KTR5-4632 | none | Host | high | Brand colour resources in Windows and UI layers |
+| KTR5-4633 | Dockable Assigner,Layout Point Export,Spool Creator V2,Window Mockup | Trade.All,Trade.Developer | medium | Off-palette colours in four named views |
+| KTR5-4689 | none | Host | high | Test plan across all modules |
+| KTR5-4712 | none | Host | medium | ApplicationLogger and EventService tests |
+| KTR5-4711 | Custom Data Property Update V1,Custom Data Property Update V2,Weld Location Set,Olet Checker,Window Mockup | Trade.Contenter,Trade.Developer,Trade.Duct,Trade.Pipe | medium | Tests for 15 types over four modules |
+| KTR5-4710 | none | Trade.All | medium | Tests for 17 stacked buttons and enablers |
+| KTR5-4709 | Application About,Vicious Instance Rotate Move,Vicious Instance Disconnect,Auto Updaters | Trade.All | low | Mixed Trade.All command tests |
+| KTR5-4581 | Document Operation (Command Service) | Host | medium | OperationService log recovery tool |
+| KTR5-4582 | Application Service | Host | medium | Refactor the application services |
+| KTR5-4597 | none | Host | high | File I/O moved to Kelly.Windows.Data |
+| KTR5-4602 | none | Host | high | Settings file via Kelly.Windows.Data.Json |
+| KTR5-4608 | ask | Host | low | Title "Detailer" under install types; no Detailer module |
+| KTR5-4609 | ask | Trade.Manager | low | Title "Manager" under install types |
+| KTR5-4610 | ask | Trade.Contenter | low | Title "Contenter" under install types |
+| KTR5-4623 | none | Host | high | Icons for the whole ribbon |
+| KTR5-4630 | none | Host | high | All push button names across modules |
+| KTR5-4681 | Layout Point Import,Layout Point Export | Trade.All | high | Duplicate combo code in two layout point view models |
+| KTR5-4685 | none | Host | high | App.config, addin manifest and App.cs debris |
+| KTR5-4694 | none | Host | high | Tests.Revit icon contract and ribbon check |
+| KTR5-4601 | none | Host | high | InstallShield install types |
+| KTR5-4621 | none | Host | high | Revit light and dark theme, add-in wide |
+| KTR5-4596 | none | Host | high | Hierarchical settings file |
