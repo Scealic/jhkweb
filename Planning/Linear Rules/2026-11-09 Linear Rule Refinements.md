@@ -58,4 +58,4 @@ Approved by the maintainer as drafted (D1–D6 unchanged).
   - Olet Checker, Valve Clearance Sphere Place, Family Revision Setter, Duct QA Length/Mirror, Spool Cleaner and the Vicious tools: worded from class name and tooltip.
 - **Enforcement:** `linear-issue-hygiene-check` skill added to the personal skills (commit 3513e70).
 - **Not applied, templates (item 5):** the Linear connector cannot edit, move or delete issue templates. They need the Linear UI (Settings › Templates) or Claude in Chrome.
-- **Seen during the work:** Linear issue descriptions are capped at 255 characters on labels; parallel `save_issue` and `save_issue_label` calls were sometimes dropped silently, so writes go one at a time (written into the new skill).
+- **Seen during the work:** Linear caps label descriptions at 255 characters; parallel `save_issue` and `save_issue_label` calls were sometimes dropped silently, so writes go one at a time (written into the new skill).
