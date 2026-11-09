@@ -56,6 +56,18 @@ Signals: two large files with unrelated responsibilities (`DocumentExtensions.cs
 
 Its only sub-issue (KTR5-4738) is Done, the moved members exist in Logic (Component and Product updaters were deleted under KTRL5-8), and the comments record the 2026-11-05 Revit 2024 run. What's left is the full in-Revit Logic run that hangs, already covered by KTRL5-70 and KTRL5-76. Proposal: no split; re-estimate 16 → 2, status unchanged (Testing). Not checked: whether `CommonAutoAssignerTools.ResetUpdater` in Kelly-Revit-v5 delegates to Logic's `AutoUpdaterService.ResetUpdater`.
 
+## Applied 2026-11-09
+
+| Original | New issues | Original now |
+|---|---|---|
+| KTR5-4758 | KTRL5-104 (4), KTRL5-105 (2), KTRL5-106 (2); 104 blocks 105 and 106; 106 related to KTR5-4040 | parent, no estimate, related to KTR5-4040 |
+| KTR5-4751 | KTR5-4781 (4), 4782 (2), 4783 (2), 4784 (2), 4785 (1), 4786 (2), KTRL5-107 (1); KTRUI-26 made a sub-issue | parent, no estimate |
+| KTR5-4751 side notes | KTR5-4787 (8, `Command.UiDocument`), KTR5-4788 (2, `AutoUpdaterService` lookups), related | – |
+| KTRL5-89 | KTRL5-108 (4), 109 (2), 110 (2), 111 (4), 112 (2), 113 (4), 114 (4); 113 blocks 114 | parent, no estimate |
+| KTRL5-52 | – | estimate 16 → 2, note added |
+
+19 issues created (17 pieces, 2 side notes), none refused. Every original got a note naming its pieces and the 2026-11-09 decisions. Two writes (KTRL5-89 and the blocking relations) returned stale data; a re-read confirmed both had applied.
+
 ## Decisions (maintainer, 2026-11-09)
 
 1. KTR5-4758: the spool and support sets come from the open document's binding (`InternalDefinitionExtensions.GetCategories`), not from Domain's records.
