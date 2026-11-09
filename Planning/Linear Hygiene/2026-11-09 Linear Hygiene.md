@@ -930,3 +930,15 @@ Fix: check by hand: a hit may only be a linked KTR issue key, which the rule all
 |---|---|
 | KRDE-7 | "Kelly Tools For Revit" hit in body |
 
+
+## Applied 2026-11-09
+
+The maintainer approved the four mechanical fixes. 377 issues were updated, one `save_issue` each, by four subagents working sequentially and checking each response. The eight they reported as failing were redone by hand. Several had in fact already applied, and one failed on a mistyped label id.
+
+- **Assignee:** 232 set to the maintainer. A workspace sweep afterwards (`assignee: null`) finds no open issue unassigned; the unassigned issues left are all closed and older than the assignee rule.
+- **Priority:** 289 set as proposed: Urgent 5, High 26, Medium 10, Low 248 (KTR4-27 and KTR5-4631 as High, not Urgent). A sweep for No priority in Backlog, Todo, In Progress and Triage finds none.
+- **Type:** 15 added as proposed. KTR5-4493 and KTR5-4136 still have no type, waiting on the maintainer.
+- **Retired labels:** removed from KTR5-4253, KTR5-4110, KTR5-4175 and KWDSS-6.
+- **Stray write:** a subagent also set priority Low on KTR5-4060 (a Duplicate, closed 2026-11-04), which was not in the list. Its earlier priority can't be read back through the connector; check it in Linear's history and restore it if it wasn't Low.
+
+Not applied, as planned: the feature labels of 82 KTR5 issues (needs a feature pass), the 11 app-named hits (check by hand), the no-estimate and too-big issues (estimate and split skills).
