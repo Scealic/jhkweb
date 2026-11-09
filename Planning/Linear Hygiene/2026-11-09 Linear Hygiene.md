@@ -1043,3 +1043,14 @@ Maintainer decisions: add-in-wide work gets a new "5 - Feature" label **Add-In W
 
 - Labels created in KTR5: Add-In Wide, Coordinate Testing, Collector Testing, Select Field Trim End (each with a description; the three commands confirmed in `modules/Trade.Developer`).
 - All 82 issues updated with `addLabels` only, one call at a time; no failures reported. 40 carry Add-In Wide (the list matches the plan); KTR5-4788 and KTR5-4787 got only their module. Spot checks of KTR5-4707, KTR5-4765 and KTR5-4788 show the labels as planned.
+
+### App-named hits checked 2026-11-09
+
+Of the 11 search hits, 9 are fine: they only mention KTR issue keys, links or code names (KWDSS-4, KWDSS-5, KW3-25, KW3-3, KD-58, KD-57, KD-47, KD-55, KRDE-7). Two name the application, in the same deferral note:
+
+| Issue | State | Text now | Proposed |
+|---|---|---|---|
+| KD-21 | Backlog | deferred 2026-11-02: KTR is US-only (user decision); revisit only if that changes | deferred 2026-11-02: the add-in is US-only (user decision); revisit only if that changes |
+| KD-32 | Done | deferred 2026-11-02: KTR is US-only (user decision); … | deferred 2026-11-02: the add-in is US-only (user decision); … |
+
+Not changed yet; waiting on the maintainer.
