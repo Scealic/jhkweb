@@ -1036,3 +1036,10 @@ Two Sonnet subagents read each issue and checked named types in Kelly-Revit-v5. 
 | KTR5-4601 | none | Host | high | InstallShield install types |
 | KTR5-4621 | none | Host | high | Revit light and dark theme, add-in wide |
 | KTR5-4596 | none | Host | high | Hierarchical settings file |
+
+### Feature pass applied 2026-11-09
+
+Maintainer decisions: add-in-wide work gets a new "5 - Feature" label **Add-In Wide** (rule added to `.claude/LINEAR-KTR.md`, root 4b04236); the three Trade.Developer labels are created; the four unmatched issues are treated as add-in wide (KTR5-4780 with Trade.All).
+
+- Labels created in KTR5: Add-In Wide, Coordinate Testing, Collector Testing, Select Field Trim End (each with a description; the three commands confirmed in `modules/Trade.Developer`).
+- All 82 issues updated with `addLabels` only, one call at a time; no failures reported. 40 carry Add-In Wide (the list matches the plan); KTR5-4788 and KTR5-4787 got only their module. Spot checks of KTR5-4707, KTR5-4765 and KTR5-4788 show the labels as planned.
