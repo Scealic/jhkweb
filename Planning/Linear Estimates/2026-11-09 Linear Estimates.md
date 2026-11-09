@@ -2,6 +2,8 @@
 
 Scope: every **open** issue with **no estimate** in the Kelly teams of "Kelly Tools For Revit" (`jhkelly-ktr`), per the new `LINEAR.md` rule (every issue carries an estimate). Existing estimates are left alone. Closed issues are not backfilled (user decision 2026-11-09). Parents with open sub-issues are skipped: Linear rolls their sub-issues up. Scale: Exponential (0, 1, 2, 4, 8, 16) in every team. Hasa teams are not in the workspace listing.
 
+**Applied 2026-11-09:** all 63 set as proposed (KTR5 27 / 100 points, KTRL5 12 / 75, KTRUI 2 / 12, KD 7 / 29, KW3 7 / 19, KWD3 1 / 4, KWDC 1 / 1, KWDJ 3 / 7, KWDSS 3 / 9); none changed, none refused. Six saves (KWDSS-6, KTRL5-98, -102, -47, KTRUI-25, KD-59) returned the issue as it was before the write, so they looked unset; re-sending confirmed every one had been applied the first time.
+
 Proposals by three read-only Sonnet subagents that read each issue and the code it names.
 
 ## Summary
