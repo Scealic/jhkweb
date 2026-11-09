@@ -19,3 +19,7 @@ Skipped, by the parent rule:
 - [KTRL5-4](https://linear.app/jhkelly-ktr/issue/KTRL5-4): Done; a container of deprecation plans, parent of KTRL5-8 (8) and KTRL5-11. An own estimate would count the work twice.
 
 The hygiene check flagged both parents because its subagents looked for sub-issues only inside the same team; KTRL5-104 to 106 sit in KTRL5 under a KTR5 parent.
+
+## Applied 2026-11-09
+
+KTR5-4765 set to 8 (the first write was dropped silently and retried; the response then showed 8). KTR5-4758 and KTRL5-4 left without an estimate as parents.

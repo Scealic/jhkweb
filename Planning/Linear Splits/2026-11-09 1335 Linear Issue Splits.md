@@ -10,7 +10,7 @@ Scope: KWD3-2, the one open issue at 16 points that the 2026-11-09 hygiene check
 
 **Signals:** crosses repositories (the type is declared in the data layer and thrown or caught in the CSV and JSON format libraries, Kelly-Domain and Kelly-Revit-Logic-v5); v4 and v5 at once (the format libraries pin `Kelly.Windows.Data` 2.x, the v4 data layer, while v5 builds on 3.x from `Kelly-Windows-Data-v3`; both declare the type, which is the "v2 signature compatibility" the issue names).
 
-**Where it is used (2026-11-09):** declared in `Kelly-Windows-Data-v3/src/Services/JsonFileLoadException.cs` (and in the 2.x package; `Kelly-Windows-Data-v2` is not checked out under jhkweb); 6 files in Kelly-Windows-Data-v3, 10 in Kelly-Windows-Data-Json, 2 in Kelly-Windows-Data-Csv, 2 in Kelly-Domain (XML docs and a test helper), 3 in Kelly-Revit-Logic-v5 (`DataFileLoader`, `DataFileService`, the test `TestJsonReader`). No v4 layer above the data layer names it.
+**Where it is used (2026-11-09):** declared in `Kelly-Windows-Data-v3/src/Services/JsonFileLoadException.cs` (and in the 2.x package; `Kelly-Windows-Data-v2` is not checked out under jhkweb); 6 files in Kelly-Windows-Data-v3, 10 in Kelly-Windows-Data-Json, 2 in Kelly-Windows-Data-Csv, 2 in Kelly-Domain (XML docs and a test helper), 3 in Kelly-Revit-Logic-v5 (`DataFileLoader`, `DataFileService`, the test `TestJsonReader`). The v4 repositories (`Kelly-Windows-Data-v2`, `Kelly-Windows-v2`, `Kelly-Revit-Logic-v4`, `Kelly-Revit-v4`) are not checked out under jhkweb, so their uses could not be searched; v4 builds on `Kelly-Windows-Data-v2`.
 
 **Shape:** sub-issues. **Keep:** parent only (goal and title kept, estimate removed).
 
@@ -28,3 +28,19 @@ Total 10 points (was 16).
 ## Open question
 
 The issue says to rename "when that constraint lifts": the format libraries are shared by v4 and v5 through the same type name. The split renames it in both data layers at once, which lifts the constraint by changing both sides together. The new name `DataFileLoadException` is a proposal.
+
+## Applied 2026-11-09
+
+Approved by the maintainer ("rename in both", name `DataFileLoadException`; decision commented on KWD3-2). The maintainer then pointed out that v4 builds on Kelly-Windows-Data-v2; the v4 repositories are not checked out here, so a seventh piece was added for the v4 layers above the data layer.
+
+| # | Proposed | Created | Est. | Blocked by |
+|---|---|---|---|---|
+| 1 | KWD2 v4 data layer rename | KWD2-1 | 2 | – |
+| 2 | KWD3 v5 data layer rename | KWD3-13 | 2 | – |
+| 3 | KWDC CSV reader | KWDC-2 | 1 | KWD2-1, KWD3-13 |
+| 4 | KWDJ JSON library | KWDJ-4 | 2 | KWD2-1, KWD3-13 |
+| 5 | KD `DataStore` | KD-60 | 1 | KWD3-13 |
+| 6 | KTRL5 data file loading | KTRL5-125 | 2 | KD-60 |
+| 7 | KTR4 v4 layers above the data layer (added) | KTR4-74 | 2 | KWD2-1 |
+
+All are sub-issues of KWD3-2, which lost its 16-point estimate and gained a line naming them: 12 points in all. Each is Backlog, Low priority, assigned to the maintainer, labelled Change and Data and file I/O.
