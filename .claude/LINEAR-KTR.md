@@ -4,6 +4,7 @@ The rules shared by every Linear team are in `BuildConfigs/LINEAR.md`. This file
 
 ## Teams
 
+- The workspace is "Kelly Tools For Revit", `https://linear.app/jhkelly-ktr` (named "jhkelly" until 2026-11-09; old `linear.app/jhkelly` links redirect).
 - Kelly Tools For Revit 5 (KTR5) ← Kelly-Revit-v5, with Kelly Revit Logic 5 (KTRL5) ← Kelly-Revit-Logic-v5 and Kelly-Revit-UI (KTRUI) ← Kelly-Revit-UI.
 - Kelly Tools For Revit 4 (KTR4) ← Kelly-Revit-v4, with Kelly Revit Logic 4 (KTRL4) ← Kelly-Revit-Logic-v4.
 - The full map of every Kelly team to its repository is in `C:\Users\childebran\.claude\skills\_shared\linear-teams.md`. Re-check with `list_teams`: teams are added and re-parented.

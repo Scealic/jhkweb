@@ -9,7 +9,7 @@ its own local git repo (branch `main`, no remote) that tracks only the working d
 `*.mmd` diagrams, `Monthly Reports`, `db-deprecation`, `.claude`, the root `Directory.Build*.targets`). Its `.gitignore` lists every sibling repo folder: add a
 new repo's folder there when one is cloned here. A plain `git` command run at the root acts on this outer repo, not on any sibling.
 
-Each repo's backlog is its Linear team in workspace "jhkelly" (since 2026-11-06; the `Quick-Backlog.md` files and the root `Backlog - Quick.md` index are retired). Its `AGENTS.md` names the team. The rules shared by every team are in `BuildConfigs/LINEAR.md` (imported through `SHARED-AGENTS.md` and by the two VCS schema repos, which use KWDSS); BuildConfigs keeps no backlog. The KTR team rules are here, because only the root and the `Kelly-Revit*` repos may name the application:
+Each repo's backlog is its Linear team in the workspace "Kelly Tools For Revit" (`https://linear.app/jhkelly-ktr`; backlog since 2026-11-06; the `Quick-Backlog.md` files and the root `Backlog - Quick.md` index are retired). Its `AGENTS.md` names the team. The rules shared by every team are in `BuildConfigs/LINEAR.md` (imported through `SHARED-AGENTS.md` and by the two VCS schema repos, which use KWDSS); BuildConfigs keeps no backlog. The KTR team rules are here, because only the root and the `Kelly-Revit*` repos may name the application:
 
 @LINEAR-KTR.md
 
