@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Layout
 
 `C:\repo\jhkweb` holds sibling repos (each with its own git, `develop` and `main`); run git per repo with `git -C <repo>`. Since 2026-11-02 the root is also
-its own local git repo (branch `main`, no remote) that tracks only the working documents at this level (architecture notes, plans, `UBIQUITOUS-LANGUAGE.md`,
+its own git repo (branch `main`, remote `origin` = `github.com/Scealic/jhkweb`, pushed only when the maintainer asks) that tracks only the working documents at this level (architecture notes, plans, `UBIQUITOUS-LANGUAGE.md`,
 `*.mmd` diagrams, `Monthly Reports`, `db-deprecation`, `.claude`, the root `Directory.Build*.targets`). Its `.gitignore` lists every sibling repo folder: add a
 new repo's folder there when one is cloned here. A plain `git` command run at the root acts on this outer repo, not on any sibling.
 
