@@ -12,7 +12,7 @@ The rules shared by every Linear team are in `BuildConfigs/LINEAR.md`. This file
 ## Rules
 
 - Items that cover a whole major version go to that version's add-in team (KTR4 or KTR5), whichever layer turned them up.
-- KTR5 issues get a label from the group "5 - Feature" (the command, control, cache, handler or service) and from "5 - Module" (Trade.All, Trade.Pipe, Trade.Duct, Trade.Contenter, Trade.Manager, Trade.Developer, Host). Never create a per-tool project; a feature is a label. A feature label is named after the ribbon button's text or the type's purpose, and its description names the command class or type, so it can be matched to the code; give a new one both.
+- KTR5 issues get a label from the group "5 - Feature" (the command, control, cache, handler or service) and from "5 - Module" (Trade.All, Trade.Pipe, Trade.Duct, Trade.Contenter, Trade.Manager, Trade.Developer, Host). Never create a per-tool project; a feature is a label. Work across the whole add-in or many tools (architecture, tests, build and install, colours, settings, dead code) gets the feature label "Add-In Wide" and the module of each part it touches, Host when none. A feature label is named after the ribbon button's text or the type's purpose, and its description names the command class or type, so it can be matched to the code; give a new one both.
 - KTR4 issues, and the issues of the layer teams (KTRL5, KTRUI, KTRL4), carry no feature or module label; their title names the tool or type.
 - An issue found in one major version that also holds in the other is filed in both versions' teams, the two linked as Related, each saying where in its own code.
 - Issue templates that name the application are scoped to the KTR* teams, never to the workspace.
