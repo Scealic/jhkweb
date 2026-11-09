@@ -56,8 +56,10 @@ Signals: two large files with unrelated responsibilities (`DocumentExtensions.cs
 
 Its only sub-issue (KTR5-4738) is Done, the moved members exist in Logic (Component and Product updaters were deleted under KTRL5-8), and the comments record the 2026-11-05 Revit 2024 run. What's left is the full in-Revit Logic run that hangs, already covered by KTRL5-70 and KTRL5-76. Proposal: no split; re-estimate 16 → 2, status unchanged (Testing). Not checked: whether `CommonAutoAssignerTools.ResetUpdater` in Kelly-Revit-v5 delegates to Logic's `AutoUpdaterService.ResetUpdater`.
 
-## Questions
+## Decisions (maintainer, 2026-11-09)
 
-1. KTR5-4758: spool and support sets from the open document's binding (`GetCategories`) or from Domain's `BuiltInCategoryBinding` records (no document needed)?
-2. KTR5-4751: file the two side notes (`Command.UiDocument` 49 uses, 9 `AutoUpdaterService` lookups) as their own issues, or drop them?
-3. KTRL5-89: keep piece 7 (Spool without `UserPrompt`, a behaviour-visible change), or keep the split to pure moves?
+1. KTR5-4758: the spool and support sets come from the open document's binding (`InternalDefinitionExtensions.GetCategories`), not from Domain's records.
+2. KTR5-4751: the two side notes become their own KTR5 issues, related to KTR5-4751: "Commands: reduce the 49 `Command.UiDocument` uses" and "Services: replace the 9 `AddInServices.GetService<AutoUpdaterService>()` lookups by concrete class" (estimates to be set when filed); the notes leave its description.
+3. KTRL5-89: piece 7 stays (Spool without `UserPrompt`, test-first).
+
+KTRL5-52: no split; its estimate goes from 16 to 2.
