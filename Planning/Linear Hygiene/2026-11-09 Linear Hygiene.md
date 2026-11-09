@@ -1053,4 +1053,4 @@ Of the 11 search hits, 9 are fine: they only mention KTR issue keys, links or co
 | KD-21 | Backlog | deferred 2026-11-02: KTR is US-only (user decision); revisit only if that changes | deferred 2026-11-02: the add-in is US-only (user decision); revisit only if that changes |
 | KD-32 | Done | deferred 2026-11-02: KTR is US-only (user decision); … | deferred 2026-11-02: the add-in is US-only (user decision); … |
 
-Not changed yet; waiting on the maintainer.
+Applied 2026-11-09 on the maintainer's approval: both now read "the add-in is US-only" (checked by re-reading the descriptions).
