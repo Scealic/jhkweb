@@ -41,6 +41,8 @@ Each of those repos' `AGENTS.md` adds only that repo's rules and pitfalls (the v
 
 When a develop→main pull request deletes the remote `develop`, the next push recreates it; set the local branch to track `origin/develop` again.
 
+At the end of day (or anytime it doesnt exist), update a document "C:\repo\jhkweb\Kelly Tools For Revit V5 -Systems.md" that outlines the overarching systems "Commands/Services/Events/etc" that operate in Kelly Tools For Revit version 5. Mirror each change into `Kelly Tools For Revit V5 -Systems.html` beside it and republish that page to its artifact, `https://claude.ai/artifact/TRAJyJLci63n1DBawQuMUP` (pass it as `url`; never publish a new one), then commit both files to the root repo.
+
 ## Building
 
 - Always pass a configuration: `-c Net481|Net80|Net100` for the three lower layers, `-c 2024|2025|2026` for the Revit layers (Kelly-Revit also has `2024Debug` etc.). Without one, a v4 project stops with `KTR0005`, which lists its configurations; a v5 project's restore fails on old target frameworks.
