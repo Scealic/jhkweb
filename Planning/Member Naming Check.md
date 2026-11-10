@@ -54,6 +54,6 @@ No renames happen in the check itself.
 
 1. Public members only, or private and internal ones too?
 2. Report Style findings, or only Misleading and Vague?
-3. Start with the Kelly-Windows-Data-v3 pilot, or go straight to the layer you care about most?
+3. ~~Start with the Kelly-Windows-Data-v3 pilot, or go straight to the layer you care about most?~~ Settled 2026-11-10: pilot first.
 4. Check v4 as well, or v5 only?
 5. Make it a reusable skill (like `kelly-solid-check`) after the pilot, if the method holds up?
