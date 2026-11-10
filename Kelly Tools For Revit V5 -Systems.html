@@ -1,0 +1,260 @@
+<title>KTR v5 Systems Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: sticky section index on the left, one reading column on the right; stacks to one column on phones. */
+:root{
+  --bg:#f6f8f7; --surface:#ffffff; --fg:#17201d; --muted:#5a6a64; --line:#d9e2de;
+  --accent:#016043; --accent-soft:#e3f0eb; --code-bg:#eef3f1;
+  --f-display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1513; --surface:#161e1b; --fg:#e4ece8; --muted:#97a8a1; --line:#2a3632;
+  --accent:#4cc39a; --accent-soft:#1a2f28; --code-bg:#1b2521; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1513; --surface:#161e1b; --fg:#e4ece8; --muted:#97a8a1; --line:#2a3632;
+  --accent:#4cc39a; --accent-soft:#1a2f28; --code-bg:#1b2521; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.6 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 64px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px}
+nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;font-size:13px}
+nav .k{font:600 11px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+nav ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;counter-reset:s}
+nav a{display:flex;gap:10px;padding:5px 8px;border-radius:6px;color:var(--fg);text-decoration:none;counter-increment:s}
+nav a::before{content:counter(s);font:500 12px var(--f-mono);color:var(--muted);min-width:1.4em}
+nav a:hover,nav a:focus-visible{background:var(--accent-soft);outline:none}
+main{min-width:0}
+header{border-bottom:2px solid var(--accent);padding-bottom:20px;margin-bottom:8px}
+.eyebrow{font:600 12px var(--f-mono);color:var(--accent);letter-spacing:.04em}
+h1{font:700 clamp(30px,4.4vw,44px)/1.05 var(--f-display);margin:6px 0 10px;text-wrap:balance;letter-spacing:-.01em}
+.lede{max-width:68ch;color:var(--muted);margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:16px;font-size:13px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+section{padding-top:36px;scroll-margin-top:20px}
+h2{font:700 24px/1.2 var(--f-display);margin:0 0 12px;display:flex;gap:12px;align-items:baseline}
+h2 .n{font:500 14px var(--f-mono);color:var(--accent)}
+h3{font:600 16px var(--f-body);margin:22px 0 8px}
+p,li{max-width:72ch}
+code{font:13px var(--f-mono);background:var(--code-bg);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface);margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font:600 11px var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--code-bg)}
+tr:last-child td{border-bottom:0}
+td.num{font:500 14px var(--f-mono);color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;margin:14px 0}
+.chain div{flex:1 1 140px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.chain div.host{border-color:var(--accent);background:var(--accent-soft)}
+.chain b{display:block;font:600 13px var(--f-mono)}
+.chain span{font-size:12px;color:var(--muted)}
+.steps{list-style:none;padding:0;margin:12px 0;display:grid;gap:8px;counter-reset:st}
+.steps li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;counter-increment:st;max-width:none}
+.steps li::before{content:counter(st);font:600 13px var(--f-mono);color:var(--accent);border:1.5px solid var(--accent);border-radius:50%;width:28px;height:28px;display:grid;place-items:center}
+.fail{font-size:12px;font-weight:600;color:#b4232f;background:color-mix(in srgb,#dc3545 12%,transparent);padding:1px 7px;border-radius:999px;white-space:nowrap}
+.rail{display:flex;gap:0;margin:14px 0;overflow-x:auto}
+.rail div{flex:1 0 120px;border-top:3px solid var(--accent);padding:8px 10px 0 0;position:relative}
+.rail div::before{content:"";position:absolute;top:-8px;left:0;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.rail b{font:600 13px var(--f-mono);display:block;margin-top:6px}
+.rail span{font-size:12px;color:var(--muted)}
+.tag{font:500 11px var(--f-mono);color:var(--muted);border:1px solid var(--line);padding:0 6px;border-radius:4px;white-space:nowrap}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr);gap:20px;padding-block:24px 48px}nav{position:static}nav ol{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<div class="wrap">
+<nav aria-label="Sections">
+  <div class="k">Sections</div>
+  <ol>
+    <li><a href="#layers">Layers</a></li>
+    <li><a href="#startup">Startup</a></li>
+    <li><a href="#seams">Process-wide seams</a></li>
+    <li><a href="#services">Application services</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#ribbon">Ribbon and modules</a></li>
+    <li><a href="#commands">Commands</a></li>
+    <li><a href="#transactions">Transactions</a></li>
+    <li><a href="#updaters">Updaters</a></li>
+    <li><a href="#data">Data and caches</a></li>
+    <li><a href="#cross">Cross-cutting</a></li>
+  </ol>
+</nav>
+
+<main>
+<header>
+  <div class="eyebrow">Kelly Tools For Revit · Major Version 5</div>
+  <h1>Systems Map</h1>
+  <p class="lede">How the add-in starts, which services and Revit events run, how commands reach the ribbon, and the shared machinery they use. Per-tool detail lives in the code and the KTR5 feature labels; this page is the map.</p>
+  <div class="meta">
+    <span>Updated <b>2026-11-10</b> (initial version)</span>
+    <span>Read from <b>Kelly-Revit-v5 a0a3afad · Logic-v5 7c12f3b · UI a752b73</b> on develop</span>
+    <span>Refreshed at the end of each day</span>
+  </div>
+</header>
+
+<section id="layers">
+  <h2><span class="n">1</span>Layers</h2>
+  <div class="chain">
+    <div><b>Kelly-Windows-Data-v3</b><span>data access</span></div>
+    <div><b>Kelly-Windows-v3</b><span>hosting, prompts, logging, WPF</span></div>
+    <div><b>Kelly-Domain</b><span>domain types, registries</span></div>
+    <div><b>Kelly-Revit-Logic-v5</b><span>Revit API logic, services, updaters</span></div>
+    <div><b>Kelly-Revit-UI</b><span>ribbon, commands, MVVM, prompts</span></div>
+    <div class="host"><b>Kelly-Revit-v5</b><span>host + six ribbon modules</span></div>
+  </div>
+  <p>Each layer is a NuGet package pinned by exact version in the layer above. Kelly-Revit-v5 is the add-in: <code>src/</code> is the host, and each ribbon tab is a module DLL under <code>modules/</code>.</p>
+</section>
+
+<section id="startup">
+  <h2><span class="n">2</span>Startup</h2>
+  <p><code>App</code> (<code>Kelly-Revit-v5/src/App.cs</code>) is the <code>IExternalApplication</code>. Its constructor sets up Serilog (<code>LoggerServices</code>, the "Application Logger", old log files deleted). <code>OnStartup</code> then runs, in order:</p>
+  <ol class="steps">
+    <li><div><code>RibbonHost.Initialize</code> stores the <code>UIControlledApplication</code> for the ribbon code and the modules.</div></li>
+    <li><div><code>AddInId</code> is built from a fixed GUID prefix plus the Revit year.</div></li>
+    <li><div>The <a href="#seams">process-wide seams</a> are registered, before anything uses them.</div></li>
+    <li><div><code>DataFileLoader.Load</code> with a new <code>DataFileService</code> loads the CSV data files from <code>C:\Program Files\JH Kelly\Kelly Tools For Revit\Data</code>. <span class="fail">fails startup</span> with "Kelly Tools For Revit Data Error".</div></li>
+    <li><div>The <a href="#services">application services</a> start through <code>ServiceProvider.AddServices</code>. <span class="fail">fails startup</span> with "Application Service Start Error".</div></li>
+    <li><div>Telerik assemblies load and the Telerik licence registers. <span class="fail">fails startup</span></div></li>
+    <li><div>Application, Revit and referenced-assembly information is written to the log.</div></li>
+  </ol>
+  <p><code>OnShutdown</code> stops every service (<code>ServiceProvider.Stop</code>) and flushes the log.</p>
+</section>
+
+<section id="seams">
+  <h2><span class="n">3</span>Process-wide seams</h2>
+  <p>Static registries in the lower layers that the host fills once at startup, so shared code never references the host. Each throws when read before registration, so a missed registration can't pass as "no data".</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Seam</th><th>Layer</th><th>Registered with</th><th>Used for</th></tr></thead>
+    <tbody>
+      <tr><td><code>UserPrompt</code></td><td>Kelly.Windows</td><td><code>RevitUserPrompt</code> (Kelly.Revit.UI, TaskDialogs)</td><td>Every prompt and error dialog; tests register a recording <code>IUserPrompt</code></td></tr>
+      <tr><td><code>DefinitionRegistry</code></td><td>Kelly.Domain</td><td><code>App.GetDefinition</code> (definition cache by name)</td><td>Resolving Kelly shared parameter definitions by name</td></tr>
+      <tr><td><code>DataFiles</code></td><td>Kelly.Domain</td><td><code>App.Caches</code> getters (components, products, product ranges, services, systems, terminology, category types) and <code>RegisterStore</code> for the <code>DataStore</code></td><td>Data-file lists for shared code; registered as functions, so a reload is seen without re-registering</td></tr>
+      <tr><td><code>AddInConfiguration</code></td><td>Kelly.Domain</td><td><code>Settings.Default.AlternateLookupTrigger</code></td><td>Host settings that shared code reads</td></tr>
+      <tr><td><code>AddInServices</code></td><td>Kelly.Windows</td><td><code>App.ServiceProvider</code></td><td>Lets modules, which don't reference the host, reach running services such as <code>AutoUpdaterService</code></td></tr>
+      <tr><td><code>RibbonHost</code></td><td>Kelly.Revit.UI</td><td><code>UIControlledApplication</code></td><td>Creating tabs and panels, finding combo boxes</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="services">
+  <h2><span class="n">4</span>Application services</h2>
+  <p><code>IApplicationService</code>, <code>ApplicationService</code> and <code>ServiceProvider</code> live in Kelly.Windows <code>Hosting</code>. The host collects every <code>IApplicationService</code> in its own assembly plus the two it creates itself, and starts them in ascending <code>StartOrder</code> behind a progress window. A service that doesn't report itself started isn't registered, and the first failure stops the loop. <code>GetService&lt;T&gt;()</code> resolves by exact type, base class or interface (for example <code>IAutoUpdaterControl</code>).</p>
+  <div class="rail" aria-hidden="true">
+    <div><b>0 DataFile</b><span>Logic</span></div>
+    <div><b>2 AutoUpdater</b><span>Logic</span></div>
+    <div><b>3 AppSession</b><span>host</span></div>
+    <div><b>4 Ribbon</b><span>host</span></div>
+    <div><b>5 Event</b><span>host</span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Order</th><th>Service</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td class="num">0</td><td><code>DataFileService</code><br><span class="tag">Logic · Caches</span></td><td>Loads the data files into a <code>DataStore</code> and builds the caches. One load path for startup and Reload Data; a failed load keeps the current data.</td></tr>
+      <tr><td class="num">2</td><td><code>AutoUpdaterService</code><br><span class="tag">Logic · Updaters</span></td><td>Facade over <code>AutoUpdaterManager</code>: builds the auto updaters per document, suspends and resumes them (its <code>RunningChanged</code> event drives the ribbon power icon), enables or disables single updaters, writes updater reports, unregisters all on stop. Implements <code>IAutoUpdaterControl</code>.</td></tr>
+      <tr><td class="num">3</td><td><code>ApplicationSessionService</code><br><span class="tag">host · Services</span></td><td>On <code>ApplicationInitialized</code>, records the <code>ApplicationSession</code> (user, Revit version and build). Nothing is persisted since SQL Server was dropped on 2026-10-30.</td></tr>
+      <tr><td class="num">4</td><td><code>RibbonService</code><br><span class="tag">host · Services</span></td><td>Builds the ribbon by loading the <a href="#ribbon">modules</a>.</td></tr>
+      <tr><td class="num">5</td><td><code>EventService</code><br><span class="tag">host · Services</span></td><td>Subscribes the Revit application and UI <a href="#events">events</a>.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="events">
+  <h2><span class="n">5</span>Events</h2>
+  <h3>Revit events, subscribed by EventService</h3>
+  <p>Handlers live in the host (<code>src/EventHandlers</code>) and in Kelly.Revit.Logic <code>Documents</code>. Their bodies run through <code>EventHandlerTools.Run</code>, which logs the event and reports exceptions through <code>HandleIt</code>. Events with no behaviour go to <code>LogOnly</code>.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Event</th><th>Handler</th><th>Behaviour</th></tr></thead>
+    <tbody>
+      <tr><td><code>DocumentOpened</code></td><td>Logic <code>DocumentOpenedEventHandler</code></td><td>Skips families and failed opens. Reports missing Kelly shared parameters (host <code>MissingSharedParametersDialog</code>); in a Kelly project builds the auto updaters for the document and makes sure the add-in's views exist.</td></tr>
+      <tr><td><code>DocumentClosing</code></td><td>Logic <code>DocumentClosingEventHandler</code></td><td>Releases the document's updater state (<code>AutoUpdaterService.Remove</code>).</td></tr>
+      <tr><td><code>DocumentSynchronizingWithCentral</code></td><td>Logic <code>DocumentSynchronizingEventHandler</code></td><td>Suspends the auto updaters.</td></tr>
+      <tr><td><code>DocumentSynchronizedWithCentral</code></td><td>Logic <code>DocumentSynchronizedEventHandler</code></td><td>Resumes the auto updaters.</td></tr>
+      <tr><td><code>DocumentSaved</code></td><td>Logic <code>DocumentSavedEventHandler</code></td><td>Family documents: stamps revision information (<code>SetRevisionInformation</code>). Projects: nothing yet.</td></tr>
+      <tr><td><code>DocumentChanged</code>, <code>ViewActivated</code>, <code>ViewActivating</code></td><td>host <code>EventHandlers</code></td><td>Log only, through an empty <code>EventHandlerTools.Run</code> body.</td></tr>
+      <tr><td><code>ApplicationInitialized</code>, <code>DocumentClosed</code>, <code>DocumentCreated</code>/<code>Creating</code>, <code>DocumentOpening</code>, <code>DocumentReloadedLatest</code>/<code>ReloadingLatest</code>, <code>DocumentSavedAs</code>/<code>Saving</code>/<code>SavingAs</code>, <code>LinkedResourceOpened</code>/<code>Opening</code>, <code>FabricationPartBrowserChanged</code>, <code>SelectionChanged</code></td><td><code>LogOnly</code></td><td>Log only.</td></tr>
+    </tbody>
+  </table></div>
+  <p><code>ApplicationSessionService</code> subscribes <code>ApplicationInitialized</code> on its own.</p>
+  <h3>Add-in events</h3>
+  <ul>
+    <li><code>AutoUpdaterService.RunningChanged(bool)</code> is raised after Suspend and Resume; Trade.All's Updater panel sets its power icon from it.</li>
+    <li>Ribbon combo box <code>DropDownClosed</code> (11 subscriptions in the modules, mostly the assigner combo boxes) goes to <code>RibbonComboBoxEvents.RefillOnRefreshList</code> in Kelly.Revit.UI, which refills the list on "Refresh List" and refreshes the active view.</li>
+    <li>Revit <code>ExternalEvent</code>s are used only by Trade.Pipe's Olet Checker (<code>SelectionExternalEventHandler</code>, <code>ConnectOletsExternalEventHandler</code>) for its modeless window.</li>
+  </ul>
+</section>
+
+<section id="ribbon">
+  <h2><span class="n">6</span>Ribbon and modules</h2>
+  <ul>
+    <li><code>RibbonService</code> calls <code>RibbonModuleLoader.LoadModules</code> (Kelly.Revit.UI), which loads <code>Kelly.Revit.Trade.All.dll</code>, <code>.Pipe</code>, <code>.Duct</code>, <code>.Contenter</code>, <code>.Manager</code> and <code>.Developer</code> from beside the add-in, in tab order. A missing file means no tab; a module that fails is reported and never stops startup.</li>
+    <li>Each module declares an <code>IRibbonModule</code>. Its <code>CreateRibbon</code> adds panels through <code>RibbonPanelConfigurationBase</code> subclasses, which add push, split, stacked and pull-down buttons and <code>RibbonComboBox</code> / <code>ProjectRibbonComboBox</code> items. Icons are embedded <code>&lt;ImageName&gt;16.png</code> and <code>32.png</code>.</li>
+    <li><code>test/Tests.Revit/AddIn/AddInContractTests</code> checks every module's commands, availability classes and buttons.</li>
+  </ul>
+  <div class="tbl"><table>
+    <thead><tr><th>Module (tab)</th><th>Panels</th><th>Commands</th><th>Areas</th></tr></thead>
+    <tbody>
+      <tr><td><b>Trade.All</b> (Tools)</td><td>General, Layout, TagAndNumber, AssignerVisibility, BillOfMaterials, Container, Supports, Updater</td><td class="num">79</td><td>Assigners (service, system, line, module and spool number, detailing package) with combo boxes and view filters; bill of material; layout points; spools and modules; supports; updaters; views; data reload; Many Connect; schedule export; about</td></tr>
+      <tr><td><b>Trade.Pipe</b> (Pipe)</td><td>PipeGeneral, PipeWeld</td><td class="num">7</td><td>Olet checker, valve clearance spheres, weld location assign</td></tr>
+      <tr><td><b>Trade.Duct</b> (Duct)</td><td>SheetMetalAnnotation, SheetMetalQualityCheck</td><td class="num">5</td><td>Duct item numbers, length and mirror checks</td></tr>
+      <tr><td><b>Trade.Contenter</b> (Content)</td><td>ContentFabricationParts, ContentFamily</td><td class="num">8</td><td>Fabrication custom data reports and updaters, product code check, part dimension export, revision setter</td></tr>
+      <tr><td><b>Trade.Manager</b> (Manage)</td><td>Manager, Parameter</td><td class="num">6</td><td>Coordinates, delete by id, family, shared parameters</td></tr>
+      <tr><td><b>Trade.Developer</b> (Develop)</td><td>Developer</td><td class="num">18</td><td>Reports, purges, probes, sandboxes</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="commands">
+  <h2><span class="n">7</span>Commands</h2>
+  <p>The command framework is in Kelly.Revit.UI <code>Commands</code>:</p>
+  <ul>
+    <li><code>CommandBase</code> and <code>IExternalCommandBase</code> are the base of the commands; <code>InitializeCommand</code> captures the <code>ExternalCommandData</code> (UI application, document).</li>
+    <li><code>CommandRunner</code> runs a command's work and maps the outcome to a <code>CommandResult</code>: Escape gives Cancelled; <code>ErrorMessageException</code> or any other exception gives Failed with the message. <code>ToResult</code> turns it into Revit's <code>Result</code>.</li>
+    <li><code>IExternalCommandMvvm</code> with <code>MvvmDialog.Show</code> is the MVVM tool pattern: create and validate the view model and view, show the view modally, dispose. Base types are in <code>Mvvm</code>; shared XAML in <code>Resources</code> and <code>Controls</code> (DialogFooter, DialogMenu, ScopeControl, ElementControl). Views and view models stay in Kelly-Revit.</li>
+    <li>Availability: <code>DocumentCommandAvailability</code> (needs an active document), <code>SelectionMadeCommandAvailability</code> and <code>DocumentHasElementsOfTypeCommandAvailability</code>; each module's availability classes derive from these.</li>
+    <li>Selection filters and scope helpers live in <code>Selection</code> and <code>Scope</code> (<code>UiDocumentScopeExtensions</code>, <code>ScopeSourceExtensions</code>).</li>
+  </ul>
+</section>
+
+<section id="transactions">
+  <h2><span class="n">8</span>Transactions</h2>
+  <p>Kelly.Revit.Logic <code>Operations/OperationService</code> wraps a Revit <code>Transaction</code> or <code>TransactionGroup</code> (<code>TransactionKind</code>, <code>TransactionName</code>) with timing (<code>StopWatchState</code>) and an operation log (<code>OperationServiceLogRecord</code>) under <code>C:\Projects\Revit\&lt;document title&gt;</code>. <code>Stop</code> commits or assimilates, and <code>IsCommitted</code> is true only when the change actually reached the document. Moving the remaining call sites to <code>OperationService.Run</code> is parked work.</p>
+</section>
+
+<section id="updaters">
+  <h2><span class="n">9</span>Updaters</h2>
+  <p>All in Kelly.Revit.Logic <code>Updaters</code>.</p>
+  <ul>
+    <li><b>Auto updaters.</b> <code>AutoUpdaterManager</code> creates one <code>AutoUpdater</code> (<code>IUpdater</code>) per <code>IAutoUpdaterConfiguration</code>: 19 in <code>Configurations/Auto</code> (bill of material type, checkbox defaults, content identity, detailing package, detailing phase, end preparation, fabrication part instances, field trim, layout discipline, line number, material, schedule gauge, service for fabrication and non-fabrication parts, size, suspended support, system, weld). They are built per document on open, bound to the document's element service and trigger filter, and run in the service's execution order.</li>
+    <li><b>Element services.</b> <code>ElementService</code> (base of <code>IElementService</code>) holds each configuration's elements, filter and processing loop; <code>ElementDataModel</code>s read and write the Kelly parameters.</li>
+    <li><b>Manual updaters.</b> <code>ManualUpdaterRunner</code> suspends the auto updaters, runs each of the 15 manual configurations (<code>ManualUpdaterConfigurationSet</code>) over a scope (document, view or selection), each in its own operation with a progress window, and always resumes. Used by Trade.All's manual updater commands and the Spool Manager.</li>
+    <li><b>Fabrication custom data.</b> <code>CustomDataUpdater</code> and <code>CustomDataUpdateEvaluator</code> write data-file values into fabrication part custom data, for Contenter's updater commands.</li>
+    <li><b>Suspend and resume points:</b> sync with central, manual runs, and the Updater power button.</li>
+  </ul>
+</section>
+
+<section id="data">
+  <h2><span class="n">10</span>Data and caches</h2>
+  <ul>
+    <li><b>Data files.</b> <code>DataFileService</code> and <code>DataFileLoader</code> read CSV only, checked against <code>manifest.json</code> (SHA-256 and row counts). Reload Data (Trade.All, Updater panel) uses the same loader; an older export loads only if the user agrees.</li>
+    <li><b>Application caches.</b> <code>ComponentCache</code>, <code>ExternalParameterDefinitionCache</code> (with <code>CacheByDefinitionName</code>), <code>ProductCache</code>, <code>ProductRangeCache</code>, <code>ServiceCache</code>, <code>SystemCache</code> and <code>TerminologyCache</code>, reached through <code>App.Caches</code> and the <code>DataFiles</code> seam.</li>
+    <li><b>Document caches.</b> <code>DocumentCache</code> and <code>IDocumentCache</code> with <code>ServiceDocumentCache</code>, <code>SystemDocumentCache</code>, <code>NumberedDocumentCache</code> (line, module and spool numbers) and <code>DetailingPackageDocumentCache</code>; they feed the assigner combo boxes.</li>
+  </ul>
+</section>
+
+<section id="cross">
+  <h2><span class="n">11</span>Cross-cutting</h2>
+  <ul>
+    <li><b>Logging.</b> Serilog through <code>LoggerServices</code> writes the application log; <code>EventHandlerTools</code> writes event names to the development log.</li>
+    <li><b>Errors.</b> <code>ExceptionExtensions.HandleIt</code> (Kelly.Windows) logs and shows a "JH Kelly Exception Handler" prompt through <code>UserPrompt</code>; <code>ErrorMessageException</code> carries a user-facing message to <code>CommandRunner</code>.</li>
+    <li><b>Progress.</b> <code>ProgressBarService</code> (Kelly.Windows <code>Wpf</code>) for service start-up, updater builds and manual runs.</li>
+    <li><b>Install.</b> Kelly-Revit-v5 builds don't install unless <code>-p:InstallAddin=true</code>. V5 installs to <code>C:\Program Files\JH Kelly\Kelly Tools For Revit\V5\&lt;year&gt;</code> with the manifest <code>Kelly Tools For Revit 5.addin</code>; the version installed last is the active one in a Revit year.</li>
+  </ul>
+</section>
+
+<footer>Source: <code>C:\repo\jhkweb\Kelly Tools For Revit V5 -Systems.md</code>. Change log: 2026-11-10, initial version.</footer>
+</main>
+</div>
