@@ -50,6 +50,16 @@ Each finding gets a severity:
 
 No renames happen in the check itself.
 
+## Lessons from the pilot (2026-11-11)
+
+The [Kelly-Windows-Data-v3 pilot](Member%20Naming/2026-11-11%20Kelly-Windows-Data-v3.md) read every member at every severity. It adds these rules for the other layers:
+
+- **Noun-named pure methods are house style** (`Columns`, `Key`, `FileOf`). Flag a noun name only when the member has a side effect or builds something new.
+- **Check interface members through their implementations** in the layers above (`ICache` means what `RecordCache` and `DataFileService` do with it).
+- **Mark serialized members** (manifest.json keys, data file columns) in the inventory. Renaming one changes a file format, and its finding must say so.
+- **Read undocumented members first.** The two undocumented files held the worst names.
+- **Read a layer of under ~50 files directly**; use the script and subagents only for the large layers.
+
 ## Decisions for the maintainer (2026-11-11)
 
 1. Public members only, or private and internal ones too?
