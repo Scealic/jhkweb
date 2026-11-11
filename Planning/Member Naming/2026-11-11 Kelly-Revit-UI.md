@@ -81,9 +81,9 @@ Not filed: `ToggleAutoAssignIcons` throws `ArgumentNullException` for an item th
 - `CommandBase`, `RibbonComboBox` and `RibbonPushButton.SuperClassName` follow KW3-35 and KTRL5-140. The push button's value is the ribbon item name Revit stores (add-in 14).
 - `SelectionExtensions.GetAssemblyInstances` returns the instances of selected assembly types plus the selected instances. Its summary says only "Smells a bit".
 
-## Proposed Linear issues (not yet filed)
+## Linear issues (filed 2026-11-11)
 
-Both would be in KTRUI, related to KTR5-4798. Each renames the members, adds XML docs where they are missing, resets the `Author` stamp of the tests it touches, and is followed by a repin issue in the add-in. Tab, panel and ribbon item names, and button texts and icon keys, stay unless the maintainer decides otherwise.
+U1 **KTRUI-33**, U2 **KTRUI-34**. Both in KTRUI, Low, related to KTR5-4798. Each renames the members, adds XML docs where they are missing, resets the `Author` stamp of the tests it touches, and is followed by a repin issue in the add-in. Tab, panel and ribbon item names, and button texts and icon keys, stay unless the maintainer decides otherwise.
 
 | # | Scope | Highest reach | Estimate |
 |---|---|---|---|
