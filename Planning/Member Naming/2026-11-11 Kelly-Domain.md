@@ -140,9 +140,9 @@ Checked and not filed:
 - **Abbreviations:** `PcfData.IsCoOrdsUnitsMm`, `SpoolMtrSheet…`, `DecRound`, and `ThreeDee`.
 - **BearerType numbering:** its docs say "explicit and append-only", but only `None = -1` is explicit. Inserting a member would renumber the stored values.
 
-## Proposed Linear issues (not yet filed)
+## Linear issues (filed 2026-11-11)
 
-All in KD, related to KTR5-4798. Each renames the members, adds XML docs where they are missing, resets the `Author` stamp of the tests it touches, and is followed by repin issues in the Revit logic layer and the add-in where the reach is not "none". **D1 to D5 rename only code.** D6 holds the names that are written to files, settings or models.
+D1 **KD-63**, D2 **KD-64**, D3 **KD-65**, D4 **KD-66**, D5 **KD-67**, D6 **KD-68**. All in KD, Low, related to KTR5-4798. Each renames the members, adds XML docs where they are missing, resets the `Author` stamp of the tests it touches, and is followed by repin issues in the Revit logic layer and the add-in where the reach is not "none". **D1 to D5 rename only code.** D6 holds the names that are written to files, settings or models.
 
 | # | Scope | Highest reach | Estimate |
 |---|---|---|---|
