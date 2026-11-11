@@ -119,9 +119,9 @@
 
 No flagged member is serialized. Possible XAML bindings by name: `ComboBoxItemData.Readable` (Domain 1, Revit 2); check the XAML before renaming it.
 
-## Proposed Linear issues (not yet filed)
+## Linear issues (filed 2026-11-11)
 
-All in KW3, related to KTR5-4798. Each renames, adds XML docs where missing, resets the `Author` stamp of the tests it touches, and is followed by repin issues in the layers above where the reach column is not "none".
+R1 **KW3-32**, R2 **KW3-33**, R3 **KW3-34**, R4 **KW3-35**, R5 **KW3-36**, R6 **KW3-37**. All in KW3, Low, related to KTR5-4798. Each renames, adds XML docs where missing, resets the `Author` stamp of the tests it touches, and is followed by repin issues in the layers above where the reach column is not "none".
 
 | # | Scope | Highest reach | Estimate |
 |---|---|---|---|
