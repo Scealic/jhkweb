@@ -63,6 +63,7 @@ The [Kelly-Windows-Data-v3 pilot](Member%20Naming/2026-11-11%20Kelly-Windows-Dat
 - **Naming checks find bugs.** A name that contradicts its body sometimes means the body is wrong. File those as Fix issues at once (Kelly-Windows-v3: KW3-29, KW3-30, KW3-31), separate from the renames.
 - **Look for existing issues first.** Several findings were already filed (KWD3-7, KWD3-13, KW3-10, KW3-20, KW3-22).
 - **Kelly-Domain (256 files, 13,300 lines):** five Sonnet agents, one shared brief file listing the rules, the glossary and the open KD issues (so known items weren't reported again). Ask agents for "Possible bugs" separately; about half of theirs were documented behaviour or already filed, so check each before filing.
+- **Kelly-Revit-Logic-v5 (253 files, 30,000 lines):** nine Sonnet agents (about 3,300 lines each) on one brief. Of their ~25 possible bugs, 7 were filed after checking, 5 were documented on purpose, 3 were uncertain. Many names hide a dialog, a file write or a transaction behind `Get`/`Is`; a cross-cutting suffix rule for self-transacting methods is better decided once (L10) than member by member.
 - **Keep serialized names apart.** In Domain many weak names are data-file columns, settings keys or Revit parameter names; they go in their own issue (D6) for a per-name decision with the exporter, not into the code-only renames.
 
 ## Decisions for the maintainer (2026-11-11)
