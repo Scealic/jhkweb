@@ -10,22 +10,24 @@ Method: from Kelly-Domain's `DataStore` (the one place v5 reads the files), ever
 - **Unused in v5: 2 files.**
   - `EndPreparationsWelded.csv` (1 KB) is not loaded at all. `DataStore`'s own docs say nothing in v5 uses it.
   - `Project.csv` (446 KB) is loaded into `DataStore.Projects`, and nothing reads it.
-- **Used by one tool only: 3 files.** Together they are 14.7 MB of the 38 MB.
-  - `CustomDataUpdater.csv` (10.8 MB) and `ComponentAndLookupsView.csv` (3.7 MB) are used only by the Contenter tab's Fabrication Custom Data commands.
-  - `ItemCustomDataPivotedOnComponentId.csv` (169 KB) is used only by Fabrication Custom Data Updater V1.
-- The other 17 are used by updaters, caches or services that run in every project.
+- **Used by the Contenter tab's Fabrication Custom Data commands only: 2 files,** about 11 MB of the 38 MB.
+  - `CustomDataUpdater.csv` (10.8 MB) is used only by Proposed Report and Updater V2.
+  - `ItemCustomDataPivotedOnComponentId.csv` (169 KB) is used only by Updater V1.
+- The other 18 are used by updaters, caches or services that run in every project.
 - **v4 was not checked.** The v4 repos are not cloned here, so these results say nothing about which files Major Version 4 needs. The exporter serves both versions, so a file is only safe to drop from the export once v4 has been checked too.
+
+Correction made the same day: a first draft listed `ComponentAndLookupsView.csv` as used by one tool only. It missed `DataFiles.FindComponent`, which the updaters call.
 
 ## Per file
 
 | File | Size | v5 reader (Domain → add-in) | Used by | Verdict |
 |---|---:|---|---|---|
 | Product.csv | 15.4 MB | `Products` → `ProductCache` → `DataFiles.Products` | Size updater (`SizeElementDataModel`, `ProductTools.GetSizeByProductCode`) | Used |
-| CustomDataUpdater.csv | 10.8 MB | `CustomDataUpdaters` | Trade.Contenter: Fabrication Custom Data Proposed Report, Fabrication Custom Data Updater V2 | One tool area only |
-| ComponentAndLookupsView.csv | 3.7 MB | `ComponentAndLookups` → `ComponentCache` → `DataFiles.Components` | Trade.Contenter: Fabrication Custom Data Updater V2 | One tool only |
+| CustomDataUpdater.csv | 10.8 MB | `CustomDataUpdaters` | Trade.Contenter: Fabrication Custom Data Proposed Report, Fabrication Custom Data Updater V2 | Contenter only (KD-83) |
+| ComponentAndLookupsView.csv | 3.7 MB | `ComponentAndLookups` → `ComponentCache` → `DataFiles.Components`, `DataFiles.FindComponent` | Material, Schedule Gauge and Size updaters (`FindComponent`); Trade.Contenter: Fabrication Custom Data Updater V2 | Used |
 | BuiltInCategoryBinding.csv | 3.6 MB | `FindBuiltInCategoryBindings` → `ExternalParameterDefinitionCache` | Shared parameter definitions (`DefinitionRegistry`, every Kelly parameter) | Used |
 | Project.csv | 446 KB | `Projects`: no reader | none | **Unused in v5** |
-| ItemCustomDataPivotedOnComponentId.csv | 169 KB | `ItemCustomDataPivotedOnComponentId` | Trade.Contenter: Fabrication Custom Data Updater V1 | One tool only |
+| ItemCustomDataPivotedOnComponentId.csv | 169 KB | `ItemCustomDataPivotedOnComponentId` | Trade.Contenter: Fabrication Custom Data Updater V1 | Contenter only (KD-83) |
 | ConnectorPreparations.csv | 145 KB | `FindConnectorPreparation` → `ConnectorPreparationResolver` | End Preparation updater (`EndPreparationUpdaterElementService`) | Used |
 | ExternalParameterDefinition.csv | 74 KB | `ExternalParameterDefinitions` → `ExternalParameterDefinitionCache` | Shared parameter definitions (`App.GetDefinition`) | Used |
 | ServiceData.csv | 68 KB | `ServiceRecords` → `ServiceCache` → `DataFiles.Services` | Layout discipline, service writer, signature view filters | Used |
@@ -46,7 +48,7 @@ Method: from Kelly-Domain's `DataStore` (the one place v5 reads the files), ever
 
 ## What follows
 
-1. **Project.csv:** stop loading it in v5. Remove `DataStore.Projects`, `DataStoreRecords.Projects` and `ProjectRecord` from `RecordTypes` in Kelly-Domain, then repin. Drop it from the export only if v4 doesn't read it either.
+1. **Project.csv** ([KD-82](https://linear.app/jhkelly-ktr/issue/KD-82)): stop loading it in v5. Remove `DataStore.Projects`, `DataStoreRecords.Projects` and `ProjectRecord` from `RecordTypes` in Kelly-Domain, then repin. Drop it from the export only if v4 doesn't read it either.
 2. **EndPreparationsWelded.csv:** it is already being removed from the exporter's catalog; those changes are uncommitted in Kelly-Revit-Data-Exporter. v4 was not checked, so confirm v4 doesn't read it before that change ships.
-3. **The Fabrication Custom Data files (14.7 MB):** every user loads them at startup for three Contenter commands. Loading them when one of those commands first runs would shorten startup and save memory for everyone else. This change belongs to Kelly-Domain's `DataStore` and the three commands.
+3. **The two Fabrication Custom Data files (about 11 MB)** ([KD-83](https://linear.app/jhkelly-ktr/issue/KD-83)): every user loads them at startup for three Contenter commands. Reading them the first time one of those commands runs would shorten startup and save memory for everyone else. `ComponentAndLookupsView.csv` must stay loaded at startup: the Material, Schedule Gauge and Size updaters use it through `DataFiles.FindComponent`.
 4. **The V1 command:** if Fabrication Custom Data Updater V1 has been replaced by V2, retiring V1 would also retire `ItemCustomDataPivotedOnComponentId.csv`.
