@@ -59,6 +59,9 @@ The [Kelly-Windows-Data-v3 pilot](Member%20Naming/2026-11-11%20Kelly-Windows-Dat
 - **Mark serialized members** (manifest.json keys, data file columns) in the inventory. Renaming one changes a file format, and its finding must say so.
 - **Read undocumented members first.** The two undocumented files held the worst names.
 - **Read a layer of under ~50 files directly**; use the script and subagents only for the large layers.
+- **Kelly-Windows-v3 (115 files, 7,700 lines) needed no script either:** three Sonnet agents each read a third in full, and every Misleading finding was checked against the code before it went into the report. Keep the script for Domain, Logic and the add-in only if full reads stop fitting.
+- **Naming checks find bugs.** A name that contradicts its body sometimes means the body is wrong. File those as Fix issues at once (Kelly-Windows-v3: KW3-29, KW3-30, KW3-31), separate from the renames.
+- **Look for existing issues first.** Several findings were already filed (KWD3-7, KWD3-13, KW3-10, KW3-20, KW3-22).
 
 ## Decisions for the maintainer (2026-11-11)
 
