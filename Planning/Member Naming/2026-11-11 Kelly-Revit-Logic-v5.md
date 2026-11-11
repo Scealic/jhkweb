@@ -304,9 +304,9 @@ Each list names the member, what it actually does where the name hides it, and t
 
 Each issue below marks these, so a rename keeps the stored text.
 
-## Proposed Linear issues (not yet filed)
+## Linear issues (filed 2026-11-11)
 
-All in KTRL5, related to KTR5-4798. Each renames the members, adds XML docs where they are missing, resets the `Author` stamp of the tests it touches, and is followed by repin issues in Kelly-Revit-UI and the add-in where the reach is not none. Stored texts (Undo names, the updater name, log keys, saved filter names) are kept unless the maintainer decides otherwise.
+L1 **KTRL5-140**, L2 **KTRL5-141**, L3 **KTRL5-142**, L4 **KTRL5-143**, L5 **KTRL5-144**, L6 **KTRL5-145**, L7 **KTRL5-146**, L8 **KTRL5-147**, L9 **KTRL5-148**, L10 **KTRL5-149**. All in KTRL5, Low, related to KTR5-4798. Each renames the members, adds XML docs where they are missing, resets the `Author` stamp of the tests it touches, and is followed by repin issues in Kelly-Revit-UI and the add-in where the reach is not none. Stored texts (Undo names, the updater name, log keys, saved filter names) are kept unless the maintainer decides otherwise.
 
 | # | Scope | Highest reach | Estimate |
 |---|---|---|---|
