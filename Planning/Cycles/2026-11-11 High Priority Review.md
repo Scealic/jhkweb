@@ -7,7 +7,9 @@ Every open High issue assigned to the maintainer (64 in Backlog, 2 in Todo, 2 In
 - **Medium:** an Add or Change a person asked for, or a Fix with a workaround.
 - **Low:** internal work (refactoring, cleanup, tests, docs), ideas and meetings.
 
-Proposals only; nothing is changed until the maintainer approves. Read from the issue titles and labels, not from the code.
+Read from the issue titles and labels, not from the code.
+
+**Applied 2026-11-11** (the maintainer approved it as proposed): 29 issues to Medium and 9 to Low, all with their SLA cleared by Linear; KTR5-4635, KTR4-29, KTR5-4637 and KTR4-31 to Urgent, keeping their SLA (breached 2026-11-11). KTRL5-133 stays High: its description says the wrong elevation is display-only, so the Urgent proposal was wrong; it was briefly Urgent and was set back to High with its SLA of 2026-11-18. Each changed issue has a dated comment.
 
 ## Keep High (30)
 
@@ -18,7 +20,7 @@ Wrong results or a blocked user:
 - **Other tools:** KTR5-4801 (hangers placed after closing the window), KTRL5-134 (filter visibility set on a filter never added), KTRUI-29 (adding an existing value makes the last item current), KTR4-28 (Item Numbers button stays disabled), KTR5-4496 (Family Version fails on nested families), KTR5-3142 (auto updaters sometimes stop), KD-57 (support signature text differs between frameworks, In Review).
 - **Release requirement:** KTR5-4693 and KW3-23 (work off the JHK network).
 
-**Rubric says Urgent:** KTRL5-133 (wrong data written to the model), KTR5-4635 and KTR4-29 (data lost), KTR5-4637 and KTR4-31 (wrong data written). Raising them would put them on the tighter Urgent SLA; the maintainer decides.
+**Rubric says Urgent:** KTR5-4635 and KTR4-29 (data lost), KTR5-4637 and KTR4-31 (wrong data written); raised to Urgent. KTRL5-133 was proposed too, but it is display-only and stays High.
 
 ## High → Medium (29)
 
@@ -33,4 +35,4 @@ Internal work: KTR5-4017, KTR5-4018, KTR5-4019, KTR5-4020 (Element Select Zoom r
 
 ## Effect on the Cycle
 
-High issues in Backlog whose SLA breaches by 2026-11-18: 97 points today, 63 points if the proposals are applied (Medium and Low have no SLA). With the 94 points already committed, the cycle holds 157 of the 160 points to commit.
+Urgent and High issues in Backlog whose SLA breaches by 2026-11-18: 97 points before, 63 after (12 Urgent, 51 High). With the 94 points already committed, the cycle holds 157 of the 160 points to commit.
