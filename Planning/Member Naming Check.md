@@ -66,6 +66,20 @@ The [Kelly-Windows-Data-v3 pilot](Member%20Naming/2026-11-11%20Kelly-Windows-Dat
 - **Kelly-Revit-Logic-v5 (253 files, 30,000 lines):** nine Sonnet agents (about 3,300 lines each) on one brief. Of their ~25 possible bugs, 7 were filed after checking, 5 were documented on purpose, 3 were uncertain. Many names hide a dialog, a file write or a transaction behind `Get`/`Is`; a cross-cutting suffix rule for self-transacting methods is better decided once (L10) than member by member.
 - **Keep serialized names apart.** In Domain many weak names are data-file columns, settings keys or Revit parameter names; they go in their own issue (D6) for a per-name decision with the exporter, not into the code-only renames.
 
+## Second pass (2026-11-11, after the first-pass renames landed)
+
+Reports: `Member Naming/2026-11-11 Pass 2 <layer>.md`. Bugs filed: KD-72, KD-73, KW3-38..41, KTRL5-150..156, KTRUI and KTR5 comments, KTR5-4811..4815.
+
+- **No glossary.** The maintainer ruled that `UBIQUITOUS-LANGUAGE.md` must not guide naming (it is updated after all naming work, KTR5-4809). Readers take terms from the code: the term it uses most for a concept, and the Revit API or data-file name. "Two words for one concept" replaces the old "Domain language" rule.
+- **Readers, then reviewers.** 17 Sonnet readers (about 4,000 lines each, every file read in full) wrote findings files; 7 reviewers (one per layer, two for Logic) opened the code for every Misleading finding and every possible bug, merged duplicates, moved findings to the layer that owns the member, and wrote the reports. Reviewers dropped about 70 of about 95 possible bugs (documented, already filed, or wrong) and downgraded about half the Misleading findings.
+- **A known list keeps the second pass short.** Give readers the decisions, the deliberately kept names and the filed issues, so they don't report them again; tell them to mark first-pass items that were not applied.
+- **New names get checked too.** Two first-pass names were wrong again (`ConnectorOnePerimeter` holds the largest perimeter of all connectors; `SignatureState.NoSignatures` means "not saved").
+- **State the transaction rule exactly.** `…Core` only tells twins apart (KTRL5-149); a method without a twin documents that it needs the caller's transaction. A brief that said "every such method ends in Core" produced overstated findings.
+- **Ribbon item ids come from command class names.** Renaming a command class changes the id that Quick Access Toolbar entries and shortcuts use. The maintainer accepted that (2026-11-11).
+- **Check that each report file exists** after a reviewer says it wrote one: one did not until asked again.
+
+Decided 2026-11-11 for pass 2: file every proposed rename issue; `PathExtensions.Get*Directory` → `GetOrCreate*Directory`; `ArrangerOrientation` → `ArrangeAction` with `AlignTop`/`AlignBottom` and matching Undo text; ribbon item ids may change.
+
 ## Decisions for the maintainer (2026-11-11)
 
 1. Public members only, or private and internal ones too?
