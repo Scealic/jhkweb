@@ -50,11 +50,11 @@ M1 is one issue: the three-step lifecycle of a cache (load, clear, publish) is n
 4. **Missing XML docs predict findings.** Both undocumented files held the worst names. Put undocumented members first in the read pass.
 5. **Small layers need no script.** 18 files were read directly in one pass. Keep the script and subagents for Domain, Logic and the add-in (250 to 450 files each).
 
-## Proposed Linear issues (not yet filed)
+## Linear issues (2026-11-11)
 
-Owning team: the Kelly-Windows-Data-v3 team, with Blocked By relations to the issues that update the callers above.
+All in KWD3 (Kelly Windows Data 3), each related to KTR5-4798.
 
-1. **M1:** rename the `ICache` lifecycle (`GetData` → `LoadModels`, `Objects` → `LoadedModels`, `FillCache` → `PublishLoadedModels`, `ClearCache` → `Clear`, `CacheName` → `Name`) and add XML docs; follow-ups in Kelly-Windows-v3 (`RecordCache`), Kelly-Domain (7 caches, tests) and Logic (`DataFileService`). Logic's own `IDocumentCache.GetData` has the same name and should follow it (Logic pass).
-2. **M2:** rename `JsonFileLoadException` → `DataFileLoadException`; follow-ups in Kelly-Windows-Data-Json, -Csv, Kelly-Domain and Logic.
-3. **M3 + V1:** rename `RecordMapper.MapAll` → `MapRemaining` and `Result` → `CreateWriteResult`; follow-ups in -Csv and -Json.
-4. **V2–V6 and S1–S4:** one batched cleanup issue for this layer, with S1 kept JSON-compatible.
+1. **M1 (`ICache`):** already filed as **KWD3-7** ("Decide `ICache`'s fate", 2026-11-02). Commented with the findings: it is no longer orphaned (`RecordCache` implements it), and the proposed renames if it stays. Logic's own `IDocumentCache.GetData` has the same name and is for the Logic pass.
+2. **M2 (`JsonFileLoadException`):** already filed as **KWD3-13** (rename to `DataFileLoadException`, decided 2026-11-09), with follow-ups in KWDC, KWDJ, KD and KTRL5. Commented that `ComputeSha256` throws it too.
+3. **M3 + V1 (`RecordMapper`):** new, **KWD3-14** (1 point). The CSV and JSON writers' follow-ups are to be filed when it is picked up.
+4. **V2–V6 and S1–S4:** new, **KWD3-15** (2 points), with S1 kept JSON-compatible.
