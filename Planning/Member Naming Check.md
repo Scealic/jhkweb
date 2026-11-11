@@ -62,6 +62,8 @@ The [Kelly-Windows-Data-v3 pilot](Member%20Naming/2026-11-11%20Kelly-Windows-Dat
 - **Kelly-Windows-v3 (115 files, 7,700 lines) needed no script either:** three Sonnet agents each read a third in full, and every Misleading finding was checked against the code before it went into the report. Keep the script for Domain, Logic and the add-in only if full reads stop fitting.
 - **Naming checks find bugs.** A name that contradicts its body sometimes means the body is wrong. File those as Fix issues at once (Kelly-Windows-v3: KW3-29, KW3-30, KW3-31), separate from the renames.
 - **Look for existing issues first.** Several findings were already filed (KWD3-7, KWD3-13, KW3-10, KW3-20, KW3-22).
+- **Kelly-Domain (256 files, 13,300 lines):** five Sonnet agents, one shared brief file listing the rules, the glossary and the open KD issues (so known items weren't reported again). Ask agents for "Possible bugs" separately; about half of theirs were documented behaviour or already filed, so check each before filing.
+- **Keep serialized names apart.** In Domain many weak names are data-file columns, settings keys or Revit parameter names; they go in their own issue (D6) for a per-name decision with the exporter, not into the code-only renames.
 
 ## Decisions for the maintainer (2026-11-11)
 
