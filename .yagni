@@ -1,0 +1,47 @@
+# Entry points for the yagni skill (personal skills folder) in the Kelly repositories under C:\repo\jhkweb.
+# Same format as the skill's scripts/default-entry-points.txt. The skill reads this file when it scans any repository here.
+
+exclude: session-state
+exclude: RevitTestModels
+exclude: branding
+exclude: Planning
+exclude: Monthly Reports
+exclude: db-deprecation
+
+# Revit creates these by reflection (the .addin manifest, the ribbon, updater and failure registration).
+base: IExternalApplication
+base: IExternalCommand
+base: IExternalCommandBase
+base: IExternalCommandMvvm
+base: IExternalCommandAvailability
+base: IUpdater
+# Kelly-Revit-UI's RibbonModuleLoader creates every IRibbonModule in a module DLL; panels are created by type.
+base: IRibbonModule
+base: IRibbonPanelConfiguration
+# Kelly.Windows.Hosting.ServiceProvider.AddServices starts every IApplicationService.
+base: IApplicationService
+attribute: Transaction
+attribute: Regeneration
+attribute: Journaling
+
+# Records are filled from the CSV data files by property name (Kelly.Windows.Data RecordMapper, DataFileFormat).
+properties: IRecord
+
+# Members Revit calls through its own interfaces.
+member: Execute
+member: IsCommandAvailable
+member: OnStartup
+member: OnShutdown
+member: GetUpdaterId
+member: GetUpdaterName
+member: GetAdditionalInformation
+member: GetChangePriority
+member: AllowElement
+member: AllowReference
+member: PreprocessFailures
+member: GetName
+member: OnFamilyFound
+member: OnSharedFamilyFound
+
+# Reports go here (yagni skill, step 4).
+report: Planning/YAGNI
