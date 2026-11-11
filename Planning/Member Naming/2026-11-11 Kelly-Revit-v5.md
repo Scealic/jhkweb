@@ -213,9 +213,9 @@ Each list names the member, what it actually does where the name hides it, and t
   - The unused `x:Name`s.
   - The unused `DefinitionSet` fields in three Duct commands.
 
-## Proposed Linear issues (not yet filed)
+## Linear issues (filed 2026-11-11)
 
-All would be in KTR5, related to KTR5-4798, with the feature label of each tool touched and the module label. Each renames the members and updates the XAML bindings and `x:Name`s in the same change. It adds XML docs where they are missing, resets the `Author` stamp of the tests it touches, and builds every configuration. Button texts, tab names, dialog titles and Undo texts change only where listed as wrong (the old tool names and typos above).
+A1 **KTR5-4804**, A2 **KTR5-4805**, A3 **KTR5-4806**, A4 **KTR5-4807**, A5 **KTR5-4808**. All in KTR5, Low, labelled Add-In Wide with each module touched, related to KTR5-4798. Each renames the members and updates the XAML bindings and `x:Name`s in the same change. It adds XML docs where they are missing, resets the `Author` stamp of the tests it touches, and builds every configuration. Button texts, tab names, dialog titles and Undo texts change only where listed as wrong (the old tool names and typos above).
 
 | # | Scope | Notes | Estimate |
 |---|---|---|---|
@@ -236,7 +236,7 @@ This was the last layer. Across the six v5 layers checked on 2026-11-11:
 | Kelly-Domain | KD-61, KD-62 | KD-63 to KD-68 |
 | Kelly-Revit-Logic-v5 | KTRL5-133 to KTRL5-139 | KTRL5-140 to KTRL5-149 |
 | Kelly-Revit-UI | KTRUI-30 to KTRUI-32 | KTRUI-33, KTRUI-34 |
-| Kelly-Revit-v5 | KTR5-4799 to KTR5-4803 | A1 to A5 (proposed) |
+| Kelly-Revit-v5 | KTR5-4799 to KTR5-4803 | KTR5-4804 to KTR5-4808 |
 
 The renames go bottom-up: a lower layer's public renames reach the add-in only after that layer is packed and the layers above are repinned. Three decisions come first because they set names in many places:
 - KTRL5-149, the transaction suffix rule.
