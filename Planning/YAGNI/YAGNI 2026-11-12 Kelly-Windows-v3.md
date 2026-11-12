@@ -79,6 +79,8 @@ At the user's request, after a compiled-reference check: the built assemblies of
 
 Kelly-Windows-v3 `develop`: `9f9100c` and `9318eed`. 46 members and the private `RoundAmount.CountDecimalPlaces` deleted; their tests removed, and seven tests that also checked members that stay keep those checks. Net481, Net80 and Net100 build; 826 tests pass in each (897 before). KW3-51, KW3-52, KW3-53 In Review (the package is not packed); KW3-40 and KW3-30 canceled. Not pushed.
 
+**Reverted the same day** at the user's request, while the skill is reviewed: `f0bfe32` and `d7b9fdf` revert `9318eed` and `9f9100c`. The tree is identical to `3c469c7` again; 897 tests pass in Net481, Net80 and Net100. KW3-51 to KW3-53 back to Backlog; KW3-40 and KW3-30 reopened.
+
 **Cascade (not deleted, waiting for a decision):** `RoundAmount.OneEighth`, `OneFourth`, `OneHalf`, `OneSixtyFourth`, `OneTwoHundredFiftySixth` are now used nowhere.
 
 ## 7. Skill and `.yagni` changes
