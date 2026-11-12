@@ -32,3 +32,20 @@ None.
 ## Open questions
 
 - The ribbon's Spool Number and Module Number auto-assign toggles do nothing today (KTR5-4780). Should the pane have auto-assign for those two contexts?
+
+## Applied 2026-11-12
+
+The maintainer answered the open question: no auto-assign for Spool Number and Module Number in the pane; their rows show the Auto-Assign button disabled (added to #7).
+
+| # | Key | Relation |
+|---|---|---|
+| 1 | [KTRL5-180](https://linear.app/jhkelly-ktr/issue/KTRL5-180) | sub-issue; blocks KTR5-4826, KTR5-4829 |
+| 2 | [KTRL5-181](https://linear.app/jhkelly-ktr/issue/KTRL5-181) | sub-issue; blocks KTR5-4826, KTR5-4830 |
+| 3 | [KTR5-4826](https://linear.app/jhkelly-ktr/issue/KTR5-4826) | sub-issue; blocks KTR5-4830 |
+| 4 | [KTR5-4827](https://linear.app/jhkelly-ktr/issue/KTR5-4827) | sub-issue; blocks KTR5-4828 to KTR5-4831 |
+| 5 | [KTR5-4828](https://linear.app/jhkelly-ktr/issue/KTR5-4828) | sub-issue |
+| 6 | [KTR5-4829](https://linear.app/jhkelly-ktr/issue/KTR5-4829) | sub-issue |
+| 7 | [KTR5-4830](https://linear.app/jhkelly-ktr/issue/KTR5-4830) | sub-issue; related KTR5-4064 |
+| 8 | [KTR5-4831](https://linear.app/jhkelly-ktr/issue/KTR5-4831) | sub-issue |
+
+KTR5-4085 lost its estimate (the sub-issues roll up to 22 points) and is related to KTR5-4780 and KTR5-3938.
