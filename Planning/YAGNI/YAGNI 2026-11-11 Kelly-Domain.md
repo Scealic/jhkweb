@@ -81,3 +81,11 @@ None. The run found no entry points the root `.yagni` was missing, and no false 
 ## How to delete, when approved
 
 Kelly-Domain is a layer package: delete with the tests named above, build `-c Net481`, `Net80` and `Net100` and run `tests/Domain.Tests.csproj` in each. Re-run the in-Revit `ElementDataModelsTests` if a `Deprecated` member it names goes. Then update the Changelog (public surface) and README, pack, repin Kelly-Revit-Logic-v5 and rebuild the layers above. The removals file under the KD team in Linear (type "Delete", function "Code quality and cleanup").
+
+## Filed 2026-11-12
+
+- KD-85: the Victaulic settings shape in `Pcf` (related KD-77, KD-81).
+- KD-86: the parameter-name constants in `Names`, with the `Deprecated` decision (related KD-81).
+- KD-87: the 31 unused `Nouns` (related KD-81).
+- KD-88: the single members (related KD-75, which proposed renaming `FindBySignature` and `FindServiceExact`).
+- Not filed again: `ModuleNumber.TryCompose` (already deleted by KD-81) and `Manufacturer` (KD-78).
