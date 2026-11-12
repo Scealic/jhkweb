@@ -10,4 +10,6 @@ Time Claude Code spends on the Kelly Assigners dockable pane ([KTR5-4085](https:
 
 | 2026-11-12 | 09:31 | 10:00 | 29 | KTR5-4828 (value lists, Refresh, Service picks System; `cd8be450`), KTR5-4831 (add a new value, validated with the Kelly.Domain structs; `88352b6c`, `58f6e63c`), KTR5-4829 part (Adopt, Remove From Selected, Spool and Module Add To Selected; `66d9ea63`); two in-Revit runs of the `Assigner*` tests (149/151, then 178/178 after fixing two tests); filed KTR5-4832. |
 
-**Total:** 75 minutes
+| 2026-11-12 | 10:00 | 10:22 | 22 | KTRL5-180 in Kelly-Revit-Logic-v5 (writers take a value source, `ProcessSelectedElements` with a service; `34fa70c`), tests first, built for 2024 to 2026; in-Revit runs: Kelly-Revit `Assigner*` 189/189 (KTR5-4829 handler), Logic element services 72/72. |
+
+**Total:** 97 minutes
