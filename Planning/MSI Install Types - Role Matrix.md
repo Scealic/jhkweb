@@ -1,6 +1,6 @@
 # MSI install types: role-to-module matrix (draft)
 
-Draft 2026-11-12 for KTR5-4601. Kelly Tools For Revit 5 only. Every row marked **?** needs the maintainer's decision.
+2026-11-12 for KTR5-4601. Kelly Tools For Revit 5 only. The module set of every install type is decided; what is still open is marked **?**.
 
 ## Building blocks
 
@@ -23,8 +23,8 @@ The add-in (`Kelly.Revit.dll`, its Kelly packages, the `.addin` manifest and the
 |---|---|---|---|---|---|---|---|
 | Detailer | ✓ | ✓ | ✓ | – | – | – | Day-to-day detailing |
 | Lead Detailer / Manager | ✓ | ✓ | ✓ | ✓ | ✓ | – | Adds model clean-up, reports and Content. Also the install for Managers (merged 2026-11-12) |
-| Content Developer | ✓ | ✓ | ✓ | ✓ | – | – | **?** Needs Tools/Pipe/Duct at all, or Content only |
-| Third Party | ✓ | ✓ | ✓ | – | – | – | **?** See the Third Party questions below |
+| Content Developer | ✓ | ✓ | ✓ | ✓ | – | – | Keeps Tools, Pipe and Duct (decided 2026-11-12) |
+| Third Party | ✓ | ✓ | ✓ | – | – | – | Same modules as Detailer; **?** see the Third Party questions below |
 | Developer | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Everything |
 
 ## Findings that shape the design
