@@ -11,12 +11,13 @@ Time Claude Code spends on the Kelly Assigners dockable pane ([KTR5-4085](https:
 | 2026-11-12 | 10:22 | 10:28 | 6 | Packed Kelly.Revit.Logic 5.26.1112.1026 (KTRL5-180, Done), repinned and packed Kelly.Revit.UI 1.26.1112.1026, repinned Kelly-Revit-v5 (KTR5-4826 part); all built for 2024 to 2026. |
 | 2026-11-12 | 10:50 | 10:56 | 6 | KTR5-4829: maintainer decision on Service Add To Selected; wired Service, System, Detailing Package and Line Number through the Logic writers with the pane's value (`AssignerPaneServiceElementService` composite); tests first, built for 2024 to 2026, committed `ffde41c4`; started the in-Revit run; fixed this table (blank lines had split it). Start estimated from the first Linear comment. |
 | 2026-11-12 | 11:07 | 11:47 | 40 | KTR5-4829 results (186/186); KTRL5-181 (one owner per assigner selection; 112/112 Logic tests; package 5.26.1112.1129, UI 1.26.1112.1129, repinned); KTR5-4830 (pane Auto-Assign owns its context) and KTR5-4826 (ribbon toggles take it back, Reset and Add Selected respect the owner); installed v5 for 2024; also KTR5-4064, KTR5-4780 and KTR5-4832, which the pane work turned up; committed Kelly-Revit-v5 `97477d0d`. In-Revit 220/223 (3 test faults fixed, not rerun). |
+| 2026-11-12 | 11:50 | 12:13 | 23 | Final in-Revit run, 281/281 (`Assigner*` and `AddInContractTests`), KTR5-4780 and KTR5-4832 Done; pane shows when Revit starts (`6c5c58a9`, pushed); time summary; pushed six repos' develop; KTR5-4773 checked (already Done, follow-ups noted); reinstalled v5 for 2024. Gaps between turns not counted, so the start and end are approximate. |
 
-**Total:** 149 minutes
+**Total:** 172 minutes
 
 ## Summary (2026-11-12)
 
-**Time:** 149 minutes of Claude Code time (2 h 29 min) in 7 sessions between 08:45 and 11:47 (3 h 2 min elapsed). Gaps between the maintainer's turns are not counted. The in-Revit test runs (eight on the add-in, three on Kelly-Revit-Logic, about 2 to 30 minutes each) ran in the background while other work went on, so their time is not added.
+**Time:** 149 minutes of Claude Code time (2 h 29 min) in 7 sessions between 08:45 and 11:47 (3 h 2 min elapsed); a later session to 12:13 brings the total to 172 minutes. Gaps between the maintainer's turns are not counted. The in-Revit test runs (eight on the add-in, three on Kelly-Revit-Logic, about 2 to 30 minutes each) ran in the background while other work went on, so their time is not added.
 
 **Delivered:** the pane shell (KTR5-4085), and all eight sub-issues the 2026-11-12 split created, 22 points:
 
