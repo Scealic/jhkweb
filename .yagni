@@ -43,5 +43,12 @@ member: GetName
 member: OnFamilyFound
 member: OnSharedFamilyFound
 
+# WPF calls these through its own interfaces and the XAML attached-property convention.
+# INotifyDataErrorInfo (Kelly.Windows.Persistence.ModelBase).
+member: GetErrors
+# WindowBehaviors.KeepCentered is set in 18 Kelly-Revit-v5 XAML views; WPF reaches it through Get/SetKeepCentered.
+used: Kelly-Windows-v3|WindowBehaviors|GetKeepCentered
+used: Kelly-Windows-v3|WindowBehaviors|SetKeepCentered
+
 # Reports go here (yagni skill, step 4).
 report: Planning/YAGNI
