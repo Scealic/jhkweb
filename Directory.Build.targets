@@ -9,11 +9,12 @@
     PostBuild) and print KTR0004, so an ordinary v5 build does not switch Revit to v5; pass -p:InstallAddin=true to install a v5 build on
     purpose. Kelly-Revit-v4 builds install as before.
     Defined last, these targets replace the projects' own, as Kelly-Revit-v5's test\Tests.Revit\NoInstall.targets does.
+    WiX installer projects (Kelly-Revit-v5\installer, since 2026-11-12) install nothing when built, so the guard and its KTR0004 skip them.
 -->
 <Project>
     <PropertyGroup>
         <KellyRevitV5Folder Condition="'$(KellyRevitV5Folder)' == ''">C:\repo\jhkweb\Kelly-Revit-v5\</KellyRevitV5Folder>
-        <SkipKellyRevitInstall Condition="'$(InstallAddin)' != 'true' and $([System.String]::Concat('$(MSBuildProjectDirectory)', '\').StartsWith('$(KellyRevitV5Folder)', System.StringComparison.OrdinalIgnoreCase))">true</SkipKellyRevitInstall>
+        <SkipKellyRevitInstall Condition="'$(InstallAddin)' != 'true' and '$(MSBuildProjectExtension)' != '.wixproj' and $([System.String]::Concat('$(MSBuildProjectDirectory)', '\').StartsWith('$(KellyRevitV5Folder)', System.StringComparison.OrdinalIgnoreCase))">true</SkipKellyRevitInstall>
     </PropertyGroup>
     <Import Project="Directory.Build.NoInstall.targets" Condition="'$(SkipKellyRevitInstall)' == 'true'"/>
 </Project>
