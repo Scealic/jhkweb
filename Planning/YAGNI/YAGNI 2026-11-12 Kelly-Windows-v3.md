@@ -4,61 +4,27 @@ Code in Kelly-Windows-v3 that nothing in production uses, found with the `yagni`
 
 ## 1. Scope
 
-- **Target:** `Kelly-Windows-v3` (`develop`, as checked out on 2026-11-12).
-- **Dependents searched for uses:** Kelly-Domain (pins Windows), Kelly-Revit-Logic-v5, Kelly-Revit-UI and Kelly-Revit-v5 (through the layers below them): `src`, `modules`, XAML. Their tests count only as "tests only".
-- **Searched, not dependents:** BuildConfigs, Kelly-Revit-Data-Exporter, the four Kelly-Windows-Data format libraries, Kelly-Windows-Data-v3, the two VCS schema repos.
+- **Target:** `Kelly-Windows-v3` (`develop`, 2026-11-12).
+- **Dependents searched for uses:** Kelly-Domain (direct), Kelly-Revit-Logic-v5, Kelly-Revit-UI, Kelly-Revit-v5 (transitive): `src`, `modules`, XAML.
 - **Dependencies read for interfaces and base types only:** Kelly-Windows-Data-v3, -Csv, -Json.
-- **Configuration:** the skill's `default-entry-points.txt` and the jhkweb root `.yagni`.
-- **Not visible:** nothing outside these repos uses the package (Major Version 4 uses its own Kelly-Windows-v2, which is not checked out here).
-- **Checking:** each name grepped as a whole word across the production code of the five repos (C#, XAML, config, data files) and their tests.
+- **Unseen dependents (local feed `C:\Repo\NugetPackages`):** none. Major Version 4 uses Kelly.Windows 2.x from Kelly-Windows-v2, not this repository.
+- **Other code on the machine:** no use under `C:\repo\chrishildebran`, `C:\repo\jhkweb - non KTR` or the user profile's documents.
+- **Configuration:** the skill's `default-entry-points.txt` (now with `INotifyDataErrorInfo` members and WPF attached-property accessors) and the jhkweb `.yagni`.
+- **Not every dead member is found:** matching is by name; a dead member sharing a name with a live one is not flagged.
 
 ## 2. Totals
 
 | Unit | Types | Members | Candidates | Dead (unused) | Dead (tests only) | Used | Entry point | Keep |
 |---|---|---|---|---|---|---|---|---|
-| Kelly-Windows-v3 | 120 | 501 | 52 | 2 | 46 | 0 | 3 | 1 |
+| Kelly-Windows-v3 | 120 | 501 | 52 | 3 | 42 | 1 | 3 | 3 |
 
-Dead (unused) are `IntegerExtensions` (both members used only by tests, so the whole class goes) and `UserPrincipalExtensions.GetManagerName` (its name appears only as a prompt title string in Kelly-Revit-Logic-v5 `src/Spools/Spool.cs:968`, which is not a call). Tests are in `tests/`.
+(After the compiled check: `HashExtensions` as a whole is Used; `ProgressWindowReporter.Displayed` is Keep.)
 
-## 3. Dead, by file
+Entry points (the scanner now knows them): `WindowBehaviors.GetKeepCentered` / `SetKeepCentered` (WPF calls them for the attached property `KeepCentered`, set in 18 views) and `ModelBase.GetErrors` (`INotifyDataErrorInfo`).
 
-### Wpf
+## 3. Dead
 
-| Member | File | Tests |
-|---|---|---|
-| `ProgressReporter.UseFactory` | `src/Wpf/ProgressReporter.cs:45` | `ProgressReporterTests` |
-| `ProgressWindowReporter.Displayed` (internal; and `ProgressDisplay`, which only it returns) | `src/Wpf/ProgressWindowReporter.cs:88` | `WpfTests` |
-| `MonitorAreas` (type: `GetPrimaryMonitorFullArea`, `GetPrimaryMonitorWorkingArea`, `GetWorkingAreaForWindow`, `WriteAllMonitorsToConsole`) | `src/Wpf/Native/MonitorAreas.cs` | `MonitorAreasTests` |
-
-### Workstation, Hosting, Logging
-
-| Member | File | Tests |
-|---|---|---|
-| `UserPrincipalExtensions.GetManagerName` | `src/Workstation/UserPrincipalExtensions.cs:11` | none |
-| `ApplicationSession.TimeElapsedMinutes` | `src/Hosting/ApplicationSession.cs:54` | `ApplicationSessionTests` |
-| `FileLoggerFactory.OpenLogFile` | `src/Logging/FileLoggerFactory.cs:93` | `ShellToolsTests` |
-
-### Text
-
-| Member | File | Tests |
-|---|---|---|
-| `HashExtensions.ComputeMd5Hex` (the class stays: `ComputeSha256Hex` is used by Logic and UI) | `src/Text/HashExtensions.cs:45` | `HashExtensionsTests` |
-| `RegexMatchTools.IsValidEmailAddress` | `src/Text/RegexMatchTools.cs:83` | `RegexMatchToolsTests` |
-| `StringBuilderExtensions.AppendCsvRow` | `src/Text/StringBuilderExtensions.cs:16` | `StringBuilderExtensionsTests` |
-| `StringExtensions.DigitsOnly`, `ReplaceUnsafeCharactersWithSpace`, `StripAllButAlphaNumericUnderscorePeriod`, `StripAllButAlphaNumericSpaces`, `StripAllButWordDotAtHyphen`, `ThrowIfNullOrWhiteSpace`, `ToInitials` | `src/Text/StringExtensions.cs:102, 253, 361, 373, 406, 423, 455` | `StringExtensionsTests` |
-
-### Reflection
-
-| Member | File | Tests |
-|---|---|---|
-| `AssemblyExtensions.GetFileVersion`, `GetTypesAssignableTo`, `GetTypesWithAttribute` | `src/Reflection/AssemblyExtensions.cs:53, 93, 101` | `AssemblyExtensionsTests`; `GetTypesWithAttribute` is also called by the test `ScanObsolete` (check it before deleting) |
-| `ObjectDumper` (type, `Print`) | `src/Reflection/ObjectDumper.cs` | `ObjectDumperTests` |
-
-### Palettes
-
-| Member | File | Tests |
-|---|---|---|
-| `ValidValueColors` (type; an `IColors` nothing discovers by reflection) | `src/Palettes/ValidValueColors.cs` | `ColorSetTests`, `AssemblyExtensionsTests` |
+Tests are in `tests/` of this repository.
 
 ### Measurements
 
@@ -67,28 +33,54 @@ Dead (unused) are `IntegerExtensions` (both members used only by tests, so the w
 | `AngleExtensions.ParseAngle` | `src/Measurements/AngleExtensions.cs:54` | `AngleExtensionsTests` |
 | `DimensionModel.ValueInches` | `src/Measurements/DimensionModel.cs:17` | `DimensionModelTests` |
 | `DoubleExtensions.DecimalFeetToFeetInchFraction`, `InchesToFeet`, `IsOutOfRange` | `src/Measurements/DoubleExtensions.cs:25, 80, 90` | `DoubleExtensionsTests` |
-| `FractionalLength` (struct) | `src/Measurements/FractionalLength.cs` | `FractionalLengthTests` |
 | `IntegerExtensions` (type: `FlipBit`, `ToBool`) | `src/Measurements/IntegerExtensions.cs` | `IntegerExtensionsTests` |
-| `RoundAmount.OneEighthDecimalPlaces`, `OneFourthDecimalPlaces`, `OneHalfDecimalPlaces`, `OneHalfInchInFeet`, `OneSixteenthDecimalPlaces`, `OneSixtyFourthDecimalPlaces`, `OneThirtySecondDecimalPlaces`, `OneTwoHundredFiftySixthDecimalPlaces` | `src/Measurements/RoundAmount.cs:10-46` | `RoundAmountTests` |
+| `RoundAmount`: `OneEighthDecimalPlaces`, `OneFourthDecimalPlaces`, `OneHalfDecimalPlaces`, `OneHalfInchInFeet`, `OneSixteenthDecimalPlaces`, `OneSixtyFourthDecimalPlaces`, `OneThirtySecondDecimalPlaces`, `OneTwoHundredFiftySixthDecimalPlaces` | `src/Measurements/RoundAmount.cs` | `RoundAmountTests` |
 
-### Common and Collections
+### Text
 
 | Member | File | Tests |
 |---|---|---|
+| `HashExtensions` (type: `ComputeMd5Hex`) | `src/Text/HashExtensions.cs` | `HashExtensionsTests` |
+| `RegexMatchTools.IsValidEmailAddress` | `src/Text/RegexMatchTools.cs:83` | `RegexMatchToolsTests` |
+| `StringBuilderExtensions.AppendCsvRow` | `src/Text/StringBuilderExtensions.cs:16` | `StringBuilderExtensionsTests` |
+| `StringExtensions`: `DigitsOnly`, `ReplaceUnsafeCharactersWithSpace`, `StripAllButAlphaNumericUnderscorePeriod`, `StripAllButAlphaNumericSpaces`, `StripAllButWordDotAtHyphen`, `ThrowIfNullOrWhiteSpace`, `ToInitials` | `src/Text/StringExtensions.cs` | `StringExtensionsTests` |
+
+### WPF, reflection, logging and the rest
+
+| Member | File | Tests |
+|---|---|---|
+| `ProgressWindowReporter.Displayed` | `src/Wpf/ProgressWindowReporter.cs:88` | `WpfTests` |
+| `MonitorAreas` (type, 4 methods) | `src/Wpf/Native/MonitorAreas.cs` | `MonitorAreasTests` |
+| `AssemblyExtensions.GetFileVersion`, `GetTypesAssignableTo`, `GetTypesWithAttribute` | `src/Reflection/AssemblyExtensions.cs:53, 93, 101` | `AssemblyExtensionsTests` (`ScanObsolete` also uses `GetTypesWithAttribute`) |
+| `ObjectDumper` (type, `Print`) | `src/Reflection/ObjectDumper.cs` | `ObjectDumperTests` |
+| `ValidValueColors` (type) | `src/Palettes/ValidValueColors.cs` | `ColorSetTests`, `AssemblyExtensionsTests` |
+| `FileLoggerFactory.OpenLogFile` | `src/Logging/FileLoggerFactory.cs:93` | `ShellToolsTests` |
+| `ApplicationSession.TimeElapsedMinutes` | `src/Hosting/ApplicationSession.cs:54` | `ApplicationSessionTests` |
 | `EnumExtensions.CreateValueCollection` | `src/Common/EnumExtensions.cs:71` | `EnumExtensionsTests` |
 | `ObjectExtensions.IsNull` | `src/Common/ObjectExtensions.cs:85` | `ObjectExtensionsTests` |
 | `ComparerTools` (type, `CreateEmptyEqualsNullComparer`) | `src/Collections/ComparerTools.cs` | `AbstractedToolsTests` |
 | `ListTools.DrainToList` | `src/Collections/ListTools.cs:14` | `AbstractedToolsTests` |
+| `UserPrincipalExtensions.GetManagerName` | `src/Workstation/UserPrincipalExtensions.cs:11` | none. Its only "use" is a wrong dialog title in Kelly-Revit-Logic-v5 `Spools/Spool.cs:968` (filed as a bug) |
 
-## 4. Entry point and Keep
+## 4. Keep (your call)
 
-| Member | Verdict | Reason |
-|---|---|---|
-| `WindowBehaviors.GetKeepCentered`, `SetKeepCentered` | Entry point | The accessors of the `KeepCentered` attached property, set in 18 Kelly-Revit-v5 XAML views; added to `.yagni` as `used:` |
-| `ModelBase.GetErrors` | Entry point | `INotifyDataErrorInfo`, called by WPF binding validation; added to `.yagni` as `member: GetErrors` |
-| `HashExtensions` (the class) | Keep | Flagged only because a static class name is never written; `ComputeSha256Hex` is used by Kelly-Revit-Logic-v5 `SuspendedSupport` and Kelly-Revit-UI `RibbonComboBox` |
+- `FractionalLength` (`src/Measurements/FractionalLength.cs`): built on purpose (KD-10, moved here by KW3-1's round 2); no caller yet.
+- `ProgressReporter.UseFactory`: a test seam by design (its docs: "meant for tests").
 
-## 5. Noted in passing
+## 5. Overlaps
 
-- Kelly-Revit-Logic-v5 `src/Spools/Spool.cs:968` shows a prompt titled "GetManagerName" for a missing view template: a wrong, copied title, not a use.
-- Dead code cascades: after these go, scan again; `RoundAmount` and `DoubleExtensions` may lose callers inside the layer.
+- KW3-40 (`ObjectDumper` indentation), KW3-30 (`LoggerServices.OpenFile`, now `FileLoggerFactory.OpenLogFile`): deleting the member makes the fix moot.
+- KW3-15 and KW3-23 (`UserPrincipalExtensions` seams and off-network failures): `GetManagerName` goes.
+- KW3-1: both of its repoint sub-issues are Done; what is left is deleting the upper-layer copies it names.
+
+## 6. Deleted 2026-11-12
+
+At the user's request, after a compiled-reference check: the built assemblies of Kelly-Domain and Kelly-Revit-UI (newest feed packages), Kelly-Revit-Logic-v5 (feed package) and Kelly-Revit-v5 (fresh build and the installed V5 add-in for 2024 to 2026), 57 DLLs, were read for every reference to a `Kelly.Windows` member. It found one the scan had missed: `HashExtensions.ComputeSha256Hex`, declared in `#if NET80 || NET100` / `#elif NET481` blocks that the scan did not parse (fixed in the scanner). So `HashExtensions` stays and only `ComputeMd5Hex` went. `ProgressWindowReporter.Displayed` also stays: it is internal and the progress-window tests read the window state through it (a test seam).
+
+Kelly-Windows-v3 `develop`: `9f9100c` and `9318eed`. 46 members and the private `RoundAmount.CountDecimalPlaces` deleted; their tests removed, and seven tests that also checked members that stay keep those checks. Net481, Net80 and Net100 build; 826 tests pass in each (897 before). KW3-51, KW3-52, KW3-53 In Review (the package is not packed); KW3-40 and KW3-30 canceled. Not pushed.
+
+**Cascade (not deleted, waiting for a decision):** `RoundAmount.OneEighth`, `OneFourth`, `OneHalf`, `OneSixtyFourth`, `OneTwoHundredFiftySixth` are now used nowhere.
+
+## 7. Skill and `.yagni` changes
+
+The scanner now treats `GetX`/`SetX` beside an `XProperty` field as used when `X` is used (WPF attached properties), and the defaults name `GetErrors`, `HasErrors`, `ErrorsChanged`, `CanExecuteChanged`. The skill's checks now mark documented test seams Keep. The jhkweb `.yagni` needed nothing.
