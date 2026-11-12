@@ -1,0 +1,46 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <?if $(var.Role) = "Detailer" ?><?define RoleTitle = "Detailer" ?>
+    <?elseif $(var.Role) = "LeadDetailerManager" ?><?define RoleTitle = "Lead Detailer / Manager" ?>
+    <?elseif $(var.Role) = "ContentDeveloper" ?><?define RoleTitle = "Content Developer" ?>
+    <?elseif $(var.Role) = "ThirdParty" ?><?define RoleTitle = "Third Party" ?>
+    <?elseif $(var.Role) = "Developer" ?><?define RoleTitle = "Developer" ?>
+    <?else?><?error Unknown Role $(var.Role) ?>
+    <?endif?>
+    <Package Name="Kelly Tools For Revit 5 ($(var.RoleTitle))"
+             Manufacturer="JH Kelly"
+             Version="$(var.ProductVersion)"
+             UpgradeCode="6F4A1C2E-5B7D-4E8A-9C3F-0D2B1A7E5C40"
+             Scope="perMachine"
+             Compressed="yes">
+        <SummaryInformation Description="Kelly Tools For Revit 5 for Revit 2024, 2025 and 2026: $(var.RoleTitle) install." />
+        <MajorUpgrade AllowSameVersionUpgrades="yes" DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate EmbedCab="yes" />
+        <Property Id="ARPNOMODIFY" Value="1" />
+
+        <StandardDirectory Id="ProgramFiles64Folder">
+            <Directory Id="CompanyFolder" Name="JH Kelly">
+                <Directory Id="ProductFolder" Name="Kelly Tools For Revit">
+                    <Directory Id="V5Folder" Name="V5" />
+                    <Directory Id="DataFolder" Name="Data" />
+                </Directory>
+            </Directory>
+        </StandardDirectory>
+
+        <Feature Id="Data" Title="Data files">
+            <Files Directory="DataFolder" Include="$(var.Data)\*.csv" />
+            <File Directory="DataFolder" Source="$(var.Data)\manifest.json" />
+        </Feature>
+        <Feature Id="Revit2024" Title="Revit 2024"><ComponentGroupRef Id="Revit2024" /></Feature>
+        <Feature Id="Revit2025" Title="Revit 2025"><ComponentGroupRef Id="Revit2025" /></Feature>
+        <Feature Id="Revit2026" Title="Revit 2026"><ComponentGroupRef Id="Revit2026" /></Feature>
+    </Package>
+
+    <?define Year = 2024 ?><?define Tfm = net481 ?>
+    <?include Year.wxi ?>
+    <?undef Year ?><?undef Tfm ?>
+    <?define Year = 2025 ?><?define Tfm = net8.0-windows ?>
+    <?include Year.wxi ?>
+    <?undef Year ?><?undef Tfm ?>
+    <?define Year = 2026 ?><?define Tfm = net8.0-windows ?>
+    <?include Year.wxi ?>
+</Wix>

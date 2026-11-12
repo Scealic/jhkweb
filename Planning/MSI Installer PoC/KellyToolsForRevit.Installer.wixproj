@@ -1,0 +1,21 @@
+<Project Sdk="WixToolset.Sdk/5.0.2">
+    <PropertyGroup>
+        <Role Condition="'$(Role)' == ''">Detailer</Role>
+        <Version Condition="'$(Version)' == ''">5.26.1112.1239</Version>
+        <PayloadRoot Condition="'$(PayloadRoot)' == ''">C:\repo\jhkweb\Kelly-Revit-v5</PayloadRoot>
+        <DataRoot Condition="'$(DataRoot)' == ''">C:\Program Files\JH Kelly\Kelly Tools For Revit\Data</DataRoot>
+        <OutputName>Kelly Tools For Revit 5 - $(Role) $(Version)</OutputName>
+        <InstallerPlatform>x64</InstallerPlatform>
+        <SuppressIces>ICE61</SuppressIces>
+        <Contenter>0</Contenter><Manager>0</Manager><Developer>0</Developer>
+        <Contenter Condition="'$(Role)' == 'LeadDetailerManager' Or '$(Role)' == 'ContentDeveloper' Or '$(Role)' == 'Developer'">1</Contenter>
+        <Manager Condition="'$(Role)' == 'LeadDetailerManager' Or '$(Role)' == 'Developer'">1</Manager>
+        <Developer Condition="'$(Role)' == 'Developer'">1</Developer>
+        <DefineConstants>ProductVersion=$(Version);Role=$(Role);Payload=$(PayloadRoot);Data=$(DataRoot);Contenter=$(Contenter);Manager=$(Manager);Developer=$(Developer);Manifests=$(MSBuildProjectDirectory)\obj\Manifests</DefineConstants>
+    </PropertyGroup>
+    <Target Name="WriteAddinManifests" BeforeTargets="CoreCompile">
+        <ItemGroup><Year Include="2024;2025;2026" /></ItemGroup>
+        <WriteLinesToFile File="$(MSBuildProjectDirectory)\obj\Manifests\%(Year.Identity)\Kelly Tools For Revit 5.addin" Overwrite="true"
+            Lines="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;;&lt;RevitAddIns&gt;;  &lt;AddIn Type=&quot;Application&quot;&gt;;    &lt;AddInId&gt;321044f7-b0b3-4b1c-af18-e71a1925%(Year.Identity)&lt;/AddInId&gt;;    &lt;Assembly&gt;C:\Program Files\JH Kelly\Kelly Tools For Revit\V5\%(Year.Identity)\Kelly.Revit.dll&lt;/Assembly&gt;;    &lt;FullClassName&gt;Kelly.Revit.Core.App&lt;/FullClassName&gt;;    &lt;Name&gt;Kelly Tools For Revit - Version 5 For Revit %(Year.Identity)&lt;/Name&gt;;    &lt;ProductVersion&gt;$(Version)&lt;/ProductVersion&gt;;    &lt;VendorId&gt;com.jhkelly.KellyToolsRevit&lt;/VendorId&gt;;  &lt;/AddIn&gt;;&lt;/RevitAddIns&gt;" />
+    </Target>
+</Project>

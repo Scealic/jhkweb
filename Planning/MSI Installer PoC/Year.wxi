@@ -1,0 +1,38 @@
+<Include xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <Fragment>
+        <DirectoryRef Id="V5Folder">
+            <Directory Id="Year$(var.Year)" Name="$(var.Year)" />
+        </DirectoryRef>
+        <StandardDirectory Id="CommonAppDataFolder">
+            <Directory Id="Autodesk$(var.Year)" Name="Autodesk">
+                <Directory Id="AutodeskRevit$(var.Year)" Name="Revit">
+                    <Directory Id="Addins$(var.Year)" Name="Addins">
+                        <Directory Id="Manifest$(var.Year)" Name="$(var.Year)" />
+                    </Directory>
+                </Directory>
+            </Directory>
+        </StandardDirectory>
+
+        <ComponentGroup Id="Revit$(var.Year)">
+            <Files Directory="Year$(var.Year)" Include="$(var.Payload)\src\bin\Release\$(var.Year)\$(var.Tfm)\win-x64\*.dll" />
+            <File Id="TradeAll$(var.Year)" ShortName="TRALL.DLL" Directory="Year$(var.Year)" Source="$(var.Payload)\modules\Trade.All\bin\Release\$(var.Year)\$(var.Tfm)\win-x64\Kelly.Revit.Trade.All.dll" />
+            <File Id="TradePipe$(var.Year)" ShortName="TRPIPE.DLL" Directory="Year$(var.Year)" Source="$(var.Payload)\modules\Trade.Pipe\bin\Release\$(var.Year)\$(var.Tfm)\win-x64\Kelly.Revit.Trade.Pipe.dll" />
+            <File Id="TradeDuct$(var.Year)" ShortName="TRDUCT.DLL" Directory="Year$(var.Year)" Source="$(var.Payload)\modules\Trade.Duct\bin\Release\$(var.Year)\$(var.Tfm)\win-x64\Kelly.Revit.Trade.Duct.dll" />
+<?if $(var.Contenter) = 1 ?>
+            <File Id="TradeContenter$(var.Year)" ShortName="TRCONT.DLL" Directory="Year$(var.Year)" Source="$(var.Payload)\modules\Trade.Contenter\bin\Release\$(var.Year)\$(var.Tfm)\win-x64\Kelly.Revit.Trade.Contenter.dll" />
+<?endif?>
+<?if $(var.Manager) = 1 ?>
+            <File Id="TradeManager$(var.Year)" ShortName="TRMAN.DLL" Directory="Year$(var.Year)" Source="$(var.Payload)\modules\Trade.Manager\bin\Release\$(var.Year)\$(var.Tfm)\win-x64\Kelly.Revit.Trade.Manager.dll" />
+<?endif?>
+<?if $(var.Developer) = 1 ?>
+            <File Id="TradeDeveloper$(var.Year)" ShortName="TRDEV.DLL" Directory="Year$(var.Year)" Source="$(var.Payload)\modules\Trade.Developer\bin\Release\$(var.Year)\$(var.Tfm)\win-x64\Kelly.Revit.Trade.Developer.dll" />
+<?endif?>
+            <Component Id="Manifest$(var.Year)" Directory="Manifest$(var.Year)">
+                <File Id="Addin$(var.Year)" Source="$(var.Manifests)\$(var.Year)\Kelly Tools For Revit 5.addin" KeyPath="yes" />
+                <RemoveFile Id="StaleOwnManifest$(var.Year)" Name="Kelly Tools For Revit 5.addin.x" On="install" />
+                <CopyFile Id="DisableV4Manifest$(var.Year)" SourceDirectory="Manifest$(var.Year)" SourceName="Kelly Tools For Revit 4.addin" DestinationDirectory="Manifest$(var.Year)" DestinationName="Kelly Tools For Revit 4.addin.x" Delete="yes" />
+                <CopyFile Id="DisableOldManifest$(var.Year)" SourceDirectory="Manifest$(var.Year)" SourceName="Kelly Tools For Revit.addin" DestinationDirectory="Manifest$(var.Year)" DestinationName="Kelly Tools For Revit.addin.x" Delete="yes" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Include>
