@@ -10,5 +10,6 @@ Time Claude Code spends on the Kelly Assigners dockable pane ([KTR5-4085](https:
 | 2026-11-12 | 10:00 | 10:22 | 22 | KTRL5-180 in Kelly-Revit-Logic-v5 (writers take a value source, `ProcessSelectedElements` with a service; `34fa70c`), tests first, built for 2024 to 2026; in-Revit runs: Kelly-Revit `Assigner*` 189/189 (KTR5-4829 handler), Logic element services 72/72. |
 | 2026-11-12 | 10:22 | 10:28 | 6 | Packed Kelly.Revit.Logic 5.26.1112.1026 (KTRL5-180, Done), repinned and packed Kelly.Revit.UI 1.26.1112.1026, repinned Kelly-Revit-v5 (KTR5-4826 part); all built for 2024 to 2026. |
 | 2026-11-12 | 10:50 | 10:56 | 6 | KTR5-4829: maintainer decision on Service Add To Selected; wired Service, System, Detailing Package and Line Number through the Logic writers with the pane's value (`AssignerPaneServiceElementService` composite); tests first, built for 2024 to 2026, committed `ffde41c4`; started the in-Revit run; fixed this table (blank lines had split it). Start estimated from the first Linear comment. |
+| 2026-11-12 | 11:07 | 11:47 | 40 | KTR5-4829 results (186/186); KTRL5-181 (one owner per assigner selection; 112/112 Logic tests; package 5.26.1112.1129, UI 1.26.1112.1129, repinned); KTR5-4830 (pane Auto-Assign owns its context) and KTR5-4826 (ribbon toggles take it back, Reset and Add Selected respect the owner); installed v5 for 2024; also KTR5-4064, KTR5-4780 and KTR5-4832, which the pane work turned up; committed Kelly-Revit-v5 `97477d0d`. In-Revit 220/223 (3 test faults fixed, not rerun). |
 
-**Total:** 109 minutes
+**Total:** 149 minutes
