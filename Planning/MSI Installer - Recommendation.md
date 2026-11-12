@@ -23,7 +23,8 @@ Build the installers with **WiX Toolset 5.0.2** (`WixToolset.Sdk`), the same too
 ### Tool: WiX 5.0.2, not InstallShield
 
 - WiX is already the house tool (Component Data Editor), it builds with `dotnet build` (no IDE, no per-machine licence), and the source is plain XML in git, which diffs and reviews well.
-- InstallShield 2025 is installed and has a command-line builder (`IsCmdBld.exe`), but the existing InstallShield project is in none of the jhkweb repos, every build machine needs a licence, and `.ism` files diff poorly.
+- InstallShield 2025 is installed and has a command-line builder (`IsCmdBld.exe`), but every build machine needs a licence and its project files diff poorly. *Correction (same day):* the InstallShield project does exist, as `Kelly-Revit-v5/.build/Kelly-Tools-For-Revit.ise`; my first search missed it. It still packages the layout from before 2026-11-02 and picks tabs as optional features rather than by role.
+- **Decided 2026-11-12 (maintainer): "We'll go with WIX."** Implemented in `Kelly-Revit-v5/installer/` (KTR5-4833, commit 01e8dc98); the proof of concept in `MSI Installer PoC/` is superseded by it. The `.ise` is retired once KTR5-4834 passes (KTR5-4837).
 - Stay on **WiX 5.x**. Check the licence terms before moving to WiX 6 or later: as I understand it, they come under the "Open Source Maintenance Fee", which charges organisations that earn revenue from them.
 
 ### Layout: one MSI per role, all years inside
