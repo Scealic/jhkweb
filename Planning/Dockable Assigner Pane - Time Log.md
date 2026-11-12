@@ -5,13 +5,10 @@ Time Claude Code spends on the Kelly Assigners dockable pane ([KTR5-4085](https:
 | Date | Start | End | Minutes | Work |
 |---|---|---|---|---|
 | 2026-11-12 | 08:45 | 08:52 | 7 | Found the stub; maintainer decision "keep ribbon", recorded on KTR5-4085; 11 tests written; pane made a WPF `Page`; provider, registration, show/hide command, button and `AssignerPane` icon added; built for 2024, 2025 and 2026; docs updated; committed Kelly-Revit-v5 `e6dc2f6f`. The lookup of the stub before 08:45 is not counted. |
-
 | 2026-11-12 | 08:52 | 09:31 | 39 | Started the in-Revit test run (pane and contract tests); design interview (goal, contexts, features, independence, writers in Logic, auto-assign ownership, refresh, layout, new values, per-project memory, icons), recorded on KTR5-4085; split into KTRL5-180, KTRL5-181, KTR5-4826 to KTR5-4831; KTR5-4827 built test-first (row and pane view models, choice store, project key, request dispatcher and handler, `AssignerContext` bound as the row view), built for 2024 to 2026, committed Kelly-Revit-v5 `60e2c764`. |
-
 | 2026-11-12 | 09:31 | 10:00 | 29 | KTR5-4828 (value lists, Refresh, Service picks System; `cd8be450`), KTR5-4831 (add a new value, validated with the Kelly.Domain structs; `88352b6c`, `58f6e63c`), KTR5-4829 part (Adopt, Remove From Selected, Spool and Module Add To Selected; `66d9ea63`); two in-Revit runs of the `Assigner*` tests (149/151, then 178/178 after fixing two tests); filed KTR5-4832. |
-
 | 2026-11-12 | 10:00 | 10:22 | 22 | KTRL5-180 in Kelly-Revit-Logic-v5 (writers take a value source, `ProcessSelectedElements` with a service; `34fa70c`), tests first, built for 2024 to 2026; in-Revit runs: Kelly-Revit `Assigner*` 189/189 (KTR5-4829 handler), Logic element services 72/72. |
-
 | 2026-11-12 | 10:22 | 10:28 | 6 | Packed Kelly.Revit.Logic 5.26.1112.1026 (KTRL5-180, Done), repinned and packed Kelly.Revit.UI 1.26.1112.1026, repinned Kelly-Revit-v5 (KTR5-4826 part); all built for 2024 to 2026. |
+| 2026-11-12 | 10:50 | 10:56 | 6 | KTR5-4829: maintainer decision on Service Add To Selected; wired Service, System, Detailing Package and Line Number through the Logic writers with the pane's value (`AssignerPaneServiceElementService` composite); tests first, built for 2024 to 2026, committed `ffde41c4`; started the in-Revit run; fixed this table (blank lines had split it). Start estimated from the first Linear comment. |
 
-**Total:** 103 minutes
+**Total:** 109 minutes
