@@ -22,7 +22,7 @@ The add-in (`Kelly.Revit.dll`, its Kelly packages, the `.addin` manifest and the
 | Install type | Tools | Pipe | Duct | Content | Manage | Develop | Notes |
 |---|---|---|---|---|---|---|---|
 | Detailer | ✓ | ✓ | ✓ | – | – | – | Day-to-day detailing |
-| Lead Detailer / Manager | ✓ | ✓ | ✓ | – | ✓ | – | Adds model clean-up and reports. **?** How it differs from Manager |
+| Lead Detailer / Manager | ✓ | ✓ | ✓ | ✓ | ✓ | – | Adds model clean-up, reports and Content (decided 2026-11-12). Now the same modules as Manager |
 | Manager | ✓ | ✓ | ✓ | ✓ | ✓ | – | **?** Content for checking fabrication data, or not |
 | Content Developer | ✓ | ✓ | ✓ | ✓ | – | – | **?** Needs Tools/Pipe/Duct at all, or Content only |
 | Third Party | ✓ | ✓ | ✓ | – | – | – | **?** See the Third Party questions below |
@@ -32,13 +32,13 @@ The add-in (`Kelly.Revit.dll`, its Kelly packages, the `.addin` manifest and the
 
 1. **Roles and trades cross.** Pipe and Duct are trade tabs, not role tabs. Either every detailer role gets both (as drafted), or each role comes in Pipe and Duct variants (12 install types), or trade is an install option (an MSI feature or property) rather than a separate MSI. Recommendation: trade as a feature of one MSI.
 2. **Tools is too coarse for role control.** About 120 of the ~170 commands are in `Trade.All`. Any role that should not have, say, Spool Manager, Module Creator or the updaters can't be served by leaving out a DLL. If roles must differ inside Tools, that needs either more module splits (as KTR5-4585 did for the tabs) or a role setting read at startup that hides panels. Recommendation: keep DLL-level roles for now; split only where a real need is named.
-3. **Lead Detailer / Manager and Manager may be one install.** As drafted they differ only by Content. If that is not the intended difference, they can merge.
+3. **Lead Detailer / Manager and Manager install the same modules** now that Lead Detailer gets Content (2026-11-12). **?** Keep two names over one preset (one MSI build, two names for the people installing it), or merge them into one install type. Unless Manager gets something Lead Detailer doesn't (later, by a Tools split), that leaves five distinct presets.
 4. **Hiding a tab is not a security boundary.** The other modules' code is still on the machine through the shared Kelly packages (Logic, UI), and anyone can copy a DLL across. That's fine for internal roles, but it matters for Third Party.
 
 ## Third Party questions
 
 - Who are they? Do they work in JH Kelly models or their own?
-- Do they get the data files (`...\Kelly Tools For Revit\Data`)? Those hold JH Kelly's lists and shared parameter definitions, and the add-in fails startup without them.
+- **Decided 2026-11-12: Third Party gets the data files** (`...\Kelly Tools For Revit\Data`), as every other install type does, so the add-in starts as usual. The shared component group needs no Third Party variant.
 - Is the Tools tab acceptable as is (Stratus views, JH Kelly numbering, spools), or do they need a reduced Tools tab? A reduced tab means splitting `Trade.All` (finding 2).
 - Licence terms and code signing for an MSI that leaves the company.
 
