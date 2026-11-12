@@ -38,6 +38,6 @@ Turned up by the pane work, outside its sub-issues (about 10 minutes, in the las
 
 The minutes per issue are estimates: the log records sessions, and the split follows the work listed in each row.
 
-**Rate:** 22 points of sub-issues in about 125 minutes, roughly 6 minutes a point; with the shell, design and side issues, 26 points in 149 minutes.
+**Rate:** 22 points of sub-issues in about 115 minutes, roughly 5 minutes a point; with the shell, design and side issues, 26 points in 149 minutes.
 
 **Not done:** the maintainer's check of the pane in Revit 2024 (every In Review issue waits on it), pushing the three repositories, and installs for 2025 and 2026.
