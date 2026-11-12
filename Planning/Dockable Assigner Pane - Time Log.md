@@ -12,8 +12,10 @@ Time Claude Code spends on the Kelly Assigners dockable pane ([KTR5-4085](https:
 | 2026-11-12 | 10:50 | 10:56 | 6 | KTR5-4829: maintainer decision on Service Add To Selected; wired Service, System, Detailing Package and Line Number through the Logic writers with the pane's value (`AssignerPaneServiceElementService` composite); tests first, built for 2024 to 2026, committed `ffde41c4`; started the in-Revit run; fixed this table (blank lines had split it). Start estimated from the first Linear comment. |
 | 2026-11-12 | 11:07 | 11:47 | 40 | KTR5-4829 results (186/186); KTRL5-181 (one owner per assigner selection; 112/112 Logic tests; package 5.26.1112.1129, UI 1.26.1112.1129, repinned); KTR5-4830 (pane Auto-Assign owns its context) and KTR5-4826 (ribbon toggles take it back, Reset and Add Selected respect the owner); installed v5 for 2024; also KTR5-4064, KTR5-4780 and KTR5-4832, which the pane work turned up; committed Kelly-Revit-v5 `97477d0d`. In-Revit 220/223 (3 test faults fixed, not rerun). |
 | 2026-11-12 | 11:50 | 12:13 | 23 | Final in-Revit run, 281/281 (`Assigner*` and `AddInContractTests`), KTR5-4780 and KTR5-4832 Done; pane shows when Revit starts (`6c5c58a9`, pushed); time summary; pushed six repos' develop; KTR5-4773 checked (already Done, follow-ups noted); reinstalled v5 for 2024. Gaps between turns not counted, so the start and end are approximate. |
+| 2026-11-12 | 12:35 | 13:01 | 26 | KTR5-3938 Adopt All, on the ribbon and in the pane (`AssignerElementValues`, `AllAssignerAdoptCommand`, pane `AdoptAllCommand`), tests first, committed `557fa9e9`; in-Revit run 280/286 (6 inconclusive tests, replaced by a direct `ActiveProject` test, `4a7d6527`); installed for 2024. The startup-exception fix before it (`64584c7c`) is not logged here. |
+| 2026-11-12 | 13:01 | 13:14 | 13 | Started Revit 2024 for the hand check; pushed Kelly-Revit-v5; KTR5-4836 (more padding, one Auto-Assign All toggle), tests first, built for 2024 to 2026, committed `26b51638`; installed for 2024 (5.26.1112.1313). |
 
-**Total:** 172 minutes
+**Total:** 211 minutes
 
 ## Summary (2026-11-12)
 
