@@ -10,6 +10,8 @@ Code in Kelly-Domain that nothing in production uses, found with the `yagni` ski
 - **Searched, not dependents:** Kelly-Windows-Data-Sqlite, -SqlServer, Kelly-Revit-Data-Exporter, BuildConfigs, the two VCS schema repos, the jhkweb root.
 - **Configuration:** the skill's `default-entry-points.txt` and the jhkweb root `.yagni` (Revit and Kelly reflection entry points, `IRecord` properties).
 - **Not visible:** the Major Version 4 repos are not checked out, but they don't use Kelly-Domain (v5 only). Kelly-Domain is a NuGet package in `C:\Repo\NugetPackages`; no consumer outside these repos is known.
+- **Rechecked 2026-11-12 for dependents outside the scan:** in `C:\Repo\NugetPackages` only the Kelly.Revit.Logic 5.x packages depend on Kelly.Domain (the 4.x ones don't). Nothing under `C:\repo\chrishildebran`, `C:\repo\jhkweb - non KTR` or the user profile's scripts names it, nor do the installed `.addin` manifests, the data folder or Kelly-Revit-Data-Exporter. The repos scanned were all on a clean `develop`.
+- **Not every dead member is found:** matching is by name, so a dead member sharing a name with a live one is not flagged.
 - **Checking:** every candidate was grepped across the corpus, code and data (including the CSV data files in `C:\Program Files\JH Kelly\Kelly Tools For Revit\Data`), and checked for reflection, serializers, XAML bindings and data-file mapping.
 
 ## 2. Totals
