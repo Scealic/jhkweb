@@ -8,4 +8,6 @@ Time Claude Code spends on the Kelly Assigners dockable pane ([KTR5-4085](https:
 
 | 2026-11-12 | 08:52 | 09:31 | 39 | Started the in-Revit test run (pane and contract tests); design interview (goal, contexts, features, independence, writers in Logic, auto-assign ownership, refresh, layout, new values, per-project memory, icons), recorded on KTR5-4085; split into KTRL5-180, KTRL5-181, KTR5-4826 to KTR5-4831; KTR5-4827 built test-first (row and pane view models, choice store, project key, request dispatcher and handler, `AssignerContext` bound as the row view), built for 2024 to 2026, committed Kelly-Revit-v5 `60e2c764`. |
 
-**Total:** 46 minutes
+| 2026-11-12 | 09:31 | 10:00 | 29 | KTR5-4828 (value lists, Refresh, Service picks System; `cd8be450`), KTR5-4831 (add a new value, validated with the Kelly.Domain structs; `88352b6c`, `58f6e63c`), KTR5-4829 part (Adopt, Remove From Selected, Spool and Module Add To Selected; `66d9ea63`); two in-Revit runs of the `Assigner*` tests (149/151, then 178/178 after fixing two tests); filed KTR5-4832. |
+
+**Total:** 75 minutes
