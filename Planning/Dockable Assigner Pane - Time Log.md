@@ -4,17 +4,17 @@ Time Claude Code spends on the Kelly Assigners dockable pane ([KTR5-4085](https:
 
 ## Totals
 
-312 minutes of Claude Code time (5 h 12 min) in 17 sessions on 2026-11-12; about 79 hours of a senior .NET developer's time by hand.
+323 minutes of Claude Code time (5 h 23 min) in 18 sessions on 2026-11-12; about 83 hours of a senior .NET developer's time by hand.
 
 | | Hours | Cost |
 |---|---|---|
-| By hand (senior .NET developer at \$100/hr) | 79 | \$7,900 |
-| With Claude Code: Claude usage (API-equivalent, the sessions below) | 5.2 | \$73.03 |
-| **Difference** | **73.8** | **\$7,826.97** |
+| By hand (senior .NET developer at \$100/hr) | 83 | \$8,300 |
+| With Claude Code: Claude usage (API-equivalent, the sessions below) | 5.4 | \$77.43 |
+| **Difference** | **77.6** | **\$8,222.57** |
 
-The Claude cost of the sessions below is \$73.03. To 15:09 the whole session cost \$74.85 at API rates; the sessions logged to then cost \$60.64, and the rest went to work this log does not count, such as the startup-exception fix, the work log and the pushes. The maintainer's own time supervising and checking in Revit is in neither column.
+The Claude cost of the sessions below is \$77.43. To 15:09 the whole session cost \$74.85 at API rates; the sessions logged to then cost \$60.64, and the rest went to work this log does not count, such as the startup-exception fix, the work log and the pushes. The maintainer's own time supervising and checking in Revit is in neither column.
 
-**Rate:** 39 points of issues in about 249 minutes, roughly 6 minutes a point; with the shell, design, checks, installs and this log, 312 minutes.
+**Rate:** 41 points of issues in about 260 minutes, roughly 6 minutes a point; with the shell, design, checks, installs and this log, 323 minutes.
 
 ## By issue
 
@@ -39,16 +39,17 @@ The Claude cost of the sessions below is \$73.03. To 15:09 the whole session cos
 | KTR5-4840 | 1 | Done | 3 | 1 | \$1.02 | \$100 | All buttons as row-sized icons under their columns |
 | KTR5-4841 | 1 | Done | 8 | 1 | \$2.03 | \$100 | Value boxes 200 px wide, drop-down as wide as its widest item |
 | KTR5-4842 | 2 | Done | 29 | 6 | \$10.36 | \$600 | Floating window sized to its UI; the first build failed the add-in's startup, fixed the same day |
+| KTR5-4843 | 2 | Done | 11 | 4 | \$4.40 | \$400 | Vector icons in the JHK palette, faded when disabled; 13 pt semibold row labels |
 | Checks, installs and pushes | – | – | 37 | 3.5 | \$7.20 | \$350 | Final in-Revit run 281/281, pane shown at startup, hand check, installs for 2024, pushes |
 | This log | – | – | 4 | 0.5 | \$0.73 | \$50 | Human time and cost columns |
-| **Total** | **39** | | **312** | **79** | **\$73.03** | **\$7,900** | |
+| **Total** | **41** | | **323** | **83** | **\$77.43** | **\$8,300** | |
 
-Points and states from Linear on 2026-11-12, at 17:10.
+Points and states from Linear on 2026-11-12, at 17:21.
 
-## Open items (as of 17:10)
+## Open items (as of 17:21)
 
 - Every pane issue is Done after the maintainer's checks in Revit 2024.
-- Kelly-Revit-v5's last four commits (`67497e76`, `80aa4041`, its README commit, `c4e6846f`) are not pushed.
+- Kelly-Revit-v5's last commit (`2f331d1e`, the icons and labels) is not pushed; everything before it is.
 - 2025 and 2026 still have the morning's pane build.
 - The new tests have not run in Revit.
 - KD-90 (what a spool number is) waits on a decision.
@@ -76,6 +77,7 @@ Points and states from Linear on 2026-11-12, at 17:10.
 | 15:09 | 15:13 | – | 4 | 0.5 | \$0.73 | \$50 | This log: the human time and cost columns, and the rows from 13:14 on. |
 | 15:13 | 15:42 | KTR5-4841, KTR5-4842 | 29 | 6 | \$7.35 | \$600 | Pushed Kelly-Revit-UI and Kelly-Revit-v5; KTR5-4841: value boxes 200 px wide (`67497e76`), hand check passed, KTR5-4838 to KTR5-4841 and KTRUI-39 Done; KTR5-4842: floating window fitted to the UI (`80aa4041`). That build failed the add-in's startup (`API_ERROR`, then an `SEHException` crash). Found in the journal and fixed (`c4e6846f`: no layout work while Revit registers the pane; floating told by the window's owner); installed (1532), and the journal showed a clean start. |
 | 17:02 | 17:10 | KTR5-4842 | 8 | 1 | \$5.04 | \$100 | The pane still opened tall once; listed Revit's windows (the floating window is a WPF window owned by the main window) while the maintainer floated it again: 600 by 300, "shrunk down to just the right size"; KTR5-4842 Done; this log. |
+| 17:10 | 17:21 | KTR5-4843 | 11 | 4 | \$4.40 | \$400 | Seven vector icons for the pane in the old metaphors (`AssignerPaneIcons.xaml`; JHK charcoal, green accent, red for Remove From; faded when disabled), previewed at 16, 32 and 64 px; row labels 13 pt semibold, All bold, label column 140; tests first; committed `2f331d1e`; installed for 2024 (1718), clean start in the journal; maintainer: "Looks good". |
 
 ## How the columns are worked out
 
