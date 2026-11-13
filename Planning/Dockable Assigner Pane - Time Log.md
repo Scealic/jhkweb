@@ -4,17 +4,17 @@ Time Claude Code spends on the Kelly Assigners dockable pane ([KTR5-4085](https:
 
 ## Totals
 
-275 minutes of Claude Code time (4 h 35 min) in 15 sessions on 2026-11-12; about 72 hours of a senior .NET developer's time by hand.
+312 minutes of Claude Code time (5 h 12 min) in 17 sessions on 2026-11-12; about 79 hours of a senior .NET developer's time by hand.
 
 | | Hours | Cost |
 |---|---|---|
-| By hand (senior .NET developer at \$100/hr) | 72 | \$7,200 |
-| With Claude Code: Claude usage (API-equivalent, the sessions below) | 4.6 | \$60.64 |
-| **Difference** | **67.4** | **\$7,139.36** |
+| By hand (senior .NET developer at \$100/hr) | 79 | \$7,900 |
+| With Claude Code: Claude usage (API-equivalent, the sessions below) | 5.2 | \$73.03 |
+| **Difference** | **73.8** | **\$7,826.97** |
 
-The Claude cost of the sessions below is \$60.64. The whole session cost \$74.85 at API rates on 2026-11-12; the rest went to work this log does not count, such as the startup-exception fix, the work log and the pushes. The maintainer's own time supervising and checking in Revit is in neither column.
+The Claude cost of the sessions below is \$73.03. To 15:09 the whole session cost \$74.85 at API rates; the sessions logged to then cost \$60.64, and the rest went to work this log does not count, such as the startup-exception fix, the work log and the pushes. The maintainer's own time supervising and checking in Revit is in neither column.
 
-**Rate:** 36 points of issues in about 212 minutes, roughly 6 minutes a point; with the shell, design, checks, installs and this log, 275 minutes.
+**Rate:** 39 points of issues in about 249 minutes, roughly 6 minutes a point; with the shell, design, checks, installs and this log, 312 minutes.
 
 ## By issue
 
@@ -33,22 +33,25 @@ The Claude cost of the sessions below is \$60.64. The whole session cost \$74.85
 | KTR5-4064, KTR5-4780, KTR5-4832 | 4 | Done | 10 | 3 | \$2.50 | \$300 | Turned up by the pane work: ribbon auto-assign refuses the default (2), Spool and Module auto-set kept disabled (1), contract test runs in any UI state (1) |
 | KTR5-3938 | 4 | Done | 26 | 5 | \$3.29 | \$500 | Adopt All, on the ribbon and in the pane |
 | KTR5-4836 | 1 | Done | 18 | 4 | \$3.63 | \$400 | More padding, one Auto-Assign All toggle, buttons under the rows |
-| KTR5-4838 | 1 | In Review | 24 | 4 | \$3.29 | \$400 | Red message and border for a typed value that is not valid; one-line message, spool numbers of any category |
-| KTRUI-39 | 1 | In Review | 7 | 2.5 | \$1.67 | \$250 | `RevitUserPrompt` asked for a verification checkbox the dialog did not have; packed and repinned |
-| KTR5-4839 | 2 | In Review | 9 | 3 | \$3.06 | \$300 | Hide and Isolate on every row, the ribbon's twelve commands on the same definition |
-| KTR5-4840 | 1 | In Review | 3 | 1 | \$1.02 | \$100 | All buttons as row-sized icons under their columns |
+| KTR5-4838 | 1 | Done | 24 | 4 | \$3.29 | \$400 | Red message and border for a typed value that is not valid; one-line message, spool numbers of any category |
+| KTRUI-39 | 1 | Done | 7 | 2.5 | \$1.67 | \$250 | `RevitUserPrompt` asked for a verification checkbox the dialog did not have; packed and repinned |
+| KTR5-4839 | 2 | Done | 9 | 3 | \$3.06 | \$300 | Hide and Isolate on every row, the ribbon's twelve commands on the same definition |
+| KTR5-4840 | 1 | Done | 3 | 1 | \$1.02 | \$100 | All buttons as row-sized icons under their columns |
+| KTR5-4841 | 1 | Done | 8 | 1 | \$2.03 | \$100 | Value boxes 200 px wide, drop-down as wide as its widest item |
+| KTR5-4842 | 2 | Done | 29 | 6 | \$10.36 | \$600 | Floating window sized to its UI; the first build failed the add-in's startup, fixed the same day |
 | Checks, installs and pushes | – | – | 37 | 3.5 | \$7.20 | \$350 | Final in-Revit run 281/281, pane shown at startup, hand check, installs for 2024, pushes |
 | This log | – | – | 4 | 0.5 | \$0.73 | \$50 | Human time and cost columns |
-| **Total** | **36** | | **275** | **72** | **\$60.64** | **\$7,200** | |
+| **Total** | **39** | | **312** | **79** | **\$73.03** | **\$7,900** | |
 
-Points and states from Linear on 2026-11-12, after 15:13.
+Points and states from Linear on 2026-11-12, at 17:10.
 
-## Open items (as of 15:13)
+## Open items (as of 17:10)
 
-- In Review, waiting on the maintainer's check in Revit 2024: KTR5-4838, KTR5-4839, KTR5-4840 and KTRUI-39.
-- The afternoon's commits in Kelly-Revit-v5 and Kelly-Revit-UI are not pushed.
+- Every pane issue is Done after the maintainer's checks in Revit 2024.
+- Kelly-Revit-v5's last four commits (`67497e76`, `80aa4041`, its README commit, `c4e6846f`) are not pushed.
 - 2025 and 2026 still have the morning's pane build.
 - The new tests have not run in Revit.
+- KD-90 (what a spool number is) waits on a decision.
 
 ## Sessions
 
@@ -71,6 +74,8 @@ Points and states from Linear on 2026-11-12, after 15:13.
 | 14:33 | 14:57 | KTR5-4838, KD-90 | 24 | 3 | \$2.81 | \$300 | Installed for 2024 (5.26.1112.1433) when Revit was closed; confirmed the pane loads for every install type (it is in Trade.All); the invalid-value message made one short line under the row, full format in its tooltip (`40ca700a`); spool numbers with any category accepted, as Spool Create makes them (`abdcb1f2`); filed KD-90 for the `SpoolNumber` struct; installed for 2024 (1445, 1457). The wait for Revit to close (13:38 to 14:33) is not counted. |
 | 14:57 | 15:09 | KTR5-4839, KTR5-4840 | 12 | 4 | \$4.08 | \$400 | KTR5-4839: Hide and Isolate on every row, as the ribbon's, with the ribbon's twelve commands moved onto the same per-context definition and filter domain (`dd64f57d`); KTR5-4840: the All buttons as row-sized icons under their columns (`cdf8f2c8`); installed for 2024 (1500, 1507). |
 | 15:09 | 15:13 | – | 4 | 0.5 | \$0.73 | \$50 | This log: the human time and cost columns, and the rows from 13:14 on. |
+| 15:13 | 15:42 | KTR5-4841, KTR5-4842 | 29 | 6 | \$7.35 | \$600 | Pushed Kelly-Revit-UI and Kelly-Revit-v5; KTR5-4841: value boxes 200 px wide (`67497e76`), hand check passed, KTR5-4838 to KTR5-4841 and KTRUI-39 Done; KTR5-4842: floating window fitted to the UI (`80aa4041`). That build failed the add-in's startup (`API_ERROR`, then an `SEHException` crash). Found in the journal and fixed (`c4e6846f`: no layout work while Revit registers the pane; floating told by the window's owner); installed (1532), and the journal showed a clean start. |
+| 17:02 | 17:10 | KTR5-4842 | 8 | 1 | \$5.04 | \$100 | The pane still opened tall once; listed Revit's windows (the floating window is a WPF window owned by the main window) while the maintainer floated it again: 600 by 300, "shrunk down to just the right size"; KTR5-4842 Done; this log. |
 
 ## How the columns are worked out
 
