@@ -12,6 +12,18 @@
         "C:\\Users\\childebran\\AppData\\Local\\Temp\\claude\\C--repo-jhkweb\\a522c577-b3ce-4bc5-a0e7-fa6f51750841\\scratchpad\\icon-render-c"
       ],
       "port": 5317
+    },
+    {
+      "name": "component-data-editor-blazor",
+      "runtimeExecutable": "dotnet",
+      "runtimeArgs": [
+        "run",
+        "--project",
+        "C:\\repo\\jhkweb\\Component-Data-Editor\\src\\ComponentDataEditor.Blazor\\ComponentDataEditor.Blazor.csproj",
+        "--launch-profile",
+        "http"
+      ],
+      "port": 5174
     }
   ]
 }
