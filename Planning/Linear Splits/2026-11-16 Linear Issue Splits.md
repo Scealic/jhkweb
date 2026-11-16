@@ -51,4 +51,6 @@ None.
 | 5 | [KTR5-4866](https://linear.app/jhkelly-ktr/issue/KTR5-4866) | Host `Properties.Settings`: move its three values onto the settings service | 1 | — |
 | 6 | [KTR5-4867](https://linear.app/jhkelly-ktr/issue/KTR5-4867) | Settings window: a ribbon command to view and change the settings | 4 | — |
 
+Later on 2026-11-16 the maintainer asked for a WPF/MVVM user interface for some settings. KTR5-4867 was retitled "Settings window: WPF/MVVM window to view and change the user-editable settings", and KTR5-4596 now also marks each setting as user-editable.
+
 No calls were refused. KTR5-4596 and KTR5-4602 also got the "Settings" feature label, and KTR5-4602 left KTR5-4596 as its parent.
