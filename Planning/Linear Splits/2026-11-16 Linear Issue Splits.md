@@ -97,3 +97,17 @@ None.
 
 - **Removing a user-added row:** a remove (×) button on the row, or a right-click menu on its label? **Decided 2026-11-16: a × button on the row.**
 - **Where the added contexts are saved:** a hidden extensible-storage entity in the project (recommended: it needs no new shared parameter and isn't shown to users), or a text parameter on Project Information? Not the project-level JSON file of the settings store (KTRL5-186, KTR5-4864): it sits outside the `.rvt`, so other people opening the project would not see the rows. **Decided 2026-11-16: extensible storage.**
+
+### Applied 2026-11-16
+
+[KTR5-4869](https://linear.app/jhkelly-ktr/issue/KTR5-4869) is now a parent with no estimate. It stays in Todo. Its sub-issues, all in Backlog:
+
+| # | Key | Title | Est. | Order |
+|---|---|---|---|---|
+| 1 | [KTRL5-187](https://linear.app/jhkelly-ktr/issue/KTRL5-187) | Project-level storage: read and write a list of strings saved in the project file | 2 | blocks KTR5-4873 |
+| 2 | [KTR5-4870](https://linear.app/jhkelly-ktr/issue/KTR5-4870) | Assigners panes: a context definition for any user-picked parameter | 2 | blocks KTR5-4872 |
+| 3 | [KTR5-4871](https://linear.app/jhkelly-ktr/issue/KTR5-4871) | Assigners panes: add and remove context rows at run time | 4 | blocks KTR5-4872, KTR5-4873 |
+| 4 | [KTR5-4872](https://linear.app/jhkelly-ktr/issue/KTR5-4872) | Assigners panes: Add Context button, parameter picker and a × on added rows | 2 | — |
+| 5 | [KTR5-4873](https://linear.app/jhkelly-ktr/issue/KTR5-4873) | Assigners panes: save the added contexts with the project and restore them | 2 | — |
+
+The picker piece (4) also waits on pieces 2 and 3, and saving (5) also waits on 3. Those two relations were added beyond the proposal's order. No calls were refused.
