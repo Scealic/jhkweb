@@ -69,3 +69,25 @@ These run in the manager's own code, not in Kelly.Revit.Logic, so the test doesn
 4. **Large-project shape:** a project with many trapezes or linked structure, where the raycast cost grows.
 
 Next step: time the manager itself on this project. Use a stopwatch around `BuildSuspendedSupports`, `ApplyScope` and the window's first render, or time the progress bar and the window open by hand. If most of the time turns out to be in the progress window or the grid, the fix belongs in Kelly.Windows (`ProgressWindowReporter`) or in the manager, not in `SuspendedSupport`.
+
+## The manager window itself (06MP-NTT HI3-JHK)
+
+Measured in your Revit 2024 with the installed Kelly-Revit-v5 5.26.1116.1133. The manager writes one line to the development log when its window first draws. Opened 2026-11-16 11:37, initial scope View:
+
+| Step | ms |
+|---|---:|
+| Collect elements in 3 scopes (2,981 in document, 4 in view, 0 selected) | 252 |
+| Open the progress window | 25 |
+| Build 2,102 supports, with the progress window | 2,152 |
+| Match signatures | 28 |
+| Close the progress window | 11 |
+| Apply scope (View) | 1 |
+| Build the window and draw the grid (4 rows) | 1,195 |
+| **Total, view model created to grid drawn** | **3,670** |
+
+- **About 3.7 s from start to finish** on this project, so it is not slow here.
+- **Build:** 2.15 s, against 1.5 s for the same steps without a window in the timing test. The progress window and the per-element scope and description reads add about 0.6 s.
+- **Window and grid:** 1.2 s, with only 4 rows shown because the scope was View. That is mostly the cost of creating the window and the Telerik grid.
+- **Not measured:**
+  - switching to Document scope, which puts all 2,102 rows in the grid; the log line is written once, at first draw;
+  - a project with many trapezes or pipe-hanger families, where the per-rod raycast (about 12 ms per rod at this model size) would add up.
