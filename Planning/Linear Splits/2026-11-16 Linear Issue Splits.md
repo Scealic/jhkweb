@@ -95,5 +95,5 @@ None.
 
 ### Open questions
 
-- **Removing a user-added row:** a remove (×) button on the row, or a right-click menu on its label?
-- **Where the added contexts are saved:** a hidden extensible-storage entity in the project (recommended: it needs no new shared parameter and isn't shown to users), or a text parameter on Project Information? Not the project-level JSON file of the settings store (KTRL5-186, KTR5-4864): it sits outside the `.rvt`, so other people opening the project would not see the rows.
+- **Removing a user-added row:** a remove (×) button on the row, or a right-click menu on its label? **Decided 2026-11-16: a × button on the row.**
+- **Where the added contexts are saved:** a hidden extensible-storage entity in the project (recommended: it needs no new shared parameter and isn't shown to users), or a text parameter on Project Information? Not the project-level JSON file of the settings store (KTRL5-186, KTR5-4864): it sits outside the `.rvt`, so other people opening the project would not see the rows. **Decided 2026-11-16: extensible storage.**
