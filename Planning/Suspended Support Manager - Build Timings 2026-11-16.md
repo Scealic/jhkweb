@@ -1,0 +1,71 @@
+# Suspended Support Manager: build timings (2026-11-16)
+
+For [KTR5-4863](https://linear.app/jhkelly-ktr/issue/KTR5-4863) ("building the supports slows down sharply on large projects").
+
+## How it was measured
+
+- **Test:** `SuspendedSupportBuildTimingTests` in Kelly-Revit-Logic-v5 (`test/Revit.Logic.RevitTests/Supports`).
+  - It is `[Explicit]`, so a full test run skips it.
+  - It runs in Revit 2024 with the Kelly add-in loaded, so the real definitions resolve. It therefore times the installed build: Kelly.Revit.Logic 5.26.1112.1805.
+- **Projects:** each run opens a detached temporary copy, never the file itself.
+  - Default: the Kelly test project.
+  - Another project: set the environment variable `KELLY_TIMING_MODEL` to its path.
+- **Steps timed:** each step of `SuspendedSupport.CreateFromElements` is timed separately:
+  - collecting the elements whose JHK Product Range is Supports;
+  - `TryCreate`;
+  - `LoadFromHost`, with fabrication hangers and family supports timed apart;
+  - `MarkSignatureTagPairMatches`.
+- **Re-runs on their own:** two parts of `LoadFromHost` were run again by themselves, to see their share:
+  - the structure raycast for each family-support rod;
+  - the ordered layout point lookup for each family support.
+- **Reports:** each run writes `Kelly-Revit-Logic-v5/test/TestLogs/Suspended Support Build Timings - <project>.md` (git-ignored).
+
+To run it again:
+
+```bash
+KELLY_TIMING_MODEL="<path to .rvt>" dotnet test Kelly-Revit-Logic-v5/test/Revit.Logic.RevitTests/Revit.Logic.RevitTests.csproj -c 2024 -p:SolutionName=Kelly.Revit.Logic -p:GeneratePackageOnBuild=false --filter "FullyQualifiedName~SuspendedSupportBuildTimingTests"
+```
+
+## Results
+
+| Step | KTR Test Project (ms) | 06MP-NTT HI3-JHK (ms) |
+|---|---:|---:|
+| Open the project copy (not part of the manager) | 19,904 | 47,091 |
+| Collect the support elements | 43 | 307 |
+| `TryCreate` on each element | 52 | 488 |
+| `LoadFromHost`, fabrication hangers | 33 | 240 |
+| `LoadFromHost`, family supports (trapezes, pipe hangers) | 297 | 783 |
+| ↳ structure raycast per family rod (re-run alone) | 46 | 339 |
+| ↳ ordered layout points per family support (re-run alone) | 0 | 0 |
+| `MarkSignatureTagPairMatches` | 6 | 29 |
+| **Build total** (collect to mark, without the re-runs) | **431** | **1,847** |
+
+| Count | KTR Test Project | 06MP-NTT HI3-JHK |
+|---|---:|---:|
+| File size | 137 MB | 325 MB |
+| Elements with Product Range = Supports | 153 | 2,981 |
+| Suspended supports built | 130 | 2,102 |
+| Fabrication hangers / their rods | 96 / 107 | 2,088 / 2,088 |
+| Family supports / their rods | 34 / 71 | 14 / 28 |
+
+## What the numbers say
+
+- **The support logic is not the slow part.** In the large project it builds all 2,102 supports in under 2 seconds.
+  - That project has 16 times as many supports as the test project, and the build takes 4.3 times as long, so the build grows *slower* than the support count.
+  - On this project the logic does not show the superlinear slowdown described in the issue.
+- **Per support:** a fabrication hanger costs about 0.1 ms to load. A family support costs about 56 ms in the large project, against 9 ms in the test project.
+- **Per raycast:** each structure raycast takes about 12 ms in the large project and 0.6 ms in the test project. The cost per ray grows with model size, as the issue suspected.
+  - This project has only 28 family rods, so the raycasts add up to a third of a second.
+  - A project with hundreds of trapezes would feel this: about 12 ms × rods, or around 1 minute per 5,000 rods at this model size.
+- **Not significant:** layout point ordering and signature matching cost almost nothing.
+
+## Not measured yet
+
+These run in the manager's own code, not in Kelly.Revit.Logic, so the test doesn't cover them. The time the user sees is most likely here:
+
+1. **Progress window:** "Creating Suspended Supports" renders once per element, 2,981 times here. `ItemBegin` also reads JHK Long Description for every element.
+2. **Collecting elements three times:** the manager collects the elements once for each scope (Document, View, Selection), through `UIDocument`.
+3. **Grid:** filling and rendering the `RadGridView` with 2,102 rows, its sort, filter and group descriptors, and the scope filter in `ApplyScope`.
+4. **Large-project shape:** a project with many trapezes or linked structure, where the raycast cost grows.
+
+Next step: time the manager itself on this project. Use a stopwatch around `BuildSuspendedSupports`, `ApplyScope` and the window's first render, or time the progress bar and the window open by hand. If most of the time turns out to be in the progress window or the grid, the fix belongs in Kelly.Windows (`ProgressWindowReporter`) or in the manager, not in `SuspendedSupport`.
