@@ -91,3 +91,23 @@ Measured in your Revit 2024 with the installed Kelly-Revit-v5 5.26.1116.1133. Th
 - **Not measured:**
   - switching to Document scope, which puts all 2,102 rows in the grid; the log line is written once, at first draw;
   - a project with many trapezes or pipe-hanger families, where the per-rod raycast (about 12 ms per rod at this model size) would add up.
+
+## A large cloud project (opened 2026-11-16 12:31)
+
+The same installed build, in your Revit 2024, on a large cloud project. The project's name is not in the log.
+
+| Step | 06MP-NTT HI3-JHK (local) | Cloud project |
+|---|---:|---:|
+| Elements (document / view / selected) | 2,981 / 4 / 0 | 417 / 417 / 0 |
+| Collect elements in 3 scopes | 252 | 55 |
+| Open the progress window | 25 | 26 |
+| **Build supports, with the progress window** | 2,152 (2,102 supports, 1.0 ms each) | **16,571 (369 supports, 44.9 ms each)** |
+| Match signatures | 28 | 8 |
+| Close the progress window | 11 | 11 |
+| Apply scope (View) | 1 | 1 |
+| Build the window and draw the grid | 1,195 (4 rows) | 1,825 (369 rows) |
+| **Total** | **3,670** | **18,504** |
+
+- **Building the supports is 90% of the open,** at 45 times the cost per support of the local project. Collecting the elements and drawing the window and grid are not the problem.
+- **Probable cause: the per-rod structure raycast on trapezes and pipe-hanger families.** Its cost per ray grows with the size of the model and its links. Collecting the elements is fast, so the cloud connection itself doesn't seem to be the cost.
+- **Not yet confirmed:** the log doesn't split the build into fabrication hangers and family supports, or count the raycasts and their time. That needs the build instrumented more finely and opened on this project again.
