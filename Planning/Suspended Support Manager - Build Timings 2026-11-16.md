@@ -111,3 +111,25 @@ The same installed build, in your Revit 2024, on a large cloud project. The proj
 - **Building the supports is 90% of the open,** at 45 times the cost per support of the local project. Collecting the elements and drawing the window and grid are not the problem.
 - **Probable cause: the per-rod structure raycast on trapezes and pipe-hanger families.** Its cost per ray grows with the size of the model and its links. Collecting the elements is fast, so the cloud connection itself doesn't seem to be the cost.
 - **Not yet confirmed:** the log doesn't split the build into fabrication hangers and family supports, or count the raycasts and their time. That needs the build instrumented more finely and opened on this project again.
+
+## The cloud project again, with the split by support kind (opened 2026-11-16 13:18)
+
+Installed Kelly-Revit-v5 5.26.1116.1259. Revit was restarted after a hang in Autodesk's Steel Connections add-in, and the project was opened fresh. The element counts match the 12:31 run, 417 elements and 369 supports.
+
+| Step | 12:31 run (ms) | 13:18 run (ms) |
+|---|---:|---:|
+| Collect elements in 3 scopes | 55 | 53 |
+| Build supports, with the progress window | **16,571** | **1,575** |
+| ↳ fabrication hangers: 365 supports, 365 rods | not split | 179 (slowest 49) |
+| ↳ family supports: 4 supports, 8 rods | not split | 1,278 (slowest 338) |
+| Raycast sample, timing only: 8 rays | – | 1,158 (**144.5 per ray**) |
+| Match signatures | 8 | 7 |
+| Build the window and draw the grid (369 rows) | 1,825 | 1,948 |
+| **Total** | **18,504** | **4,786** (3,628 without the sample) |
+
+- **Fabrication hangers are cheap:** 0.5 ms each.
+- **The four family supports take 81% of the build.** Their 8 rods cost about 145 ms per raycast here, against about 12 ms in 06MP-NTT HI3-JHK and 0.6 ms in the test project. The cloud project's linked models make each ray much more expensive.
+- **The same project's build took 16.6 s at 12:31 and 1.6 s at 13:18.** The data is the same, so the difference is the state of Revit, not the supports. The likely cause is that the first raycasts of a session pay for loading the linked models' geometry, which was still happening or not yet cached at 12:31. Not confirmed.
+- **Conclusion:** the open time is dominated by the per-rod structure raycast against linked models, and it varies a lot with whether that geometry is ready. Fabrication hangers, matching and the grid are not the problem.
+
+**Next:** stop raycasting during the build, and work out attachment only for the rows that are selected or written ([KTR5-4863](https://linear.app/jhkelly-ktr/issue/KTR5-4863)). Opening the manager a second time in the same session would show the warm cost.
