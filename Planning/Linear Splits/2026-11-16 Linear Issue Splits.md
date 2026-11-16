@@ -37,3 +37,18 @@ None.
 ## Open questions
 
 - Where does the generic store (#2) live: in Kelly-Revit-Logic (KTRL5), next to `KellyDirectories` and the JSON pin, or in the host only? **Decided 2026-11-16: Kelly-Revit-Logic.**
+
+## Applied 2026-11-16
+
+[KTR5-4864](https://linear.app/jhkelly-ktr/issue/KTR5-4864) is now a parent with no estimate. Its sub-issues:
+
+| # | Key | Title | Est. | Order |
+|---|---|---|---|---|
+| 1 | [KTR5-4596](https://linear.app/jhkelly-ktr/issue/KTR5-4596) | Settings: decide the hierarchical model, scope and file location | 2 | blocks KTRL5-186 |
+| 2 | [KTRL5-186](https://linear.app/jhkelly-ktr/issue/KTRL5-186) | `SettingsStore`: hierarchical application and tool settings in one JSON file | 4 | blocks KTR5-4602 |
+| 3 | [KTR5-4602](https://linear.app/jhkelly-ktr/issue/KTR5-4602) | Settings service: start it with the application services | 2 (was 8) | blocks KTR5-4865, -4866, -4867 |
+| 4 | [KTR5-4865](https://linear.app/jhkelly-ktr/issue/KTR5-4865) | Spool Creator and Module Creator: keep their settings in the settings service | 2 | — |
+| 5 | [KTR5-4866](https://linear.app/jhkelly-ktr/issue/KTR5-4866) | Host `Properties.Settings`: move its three values onto the settings service | 1 | — |
+| 6 | [KTR5-4867](https://linear.app/jhkelly-ktr/issue/KTR5-4867) | Settings window: a ribbon command to view and change the settings | 4 | — |
+
+No calls were refused. KTR5-4596 and KTR5-4602 also got the "Settings" feature label, and KTR5-4602 left KTR5-4596 as its parent.
