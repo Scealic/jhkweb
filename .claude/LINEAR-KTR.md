@@ -19,4 +19,3 @@ The rules shared by every Linear team are in `BuildConfigs/LINEAR.md`. This file
 - Name Kelly Tools For Revit or KTR only in the issues of the KTR* teams; issues in the other Kelly teams describe the code without naming the application.
 - Say "Major Version 5" or "v5", never "Generation".
 - Remember to check if issue comments were made manually.
-- 
