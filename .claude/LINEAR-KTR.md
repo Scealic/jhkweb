@@ -1,10 +1,10 @@
 # Linear: Kelly Tools For Revit rules
 
-The rules shared by every Linear team are in `BuildConfigs/LINEAR.md`. This file adds what concerns the Kelly Tools For Revit (KTR) teams. It sits at the jhkweb root because the lower layers, BuildConfigs and the schema repos may not name the application, while their issues may still belong to a KTR team.
+The rules shared by every Linear team are in `BuildConfigs/LINEAR.md`. This file adds what concerns the Kelly Tools For Revit (KTR) teams. It sits at the jhkweb root because the lower layers, BuildConfigs and the schema repositories may not name the application, while their issues may still belong to a KTR team.
 
 ## Teams
 
-- The workspace is "Virtual Construction", `https://linear.app/jhkelly-ktr` (named "jhkelly" until 2026-11-09 and "Kelly Tools For Revit" until 2026-11-18; the URL kept `ktr` when it was renamed; old `linear.app/jhkelly` links redirect).
+- The workspace is "Virtual Construction", `https://linear.app/jhkelly-ktr`; old `linear.app/jhkelly` links redirect.
 - Kelly Tools For Revit 5 (KTR5) ← Kelly-Revit-v5, with Kelly Revit Logic 5 (KTRL5) ← Kelly-Revit-Logic-v5 and Kelly Revit UI (KTRUI) ← Kelly-Revit-UI.
 - Kelly Tools For Revit 4 (KTR4) ← Kelly-Revit-v4, with Kelly Revit Logic 4 (KTRL4) ← Kelly-Revit-Logic-v4.
 - The full map of every Kelly team to its repository is in `C:\Users\childebran\.claude\skills\_shared\linear-teams.md`. Re-check with `list_teams`: teams are added and re-parented.
@@ -18,4 +18,3 @@ The rules shared by every Linear team are in `BuildConfigs/LINEAR.md`. This file
 - Issue templates that name the application are scoped to the KTR* teams, never to the workspace.
 - Name Kelly Tools For Revit or KTR only in the issues of the KTR* teams; issues in the other Kelly teams describe the code without naming the application.
 - Say "Major Version 5" or "v5", never "Generation".
-- Remember to check if issue comments were made manually.
