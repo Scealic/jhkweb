@@ -17,4 +17,6 @@ The rules shared by every Linear team are in `BuildConfigs/LINEAR.md`. This file
 - An issue found in one major version that also holds in the other is filed in both versions' teams, the two linked as Related, each saying where in its own code.
 - Issue templates that name the application are scoped to the KTR* teams, never to the workspace.
 - Name Kelly Tools For Revit or KTR only in the issues of the KTR* teams; issues in the other Kelly teams describe the code without naming the application.
-- Say "Major Version 4" or "v4", never "Generation".
+- Say "Major Version 5" or "v5", never "Generation".
+- Remember to check if issue comments were made manually.
+- 
