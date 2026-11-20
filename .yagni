@@ -52,3 +52,6 @@ used: Kelly-Windows-v3|WindowBehaviors|SetKeepCentered
 
 # Reports go here (yagni skill, step 4).
 report: Planning/YAGNI
+
+# CommunityToolkit [ObservableProperty] field: the generated ProductIndex property is used by ComponentEditorViewModel (generated code is not scanned).
+used: Component-Data-Editor|Product|productIndex
