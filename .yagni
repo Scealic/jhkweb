@@ -55,3 +55,12 @@ report: Planning/YAGNI
 
 # CommunityToolkit [ObservableProperty] field: the generated ProductIndex property is used by ComponentEditorViewModel (generated code is not scanned).
 used: Component-Data-Editor|Product|productIndex
+
+# CommunityToolkit.Mvvm source generators (Component-Data-Editor, Fabrication-Tools): [RelayCommand] methods become XxxCommand bound in XAML,
+# [ObservableProperty] fields become PascalCase properties, and On<Property>Changed/Changing partial hooks are called by the generated setters.
+attribute: RelayCommand
+attribute: ObservableProperty
+member-pattern: ^On[A-Z]\w*Chang(ed|ing)$
+
+# Developer-tab sandbox: helpers named by docs/Specification.md (R3) and swapped into Execute by hand.
+used: Kelly-Revit-v5|SandboxCommand|*
