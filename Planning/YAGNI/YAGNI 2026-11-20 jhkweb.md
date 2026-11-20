@@ -158,3 +158,30 @@ They look dead because nothing assigns `VtfrUserSettings`. `VtfrSettingsTests.cs
 ## Used (the scan missed it)
 
 - `Product.productIndex` (Component-Data-Editor): an `[ObservableProperty]` field whose generated `ProductIndex` property is used by `ComponentEditorViewModel.cs`. The scan skips generated code. Proposed `.yagni` rule: `used: Component-Data-Editor|Product|productIndex`.
+
+## Deleted 2026-11-20
+
+The maintainer asked: "File "Used Only By Test" and "Dead" Linear issues and then delete them", then "rescan and delete the second round". The Decide group (the Victaulic settings) was deleted under KD-85, as that issue's Goal said. The 94 members nothing used at all were checked too: 51 were dead and deleted; 40 in Component-Data-Editor and Fabrication-Tools are CommunityToolkit generator entry points, and 3 are Developer sandbox helpers (both now in `.yagni`).
+
+| Repository | Commits | Issues |
+|---|---|---|
+| Kelly-Windows-Data-v3 | `3b1194f`, `5d39609` | KWD3-22, KWDSS-13 |
+| Kelly-Windows-Data-SqlServer | `6b4a11f`, `8caace5` | KWDSS-13 |
+| Kelly-Windows-Data-Sqlite | `e1df385`, `0c21d0d` | KWDSL-2 |
+| Kelly-Windows-Data-Excel | `94dbe7d` | KWDE-4 |
+| Kelly-Windows-v3 | `4936db8`, `ec0a221` | KW3-51, KW3-52, KW3-53 |
+| Kelly-Domain | `27d218b`, `0e48105` | KD-85, KD-86, KD-87, KD-88, KTRL5-175 |
+| Kelly-Revit-Logic-v5 | `0c25759`, `c6df7a1`, `b5b3853` | KTRL5-175 to KTRL5-178, KD-86 |
+| Kelly-Revit-UI | `f5e5ee0`, `39801ab` | KTRUI-45 |
+| Kelly-Revit-v5 | `58847774` | KTR5-4907, KTRUI-45, KTRL5-178 |
+| Fabrication-Tools | `6bbe93c` | FKS-52 |
+
+Second round (left dead by the first): Kelly-Domain `ToRecord` on nine types, `BuiltInCategoryMetaRecord`, `Nouns.Pipe`; Kelly-Windows-v3 `ColorNameTools` and five `RoundAmount` increments; Kelly-Windows-Data-v3 `DataFileProblem` and two test types; Kelly-Revit-Logic-v5 `ShowWorksharingInfo`, `ParseElementId`, both `GetAssemblyInstances`, `TransactionName.UnGroupGroups` and `UpdateProjectInformationId`; Kelly-Revit-UI `GetSelectedAssemblyInstances`, `GetAssemblyTypes`; leftover test helpers and the SqlServer `System.Configuration` references.
+
+Kept although an issue named them: `DefinitionRegistry.IsRegistered` (the assigner pane uses it), `FabricationConnectorTools` (`StraightLengthPart`), `ParameterFilterElementExtensions.ExportNamesToCsv` (Filters To CSV), `VtfrSettings.Year` (the Victaulic tools folder), `StringExtensions.ThrowIfNullOrWhiteSpace`. Kept on purpose in the second round: `SizeUpdateActionOutcome.IsBadData` (new work under FKS-58), `DataDirectory.RecordAssemblies` (the add-in passes the constructor parameter).
+
+### Left
+
+- Pack each changed package and repin the layers above; none is packed yet. When Fabrication-Tools is repinned to the new Excel package, three of its tests that call `ReadSheetNames` must change.
+- Kelly-Revit-v5 `docs/Specification.md` R16 and Duct Length Check R7 require `SelectionExternalEventHandler`, which nothing ever used and which is now deleted.
+- Third round, not deleted: the private Kelly-Domain properties only `ToRecord` read, and `Product.RecordId`.
