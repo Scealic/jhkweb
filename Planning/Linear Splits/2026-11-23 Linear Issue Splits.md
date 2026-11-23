@@ -297,3 +297,35 @@ Signals: several deliverables. Shape: sub-issues. Keep: parent only.
 
 5. [KTRL5-2](https://linear.app/jhkelly-ktr/issue/KTRL5-2): what the "populated during Revit startup" message becomes (left open in piece 1).
 6. [KTR5-4787](https://linear.app/jhkelly-ktr/issue/KTR5-4787) and [KTR5-4896](https://linear.app/jhkelly-ktr/issue/KTR5-4896): the pieces of one tool touch the same files; they are proposed as separate issues, linked Related, to do together.
+
+## Applied 2026-11-23
+
+21 of the 22 issues split: 71 new issues, every one in Backlog, assigned to the maintainer, with estimate, priority, type and function labels (and the feature and module labels for KTR5). Each original lost its estimate (except [KTRL5-42](https://linear.app/jhkelly-ktr/issue/KTRL5-42), narrowed to 2 points) and got a "Split on 2026-11-23" line. The four decisions are commented on their issues. No call was refused.
+
+**Not split:** [KTRL5-93](https://linear.app/jhkelly-ktr/issue/KTRL5-93). Its moves #50 to #59 landed on 2026-11-06 (Logic commit `335d070`, add-in commit `a130900f`, tests green in Revit 2024); #53 is [KD-58](https://linear.app/jhkelly-ktr/issue/KD-58). It can be closed as Done.
+
+| Original | New issues |
+|---|---|
+| KTR5-3936 | KD-99 → KTRL5-191 → KTR5-4909 |
+| KTR5-4322 | KTR5-4910, KTR5-4911, KTR5-4912 |
+| KTR5-4175 | KTR5-4913, KTRL5-192, KTRUI-46, KD-100, KW3-57, KWD3-23 |
+| KTR5-2461 | KRDE-14 → KD-101 → KTR5-4914 (related) |
+| KTR5-3833 | KTRUI-47 → KTR5-4915, KTR5-4916 |
+| KTR5-4630 | KTR5-4917, KTR5-4918, KTR5-4919 → KTR5-4920 |
+| KTR5-4625 | KTR5-4921, KTR5-4922 (related KTR5-3833, KTR5-3281) |
+| KTR5-4626 | KW3-58 → KTR5-4923 |
+| KTR5-4883 | KTR5-4924, KTR5-4925, KTR5-4926, KTR5-4927, KTR5-4928; "Outside Revit" lines commented on KWDSS-10, CDED-1, CDEC-7 |
+| KTR5-4896 | KTR5-4929 → KTR5-4930, KTR5-4931, KTR5-4932, KTR5-4933 (related KTR5-4897), KTR5-4934; parent related KTRUI-25, KTR5-4787 |
+| KTR5-4787 | KTR5-4935, KTR5-4936, KTR5-4937, KTR5-4938 |
+| KTRL5-2 | KD-102 → KTRL5-193 → KTR5-4939 |
+| KTRL5-90 | KTRL5-194 → KTRL5-195, KTRL5-196 |
+| KTRL5-42 | narrowed; related KTRL5-197, KTRL5-198 (sub-issues of KTR5-4480, blocked by KTRL5-40); related KTRL5-33 |
+| KTRL5-26 | KTRL5-199, KTRL5-200, KD-103 |
+| KTRUI-25 | KTRUI-48, KTRUI-49, KTRUI-50 |
+| KD-51 | KD-104, KD-105 → KTRL5-201 |
+| KW3-1 | KD-106 → KTRL5-202 → KTRUI-51 → KTR5-4940 |
+| KW3-7 | KW3-59 → KD-107 → KTRL5-203 |
+| KW3-54 | KW3-60 → KTRUI-52 (related KTRUI-43) |
+| FKS-7 | FKS-73 (related KW3-54) → FKS-74, FKS-75, FKS-76 |
+
+"→" marks a Blocks relation.
