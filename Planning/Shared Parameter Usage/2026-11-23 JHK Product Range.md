@@ -98,6 +98,49 @@ The core is [`ProductRangeExtensions.CreateProductRangeFilter`](../../Kelly-Revi
 |---|---|---|
 | Sandbox (Trade.Developer) | [`SandboxCommand.cs:84`](../../Kelly-Revit-v5/modules/Trade.Developer/Commands/Sandbox/SandboxCommand.cs:84) | Logs, for every fabrication part, whether `ProductDataRange` equals the parameter value. |
 
+## 4. What it would take to stop using it
+
+### Where the number would come from instead
+
+The parameter is a copy. Each kind of element already has its product range somewhere else:
+
+| Element | Source without the parameter | Usable in a Revit filter, view filter or schedule? |
+|---|---|---|
+| Fabrication part | `FabricationPart.ProductDataRange`, also exposed as the built-in parameter `FABRICATION_PRODUCT_DATA_RANGE` | Yes, through the built-in parameter, but only on the fabrication categories |
+| Family instance | **JHK Component Id** → the `ComponentAndLookupsView` row (10,264 rows) → `CategoryTypeDotProductRange` | No. The number lives in the data files, not on the element. A filter has to be built from the list of component ids in the range, or the elements have to be tested in memory |
+
+That makes one new member the centre of the change: a Logic `GetProductRange(Element)` that returns `ProductDataRange` for a fabrication part and looks up the component's range for any other element, returning 0 when there is none. It replaces `GetJhkProductRange` and keeps its contract.
+
+**Prerequisite to check first:** v5 writes JHK Component Id only on fabrication parts (`ContentIdentityElementService`). Families must carry it in their content. Any Kelly family without a component id that today has JHK Product Range filled in would lose its range: it would drop out of spools, modules and every category filter. Check the family library (and a few live projects) before committing to this route.
+
+### Changes by group
+
+| Group (section) | Change | Size |
+|---|---|---|
+| Writer (§2) | Delete the `SetValue` at `FabricationPartInstanceElementService.cs:45` and the member from `JhkFabricationPartInstanceDefinitionSet`. | Small |
+| Readers through `GetJhkProductRange` (§3.2 Default Values, §3.3 spools and modules, §3.5 Sandbox) | Switch to `GetProductRange`: `SpoolItem` (:48, :232), `ElementComponent`, `Module`, `CheckboxDefaultElementService`, `WeldElementService` (:23). Kelly-Domain's spool types, `ProductRangeRules` and the XAML bindings take an `int` and need no change (renaming `JhkProductRange` to `ProductRange` is optional and touches Domain, Logic and both XAML views). The Sandbox comparison becomes pointless; delete it. | Medium; mostly mechanical |
+| Weld updater trigger (§3.2) | Filter on `FABRICATION_PRODUCT_DATA_RANGE` equals "10" instead of the shared parameter; drop the member from `JhkWeldDefinitionSet`. Also settles observation 3, because End Preparation already reads `ProductDataRange`. | Small |
+| Category filters (§3.1) | Rewrite `CreateProductRangeFilter`/`GetInstancesByProductRange` as an OR of two filters: `FABRICATION_PRODUCT_DATA_RANGE` equals the number for fabrication parts, and JHK Component Id is one of the range's component ids for families. Alternatively, collect candidates and test `GetProductRange` in memory, which is slower on whole-document scopes (Penetration Tag Assign, Suspended Support Manage). The six commands and `ViewModel.LoadScopeElementsOrShowError` keep their calls. | Medium |
+| Stratus view filter (§3.4) | `ApplyStratusProductRangeHideFilter` becomes a `ParameterFilterElement` with the same two-part rule (built-in range for fabrication parts, component id list for families). With ranges 0, 13, 96 and 98, the component id list may be long, and it goes stale when the data files change, until the views are rebuilt. | Medium |
+| Create Product Range Schedules (§3.4) | A multi-category schedule can't filter on a built-in fabrication parameter or a data-file value. Options: filter on **JHK Category Type** (already a text parameter "tied to the Product Range"), which only moves the dependency to another shared parameter; build fabrication-only schedules on `FABRICATION_PRODUCT_DATA_RANGE`; or retire the Developer command. | Decision needed |
+| Definition (§1) | Remove the constant from `Names.cs` and the unused `SuspendedSupportDefinitionSet` member. | Small |
+| Tests | 16 Logic in-Revit test files and 8 Kelly-Domain test files use the parameter or `KellyDefinitions.Bind` it. Re-point them to `ProductDataRange` stubs and component rows (`UseStore` with `ComponentAndLookups` rows). | Medium |
+| Packages | Logic, then Kelly-Revit-UI (re-pin), then Kelly-Revit; Kelly-Domain only if the definition-set members or names change. | Usual pack and re-pin |
+
+### Outside the code
+
+- **Data files and database:** `ExternalParameterDefinition` row Id 315 and its 837 `BuiltInCategoryBinding` rows (Revit 2021–2025; none for 2026). Retire them through the `db-deprecation` process in the VCS General schema, not by deleting them. Until then the add-in keeps binding the parameter to projects.
+- **Existing projects:** the parameter and its values stay in every project that already has them; they just stop being updated. User-made schedules, view filters and view templates that use it keep working on stale values. They do not break, but they drift.
+- **Families and templates:** content that sets JHK Product Range keeps it; nothing breaks, but the value is no longer read.
+- **Major Version 4:** v4 is a separate code base (not checked out here); it keeps writing and reading the parameter until it is retired, so the data-file rows can't go while v4 is installed.
+
+### Recommendation
+
+Do it in two steps:
+
+1. **Fabrication parts only (low risk, about 4–8 points):** delete the writer, read `ProductDataRange` for fabrication parts in `GetProductRange`, and move the Weld trigger to the built-in parameter. Families keep being read from JHK Product Range for now. This removes the copy that can drift (observations 3 and 4 for fabrication parts) and needs no content check.
+2. **Families (after the component id check, about 8 points, split before starting):** move families to the component lookup, rewrite the category, view and schedule filters, then deprecate the data-file rows once v4 no longer needs them.
+
 ## Observations
 
 1. **The writer's doc remark is wrong for families.** [`GetJhkProductRange`](../../Kelly-Revit-Logic-v5/src/Parameters/ParameterValueExtensions.cs:58) says "on other elements the Component updater writes it from the data files", but no v5 code writes the parameter to a non-fabrication element. Families rely on their content; a family without the value reads as 0, so it is skipped as a module component, is not spoolable, and is not found by any category filter.
