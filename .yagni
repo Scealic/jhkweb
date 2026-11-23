@@ -1,12 +1,9 @@
 # Entry points for the yagni skill (personal skills folder) in the Kelly repositories under C:\repo\jhkweb.
 # Same format as the skill's scripts/default-entry-points.txt. The skill reads this file when it scans any repository here.
 
-exclude: session-state
 exclude: RevitTestModels
 exclude: branding
 exclude: Planning
-exclude: Monthly Reports
-exclude: db-deprecation
 
 # Revit creates these by reflection (the .addin manifest, the ribbon, updater and failure registration).
 base: IExternalApplication
