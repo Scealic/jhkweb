@@ -302,7 +302,7 @@ Signals: several deliverables. Shape: sub-issues. Keep: parent only.
 
 21 of the 22 issues split: 71 new issues, every one in Backlog, assigned to the maintainer, with estimate, priority, type and function labels (and the feature and module labels for KTR5). Each original lost its estimate (except [KTRL5-42](https://linear.app/jhkelly-ktr/issue/KTRL5-42), narrowed to 2 points) and got a "Split on 2026-11-23" line. The four decisions are commented on their issues. No call was refused.
 
-**Not split:** [KTRL5-93](https://linear.app/jhkelly-ktr/issue/KTRL5-93). Its moves #50 to #59 landed on 2026-11-06 (Logic commit `335d070`, add-in commit `a130900f`, tests green in Revit 2024); #53 is [KD-58](https://linear.app/jhkelly-ktr/issue/KD-58). It can be closed as Done.
+**Not split:** [KTRL5-93](https://linear.app/jhkelly-ktr/issue/KTRL5-93). Its moves #50 to #59 landed on 2026-11-06 (Logic commit `335d070`, add-in commit `a130900f`, tests green in Revit 2024); #53 is [KD-58](https://linear.app/jhkelly-ktr/issue/KD-58). Closed as Done on 2026-11-23 with that evidence, in Cycle 96, Related to KD-58.
 
 | Original | New issues |
 |---|---|
