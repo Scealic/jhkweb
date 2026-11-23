@@ -2,7 +2,7 @@
 
 ## Layout
 
-`C:\repo\jhkweb` holds sibling repositories, each with its own git, `develop` and `main`; run git per repository with `git -C <repository>`. The root is also its own git repository (branch `main`, remote `origin` = `github.com/Scealic/jhkweb`, pushed only when the maintainer asks) that tracks only the working documents at this level: the two standing reference documents at the root (`UBIQUITOUS-LANGUAGE.md` and `Kelly Tools For Revit V5 -Systems.md` with its `.html`), `Planning` (plans, analyses, specifications, reports and `db-deprecation`, one subfolder per kind of work), `RevitTestModels`, `.claude` and the root `Directory.Build*.targets`. Put a new working document in the matching `Planning` subfolder (a new one when none fits), not at the root. Its `.gitignore` lists every sibling repository folder: add a new repository's folder there when one is cloned here. A plain `git` command run at the root acts on this outer repository, not on any sibling.
+`C:\repo\jhkweb` holds sibling repositories, each with its own git, `develop` and `main`; run git per repository with `git -C <repository>`. The root is also its own git repository (branch `main`, remote `origin` = `github.com/Scealic/jhkweb`, pushed only when the maintainer asks) that tracks only the working documents at this level: the glossary at the root (`UBIQUITOUS-LANGUAGE.md`), `Planning` (plans, analyses, specifications, reports and `db-deprecation`, one subfolder per kind of work), `RevitTestModels`, `.claude` and the root `Directory.Build*.targets`. Put a new working document in the matching `Planning` subfolder (a new one when none fits), not at the root. Its `.gitignore` lists every sibling repository folder: add a new repository's folder there when one is cloned here. A plain `git` command run at the root acts on this outer repository, not on any sibling.
 
 Repository and folder names carry the repository's own major version. Kelly Tools For Revit (KTR) v5 is built from `Kelly-Windows-Data-v3`, `Kelly-Windows-v3`, `Kelly-Domain`, `Kelly-Revit-Logic-v5`, `Kelly-Revit-UI` and `Kelly-Revit-v5`; v4 from `Kelly-Windows-Data-v2`, `Kelly-Windows-v2`, `Kelly-Revit-Logic-v4` and `Kelly-Revit-v4`. Each is its own GitHub repository, worked on `develop`. The layer names in these instructions (Kelly-Revit, Kelly-Windows, …) mean the layer, in whichever of its repositories. The old `main-v2`/`main-v4` branches of the v5 repositories are a read-only archive. When a develop→main pull request deletes the remote `develop`, the next push recreates it; set the local branch to track `origin/develop` again.
 
@@ -18,8 +18,6 @@ The layers (the stack and pinning are in `SHARED-AGENTS.md`, below):
 ## Claude Code configuration
 
 Each repository has a checked-in `.claude/settings.json` (allows `dotnet build`/`test`/`restore`/`list`, read-only git commands and `tasklist`; denies new branches and pushes to `main`), and a git-ignored `.claude/settings.local.json` for personal entries. A change to these permissions goes into all 18 copies. Claude may install a v5 build when asked. Commands and `launch.json` that span repositories stay in this root `.claude`. Skills that span repositories live in the user's personal skills folder, `C:\Users\childebran\.claude\skills`; put a skill in a repository's `.claude/skills` only when it concerns that repository alone.
-
-At the end of the day, or whenever it is missing, refresh `Kelly Tools For Revit V5 -Systems.md` with the `kelly-systems-document` skill.
 
 ## Backlog
 
