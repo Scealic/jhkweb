@@ -286,11 +286,14 @@ Signals: several deliverables. Shape: sub-issues. Keep: parent only.
 | [KW3-20](https://linear.app/jhkelly-ktr/issue/KW3-20) | Progress reporting: rename LoopBegin/LoopEnd/LoopSkipped | no v5 layer uses those names any more: probably done |
 | [FKS-24](https://linear.app/jhkelly-ktr/issue/FKS-24) | Find the product sizes that need correcting, beyond syntax | correction rules with Vladimir not agreed yet |
 
+## Decisions (2026-11-23)
+
+1. [KTR5-4883](https://linear.app/jhkelly-ktr/issue/KTR5-4883): split by section into the five sub-issues.
+2. [KTR5-2461](https://linear.app/jhkelly-ktr/issue/KTR5-2461): piece 3 resolves both names for a while; no project is rewritten.
+3. [FKS-7](https://linear.app/jhkelly-ktr/issue/FKS-7): piece 1 copies the Component-Data-Editor styles now, with a note on [KW3-54](https://linear.app/jhkelly-ktr/issue/KW3-54).
+4. [KTRL5-26](https://linear.app/jhkelly-ktr/issue/KTRL5-26): piece 3 (the `LineNumber` plan) goes to the KD team, as a sub-issue in Kelly-Domain.
+
 ## Open questions
 
-1. [KTR5-4883](https://linear.app/jhkelly-ktr/issue/KTR5-4883): split the hand-check list by section, or keep one checklist for a single pass?
-2. [KTR5-2461](https://linear.app/jhkelly-ktr/issue/KTR5-2461): migrate old projects' "I" parameters, or resolve both names for a while?
-3. [FKS-7](https://linear.app/jhkelly-ktr/issue/FKS-7): copy the Component-Data-Editor styles now, or wait for [KW3-54](https://linear.app/jhkelly-ktr/issue/KW3-54)?
-4. [KTRL5-26](https://linear.app/jhkelly-ktr/issue/KTRL5-26): plan the `LineNumber` type in Kelly-Revit-Logic or in Kelly-Domain?
 5. [KTRL5-2](https://linear.app/jhkelly-ktr/issue/KTRL5-2): what the "populated during Revit startup" message becomes (left open in piece 1).
 6. [KTR5-4787](https://linear.app/jhkelly-ktr/issue/KTR5-4787) and [KTR5-4896](https://linear.app/jhkelly-ktr/issue/KTR5-4896): the pieces of one tool touch the same files; they are proposed as separate issues, linked Related, to do together.
