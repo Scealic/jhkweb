@@ -1,0 +1,190 @@
+<title>Software Delivery Report 2 November to 8 November 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; summary first, then charts, the team-by-area grid, the product lines, work in flight and the notes on the data. */
+:root{
+  --bg:#f6f8f7; --surface:#ffffff; --fg:#17201c; --muted:#56635d; --line:#dbe3df;
+  --accent:#016043; --accent-soft:#e3f0ea;
+  --add:#016043; --change:#3d6c8f; --fix:#c27a12; --delete:#8a948f; --other:#c9d2ce;
+  --heat:#016043;
+  --font-display:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1513; --surface:#161e1b; --fg:#e4ebe8; --muted:#9aa8a2; --line:#2a3531;
+  --accent:#4cc492; --accent-soft:#18302a;
+  --add:#4cc492; --change:#7aa9cf; --fix:#e3a443; --delete:#7d8984; --other:#3b4743;
+  --heat:#4cc492; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1513; --surface:#161e1b; --fg:#e4ebe8; --muted:#9aa8a2; --line:#2a3531;
+  --accent:#4cc492; --accent-soft:#18302a;
+  --add:#4cc492; --change:#7aa9cf; --fix:#e3a443; --delete:#7d8984; --other:#3b4743;
+  --heat:#4cc492; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:2rem;font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.3rem;font-weight:600}
+h3{font-size:1.02rem;font-weight:600}
+p{margin:0;max-width:68ch}
+.eyebrow{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.meta{color:var(--muted);font-size:.9rem}
+header{display:flex;flex-direction:column;gap:10px;border-bottom:3px solid var(--accent);padding-bottom:22px}
+section{display:flex;flex-direction:column;gap:16px}
+.num{font-variant-numeric:tabular-nums}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.tile b{font-family:var(--font-display);font-size:1.9rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--accent)}
+.tile span{color:var(--muted);font-size:.86rem}
+.summary{display:flex;flex-direction:column;gap:10px}
+.summary ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+.two{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px}
+.panel{display:flex;flex-direction:column;gap:12px;min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.82rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.bars{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:grid;grid-template-columns:150px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:.88rem}
+.bar-row .lbl{color:var(--fg)}
+.bar-row .lbl small{display:block;color:var(--muted);font-size:.76rem}
+.track{display:flex;height:18px;border-radius:3px;overflow:hidden;background:var(--line)}
+.track > div{height:100%}
+.bar-row .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.areas{display:flex;flex-direction:column;gap:7px}
+.area{display:grid;grid-template-columns:minmax(0,1fr) 120px 34px;gap:10px;align-items:center;font-size:.86rem}
+.area .t{height:10px;background:var(--line);border-radius:2px;overflow:hidden}
+.area .t div{height:100%;background:var(--accent)}
+.area .v{text-align:right;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.84rem;min-width:820px}
+th,td{padding:7px 8px;text-align:center;border-bottom:1px solid var(--line)}
+thead th{font-weight:600;font-size:.74rem;color:var(--muted);vertical-align:bottom;line-height:1.25}
+tbody th{text-align:left;font-weight:500;white-space:nowrap}
+tbody th small{color:var(--muted);font-family:var(--font-mono);font-size:.72rem;margin-left:6px}
+td{font-variant-numeric:tabular-nums}
+td.z{color:var(--line)}
+td.tot,th.tot{font-weight:700;border-left:1px solid var(--line)}
+tr.grp th{background:var(--accent-soft);color:var(--accent);font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;font-weight:600;text-align:left}
+tr.grp td{background:var(--accent-soft)}
+tfoot td,tfoot th{font-weight:700;border-bottom:none}
+tfoot th{text-align:left}
+.lines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.line{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.line .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.line .hd b{font-family:var(--font-display);font-size:1.4rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.line .teams{font-size:.78rem;color:var(--muted);font-family:var(--font-mono)}
+.line ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:.9rem}
+.line.wide{grid-column:1 / -1}
+.flight{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pill{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.notes{font-size:.86rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px;display:flex;flex-direction:column;gap:8px}
+.notes ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;max-width:80ch}
+.trend{display:flex;align-items:flex-end;gap:10px;height:150px;padding-top:8px}
+.wk{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;min-width:0}
+.wk .col{width:100%;max-width:56px;background:var(--accent);border-radius:3px 3px 0 0}
+.wk .n{font-size:.8rem;font-weight:600;font-variant-numeric:tabular-nums}
+.wk .d{font-size:.72rem;color:var(--muted);white-space:nowrap}
+@media (max-width:760px){
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two,.lines,.flight{grid-template-columns:minmax(0,1fr)}
+  .bar-row{grid-template-columns:110px minmax(0,1fr) 36px}
+  h1{font-size:1.6rem}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Revit Software Development · JH Kelly</div>
+  <h1>Software Delivery Report</h1>
+  <p class="meta" id="meta"></p>
+</header>
+
+<section>
+  <div class="tiles" id="tiles"></div>
+  <div class="summary">
+    <h2>In short</h2>
+    <ul id="summary"></ul>
+  </div>
+</section>
+
+<section class="two">
+  <div class="panel">
+    <h2>Closed by product line</h2>
+    <div class="legend" id="type-legend"></div>
+    <div class="bars" id="line-bars"></div>
+  </div>
+  <div class="panel">
+    <h2>Closed by functional area</h2>
+    <div class="areas" id="areas"></div>
+  </div>
+</section>
+
+<section>
+  <h2>Teams by functional area</h2>
+  <p class="meta">Issues closed per Linear team, in each team's functional-area label. Darker cells hold more issues.</p>
+  <div class="scroll"><table id="matrix"></table></div>
+</section>
+
+<section>
+  <h2>What each product line delivered</h2>
+  <div class="lines" id="lines"></div>
+</section>
+
+<section>
+  <h2>In flight today</h2>
+  <div class="flight" id="flight"></div>
+</section>
+
+<section>
+  <h2>Closed per week</h2>
+  <div class="trend" id="trend"></div>
+  <p class="meta" id="trend-note"></p>
+</section>
+
+<div class="notes">
+  <strong>About the numbers</strong>
+  <ul id="notes"></ul>
+</div>
+</div>
+
+<script>
+const DATA={"periodText": "2 November to 8 November 2026", "preparedText": "23 November 2026", "tiles": [[232, "issues closed across 9 teams"], [79, "story points closed (30 issues were estimated)"], [41, "defects fixed; 0 closed issues were urgent or high priority"], [0, "issues in progress or awaiting review today"]], "summary": ["<strong>Kelly Tools For Revit, version 5<\/strong> took 64% of the work (149 issues), most of it restructuring the add-in into clean layers.", "The <strong>shared libraries<\/strong> took 22% (50 issues): rules for spool names, module numbers, welds and layout points moved into one place both versions can use.", "<strong>Version 4<\/strong> (23 issues) now runs on exported data files with no company network connection, and got new ribbon icons and three tool fixes.", "A new <strong>Revit Data Exporter<\/strong> (10 issues) turns the database into the data files both versions read.", "Restructuring led the week: Change and Delete made up 66% of the issues, Add and Fix 33%."], "areas": [["Tools, ribbon and UI", "Tools, ribbon and UI"], ["Architecture and services", "Architecture and services"], ["Data and file I/O", "Data and file I/O"], ["Modeling and geometry", "Modeling and geometry"], ["Updaters and project information", "Updaters and project info"], ["Testing and documentation", "Testing and docs"], ["Code quality and cleanup", "Code quality and cleanup"], ["Versioning, build and install", "Build and install"], ["Other", "Other"]], "teams": [{"key": "KTR5", "group": "version-5", "shortName": "Kelly Tools For Revit 5", "count": 92, "points": 48, "areas": {"Other": 5, "Architecture and services": 43, "Updaters and project information": 3, "Tools, ribbon and UI": 16, "Versioning, build and install": 8, "Data and file I/O": 8, "Testing and documentation": 4, "Code quality and cleanup": 5}, "types": {"Change": 40, "Add": 14, "Other": 3, "Delete": 21, "Fix": 14}}, {"key": "KTRL5", "group": "version-5", "shortName": "Revit Logic 5", "count": 35, "points": 11, "areas": {"Architecture and services": 19, "Modeling and geometry": 2, "Other": 1, "Versioning, build and install": 1, "Testing and documentation": 7, "Updaters and project information": 1, "Data and file I/O": 3, "Code quality and cleanup": 1}, "types": {"Delete": 9, "Change": 18, "Fix": 7, "Add": 1}}, {"key": "KTRUI", "group": "version-5", "shortName": "Revit UI", "count": 22, "points": 1, "areas": {"Tools, ribbon and UI": 3, "Versioning, build and install": 1, "Architecture and services": 7, "Testing and documentation": 10, "Data and file I/O": 1}, "types": {"Change": 12, "Delete": 6, "Fix": 4}}, {"key": "KD", "group": "libraries", "shortName": "Domain", "count": 28, "points": 1, "areas": {"Modeling and geometry": 12, "Data and file I/O": 2, "Architecture and services": 12, "Other": 1, "Testing and documentation": 1}, "types": {"Add": 10, "Fix": 4, "Change": 11, "Delete": 3}}, {"key": "KW3", "group": "libraries", "shortName": "Windows 3", "count": 11, "points": 8, "areas": {"Data and file I/O": 2, "Code quality and cleanup": 2, "Modeling and geometry": 1, "Architecture and services": 4, "Testing and documentation": 2}, "types": {"Fix": 5, "Change": 4, "Add": 1, "Delete": 1}}, {"key": "KWD3", "group": "libraries", "shortName": "Windows Data 3", "count": 8, "points": 8, "areas": {"Versioning, build and install": 1, "Architecture and services": 1, "Testing and documentation": 1, "Code quality and cleanup": 1, "Data and file I/O": 4}, "types": {"Change": 3, "Fix": 4, "Delete": 1}}, {"key": "KWDSS", "group": "libraries", "shortName": "Windows Data SQL Server", "count": 3, "points": 2, "areas": {"Data and file I/O": 3}, "types": {"Delete": 1, "Change": 2}}, {"key": "KTR4", "group": "version-4", "shortName": "Kelly Tools For Revit 4", "count": 23, "points": 0, "areas": {"Updaters and project information": 3, "Testing and documentation": 1, "Versioning, build and install": 6, "Data and file I/O": 4, "Tools, ribbon and UI": 6, "Code quality and cleanup": 2, "Architecture and services": 1}, "types": {"Change": 13, "Add": 5, "Fix": 3, "Delete": 2}}, {"key": "KRDE", "group": "exporter", "shortName": "Revit Data Exporter", "count": 10, "points": 0, "areas": {"Data and file I/O": 6, "Testing and documentation": 1, "Versioning, build and install": 2, "Architecture and services": 1}, "types": {"Add": 5, "Change": 5}}], "groups": [{"key": "version-5", "name": "Kelly Tools For Revit 5", "count": 149, "points": 60, "types": {"Change": 70, "Add": 15, "Other": 3, "Delete": 36, "Fix": 25}, "teamLine": "Kelly Tools For Revit 5 92 · Revit Logic 5 35 · Revit UI 22 · 60 points", "teams": ["KTR5", "KTRL5", "KTRUI"], "highlights": ["The progress window now shows items done, the total and the time remaining, and can be cancelled.", "Startup now checks that every service started, and stops cleanly if one did not.", "Every ribbon button now has a proper icon and a tooltip written from what the tool does.", "Spool Manager weld Update buttons, Racker elevation entry and the Layout Point Import file check were fixed.", "About 300 shared members were moved into the right layers and the duplicate copies deleted."]}, {"key": "libraries", "name": "Shared libraries", "count": 50, "points": 19, "types": {"Add": 11, "Fix": 13, "Change": 20, "Delete": 6}, "teamLine": "Domain 28 · Windows 3 11 · Windows Data 3 8 · Windows Data SQL Server 3 · 19 points", "teams": ["KD", "KW3", "KWD3", "KWDSS"], "highlights": ["Spool name, module number, weld location and layout point rules now live in one shared library.", "Feet-and-inches lengths are handled by one shared type.", "Fixed network path descriptions, folder creation that could report a missing folder, and data file errors that went unreported.", "SQL Server code was split into its own package, so tools that read files no longer carry it."]}, {"key": "version-4", "name": "Kelly Tools For Revit 4", "count": 23, "points": 0, "types": {"Change": 13, "Add": 5, "Fix": 3, "Delete": 2}, "teamLine": "Kelly Tools For Revit 4 23 · not estimated", "teams": ["KTR4"], "highlights": ["Version 4 reads exported data files instead of SQL Server, and was tested off the company network.", "Ribbon buttons with a placeholder image got real icons, and every tooltip was rewritten.", "Layout Point Import, Module Manage and Racker each had a wrong behaviour fixed.", "The unused Active Project feature was removed."]}, {"key": "exporter", "name": "Revit Data Exporter", "count": 10, "points": 0, "types": {"Add": 5, "Change": 5}, "teamLine": "Revit Data Exporter 10 · not estimated", "teams": ["KRDE"], "highlights": ["A new standalone tool exports the database to data files, as CSV by default, or as JSON or a single SQLite file.", "It asks which format to use when none is given, and versions itself like the other tools."]}], "flight": [], "weeks": [["2 Nov", 232]], "trendNote": "Linear became the backlog for every team on 4 November 2026. The jump that week is mostly work finished earlier and closed when the old backlog files moved into Linear, so the weeks before it understate the work done.", "notes": ["Source: Linear workspace \"Virtual Construction\", every issue completed from 2026-11-02 to 2026-11-08 (232), plus the open issues in a started state on 23 November 2026 (0). Canceled issues are not counted.", "Product lines group the Linear teams: version 5 is KTR5, KTRL5, KTRUI; shared libraries is KD, KW3, KWD3, KWDSS.", "Story points use an exponential scale (1, 2, 4, 8, 16). Estimating started on 2026-11-09, so 202 issues carry no points and the 79 total is a floor.", "\"Other\" areas (7) combine the smaller functional areas and issues with no area label. \"Verify / untyped\" holds Verify issues and 2 issues with no type label.", "Many of this week's issues were recorded and closed in bulk on 4 and 5 November, when the backlog moved into Linear."]};
+const TYPES=[["Add","New feature","--add"],["Change","Change","--change"],["Fix","Fix","--fix"],["Delete","Removal","--delete"],["Other","Verify / untyped","--other"]];
+const escapeText=text=>String(text).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const numberText=value=>value.toLocaleString("en-US");
+
+document.getElementById("meta").textContent=`Work closed in Linear, ${DATA.periodText} · Prepared ${DATA.preparedText} by Chris Hildebran, Senior Software Developer`;
+
+document.getElementById("tiles").innerHTML=DATA.tiles.map(([value,text])=>`<div class="tile"><b>${numberText(value)}</b><span>${escapeText(text)}</span></div>`).join("");
+document.getElementById("summary").innerHTML=DATA.summary.map(item=>`<li>${item}</li>`).join("");
+
+document.getElementById("type-legend").innerHTML=TYPES.map(type=>`<span><i style="background:var(${type[2]})"></i>${type[1]}</span>`).join("");
+const largestGroup=Math.max(1,...DATA.groups.map(group=>group.count));
+document.getElementById("line-bars").innerHTML=DATA.groups.map(group=>`<div class="bar-row"><div class="lbl">${escapeText(group.name)}</div><div class="track" style="width:${(group.count/largestGroup*100).toFixed(1)}%" title="${TYPES.map(([key,label])=>label+': '+(group.types[key]||0)).join(', ')}">${TYPES.map(([key,,color])=>group.types[key]?`<div style="width:${(group.types[key]/group.count*100).toFixed(2)}%;background:var(${color})"></div>`:"").join("")}</div><div class="v">${group.count}</div></div>`).join("");
+
+const areaTotals=DATA.areas.map(([key,label])=>[label,DATA.teams.reduce((sum,team)=>sum+(team.areas[key]||0),0)]);
+const largestArea=Math.max(1,...areaTotals.map(area=>area[1]));
+document.getElementById("areas").innerHTML=areaTotals.map(([label,value])=>`<div class="area"><span>${escapeText(label)}</span><div class="t"><div style="width:${(value/largestArea*100).toFixed(1)}%"></div></div><span class="v">${value}</span></div>`).join("");
+
+const largestCell=Math.max(1,...DATA.teams.flatMap(team=>DATA.areas.map(([key])=>team.areas[key]||0)));
+const cell=value=>{if(!value)return `<td class="z">·</td>`;const percent=Math.round(12+value/largestCell*70);return `<td style="background:color-mix(in srgb,var(--heat) ${percent}%,transparent);color:${percent>45?'var(--surface)':'var(--fg)'}">${value}</td>`;};
+let matrix=`<thead><tr><th style="text-align:left">Team</th>${DATA.areas.map(area=>`<th>${escapeText(area[1])}</th>`).join("")}<th class="tot">Total</th></tr></thead><tbody>`;
+DATA.groups.forEach(group=>{const teams=DATA.teams.filter(team=>team.group===group.key);
+  matrix+=`<tr class="grp"><th colspan="${DATA.areas.length+1}">${escapeText(group.name)}</th><td class="tot">${group.count}</td></tr>`;
+  teams.forEach(team=>{matrix+=`<tr><th>${escapeText(team.shortName)}<small>${team.key}</small></th>${DATA.areas.map(([key])=>cell(team.areas[key]||0)).join("")}<td class="tot">${team.count}</td></tr>`;});});
+matrix+=`</tbody><tfoot><tr><th>All teams</th>${areaTotals.map(([,value])=>`<td>${value}</td>`).join("")}<td class="tot">${DATA.teams.reduce((sum,team)=>sum+team.count,0)}</td></tr></tfoot>`;
+document.getElementById("matrix").innerHTML=matrix;
+
+const remaining=DATA.groups.length-1;
+document.getElementById("lines").innerHTML=DATA.groups.map((group,index)=>{const wide=index===0||(remaining%2===1&&index===DATA.groups.length-1);
+  return `<div class="line${wide?' wide':''}"><div class="hd"><h3>${escapeText(group.name)}</h3><b>${group.count}</b></div><div class="teams">${escapeText(group.teamLine)}</div><ul>${group.highlights.map(item=>`<li>${item}</li>`).join("")}</ul></div>`;}).join("");
+
+document.getElementById("flight").innerHTML=DATA.flight.map(([value,text])=>`<div class="tile"><b>${value}</b><span>${escapeText(text)}</span></div>`).join("");
+
+const largestWeek=Math.max(1,...DATA.weeks.map(week=>week[1]));
+document.getElementById("trend").innerHTML=DATA.weeks.map(([label,count])=>`<div class="wk"><span class="n">${count}</span><div class="col" style="height:${(count/largestWeek*110).toFixed(0)}px"></div><span class="d">${escapeText(label)}</span></div>`).join("");
+document.getElementById("trend-note").innerHTML=DATA.trendNote;
+document.getElementById("notes").innerHTML=DATA.notes.map(item=>`<li>${item}</li>`).join("");
+</script>
