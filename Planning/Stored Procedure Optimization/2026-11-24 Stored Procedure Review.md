@@ -90,10 +90,22 @@ The exporter uses five procedures: `USP_ExternalParameterDefinition_SelectAll_v2
 2. **Drop the deprecated procedures early.** Twenty already carry the 2027-01-01 date. Drop sooner, or wait for that date?
 3. **Rules-of-credit defaults.** Should `USP_Project_UpdateWhereIdEquals` use 30/40/30?
 
-## Suggested order
+## Suggested order (Linear team KWDSS)
 
-1. Content: the changed-rows filter on the three `VCS_Update_Component_Set*` procedures (decision 1).
-2. Content: the `ItemCustomData ([Index])` index and the persisted `FabricationIdCalc`.
-3. Both: `SET NOCOUNT ON` on every procedure that stays, and an explicit column list in `USP_Terminology_SelectAll`.
-4. General: drop the redundant indexes; fix the `USP_System_SelectWhereSignatureEquals` seek if v4 still calls it.
-5. Both: drop the deprecated procedures and fix or drop the bugged ones.
+1. Content: the changed-rows filter on the three `VCS_Update_Component_Set*` procedures (decision 1): KWDSS-10 (existing; commented 2026-11-24). Then merge them into one pass: KWDSS-14.
+2. Content: the `ItemCustomData ([Index])` index (KWDSS-15) and the persisted `FabricationIdCalc` (KWDSS-16).
+3. Both: `SET NOCOUNT ON` on every procedure that stays, plus an explicit column list in `USP_Terminology_SelectAll` (KWDSS-20).
+4. General: drop the redundant indexes (KWDSS-21), and fix the `USP_System_SelectWhereSignatureEquals` seek if v4 still calls it (KWDSS-22).
+5. Both: drop the deprecated procedures (KWDSS-1, existing) and mark three more for removal (KWDSS-26).
+
+Bugs and other findings:
+
+| Finding | Issue |
+|---|---|
+| `Varchar(max)` converts in `USP_CustomDataUpdater_SelectAll_v20260811` | KWDSS-17 |
+| `FilePath` is `NULL` for trades other than 2 and 4 | KWDSS-18 |
+| Content `Changelog.md` still describes `ComponentIdList` | KWDSS-19 |
+| Rules-of-credit defaults are 31/41/31 | KWDSS-23 |
+| `ApplicationSession` update procedures ignore their parameters | KWDSS-24 |
+| Parameter types and defaults don't match their columns (bugs 3-7) | KWDSS-25 |
+| `usp_ExportTablesToJson` exports every table | KWDSS-27 |
