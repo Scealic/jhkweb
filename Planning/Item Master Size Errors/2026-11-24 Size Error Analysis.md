@@ -8,30 +8,32 @@ Every flagged row is in `2026-11-24 Size Errors - Rows.csv` (severity, issue, de
 
 | Column | Meaning used |
 |---|---|
-| `SQLProductName` | Size from the SQL database |
-| `ITMProductName` | Size from the ITM file (empty on 5,945 rows; then SQL is the source) |
+| `SQLProductName` | Ignored |
+| `ITMProductName` | Size from the ITM file, the source the cleaned size is checked against |
 | `ProductName` | The cleaned size, the column being checked |
-| `ProductOrder` | Vendor order text; when it ends in ` - <size>` that size is used as a third opinion |
+| `ProductOrder` | Vendor order text; when it ends in ` - <size>` that size is used as a second opinion |
 
-The check compares the inch values (`1-1/4''`, `1 1/4''`, `1.25''` all read as 1.25) of `ProductName` with the source (ITM, else SQL), in order or reordered (`3/4''on1/2''` and `1/2''on3/4''` count as the same; the cleaned olet names consistently put the branch first, which is correct).
+The check compares the inch values (`1-1/4''`, `1 1/4''`, `1.25''` all read as 1.25) of `ProductName` with `ITMProductName`, in order or reordered (`1''x1/2''` and `1/2''on1''` count as the same; the cleaned olet names consistently put the branch first, which is correct).
+
+5,945 rows have no `ITMProductName`. They get only the format and duplicate checks, not the source check.
 
 ## Summary
 
 | Severity | Issue | Rows | ITM files |
 |---|---|---:|---:|
-| Error | Cleaned size does not match source | 2,430 | 154 |
-| Error | Duplicate cleaned size within item, source sizes differ (size lost) | 1,732 | 68 |
+| Error | Cleaned size does not match the ITM name | 2,423 | 150 |
+| Error | Duplicate cleaned size within item, ITM sizes differ (size lost) | 1,736 | 69 |
 | Error | Duplicate marker `(2)` left in the size | 28 | 6 |
 | Error | Bolt diameter `0''` | 21 | 1 |
-| Review | Duplicate cleaned size within item, source differs only by model or part number | 1,264 | 127 |
-| Review | Cleaned size differs from a source name that is itself duplicated | 448 | 13 |
-| Review | Source disagrees, but product order agrees with the cleaned size | 97 | 25 |
+| Review | Duplicate cleaned size within item, ITM names differ only by model or part number | 1,260 | 126 |
+| Review | Cleaned size differs from an ITM name that is itself duplicated | 448 | 13 |
+| Review | ITM name disagrees, but product order agrees with the cleaned size | 39 | 13 |
 | Review | Odd values (`3/5''`, `3/20''`, `11/4''`, `100'`) | 7 | 7 |
 | Format | Mixed fraction with a space (`1 1/4''` for `1-1/4''`) | 947 | 370 |
-| Format | Decimal where the source has a fraction (`0.5''` for `1/2''`) | 33 | 8 |
+| Format | Decimal where the ITM name has a fraction (`0.5''` for `1/2''`) | 25 | 6 |
 | Format | `x''` separator, `2 -1/2''`, uppercase `X` | 6 | 3 |
 
-5,509 rows flagged in all; 2,747 rows in 168 ITM files have at least one Error.
+5,444 rows flagged in all; 2,744 rows in 165 ITM files have at least one Error.
 
 ## Errors
 
@@ -39,8 +41,9 @@ The check compares the inch values (`1-1/4''`, `1 1/4''`, `1.25''` all read as 1
 
 The cleaned list is in a different order from the item's rows, so each row carries another row's size.
 
-- `Generic/Fittings Carbon Steel/Nipple PE CS ASTM A106 GR B SMLS SCH 80.itm`: 209 rows. Index 160 is `1/8''xClose` in ITM, SQL and product order, but its cleaned size is `2-1/2''x11'' LNG`; index 51 `1-1/4''xClose` became `1/2''xCL`.
-- All 12 `Generic/Bolts CS/* Class E*.itm` files (31 to 35 rows each): the SQL names restart at `4''` from index 10 while the ITM and product order go on to `20'' - (20) 1-1/8'' Dia`; the cleaned size followed SQL, so `4''` to `18''` appear twice and `20''` and up are missing.
+- `Generic/Fittings Carbon Steel/Nipple PE CS ASTM A106 GR B SMLS SCH 80.itm`: 209 rows. Index 160 is `1/8''xClose` in the ITM name and product order, but its cleaned size is `2-1/2''x11'' LNG`; index 51 `1-1/4''xClose` became `1/2''xCL`.
+- All 12 `Generic/Bolts CS/* Class E*.itm` files (31 to 35 rows each): from index 10 the cleaned sizes start over at `4'' - (8) 5/8'' Dia`, while the ITM name and product order go on to `20'' - (20) 1-1/8'' Dia`. So `4''` to `18''` appear twice and `20''` and up are missing.
+- Asahi HP-PVC flanges (`Flange SxFL ... CL150 FF`, `Flange Blind ... CL150 FF` and `JIS10K FF`, 11 to 12 rows each): `13mm (3/8'')` became `75mm`, `16mm (1/2'')` became `100mm`; the millimetre sizes are two rows off and the inch sizes dropped.
 - `Projects/Eagle/Carbon (BW)/Olet BW FS ASTM A105 STD WT TRANS-O-CON.itm` (12 rows).
 
 Fix: take the size from the ITM name of the same index (the suggested column does this).
@@ -58,24 +61,23 @@ The cleaner kept only the last size, so reducers and tees lost their run size an
 - Place holders: Zone Square to Round (256 of 288 rows: `6'' x (1'')` became `1''`) and Zone Tee Rect (35).
 - Josam Push-Fit pipe (48): the length (`- 0.8ft`) dropped, so eight rows per size share one name.
 
-### 3. A size misread from a broken source
+### 3. A size misread from a broken ITM name
 
-- Georg Fischer CPVC Tee Reducing 9801 (24) and its bushings 9838 (9): source `1 .25  x1/2''` became `25''x1/2''`; `1''x 3?4` became `1''x3''` (should be `1-1/4''x1/2''` and `1''x3/4''`). The source names need fixing too.
-- Asahi HP-PVC flanges (11 to 12 rows per file): `13mm (3/8'')` became `75mm`, `16mm (1/2'')` became `200mm`: the metric sizes are shifted rows.
-- Asahi: the inch sizes are also dropped (`200mm (8'')` rows keep `8''`, the rest keep only millimetres).
+- Georg Fischer CPVC Tee Reducing 9801 (24) and Bushing 9838 (9): the ITM name `1 .25  x1/2''` became `25''x1/2''`; `1''x 3?4` became `1''x3''` (should be `1-1/4''x1/2''` and `1''x3/4''`). The ITM names need fixing too.
 
 ### 4. Other errors
 
-- `Generic/Bolts SS A320/Bolt Set STD SS ASTM A320 B8 Class 2 CL600.itm`: all 21 rows have `(4) 0'' Dia`, in SQL, ITM and the cleaned size.
+- `Generic/Bolts SS A320/Bolt Set STD SS ASTM A320 B8 Class 2 CL600.itm`: all 21 rows have `(4) 0'' Dia`, in the ITM name and the cleaned size.
 - `(2)` and `(2) (2)` duplicate markers left in the cleaned size: Charlotte Bend Sixteenth PN_324 (8), Swagelok Flange Adapter FLxCMP, FLxSPG and FLxBW (6 each), Parker Nipple TBE, Nibco 604.
 
 ## For review
 
 - **Stanchion caps** (`Cap BW CS ASTM A234 WPB ... for Stanchion.itm`, four files, 426 rows): the ITM name is `1''x1/2''` on every row of a size, while the cleaned names step through `1''x1/2''`, `1''x3/4''`, `1''x1''`. The cleaned names look right and the ITM names wrong, but confirm the second size is the hole size.
-- **Same size, different model** (1,264 rows): AP Tech regulators, Blue-White and Hedland flow meters, Tescom valves, Swagelok check valves keep only the pipe size, so 4 to 48 rows of one item share a name. Fine if the name is only a size; a problem if it must be unique within the item.
-- **Source wrong, cleaned size right** (97 rows): gaskets Blue-Gard 300 (SQL `5''`, `24''`, `44''` for `1/2''`, `3/4''`, `1''`), Union Orifice SP-83, pup pipes (cast iron, PVC, DWV copper), bronze check valves 507 and 1509. The cleaned size agrees with the product order; fix the ITM or SQL name.
+- **Ashcroft and Eagle brass thermowells** (26 rows each): the ITM name is a part number (`75-W-0162-2-x-R-...`) with no size, so the cleaned `3/4''x1/2''` cannot be checked; they are counted under Error 1 but may be right.
+- **Same size, different model** (1,260 rows): AP Tech regulators, Blue-White and Hedland flow meters, Tescom valves, Swagelok check valves keep only the pipe size, so 4 to 48 rows of one item share a name. Fine if the name is only a size; a problem if it must be unique within the item.
+- **ITM name wrong, cleaned size right** (39 rows): stainless tube bends 15 to 90 (ITM `5/8''`, cleaned and product order `3/4''`), pup pipes (PVC, CPVC, copper), Union Orifice SP-83. Fix the ITM name.
 - Odd values: `2-3/5''` (Elbow 90 LR 10GA), `2-1/2''x3/20''` (four reducers), `1-1/2''x11/4''` (Adapter Trap 903-7, likely `1-1/4''`), `8''x100'` (Mason V-Loop).
 
 ## Format only
 
-Write mixed fractions with a hyphen (`1-1/4''`, 947 rows in 370 files, mostly Forged Stainless tees and Georg Fischer metric items), fractions rather than decimals where the source has a fraction (Swagelok VCR glands, Union SP-83), lowercase `x`, and no `x''` (Merit NL106 tees).
+Write mixed fractions with a hyphen (`1-1/4''`, 947 rows in 370 files, mostly Forged Stainless tees and Georg Fischer metric items), fractions rather than decimals where the ITM name has a fraction (Swagelok VCR glands, Union SP-83), lowercase `x`, and no `x''` (Merit NL106 tees).
