@@ -108,8 +108,25 @@ Phase 0 ─┬─ Phase 1
 
 Phases 1, 2 and 3 need no design decision beyond D4 and D5 and give most of the gain. Phases 5 to 7 wait on D1, the one decision that shapes the rest.
 
+## Linear issues
+
+Filed 2026-11-24 under the parent KWDSS-29 (Backlog, Low, assigned to the maintainer). Phase 0 waits on KWDSS-28 (the Content project's build errors); every other phase waits on Phase 0.
+
+| Phase | Issue | Points | Waits on |
+|---|---|---|---|
+| 0 Safety net | KWDSS-30 | 2 | KWDSS-28 |
+| 1 Unique constraints | KWDSS-31 | 2 | KWDSS-30 |
+| 2 Exact duplicates and trims | KWDSS-32 | 2 | KWDSS-30 |
+| 3 Retire the duplicate tables | KWDSS-33 | 4 | KWDSS-30, D4, D5 |
+| 4a Redundant columns, lookup merges | KWDSS-34 | 4 | KWDSS-30, KWDSS-32 |
+| 4b `Product` rate columns | KWDSS-35 | 2 | KWDSS-30, D3 |
+| 4b exporter `ProductRecord` | KRDE-15 | 1 | KWDSS-35 |
+| 4b Kelly-Domain `ProductRecord`, `Product` | KD-114 | 1 | KWDSS-35 |
+| 5 Composite foreign keys | KWDSS-36 | 2 | KWDSS-30, D1, D7 |
+| 6 Derived `Component` fields | KWDSS-37 | 4 | KWDSS-30, D2 (related to KWDSS-10, KWDSS-14, KWDSS-18) |
+| 7 `Component` natural key | KWDSS-38 | 4 | KWDSS-30, KWDSS-36, D1, D6 |
+
 ## Next steps
 
-1. The maintainer answers D1 to D7 (or the ones for the first phases).
-2. File the phases in Linear (KWDSS; plus KRDE and KD for the Phase 4 data file change), linked to KWDSS-10, KWDSS-14, KWDSS-18 and KWDSS-1 where they touch.
-3. Start with Phase 0.
+1. The maintainer answers D1 to D7 (or the ones for the first phases), recorded on the phase issues.
+2. Fix KWDSS-28, then start with Phase 0 (KWDSS-30).
