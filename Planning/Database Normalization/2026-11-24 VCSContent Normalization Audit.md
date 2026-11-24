@@ -4,6 +4,8 @@ Read-only audit of the VCSContent database against the `database-normalize` skil
 
 The audit script gave 217 candidates (42 list values, 5 second normal form, 41 third normal form within a table, 96 third normal form through a foreign key, 33 natural key, 0 type). Each one was then checked against the data. Most of them are coincidences, explained under "Dismissed". The findings below are what remains, together with gaps found by hand in the three tables too large for the pairwise checks (`Product`, `Estimating.Data`, `Fabrication.ItemCustomData`).
 
+The plan that carries these findings out is [2026-11-24 VCSContent Normalization Plan.md](2026-11-24%20VCSContent%20Normalization%20Plan.md).
+
 "Schema review" means `VCS-Database-Content-Schema/Code Review/SQL Server 2019 Schema Review_2026.05.08.md`, which already records some of these from the schema alone. This audit adds the row counts.
 
 ## 1. Facts stored twice
