@@ -32,6 +32,8 @@ Name matching is conservative: a member sharing its name with another member els
 
 ## Can be narrowed now
 
+Filed 2026-11-24, one issue per layer: KW3-66 (Kelly-Windows-v3), KD-112 (Kelly-Domain), KTRL5-208 (Kelly-Revit-Logic-v5), KTRUI-54 (Kelly-Revit-UI), KTR5-4947 (Kelly-Revit-v5).
+
 ### Kelly-Domain
 
 | File | Line | Type | Member | Kind | Now | Can be |
