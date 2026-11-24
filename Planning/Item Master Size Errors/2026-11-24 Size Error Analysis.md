@@ -78,6 +78,31 @@ The cleaner kept only the last size, so reducers and tees lost their run size an
 - **ITM name wrong, cleaned size right** (39 rows): stainless tube bends 15 to 90 (ITM `5/8''`, cleaned and product order `3/4''`), pup pipes (PVC, CPVC, copper), Union Orifice SP-83. Fix the ITM name.
 - Odd values: `2-3/5''` (Elbow 90 LR 10GA), `2-1/2''x3/20''` (four reducers), `1-1/2''x11/4''` (Adapter Trap 903-7, likely `1-1/4''`), `8''x100'` (Mason V-Loop).
 
+## Corrected copy
+
+`ALL_VL_Cod_Source_From_ITM_Cleaned - Corrected.csv` (same rows, same order; only `ProductName` changed, on 2,261 rows). Each change is in `2026-11-24 Size Corrections - Changes.csv` with the rule used; the Error rows left alone, and why, are in `2026-11-24 Size Corrections - Not Corrected.csv`.
+
+Rules:
+
+- **Size from the ITM name** (1,752 rows): `ProductName` set to the ITM name of the same row, tidied (`x` without spaces, `Long` → ` LNG`, `Close` → `CL`, `1 1/4''` → `1-1/4''`, `1/2''-2''` → `1/2''x2''`, `(6'') x (6'')` → `6''x6''`); olets keep the `<branch>on<run>` form.
+- **Size from a repaired ITM name** (481 rows): obvious typos fixed first: `2''-1/2x2''` → `2-1/2''x2''`, `1 .25` → `1-1/4''`, `3?4` → `3/4''`, `1-1//4''` → `1-1/4''`, `6-58''` → `6-5/8''`, `11-/2''` → `1-1/2''`, `x''` → `x`, `'''` → `''`. Fix these ITM names in the ITM files too.
+- **`(n)` marker removed** (28 rows).
+
+Not corrected (482 Error rows):
+
+| Reason | Rows |
+|---|---:|
+| Duplicate size, but the ITM names have the same sizes (the name was already right, the duplicate came from another row now fixed) | 251 |
+| ITM name has no usable size (stock codes such as `37257`, part numbers such as the brass thermowells, `AG-4`, `Z1700-100`) | 143 |
+| Cleaned name adds detail the ITM name lacks (cap screw sets: `3/4''` → `3/4'' - (4) 0.625'' Dia`) | 39 |
+| Bolt diameter `0''` (A320 B8 Class 2 CL600), true diameter unknown | 21 |
+| ITM name repeated on several rows of the item (TRANS-O-CON olets) | 12 |
+| Product order agrees with the cleaned name, not the ITM name (tube bends 5/8 to 7/8, Swagelok 767LM) | 10 |
+| ITM name has an unusual fraction (`2-3/5''`; the cleaned `2-3/8''` looks right) | 3 |
+| No ITM name, or ITM name may have lost a whole number (Nibco 604 `1/4'' x 1/2''`) | 3 |
+
+Re-running the checks on the corrected copy leaves 302 Error rows: the 252 not corrected on purpose that still show (the 251 duplicates no longer do), and 50 rows corrected from a repaired ITM name, which still differ from that unrepaired ITM name. No new errors. Removing the `(n)` markers and filling the Zone place holders adds 59 rows to the "same size, different model" duplicates for review, because those ITM names are themselves duplicated. The 947 format-only rows are not changed.
+
 ## Format only
 
 Write mixed fractions with a hyphen (`1-1/4''`, 947 rows in 370 files, mostly Forged Stainless tees and Georg Fischer metric items), fractions rather than decimals where the ITM name has a fraction (Swagelok VCR glands, Union SP-83), lowercase `x`, and no `x''` (Merit NL106 tees).
