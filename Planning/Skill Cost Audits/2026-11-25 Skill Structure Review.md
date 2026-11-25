@@ -80,6 +80,8 @@ Only four skills set `model:` in their frontmatter. Eight others spend 250 to 67
 
 ## Suggested order
 
+Steps 1 and 2 were applied on 2026-11-25 (`~/.claude` commits 7486224 and 873ac9d). The four deleted folders are backed up in the session scratchpad until it is cleared.
+
 1. Delete the four untracked copies and `readme.md`; commit `scopes.json`.
 2. Rename the six skills and their references.
 3. Move the build scripts and `chain-release.md` to `_shared/dotnet`.
