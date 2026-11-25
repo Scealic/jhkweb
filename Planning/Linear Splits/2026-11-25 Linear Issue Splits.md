@@ -4,7 +4,7 @@ This review covers one issue, [KTR5-4951](https://linear.app/jhkelly-ktr/issue/K
 
 | Team | Open issues reviewed | Fine | Split | Unclear | New issues proposed | Existing issues to link |
 |---|---|---|---|---|---|---|
-| KTR5 | 1 | 0 | 1 | 0 | 37 (8 team pieces, 29 folder pieces) | KTRUI-10 (Related) |
+| KTR5 | 1 | 0 | 1 | 0 | 43 (8 team pieces, 35 folder pieces) | KTRUI-10 (Related) |
 
 ## [KTR5-4951](https://linear.app/jhkelly-ktr/issue/KTR5-4951): Unit test backfill: 450 types with untested members (16 points)
 
@@ -94,3 +94,51 @@ None.
 ## Open questions
 
 - [KTRUI-10](https://linear.app/jhkelly-ktr/issue/KTRUI-10) ("Tests for the 16 untested Kelly-Revit-UI types", 4 points, child of KTR5-4689) overlaps T7. The drafted reading is to link it as Related to T7 and leave it as it is.
+
+## Applied 2026-11-25
+
+| Proposal # | Key | Team | Estimate |
+|---|---|---|---|
+| T1 | KWD3-25 | KWD3 | 1 |
+| T2 | KWDC-6 | KWDC | 1 |
+| T3 | KWDJ-7 | KWDJ | 1 |
+| T4 | KW3-74 | KW3 | - |
+| T5 | KD-123 | KD | - |
+| T6 | KTRL5-216 | KTRL5 | - |
+| T7 | KTRUI-57 | KTRUI | - |
+| T8 | KTR5-4952 | KTR5 | - |
+| KW3-a | KW3-75 | KW3 | 4 |
+| KW3-b | KW3-76 | KW3 | 2 |
+| KW3-c | KW3-77 | KW3 | 2 |
+| KD-a | KD-124 | KD | 4 |
+| KD-b | KD-125 | KD | 4 |
+| KD-c | KD-126 | KD | 4 |
+| KD-d | KD-127 | KD | 2 |
+| KD-e | KD-128 | KD | 2 |
+| KD-f | KD-129 | KD | 4 |
+| KTRL5-a | KTRL5-217 | KTRL5 | 4 |
+| KTRL5-b | KTRL5-218 | KTRL5 | 4 |
+| KTRL5-c | KTRL5-219 | KTRL5 | 4 |
+| KTRL5-d | KTRL5-220 | KTRL5 | 4 |
+| KTRL5-e | KTRL5-221 | KTRL5 | 4 |
+| KTRL5-f | KTRL5-222 | KTRL5 | 2 |
+| KTRL5-g | KTRL5-223 | KTRL5 | 4 |
+| KTRL5-h | KTRL5-224 | KTRL5 | 4 |
+| KTRL5-i | KTRL5-225 | KTRL5 | 4 |
+| KTRL5-j | KTRL5-226 | KTRL5 | 4 |
+| KTRUI-a | KTRUI-58 | KTRUI | 4 |
+| KTRUI-b | KTRUI-59 | KTRUI | 4 |
+| KTRUI-c | KTRUI-60 | KTRUI | 4 |
+| KTR5-a | KTR5-4953 | KTR5 | 2 |
+| KTR5-b | KTR5-4954 | KTR5 | 4 |
+| KTR5-c | KTR5-4955 | KTR5 | 4 |
+| KTR5-d | KTR5-4956 | KTR5 | 4 |
+| KTR5-e | KTR5-4957 | KTR5 | 4 |
+| KTR5-f | KTR5-4958 | KTR5 | 4 |
+| KTR5-g | KTR5-4959 | KTR5 | 2 |
+| KTR5-h | KTR5-4960 | KTR5 | 2 |
+| KTR5-i | KTR5-4961 | KTR5 | 4 |
+| KTR5-j | KTR5-4962 | KTR5 | 4 |
+| KTR5-k | KTR5-4963 | KTR5 | 4 |
+| KTR5-l | KTR5-4964 | KTR5 | 2 |
+| KTR5-m | KTR5-4965 | KTR5 | 4 |
