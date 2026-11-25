@@ -202,3 +202,14 @@ The maintainer asked: "file and delete the third round".
 All build; Windows 950, Domain 2086, Data 151 and Fabrication-Tools 1,038 tests pass; the changed Logic fixtures pass in Revit 2024. Not yet packed or repinned.
 
 Newly dead, not deleted: Kelly-Windows-v3 `PathTools.DescribeFileStore` and the `RegexMatchTools` drive and UNC matchers only it uses; Kelly-Domain `ElementBindingKind` and `ParameterStorageType` (only `EnumMembersTests`), and the private `MaterialAndLookups.Name`.
+
+## Fourth round (2026-11-25)
+
+The maintainer asked: "Delete the fourth round".
+
+| Repository | Commits | Issues |
+|---|---|---|
+| Kelly-Windows-v3 | `ab3fbd6` | KW3-68 (`PathTools.DescribeFileStore`, `RegexMatchTools.MatchDriveCRoot`, `MatchDriveDToZRoot`, `MatchUncRoot`) |
+| Kelly-Domain | `f63ca92` | KD-116 (`ElementBindingKind`, `ParameterStorageType`, private `MaterialAndLookups.Name`) |
+
+Windows 935 and Domain 2084 tests pass in Net481, Net80 and Net100. Not yet packed or repinned. Nothing in the layers above named these members, so no caller changed; the Logic `CollectionsAndFilesMovesTests` description that names `DescribeFileStore` is history (move #5) and stays.
