@@ -82,3 +82,14 @@ The In Review ones wait on a maintainer step (an install or an in-Revit run); `l
 - [KD-127](https://linear.app/jhkelly-ktr/issue/KD-127): description names the file "Kelly Tools For Revit.md".
 
 Checked and clear: CDEC-17, CDEC-18 and CDEC-28 matched the search but do not name the application.
+
+## Applied 2026-11-25
+
+Approved by the maintainer ("Apply all"). Each change was made with one `save_issue` or `save_comment` call at a time, and the labels returned by each call were checked.
+
+- Function labels added: SDE-17 and KWDSS-12 (Data and file I/O), KD-98 (Content and parameters), KTRL5-189 (Views and graphics).
+- Retired function labels replaced: KW3-54 and KW3-60 (Windows helpers → Tools, ribbon and UI), KW3-58 (Windows helpers → Data and file I/O), KD-61 (Domain types → Architecture and services).
+- Type labels added: KTR5-4136 (Add), KTR5-4493 (Verify).
+- Cancel reason commented on CDEB-5, CDEB-6, CDEB-7 and CDEB-8, quoting the maintainer's reason from CDEB-1.
+
+Not applied (left for the maintainer): the label group names in the rule documents, the 13 stale KTR5 issues and the 4 application-name mentions.
