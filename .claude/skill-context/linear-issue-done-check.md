@@ -9,4 +9,4 @@
 - Version wording: a Done issue naming a Revit year, a version (v4 or v5) or a layer the change did not reach is downgraded.
 - Comment format for the Done comment: "Marked Done by the is-done check of <yyyy-mm-dd>: <rationale>. Evidence: <commit hashes, files, tests>." Example rationale: "`PipeSlopeCommand` now skips unsloped systems and `PipeSlopeCommandTests` covers it (commit `a1b2c3d`)."
 - Example table row key: `KD-12`.
-- Follow-up: Partial issues are often worth finishing next; vague Can't tell issues go to `linear-issue-info-review`.
+- Follow-up: Partial issues are often worth finishing next; vague Can't tell issues go to `linear-issue-information-review`.

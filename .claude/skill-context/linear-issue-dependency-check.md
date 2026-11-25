@@ -16,4 +16,4 @@
 | KTR5-40 Pipe slope tool | KTR5-77 Slope tooltip | Related | Proposed | both touch `PipeSlopeCommand` |
 ```
 
-- Follow-up offers: when a blocker is open and small, start it first; when an issue is Blocked By a lower-layer issue, the lower package must be packed and repinned before the issue can land; when many issues were vague about what they need, `linear-issue-info-review`.
+- Follow-up offers: when a blocker is open and small, start it first; when an issue is Blocked By a lower-layer issue, the lower package must be packed and repinned before the issue can land; when many issues were vague about what they need, `linear-issue-information-review`.

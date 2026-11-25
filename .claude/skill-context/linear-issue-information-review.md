@@ -1,4 +1,4 @@
-# linear-issue-info-review: Kelly facts
+# linear-issue-information-review: Kelly facts
 
 - Default scope: every open issue in every Kelly team, sub-teams included. Hasa is skipped (decision of 2026-11-04). KTR5 alone has about 160 open issues: one subagent per team, or per 100 issues of a big team.
 - Where check: the repository (or the team implies it) plus a project, file, type, member, ribbon command or tool, data file or build file. The `(Command)` project an issue sits in counts as naming the tool.
