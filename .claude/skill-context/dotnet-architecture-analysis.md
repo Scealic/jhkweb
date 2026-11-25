@@ -45,6 +45,8 @@ Plans and reports in `C:\repo\jhkweb\Planning\Layer Moves`:
 - **2026-11-03, round 1:** 14 work packages from a view model review, through Kelly-Windows-v3, Kelly-Domain and Kelly-Revit-Logic-v5, all done and pushed on 2026-11-04 (`LAYER-MOVES-PLAN-2026-11-03.md`, `LAYER-MOVES-2026-11-03.md`).
 - **2026-11-04, round 2:** 302 moves in 42 packages through all six layers, filed in Linear (project "Layer Moves 2026-11-04 Round 2"); 38 done, 4 partial (`LAYER-MOVES-PLAN-2026-11-04-Round-2.md`, `LAYER-MOVES-2026-11-04-Round-2.md`).
 - **2026-11-06:** 79 moves in 18 packages (Windows through Kelly-Revit), filed in Linear (project "Layer Moves 2026-11-06"); 16 packages done, 2 partial; pushed at the user's request (`LAYER-MOVES-PLAN-2026-11-06.md`, `LAYER-MOVES-2026-11-06.md`).
+- **2026-11-23:** 141 moves in 15 packages, filed in Linear (project "Layer Moves 2026-11-23"); 14 done, 1 partial (KTR5-4942, waits on KW3-65), two of them in a follow-up run (`LAYER-MOVES-PLAN-2026-11-23.md`, `LAYER-MOVES-2026-11-23.md`).
+- **2026-11-25:** 57 moves in 18 packages (Windows through Kelly-Revit; nine MVVM types moved up out of Kelly-Windows), filed in Linear (project "Layer Moves 2026-11-25"); 17 done, 1 partial (KTR5-4950: #35 and #36 deferred to KTR5-4968). In-Revit runs used Revit 2025 because the user was working in 2024 (`LAYER-MOVES-PLAN-2026-11-25.md`, `LAYER-MOVES-2026-11-25.md`).
 
 ## Paths
 
@@ -76,6 +78,9 @@ Baseline builds: `kbuild.sh <layer> verify` for data, windows, domain, logic and
 - The Workflow tool refused a `scriptPath` in the skills folder (2026-11-06): read the whole `.workflow.js` file and pass it through `script` with the same `args`.
 - Implementation `args.steps` layers: `data`, `windows`, `domain`, `logic`, `ui`, `revit`; `args.base` keys are the repository folders (`"Kelly-Windows-v3": "<sha>"`, …). The Kelly-Revit step builds all 21 configurations (host and six modules × 2024, 2025, 2026) plus `test/Tests.Revit/Core.Tests.csproj`.
 - Before step 5, `tasklist | grep -i -E "Revit.exe|ricaun"`: if Revit 2024 is open, ask the user to close it (round 2 of 2026-11-04 only compiled about 2,100 in-Revit tests because it was open). In-Revit runs use Revit 2024; the Logic suite takes about 30 minutes.
+- When the user is working in Revit 2024, `revit-test.sh` runs in the year set by `KELLY_REVIT_TEST_YEAR` and renames only that year's manifests (2025 on 2026-11-25). There is no 2025 Kelly test model, so the fixtures that open it stay inconclusive until a 2024 run. Revit 2025 stalls at startup on a "default family templates" dialog unless `C:\Projects\Revit\Library` exists (created 2026-11-25).
+- Other sessions may commit, repack and push in the same repositories during a run (2026-11-25: KTR5-4967 repinned every layer and installed for 2024 mid-run). The audit checks commits by Linear key and accepts newer pins built on top of the run's commits.
+- The fix stage can report "not clean" only because its builds outlast the agent; check its build log's EXIT lines before treating the stop as a failure.
 
 ## Work package lessons
 
