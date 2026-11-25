@@ -17,11 +17,7 @@ You apply already-decided member renames to ONE layer of a .NET stack under C:\r
 
 ## Build, test, pack
 
-- Configurations: `-c Net481|Net80|Net100` for Kelly-Windows-Data, Kelly-Windows, Kelly-Domain and the format libraries; `-c 2024|2025|2026` for the Revit layers. Always pass `-p:GeneratePackageOnBuild=false` except when packing.
-- Tests: the three lower layers and the format libraries run their tests in ALL three configurations before packing (`dotnet test <tests csproj> -c <cfg> -p:GeneratePackageOnBuild=false`). Revit layers: build tests only (in-Revit runs are the lead's job); Kelly-Revit-UI also runs `test/Revit.UI.Tests` for 2024.
-- Pack: one version for all configurations of a repo: `-p:VersionCalculated=<v> -p:FileVersionCalculated=<v>`, `<v>` = `<MajorVersion>.26.1111.<HHmm now, no leading zero>` (MajorVersion = the repo's own, see its `Version.Build.props` / last package name in `C:\Repo\NugetPackages`). A same-minute rebuild fails with KTR0003: use a later minute. Kelly-Revit-Logic-v5 and Kelly-Windows-Data need `-p:SolutionName=<solution name>` when building a project outside its solution; building the `.slnx` is simplest.
-- Repin: change the version property in each consumer's `Directory.Packages.props`, then fix the consumer's calls to the renamed members (in src AND tests), build all its configurations (and run its non-Revit tests), add a Changelog entry. If the consumer is a format library or tool that is itself a package and is NOT one of the six layers (Kelly-Windows-Data-Csv/-Json/-Sqlite/-SqlServer, Kelly-Revit-Data-Exporter), pack it too in this pass. The next layer up (one of the six) is repinned and its calls fixed, but NOT packed: its own pass packs it.
-- Mass CS0234 errors = a pin names a version not in `C:\Repo\NugetPackages`. "doesn't support net8.0"/NU1202 = stale `obj/project.assets.json`: delete that obj folder and restore again. If restore 401s on the Telerik feed, pass `"-p:RestoreSources=https://api.nuget.org/v3/index.json;C:\repo\NugetPackages;<local Telerik folder>"`.
+Packing, repinning, versions, Changelog headings, the application last, push order and traps: `package-chain.md` beside this file (procedure: `~/.claude/skills/_shared/package-chain.md`). This pass packs its own layer; the next of the six layers is repinned and its calls fixed, not packed. If the consumer is a format library or Kelly-Revit-Data-Exporter, pack it too in this pass.
 
 ## Commit and report
 

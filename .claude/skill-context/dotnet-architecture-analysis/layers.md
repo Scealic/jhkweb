@@ -31,22 +31,9 @@ Revit 2024 uses the Net481 lower packages; 2025 and 2026 use Net80. A package ve
 
 Each run writes `<repo>\<test or tests>\TestLogs\<test assembly> - <framework>.md`, one row per test. In a run with the add-in disabled, the tests that need the add-in started (for example `EventServiceTests` and `ApplicationLoggerTests` in Kelly-Revit) fail by design. Name them in the report rather than fixing them.
 
-## Pins: where each repo keeps them
+## Pins
 
-Each repo pins only the layer directly below it, with one property in its `Directory.Packages.props`. Its project files name the packages without a version. `pins.sh show` prints every repo's pin, and `pins.sh set <repo> <version>` changes it.
-
-| Repo | Pin property (`Directory.Packages.props`) | README pin statement |
-|---|---|---|
-| Kelly-Windows-Data-v3 | none | none |
-| Kelly-Windows-v3 | `KellyWindowsDataVersion` | Dependencies: "`Kelly.Windows.Data` NuGet package … versioned once in `Directory.Packages.props` … at `<v>`" |
-| Kelly-Domain | `KellyWindowsVersion` | Dependencies: "`Kelly.Windows` NuGet package … at `<v>`" |
-| Kelly-Revit-Logic-v5 | `KellyDomainVersion` | Dependencies: "`Kelly.Domain` (suffix …), versioned once in `Directory.Packages.props` … at `<v>`" |
-| Kelly-Revit-UI | `KellyRevitLogicVersion` | dependency table row `` \| `Kelly.Revit.Logic` (`.2024`, `.2025`, `.2026`) \| `<v>` \| `` and the test-results table |
-| Kelly-Revit-v5 | `KellyRevitUIVersion` (the host and all six modules share it) | the "Status" line ("They are on Kelly.Revit.UI `<v>`") and "Kelly layer package" under Dependencies, which also lists the versions underneath |
-
-Kelly-Revit-v5 also pins `Kelly.Windows.Data.Csv` (the CSV reader) by a literal version, outside the chain.
-
-Grep each README for the old version string before you change it. The wording drifts, but the version number is always there.
+Where each repository keeps its pin and states it in its README: `../package-chain.md`, "Pins".
 
 ## Changelog heading forms in use
 

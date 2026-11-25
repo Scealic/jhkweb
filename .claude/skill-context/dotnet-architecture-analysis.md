@@ -9,13 +9,7 @@ The project's layers, repositories, paths, rules and history. Files beside this 
 | `placement-rules.md` | The project part of the placement rules: the six layers, the user's hard rules, the placement table, views and models, the unsafe-move list. |
 | `layers.md` | Per-repository projects, configurations, test projects, pins and where each README states them, Changelog heading forms, root working documents. |
 
-Scripts (Git Bash), in `C:\repo\jhkweb\.claude\skill-context\scripts\` (`P=/c/repo/jhkweb/.claude/skill-context/scripts`); other skills use them too:
-
-| Script | Use |
-|---|---|
-| `bash $P/kbuild.sh <layer> verify\|test\|revittests\|pack [configurations]` | Build without a package, run the non-Revit tests, compile the in-Revit test project, or pack every configuration with one version. Layers: data, windows, domain, logic, ui, revit, alltrade, pipetrade, ducttrade, contenter, manager, developer. Kelly-Revit builds never install (`NoInstall.targets`). Prints `errors=N` per configuration and `PACKED <layer> <version>`. |
-| `bash $P/pins.sh show [repository...]`, `pins.sh set <repository> <version>` | Print every repository's `Kelly*Version` pin (default: the six v5 repositories), or set one (`pins.sh set Kelly-Revit-UI 5.26.1104.930`). |
-| `bash $P/revit-test.sh <test csproj> <filter\|-> <log> [msbuild arguments]` | Run an in-Revit test project in Revit 2024 against this source. It renames the active `Kelly Tools For Revit*.addin` manifests to `.addin.x` for the run and restores them, even when the run fails. Never rename the manifests by hand. |
+Build, pin and in-Revit test scripts: `package-chain.md` beside this file, "Scripts"; other skills use them too.
 
 The shared `insert-changelog.pl` is in `$HOME/.claude/skills/_shared/scripts`; the skill's own `check-rules.pl` and `scope-coverage.pl` stay in the skill (`$HOME/.claude/skills/dotnet-architecture-analysis/scripts`).
 
@@ -98,12 +92,6 @@ Baseline builds: `kbuild.sh <layer> verify` for data, windows, domain, logic and
 
 ## Chain release specifics
 
-- Kelly-Revit goes last: it is where the Kelly-Revit source packages run and where every consumer edit first compiles.
-- Repin it with `pins.sh set Kelly-Revit-v5 <ui version>`; the host and all six modules share that one property. The host also pins the CSV reader, `Kelly.Windows.Data.Csv`, by a literal version outside the chain: if Kelly-Windows-Data was repacked, check restore shows no `NU1605`/`NU1608` warning for it.
-- Build all 21 configurations: `for l in revit alltrade pipetrade ducttrade contenter manager developer; do bash $P/kbuild.sh $l verify; done`, then `kbuild.sh revit revittests 2024`, which checks every module's commands, availability classes and push buttons.
-- Confirm restore used the new versions: `find src/obj modules/*/obj -maxdepth 2 -name project.assets.json | xargs grep -ohE '"Kelly\.[A-Za-z.]+\.(Net481|2024)/[0-9.]+"' | sort | uniq -c`.
-- Versions: `BuildConfigs/dotnet/.props/Version.Build.props` sets `<MajorVersion>.yy.MMdd.HHmm`, each number without leading zeros. MajorVersion: Kelly-Windows-Data-v3 and Kelly-Windows-v3 3; Kelly-Domain and Kelly-Revit-UI 1; Kelly-Revit-Logic-v5 and Kelly-Revit-v5 5. Kelly-Domain built on 2026-11-03 at 17:17 is `1.26.1103.1717`.
-- Changelog headings: package repositories `## 2026-11-03 (not yet in a package): <summary>`, then `(package 1.26.1103.1717)`; Kelly-Revit `(not yet in a build)`, or `(version 5.26.1103.1035)` for an installed build.
+- Packing, repinning, versions, Changelog headings, the application last, push order and traps: `package-chain.md` beside this file (procedure: `~/.claude/skills/_shared/package-chain.md`).
 - Test attribute form: `Author = "Verified By Human On:"` and a `Description` of what is verified, never a date (`SHARED-AGENTS.md`).
-- Push merge order: Data, Windows, Domain, Logic, UI, Kelly-Revit.
-- Pitfalls: `kbuild.sh pack` refuses a version it already used for that layer this minute (exit code 3), because the NuGet cache would serve the old package: wait for the minute. Logic and Kelly-Revit name their assembly `$(SolutionName)`; built alone without `-p:SolutionName=...` the assembly is `Revit.dll` (the scripts pass it). Kelly-Revit builds must not install the add-in, so build through `kbuild.sh`. In a run with the add-in disabled, tests that need the add-in started (for example `EventServiceTests` and `ApplicationLoggerTests`) fail by design: name them in the report rather than fixing them.
+
