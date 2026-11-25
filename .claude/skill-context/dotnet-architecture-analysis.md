@@ -17,7 +17,7 @@ Scripts (Git Bash), in `C:\repo\jhkweb\.claude\skill-context\scripts\` (`P=/c/re
 | `bash $P/pins.sh show [repository...]`, `pins.sh set <repository> <version>` | Print every repository's `Kelly*Version` pin (default: the six v5 repositories), or set one (`pins.sh set Kelly-Revit-UI 5.26.1104.930`). |
 | `bash $P/revit-test.sh <test csproj> <filter\|-> <log> [msbuild arguments]` | Run an in-Revit test project in Revit 2024 against this source. It renames the active `Kelly Tools For Revit*.addin` manifests to `.addin.x` for the run and restores them, even when the run fails. Never rename the manifests by hand. |
 
-The skill's own `insert-changelog.pl`, `check-rules.pl` and `scope-coverage.pl` stay in the skill (`$HOME/.claude/skills/dotnet-architecture-analysis/scripts`).
+The shared `insert-changelog.pl` is in `$HOME/.claude/skills/_shared/scripts`; the skill's own `check-rules.pl` and `scope-coverage.pl` stay in the skill (`$HOME/.claude/skills/dotnet-architecture-analysis/scripts`).
 
 ## The user's request and decisions
 
