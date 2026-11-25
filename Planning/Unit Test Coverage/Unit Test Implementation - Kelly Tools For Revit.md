@@ -2,6 +2,101 @@
 
 Restarted 2026-11-02. The goal is the shared rule in `BuildConfigs/SHARED-AGENTS.md`: **every type member has an NUnit test**, and every change starts with a failing test (TDD). This plan covers the six Major Version 5 repos; the v4 Revit repos override TDD and are out of scope, and the format libraries (Kelly-Windows-Data-Csv, -Json, -SqlServer, -Sqlite) keep their own suites. Since 2026-11-05 the coverage check also covers Kelly-Windows-Data-Csv and -Json, which Kelly-Revit-Logic-v5 and Kelly-Revit-v5 pin (Csv 1.26.1030.933, Json 1.26.1028.1008); -SqlServer and -Sqlite are not in v5's dependencies.
 
+## Coverage re-examined (2026-11-25)
+
+This review was run with the `dotnet-test-coverage-check` skill. It covers the same eight repositories as on 2026-11-05: the six v5 layers plus Kelly-Windows-Data-Csv and -Json, which v5 still pins. The measures are the same:
+
+- **Members named in a test** (the headline). The Roslyn scan counts a member as covered when its name appears in a test file that also names its type. It cannot see members reached only through other members or by reflection, and a common name can match when the member is not tested.
+- **Coverlet line and branch coverage** (Net80), for the three lower layers and Kelly-Revit-UI's `Revit.UI.Tests` (2025).
+  - Kelly-Revit-UI's figure counts only the tests that run without Revit, so the classes that need the Revit API show 0%.
+  - Csv and Json still have no `coverlet.collector`.
+  - The in-Revit suites were not run this time; the user chose to report the latest logs instead.
+
+| Repository | Members named in a test | Tests run on 2026-11-25 | Types with a test | Lines / branches covered |
+|---|---|---|---|---|
+| Kelly-Windows-Data-v3 | **68 of 75 (91%)** | 151 passed (Net80) | 16 of 16 | **100% / 99.3%** |
+| Kelly-Windows-Data-Csv | **13 of 19 (68%)** | 48 passed (Net80) | 4 of 4 | not measured |
+| Kelly-Windows-Data-Json | **40 of 46 (87%)** | 131 passed (Net80) | 10 of 10 | not measured |
+| Kelly-Windows-v3 | **412 of 468 (88%)** | 990 passed (Net80) | 113 of 113 | **96.1% / 94.0%** |
+| Kelly-Domain | **955 of 1,186 (81%)** | 2,123 passed (Net80; 1 fails only under coverlet) | 268 of 268 | **96.4% / 96.6%** |
+| Kelly-Revit-Logic-v5 | **1,347 of 1,657 (81%)** | not run; latest logs are filtered runs: 9 passed in 2024 (2026-11-25), 4 in 2025 (2026-11-24) | 256 of 257 | in Revit: not measured |
+| Kelly-Revit-UI | **159 of 242 (66%)** | 255 passed without Revit in 2024 and 2025; latest in-Revit log: 97 passed in 2024 (2026-11-24) | 50 of 55 | 25.6% / 22.5% (without Revit only) |
+| Kelly-Revit-v5 | **619 of 916 (68%)**; **514 (56%) by behaviour** | not run; latest logs are filtered runs: 4 passed in 2024 (2026-11-25), 61 in 2025 (2026-11-18) | 126 of 128; **102 of 128 by behaviour** | in Revit: not measured |
+
+Kelly-Revit-v5 also has 370 contract types (commands, push buttons, availability classes, panels and windows), up from 356. `AddInContractTests` checks their contract: attributes, constructors and icons. "By behaviour" means the scan was run again without the source-text rule tests (`LowerLayerRulesTests`, `RibbonMovesTests`).
+
+The member totals fell in several repositories because the 2026-11-05 scan counted members that have since been deleted: dead-code rounds, KD-115 and KD-116 among them.
+
+### Since 2026-11-05
+
+The headline measure rose in every repository except Csv and Json, which were unchanged. Kelly-Revit-v5's behavioural share rose from 16% to 56%.
+
+Types with no test fell from **29 to 8**, contract types not counted:
+
+| Repository | 2026-11-05 | 2026-11-25 | Still without a test |
+|---|---|---|---|
+| Kelly-Windows-v3 | 2 | 0 | |
+| Kelly-Domain | 1 | 0 | |
+| Kelly-Revit-Logic-v5 | 2 | 1 | `NumberedDocumentCache`, which its four subclasses run, so in effect 0 |
+| Kelly-Revit-UI | 8 | 5 | `IExternalCommandBase`, `IExternalCommandMvvm`, `IRibbonPullDownButton`, `IRibbonPushButton`, `IRibbonStackedButton` |
+| Kelly-Revit-v5 | 16 | 2 | the rest are contract types |
+
+Types with at least one unnamed member fell from 526 to 450:
+
+| Repository | Before | Now | New | Closed | Changed |
+|---|---|---|---|---|---|
+| Kelly-Windows-Data-v3 | 4 | 3 | 0 | 1 | 2 |
+| Kelly-Windows-Data-Csv | 3 | 3 | 0 | 0 | 1 |
+| Kelly-Windows-Data-Json | 2 | 2 | 0 | 0 | 0 |
+| Kelly-Windows-v3 | 31 | 20 | 7 | 18 | 3 |
+| Kelly-Domain | 52 | 48 | 2 | 6 | 21 |
+| Kelly-Revit-Logic-v5 | 100 | 86 | 25 | 39 | 45 |
+| Kelly-Revit-UI | 21 | 19 | 2 | 4 | 11 |
+| Kelly-Revit-v5 | 313 | 269 | 81 | 125 | 20 |
+
+Most of the 117 new gap types are new code that arrived with only part of its members tested:
+
+- the dockable Assigner pane (`AssignerPaneViewModel`, `AssignerBPanel`, `AssignerBPaneViewModel`, `AssignerRowViewModel`);
+- `ProgressWindowReporter`, which has 21 unnamed members;
+- the renamed layout point view models (`LayoutPointCsvExportViewModel`, `LayoutPointCsvImportViewModel`);
+- `SuspendedSupportManageViewModel`.
+
+I spot-checked the largest of them: each has a test file that names only some of its members, so these are real member gaps, not scan misses. No line was added to the checked-covered list.
+
+### Where the member gaps are
+
+- **Kelly-Windows-v3**
+  - Unnamed members: `ProgressWindowReporter` 21, `MinimalXlsxWriter` 8, `TextFileWriter` 4.
+  - Lowest line coverage: `ClipboardTools` and `FloatingWindowFit` 44%, `ShellTools` 50%, `DomainGroupReport` 52%, `FileDialogTools` 67%.
+- **Kelly-Domain**
+  - Unnamed members: `Component` 34, `ComponentAndLookupsViewRecord` 32, `Nouns` 30, `ProjectRecord` 23. The records are mostly run by `RecordTests` through reflection.
+  - Lowest line coverage: `DefinitionSetCache<T>` 0%, the three `*Spool11x17SheetDetailViewSettings` 20%, `ToolUnitChangeFlags` 39% (8% of branches), `DetailingPackage` and `LineNumber` 52%.
+- **Kelly-Revit-Logic-v5**: `SuspendedSupport` 24, `SizeElementDataModel` 22, `PhysicalElementEntity` 19, `ProjectInformationWrapper` 15, `Spool` 12, `OperationService` 11.
+- **Kelly-Revit-UI**: `ViewModel` 18, `IRibbonPushButton` 11, `UiDocumentScopeExtensions` 10, `RibbonComboBox` and `CheckWindowViewModel` 6.
+- **Kelly-Revit-v5**: `SpoolManagerViewModel` 33, `SuspendedSupportManageViewModel` 20, `LayoutPointCsvExportViewModel` 19, `SpoolCreateViewModel` 17, `LayoutPointCsvImportViewModel` 16, `AssignerPaneViewModel` 15.
+
+### Found on 2026-11-25
+
+- [x] **The Csv sample record is fixed.** All 48 Csv tests pass, after the column order was made independent of declaration order (2026-11-05).
+- [ ] **Kelly-Windows-Data-Json: 50 tests still have no `Author` or `Description`.** Linear: [KWDJ-2](https://linear.app/jhkelly-ktr/issue/KWDJ-2).
+- [ ] **Kelly-Domain: `LayeringTests.Domain_namespaces_are_not_named_after_Revit_layers` still fails under coverlet.** It passes in the run without coverage. Linear: [KD-50](https://linear.app/jhkelly-ktr/issue/KD-50).
+- [ ] **Csv and Json still have no `coverlet.collector`.** Linear: [KWDC-1](https://linear.app/jhkelly-ktr/issue/KWDC-1), [KWDJ-3](https://linear.app/jhkelly-ktr/issue/KWDJ-3).
+- [ ] **The four Kelly-Revit-v5 tests that need the add-in started** are not re-checked, because no full in-Revit run was made.
+- [ ] **All in-Revit logs are from filtered runs.** No full run of Logic, UI or Kelly-Revit-v5 has a log since 2026-11-05.
+- [ ] **No test carries a human verification date.**
+- **Issues:** the scan found 450 types with gaps. The maintainer chose one tracking issue for this review instead of 450 per-type issues: [KTR5-4951](https://linear.app/jhkelly-ktr/issue/KTR5-4951). The per-type proposal (`2026-11-25 Linear Proposal.md`, 955 points) is attached to it. No "Test Coverage" label was created.
+  - The next review can't find per-type issues by that label. It compares with `2026-11-25 Coverage Gaps.csv` and updates KTR5-4951 instead.
+
+### Next, in order
+
+1. Split [KTR5-4951](https://linear.app/jhkelly-ktr/issue/KTR5-4951) into pieces of 1 to 4 points, lower layers first.
+2. The coverlet guard in `LayeringTests` ([KD-50](https://linear.app/jhkelly-ktr/issue/KD-50)) and the Json `Author`/`Description` attributes ([KWDJ-2](https://linear.app/jhkelly-ktr/issue/KWDJ-2)).
+3. Kelly-Windows-v3: `ProgressWindowReporter` and `MinimalXlsxWriter`. Kelly-Domain: `DefinitionSetCache<T>`, `ToolUnitChangeFlags`, `DetailingPackage`, `LineNumber`.
+4. Kelly-Revit-UI: the 5 interfaces, tested through an implementation, and `ViewModel`.
+5. Logic's wrappers and models: `SuspendedSupport`, `SizeElementDataModel`, `PhysicalElementEntity`.
+6. Kelly-Revit-v5's view models, behaviour first: the Spool, Suspended Support, Layout Point and Assigner view models.
+7. A full in-Revit run of Logic, UI and Kelly-Revit-v5 in 2024, with the add-in disabled.
+
 ## Coverage re-examined (2026-11-05)
 
 Re-run with the `tdd-coverage-check` skill (`C:\Users\childebran\.claude\skills\tdd-coverage-check`): it runs the measures below, compares them with the latest section here, and adds a new dated section above it.
@@ -237,5 +332,7 @@ Findings from the Kelly test project:
 - [ ] **Trade.Pipe/RibbonItems**: `WeldLocationPurpose1StackedButtons`, `WeldLocationPurpose2StackedButtons`
 
 ## Human verification
+
+On 2026-11-25 there are still no dated tests: 0 of the 7,150 `[Test]`/`[TestCase]` attributes in the eight repositories carry a date. 50 attributes in Kelly-Windows-Data-Json have no `Author` and no `Description` ([KWDJ-2](https://linear.app/jhkelly-ktr/issue/KWDJ-2)). Every other attribute has both.
 
 On 2026-11-05 none of the tests in the eight repos carries a date (on 2026-11-02 about 10 of roughly 1,870 did) in `Author` (`Verified By Human On:yyyy.mm.dd`). Only a person adds that date, after checking the test does what its `Description` says. Changing a test removes it again.
