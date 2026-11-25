@@ -1,6 +1,6 @@
 # Kelly Linear workspace: shared reference for the Linear skills
 
-Read through the "Project context" lookup of `linear-issue-add`, `-dependency-check`, `-done-check`, `-estimate-update`, `-hygiene-check`, `-info-review`, `-split-review`, `linear-team-estimate-check` and `linear-project-suggest`. Change a team, a repository or a shared rule here, once. Per-skill facts are in `<skill-name>.md` beside this file. The generic scope and subagent pattern are in `C:\Users\childebran\.claude\skills\_shared\linear-scope.md`.
+Read through the "Project context" lookup of `linear-issue-add`, `-dependency-check`, `-done-check`, `-estimate-update`, `-hygiene-check`, `-info-review`, `-split-review`, `linear-team-estimate-check`, `linear-project-suggest` and `linear-project-hygiene-check`. Change a team, a repository or a shared rule here, once. Per-skill facts are in `<skill-name>.md` beside this file. The generic scope and subagent pattern are in `C:\Users\childebran\.claude\skills\_shared\linear-scope.md`.
 
 ## Workspace and rules
 
