@@ -24,7 +24,7 @@ Check the teams with `list_teams` first; the user may have added or renamed some
 | KD | Kelly-Domain | 3 | 5 only |
 | KTRL5 / KTRL4 | Kelly-Revit-Logic-v5 / Kelly-Revit-Logic-v4 | 4 | 5 / 4 |
 | KTRUI | Kelly-Revit-UI | 5 | 5 only |
-| KRDE | Kelly-Revit-Data-Exporter (standalone exporter app; created 2026-11-06). Retired 2026-11-25: the code is SQL Data Exporter in `Fabrication-Tools`, its open issues moved to SDE, the repository deleted; the team is left for the maintainer to archive | – | both |
+| KRDE | Kelly-Revit-Data-Exporter (standalone exporter app; created 2026-11-06). Retired 2026-11-25: the code is SQL Data Exporter in `Fabrication-Tools`, all its issues, open and closed, moved to SDE (KRDE-14 and -15 are SDE-2 and -3, KRDE-1 to -13 are SDE-5 to -17), the repository deleted; the team is left for the maintainer to archive | – | both |
 | SDE | SQL Data Exporter (sub-team of FDT, created 2026-11-25) ← `Fabrication-Tools`, `src/FabricationTools.Core/SqlDataExporter` and its view: exports the SQL Server data the Revit add-in reads to CSV, JSON or SQLite | – | both |
 | FDT | Fabrication Data Tools (created 2026-11-12): parent team of PSU, CDED, CDEB and CDEC; no repository of its own (added 2026-11-19, `list_teams` shows no separate CDE team any more) | – | – |
 | PSU | Product Size Updater (renamed from Fabrication Kitchen Sink, key FKS, on 2026-11-23; standalone WPF/MVVM app for fabrication content: syncs SQL product entries to the ITM product lists; team created 2026-11-18) ← `Fabrication-Tools` (GitHub `jhkweb/Fabrication-Tools`; `src/FabricationTools.Core`, `src/FabricationTools`; app named Fabrication Tools since 2026-11-18) | – | – |
