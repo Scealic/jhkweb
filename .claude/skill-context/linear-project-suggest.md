@@ -1,0 +1,12 @@
+# linear-project-suggest: Kelly facts
+
+- Each repository is a Linear team (table in `linear-teams.md`). Leave the Hasa team's projects out (another product).
+- Features are labels, not projects (since 2026-11-04, `C:\repo\jhkweb\Planning\Linear Feature Labels\2026-11-04 KTR5 Feature Labels Plan.md`). In KTR5 the feature an issue concerns (a command, user control, cache, event handler or service) is a label in the multi-select team group "5 - Feature" (for example "Layout Point Export"), and its add-in module a label in "5 - Module" (Trade.All, Trade.Pipe, Trade.Duct, Trade.Contenter, Trade.Manager, Trade.Developer, Host). The old one-per-command projects (`<Tool> (Command)`) are Completed; never file issues in them or make new ones. Read the features with `list_issue_labels` (team KTR5, `name` filter or `includeGroups`).
+- Set the feature labels when filing (KTR5): give each issue filed in a project its "5 - Feature" and "5 - Module" labels with `save_issue` `addLabels`, creating a missing feature label first (`save_issue_label`, `parent` "5 - Feature", the KTR5 team id). Ask before creating more than a few.
+- Look in `C:\repo\jhkweb` for plans spanning repositories (the layer-moves reports, the data format libraries plan) and note which issues they cover.
+- Cross-repository projects: the same bug in v4 and v5 (one issue per team), a layer move (source layer, target layer and the repinned layers), an item in every repository (the "TODO notes" sweep).
+- No team, no project: BuildConfigs keeps no backlog; the VCS schema repositories file into KWDSS. Re-check `list_teams` before saying so.
+- Names: no team key and no "(Command)" suffix. "Major Version 4" or "v4", never "Generation"; name Kelly Tools For Revit / KTR only in projects whose teams are the Kelly-Revit* ones.
+- Show order of repositories (layer order): Kelly-Revit-v5, Kelly-Revit-v4, Kelly-Revit-Logic-v5, Kelly-Revit-Logic-v4, Kelly-Revit-UI, Kelly-Domain, Kelly-Windows-v3, -v2, Kelly-Windows-Data-v3, -v2, the format libraries; then "Across repos", then "No project suggested".
+- Models: run in a Sonnet session; Opus for a first run across every team with hundreds of open issues, where cross-repository and v4/v5 themes matter most. Fable and Haiku fit no step; gathering subagents may use Haiku or Sonnet.
+- Project description footer: ``Projects suggested <date> from the open issues of <teams>.``; wrap dotted names such as `Kelly.Windows` in backticks.

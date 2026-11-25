@@ -1,0 +1,24 @@
+{
+  "root": "C:/repo/jhkweb",
+  "packageFolder": "C:/Repo/NugetPackages",
+  "repositoryGlobs": ["*", "KTR4/*"],
+  "headingWordByRepository": {
+    "KTR4/Kelly-Revit-v4": "version",
+    "Kelly-Revit-v5": "version",
+    "Kelly-Revit-Data-Exporter": "build"
+  },
+  "packageToRepository": {
+    "Kelly.Windows.Data 2": "Kelly-Windows-Data-v2",
+    "Kelly.Windows.Data 3": "Kelly-Windows-Data-v3",
+    "Kelly.Windows 2": "KTR4/Kelly-Windows-v2",
+    "Kelly.Windows 3": "Kelly-Windows-v3",
+    "Kelly.Revit.Logic 4": "KTR4/Kelly-Revit-Logic-v4",
+    "Kelly.Revit.Logic 5": "Kelly-Revit-Logic-v5",
+    "Kelly.Domain": "Kelly-Domain",
+    "Kelly.Revit.UI": "Kelly-Revit-UI",
+    "Kelly.Windows.Data.Csv": "Kelly-Windows-Data-Csv",
+    "Kelly.Windows.Data.Json": "Kelly-Windows-Data-Json",
+    "Kelly.Windows.Data.Sqlite": "Kelly-Windows-Data-Sqlite",
+    "Kelly.Windows.Data.SqlServer": "Kelly-Windows-Data-SqlServer"
+  }
+}

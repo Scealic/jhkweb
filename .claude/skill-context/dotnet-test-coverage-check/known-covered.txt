@@ -1,0 +1,4 @@
+# Gaps the name scan reports that a review has checked and found covered, so later reviews don't check them again.
+# One per line: Repo|Type|Member|Reason. Member * means the type and all its members. Lines starting with # are ignored.
+# Add a line only after checking it (section 3 of SKILL.md); remove it when the covering test goes away.
+Kelly-Domain|BuiltInCategoryMetaRecord|*|RecordTests checks every IRecord type by reflection (checked 2026-11-05)

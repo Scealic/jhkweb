@@ -1,0 +1,68 @@
+{
+  "root": "/c/repo/jhkweb",
+  "scripts": "/c/repo/jhkweb/.claude/skill-context/scripts",
+  "buildScript": "/c/repo/jhkweb/.claude/skill-context/scripts/kbuild.sh",
+  "pinScript": "/c/repo/jhkweb/.claude/skill-context/scripts/pins.sh",
+  "revitTestScript": "/c/repo/jhkweb/.claude/skill-context/scripts/revit-test.sh",
+  "contextFolder": "/c/repo/jhkweb/.claude/skill-context/dotnet-architecture-analysis",
+  "projectRules": "/c/repo/jhkweb/.claude/skill-context/dotnet-architecture-analysis/placement-rules.md",
+  "sharedAgentRules": "/c/repo/jhkweb/BuildConfigs/SHARED-AGENTS.md",
+  "chainRelease": "/c/repo/jhkweb/.claude/skill-context/dotnet-architecture-analysis.md",
+  "revitTestYear": "2024",
+  "changelogNotPacked": "(not yet in a package)",
+  "changelogNotBuilt": "(not yet in a build)",
+  "commandInterfaces": ["IExternalCommand", "IExternalCommandBase", "IExternalCommandMvvm"],
+  "revitPattern": "\\bAutodesk\\b|RevitAPI",
+  "userInterfaceOnlyPattern": "Autodesk\\.Revit\\.UI\\b|RevitAPIUI|AdWindows|Telerik",
+  "knownExceptions": ["Kelly-Windows-v3/src/Wpf/ProgressView.xaml", "Kelly-Windows-v3/src/Wpf/ProgressView.xaml.cs"],
+  "addInModules": { "folder": "Kelly-Revit-v5/modules", "namespacePrefix": "Kelly.Revit." },
+  "addInBuildKeys": ["revit", "alltrade", "pipetrade", "ducttrade", "contenter", "manager", "developer"],
+  "layers": [
+    {
+      "name": "Kelly-Windows-Data", "folder": "Kelly-Windows-Data-v3", "key": "data", "role": "revit-free",
+      "source": "src", "rootNamespace": "Kelly.Windows.Data",
+      "forbiddenNamespaces": "\\b(?:Kelly\\.Windows\\.(?!Data\\b)\\w+|Kelly\\.Domain\\b|Kelly\\.Revit\\b)",
+      "build": { "project": "Data.csproj", "configurations": ["Net80", "Net481"], "solutionName": "Kelly.Windows.Data" },
+      "quickConfiguration": "Net80", "tests": true, "revitTests": null
+    },
+    {
+      "name": "Kelly-Windows", "folder": "Kelly-Windows-v3", "key": "windows", "role": "revit-free",
+      "source": "src", "rootNamespace": "Kelly.Windows",
+      "forbiddenNamespaces": "\\b(?:Kelly\\.Domain\\b|Kelly\\.Revit\\b)",
+      "build": { "project": "Logic.csproj", "configurations": ["Net80", "Net481"], "solutionName": "Kelly.Windows" },
+      "quickConfiguration": "Net80", "tests": true, "revitTests": null
+    },
+    {
+      "name": "Kelly-Domain", "folder": "Kelly-Domain", "key": "domain", "role": "revit-free",
+      "source": "src", "rootNamespace": "Kelly.Domain",
+      "forbiddenNamespaces": "\\bKelly\\.Revit\\b",
+      "build": { "project": "Domain.csproj", "configurations": ["Net80", "Net481"], "solutionName": "Kelly.Domain" },
+      "quickConfiguration": "Net80", "tests": true, "revitTests": null
+    },
+    {
+      "name": "Kelly-Revit-Logic", "folder": "Kelly-Revit-Logic-v5", "key": "logic", "role": "revit-database",
+      "source": "src", "rootNamespace": "Kelly.Revit.Logic",
+      "forbiddenNamespaces": "\\bKelly\\.Revit\\.(?!Logic\\b)\\w+",
+      "build": { "project": "Revit.csproj", "configurations": ["2026", "2024"], "solutionName": "Kelly.Revit.Logic" },
+      "quickConfiguration": "2024", "tests": false,
+      "revitTests": { "project": "/c/repo/jhkweb/Kelly-Revit-Logic-v5/test/Revit.Logic.RevitTests/Revit.Logic.RevitTests.csproj", "extra": "-p:SolutionName=Kelly.Revit.Logic", "duration": "about 30 minutes" }
+    },
+    {
+      "name": "Kelly-Revit-UI", "folder": "Kelly-Revit-UI", "key": "ui", "role": "revit-ui-framework",
+      "source": "src", "rootNamespace": "Kelly.Revit.UI",
+      "forbiddenNamespaces": "\\bKelly\\.Revit\\.(?!Logic\\b|UI\\b)\\w+",
+      "build": { "project": "Revit.UI.csproj", "configurations": ["2026", "2024"], "solutionName": "Kelly.Revit.UI" },
+      "quickConfiguration": "2024", "tests": true,
+      "revitTests": { "project": "/c/repo/jhkweb/Kelly-Revit-UI/test/Revit.UI.RevitTests/Revit.UI.RevitTests.csproj", "extra": "", "duration": "a few minutes" }
+    },
+    {
+      "name": "Kelly-Revit", "folder": "Kelly-Revit-v5", "key": "revit", "role": "add-in",
+      "source": "src", "rootNamespace": "Kelly.Revit.Core",
+      "forbiddenNamespaces": null,
+      "build": null,
+      "quickConfiguration": "2024", "tests": false,
+      "revitTests": { "project": "/c/repo/jhkweb/Kelly-Revit-v5/test/Tests.Revit/Core.Tests.csproj", "extra": "-p:SolutionName=Kelly.Revit", "duration": "a few minutes" }
+    }
+  ],
+  "scanRoots": ["Kelly-Windows-Data-v3/src", "Kelly-Windows-v3/src", "Kelly-Domain/src", "Kelly-Revit-Logic-v5/src", "Kelly-Revit-UI/src", "Kelly-Revit-v5/src", "Kelly-Revit-v5/modules"]
+}

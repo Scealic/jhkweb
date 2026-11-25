@@ -1,0 +1,26 @@
+{
+  "workspaceName": "Virtual Construction",
+  "linearAdoptionNote": "Linear became the backlog for every team on 4 November 2026. The jump that week is mostly work finished earlier and closed when the old backlog files moved into Linear, so the weeks before it understate the work done.",
+  "groups": [
+    {"key": "version-5", "spokenName": "version 5", "name": "Kelly Tools For Revit 5", "teams": {"KTR5": "Kelly Tools For Revit 5", "KTRL5": "Revit Logic 5", "KTRUI": "Revit UI"}},
+    {"key": "libraries", "spokenName": "shared libraries", "name": "Shared libraries", "teams": {"KD": "Domain", "KW3": "Windows 3", "KWD3": "Windows Data 3", "KWDSS": "Windows Data SQL Server", "KWDC": "Windows Data CSV", "KWDJ": "Windows Data JSON", "KWDSL": "Windows Data Sqlite", "KWDE": "Windows Data Excel"}},
+    {"key": "component-data-editor", "spokenName": "the Component Data Editor", "name": "Component Data Editor", "teams": {"CDED": "Editor Desktop", "CDEC": "Editor Core", "CDE": "Component Data Editor", "CDEB": "Editor Web (Blazor)"}},
+    {"key": "product-size-updater", "spokenName": "Product Size Updater", "name": "Product Size Updater", "teams": {"PSU": "Product Size Updater"}},
+    {"key": "version-4", "spokenName": "version 4", "name": "Kelly Tools For Revit 4", "teams": {"KTR4": "Kelly Tools For Revit 4", "KTRL4": "Revit Logic 4", "KW2": "Windows 2", "KWD2": "Windows Data 2"}},
+    {"key": "exporter", "spokenName": "the Revit Data Exporter", "name": "Revit Data Exporter", "teams": {"KRDE": "Revit Data Exporter"}}
+  ],
+  "excludedTeamNameParts": ["Hasa"],
+  "areas": [
+    ["Tools, ribbon and UI", "Tools, ribbon and UI"],
+    ["Architecture and services", "Architecture and services"],
+    ["Data and file I/O", "Data and file I/O"],
+    ["Modeling and geometry", "Modeling and geometry"],
+    ["Updaters and project information", "Updaters and project info"],
+    ["Testing and documentation", "Testing and docs"],
+    ["Code quality and cleanup", "Code quality and cleanup"],
+    ["Versioning, build and install", "Build and install"]
+  ],
+  "types": ["Add", "Change", "Fix", "Delete", "Verify"],
+  "linearAdoptionDate": "2026-11-04",
+  "estimatingStartDate": "2026-11-09"
+}

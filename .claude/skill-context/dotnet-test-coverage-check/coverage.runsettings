@@ -1,0 +1,6 @@
+<RunSettings><DataCollectionRunSettings><DataCollectors><DataCollector friendlyName="XPlat code coverage"><Configuration>
+<Format>cobertura</Format>
+<Include>[Kelly.Windows.Data]*,[Kelly.Windows]*,[Kelly.Domain]*,[Kelly.Windows.Data.Csv]*,[Kelly.Windows.Data.Json]*,[Kelly.Revit.UI]*</Include>
+<Exclude>[Kelly.Markdown.TestLogger]*,[*Tests]*</Exclude>
+<ExcludeByAttribute>GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute</ExcludeByAttribute>
+</Configuration></DataCollector></DataCollectors></DataCollectionRunSettings></RunSettings>
