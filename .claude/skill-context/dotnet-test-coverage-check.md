@@ -38,6 +38,8 @@ Kelly-Windows-Data-v3, Kelly-Windows-v3, Kelly-Domain, Csv and Json (Net80), and
 
 Issues per type, label "Test Coverage" (created as a workspace label the first time), teams from `.claude/skill-context/linear-teams.md` (KWD3, KW3, KD, KTRL5, KTRUI, KTR5, KWDC, KWDJ; Kelly-Revit-Logic is KTRL5). The rules are in `linear-issues.md` here. Estimate scale: exponential (checked 2026-11-05). About 526 types on the first run.
 
+Decision 2026-11-25 (maintainer): instead of one issue per type, file **one tracking issue per review** in KTR5, with the per-type proposal attached. The 2026-11-25 issue is [KTR5-4951](https://linear.app/jhkelly-ktr/issue/KTR5-4951), covering 450 types. No "Test Coverage" label exists, so the next review should not take the empty label search as a first run. Instead, update KTR5-4951, or the issues it was split into, from the `diff/` lists, and ask before filing per-type issues.
+
 ## Section 7: finish
 
 Commit only this review's files to the jhkweb root repository (local, `main`, no remote): the report, `Coverage Gaps.csv`, `Linear Proposal.md` and `Linear Issues.csv` (those that exist), no `Co-Authored-By` line, never push.
