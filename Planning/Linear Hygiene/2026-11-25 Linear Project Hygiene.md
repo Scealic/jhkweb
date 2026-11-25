@@ -94,7 +94,15 @@ Family Instance End Swap (Command), Element Select By Context (Command), Detaile
 
 ## Applied
 
-Nothing yet.
+2026-11-25, approved by the maintainer ("Apply all"), one `save_project` call at a time; every result was checked.
+
+- **status → In Progress (2):** Dead Code Deletion and Unit Test Backfill. Done.
+- **finished → Completed (2):** Project Session (Service) and Duct QA Mirror (Command). Done.
+- **summary (5):** Auto Updater Configurations, Family Instance End Swap (Command), Pipe Offset Create (Command), Element Select By Context (Command) and Dockable Assigner System, with the sentences proposed above. Done.
+- **lead (4 of 12):** `P-KTR5-162`, `P-KTR5-164`, `P-KTR5-170` and `P-KTR5-171` now have Chris Hildebran as lead. Done.
+- **lead, not applied (8):** `P-KTR5-1` and `P-KTR5-3` to `P-KTR5-9` are archived. Linear refuses changes to an archived project ("Could not modify archived project"), so they keep the "Chris Hildebran (Outlook)" lead. Leave them; from now on the skill doesn't propose fixes for archived projects.
+
+Still open, waiting on a decision: the per-feature, stale, single and overlap items above.
 
 ---
 Projects checked 2026-11-25 with `linear-project-hygiene-check`.
