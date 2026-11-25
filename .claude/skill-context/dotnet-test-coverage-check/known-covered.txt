@@ -2,3 +2,10 @@
 # One per line: Repo|Type|Member|Reason. Member * means the type and all its members. Lines starting with # are ignored.
 # Add a line only after checking it (section 3 of SKILL.md); remove it when the covering test goes away.
 Kelly-Domain|BuiltInCategoryMetaRecord|*|RecordTests checks every IRecord type by reflection (checked 2026-11-05)
+Kelly-Domain|BuiltInCategoryRecord|ElementId|RecordTests sets and round-trips every record property by reflection (checked 2026-11-25, KD-129)
+Kelly-Domain|CategoryTypeRecord|IsValidForStratus|RecordTests sets and round-trips every record property by reflection, and reads every bool through BoolJsonConverter (checked 2026-11-25, KD-129)
+Kelly-Domain|CategoryTypeRecord|NameAbbreviation|RecordTests sets and round-trips every record property by reflection (checked 2026-11-25, KD-129)
+Kelly-Domain|ConnectorGroupingRecord|Example|RecordTests sets and round-trips every record property by reflection (checked 2026-11-25, KD-129)
+Kelly-Domain|ConnectorPreparationsRecord|DomainName|RecordTests sets and round-trips every record property by reflection (checked 2026-11-25, KD-129)
+Kelly-Domain|ConnectorPreparationsRecord|PreparationName|RecordTests sets and round-trips every record property by reflection (checked 2026-11-25, KD-129)
+Kelly-Domain|ConnectorPreparationsRecord|ShapeName|RecordTests sets and round-trips every record property by reflection (checked 2026-11-25, KD-129)
