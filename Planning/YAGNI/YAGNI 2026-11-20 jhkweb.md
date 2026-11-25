@@ -185,3 +185,20 @@ Kept although an issue named them: `DefinitionRegistry.IsRegistered` (the assign
 - Pack each changed package and repin the layers above; none is packed yet. When Fabrication-Tools is repinned to the new Excel package, three of its tests that call `ReadSheetNames` must change.
 - Kelly-Revit-v5 `docs/Specification.md` R16 and Duct Length Check R7 require `SelectionExternalEventHandler`, which nothing ever used and which is now deleted.
 - Third round, not deleted: the private Kelly-Domain properties only `ToRecord` read, and `Product.RecordId`.
+
+## Third round 2026-11-24
+
+The maintainer asked: "file and delete the third round".
+
+| Repository | Commits | Issues |
+|---|---|---|
+| Kelly-Windows-v3 | `df1d384` | KW3-67 (`ColorExtensions`, `ColorSet.Cyan`) |
+| Kelly-Domain | `e698153` | KD-115 (properties only `ToRecord` read, `Product.RecordId`), KWD3-24 (caller) |
+| Kelly-Windows-Data-v3 | `3d1d9f1` | KWD3-24 (`DataDirectory.RecordAssemblies` and its parameter) |
+| Kelly-Revit-Logic-v5 | `c21a9df`, `3e8aa9e` | KTRL5-210 (`GetFileStore`), KWD3-24 (callers), KTRL5-177 (a stale source-rule case) |
+| Kelly-Revit-v5 | `0711dcfd` | KWD3-24 (`App.cs` caller) |
+| Fabrication-Tools | `9bc2b40` (pushed) | PSU-104 (`PlannedTool`, `ProductSizeUpdaterActionOutcome.IsBadData`) |
+
+All build; Windows 950, Domain 2086, Data 151 and Fabrication-Tools 1,038 tests pass; the changed Logic fixtures pass in Revit 2024. Not yet packed or repinned.
+
+Newly dead, not deleted: Kelly-Windows-v3 `PathTools.DescribeFileStore` and the `RegexMatchTools` drive and UNC matchers only it uses; Kelly-Domain `ElementBindingKind` and `ParameterStorageType` (only `EnumMembersTests`), and the private `MaterialAndLookups.Name`.
