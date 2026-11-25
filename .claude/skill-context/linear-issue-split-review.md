@@ -8,7 +8,7 @@
 - Layer order across repositories, one piece per repository in that repository's team; each lower piece Blocks the one above it: Kelly-Windows-Data, Kelly-Windows, Kelly-Domain, Kelly-Revit-Logic, Kelly-Revit-UI, Kelly-Revit. Each upper piece says it needs the lower package packed and repinned.
 - "Do the same in v4" is a standalone KTR4 issue Related to the KTR5 one, never a sub-issue.
 - A sub-issue may sit in another team: use that for a layer piece of a goal owned by the add-in team.
-- Labels: copy the original's "1 - Type" label (Add, Change, Fix, Delete) and its function label.
+- Labels: copy the original's "Type" label (Add, Change, Fix, Delete) and its function label.
 - Report file: `C:\repo\jhkweb\Planning\Linear Splits\<yyyy-mm-dd> Linear Issue Splits.md` (add `HHmm` when the day already has one); issue links `https://linear.app/jhkelly-ktr/issue/<KEY>`. A root working document: commit just that path to the outer jhkweb repository, never push; commit again after adding "Applied <date>".
 - Piece description footer: "Split from <ORIGINAL KEY> on <yyyy-mm-dd>."; "Where" lists `Repository: <repo>` plus project, `File.cs`, `TypeName.Member`, ribbon command. Original note: "Split on <date> into sub-issues <KEY>, <KEY>, … (split review)."
 - Follow-ups to offer: `linear-issue-estimate-update` for pieces left low confidence, and `linear-issue-dependency-check` for the new pieces.

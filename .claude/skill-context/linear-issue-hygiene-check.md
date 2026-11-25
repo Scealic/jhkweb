@@ -7,7 +7,7 @@
 > Read-only. Load `list_issue_labels`, `list_issues`, `list_comments` (Linear MCP) with one ToolSearch call. 1) `list_issue_labels(team, includeGroups: true, limit 250)`: map every label name to its `parent` group. 2) `list_issues(team, limit 250, fields [id,title,statusType,status,estimate,labels,assignee,priority,parentId,createdAt,updatedAt,completedAt,canceledAt])`, following `cursor`; keep open issues and those completed or canceled on or after 2026-11-09. 3) For each kept issue, flag:
 > - **no-estimate**: estimate null, unless it is a parent: check with `list_issues(parentId: KEY)`, because sub-issues can sit in another team;
 > - **too-big**: open, estimate 16, and no issue has it as parent;
-> - **type**: not exactly one label in group "1 - Type"; **function**: not exactly one in "4 - Function";
+> - **type**: not exactly one label in group "Type"; **function**: not exactly one in "Function";
 > - **feature** (team KTR5 only): no label in "5 - Feature" or none in "5 - Module"; (other teams) any label in those groups;
 > - **assignee**: not Chris Hildebran;
 > - **no-priority**: open and priority None (0); detail = a proposed priority by this rubric, then a reason of a few words: Urgent (fails to start or install, data lost, wrong data written to models or files), High (a tool gives wrong results or blocks a user, a release requirement), Medium (an Add or Change a person asked for, i.e. has a "2 - Who" label other than Chris Hildebran; a Fix with a workaround), Low (internal: refactoring, cleanup, tests, docs, ideas, meetings). Judge from the title and labels; don't read bodies;
