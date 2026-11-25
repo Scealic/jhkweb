@@ -213,3 +213,7 @@ The maintainer asked: "Delete the fourth round".
 | Kelly-Domain | `f63ca92` | KD-116 (`ElementBindingKind`, `ParameterStorageType`, private `MaterialAndLookups.Name`) |
 
 Windows 935 and Domain 2084 tests pass in Net481, Net80 and Net100. Not yet packed or repinned. Nothing in the layers above named these members, so no caller changed; the Logic `CollectionsAndFilesMovesTests` description that names `DescribeFileStore` is history (move #5) and stays.
+
+## Packed (2026-11-25)
+
+Rounds three and four are packed and repinned: Kelly.Windows.Data 3.26.1125.832, Kelly.Windows 3.26.1125.840, Kelly.Domain 1.26.1125.842, Kelly.Revit.Logic 5.26.1125.845, Kelly.Revit.UI 1.26.1125.848; Kelly-Revit-v5 repinned and built for 2024, 2025 and 2026, not installed. KWD3-24, KW3-67, KW3-68, KD-115, KD-116 and KTRL5-210 are Done.
