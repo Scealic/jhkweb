@@ -13,7 +13,7 @@ The layers (the stack and pinning are in `SHARED-AGENTS.md`, below):
 - **Kelly-Revit-UI**: shared ribbon, command and MVVM framework, selection filters, availability base classes.
 - **Kelly-Revit**: the add-in. `src/` is a host (`App.cs` startup, `EventService`, `RibbonService`); every ribbon tab is a module DLL under `modules/` (AllTrade, PipeTrade, DuctTrade, Contenter, Manager, Developer).
 - **BuildConfigs**: shared MSBuild property files, imported by absolute path (`C:\Repo\jhkweb\BuildConfigs\dotnet\.props\*.props`) in v5, and in v4 through `$(KellyBuildConfigs)`, which each v4 repository's `Directory.Build.props` points at the BuildConfigs beside it. v4 projects share `Revit.Build.props` (Revit layers; Revit API from the `Nice3point.Revit.Api` packages, so no Revit install is needed to build) and `Framework.Build.props` (Windows layers), and keep package versions in each repository's `Directory.Packages.props` (central package management).
-- **VCS-Database-General-Schema / VCS-Database-Content-Schema**: SQL Server schema projects (branches `develop` and `production`) for the databases Kelly-Revit-Data-Exporter exports to the CSV data files. Neither major version of the add-in reaches SQL Server; both read the data files in `C:\Program Files\JH Kelly\Kelly Tools For Revit\Data`.
+- **VCS-Database-General-Schema / VCS-Database-Content-Schema**: SQL Server schema projects (branches `develop` and `production`) for the databases that SQL Data Exporter, a tool of Fabrication-Tools (the standalone Kelly-Revit-Data-Exporter until 2026-11-25), exports to the CSV data files. Neither major version of the add-in reaches SQL Server; both read the data files in `C:\Program Files\JH Kelly\Kelly Tools For Revit\Data`.
 
 ## Claude Code configuration
 
@@ -27,7 +27,7 @@ Each repository's backlog is its Linear team in the workspace "Virtual Construct
 
 ## Agent rules
 
-The rules shared by the Kelly .NET repositories (the v5 and v4 layer repositories, the format libraries and Kelly-Revit-Data-Exporter), including the stack, building and in-Revit testing, live once in `BuildConfigs/SHARED-AGENTS.md`:
+The rules shared by the Kelly .NET repositories (the v5 and v4 layer repositories, the format libraries and Fabrication-Tools), including the stack, building and in-Revit testing, live once in `BuildConfigs/SHARED-AGENTS.md`:
 
 @../BuildConfigs/SHARED-AGENTS.md
 

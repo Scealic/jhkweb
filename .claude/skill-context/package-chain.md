@@ -7,7 +7,7 @@ The project values for `~/.claude/skills/_shared/package-chain.md`, the one pack
 - Order, lowest first: Kelly-Windows-Data-v3 → Kelly-Windows-v3 → Kelly-Domain → Kelly-Revit-Logic-v5 → Kelly-Revit-UI → Kelly-Revit-v5 (the application; no package).
 - Configurations: `-c Net481|Net80|Net100` for Kelly-Windows-Data, Kelly-Windows, Kelly-Domain and the format libraries; `-c 2024|2025|2026` for the Revit layers. Always pass `-p:GeneratePackageOnBuild=false` except when packing.
 - Tests before a pack: the three lower layers and the format libraries run their tests in all three configurations (`dotnet test <tests csproj> -c <configuration> -p:GeneratePackageOnBuild=false`). Revit layers: build the in-Revit tests only (the lead runs them); Kelly-Revit-UI also runs `test/Revit.UI.Tests` for 2024.
-- Packages outside the chain that are repinned and packed in the same pass: the format libraries (Kelly-Windows-Data-Csv, -Json, -Sqlite, -SqlServer) and Kelly-Revit-Data-Exporter.
+- Packages outside the chain that are repinned and packed in the same pass: the format libraries (Kelly-Windows-Data-Csv, -Json, -Sqlite, -SqlServer), and Fabrication-Tools, which pins their .NET 10 packages for its SQL Data Exporter (Kelly-Revit-Data-Exporter, with the .NET 8 packages, until 2026-11-25) and is repinned but not packed.
 
 ## Scripts
 

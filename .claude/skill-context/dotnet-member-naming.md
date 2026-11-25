@@ -50,7 +50,7 @@ Reviewers that check bugs in Logic, Kelly-Windows, Domain or the add-in modules 
 
 ## Rename details
 
-- The next of the six layers is repinned; format libraries and the exporter are repinned and packed in the same pass.
+- The next of the six layers is repinned; format libraries are repinned and packed, and Fabrication-Tools (with its SQL Data Exporter) repinned, in the same pass.
 - Add-in rename: XAML bindings, resource keys, `Member=` strings and names held as text in tests (`LowerLayerRulesTests`, `RibbonMovesTests`) do not fail the build.
 - Push through `git-push-developbranch`. Then lower-layer and UI issues go Done; Logic and add-in issues stay In Review until the in-Revit runs pass (the build scripts are named in `.claude/skill-context/scripts/`; the add-in suite `test/Tests.Revit/Core.Tests.csproj` runs in about a minute; run Logic one test folder at a time, because the full suite hangs) and the renamed windows are opened in Revit to check for binding errors.
 - Packing, repinning, versions, Changelog headings, the application last, push order and traps: `package-chain.md` beside this file (procedure: `~/.claude/skills/_shared/package-chain.md`).

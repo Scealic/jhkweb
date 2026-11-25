@@ -4,8 +4,7 @@
   "repositoryGlobs": ["*", "KTR4/*"],
   "headingWordByRepository": {
     "KTR4/Kelly-Revit-v4": "version",
-    "Kelly-Revit-v5": "version",
-    "Kelly-Revit-Data-Exporter": "build"
+    "Kelly-Revit-v5": "version"
   },
   "packageToRepository": {
     "Kelly.Windows.Data 2": "Kelly-Windows-Data-v2",

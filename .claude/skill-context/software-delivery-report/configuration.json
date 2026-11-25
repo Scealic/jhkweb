@@ -7,7 +7,7 @@
     {"key": "component-data-editor", "spokenName": "the Component Data Editor", "name": "Component Data Editor", "teams": {"CDED": "Editor Desktop", "CDEC": "Editor Core", "CDE": "Component Data Editor", "CDEB": "Editor Web (Blazor)"}},
     {"key": "product-size-updater", "spokenName": "Product Size Updater", "name": "Product Size Updater", "teams": {"PSU": "Product Size Updater"}},
     {"key": "version-4", "spokenName": "version 4", "name": "Kelly Tools For Revit 4", "teams": {"KTR4": "Kelly Tools For Revit 4", "KTRL4": "Revit Logic 4", "KW2": "Windows 2", "KWD2": "Windows Data 2"}},
-    {"key": "exporter", "spokenName": "the Revit Data Exporter", "name": "Revit Data Exporter", "teams": {"KRDE": "Revit Data Exporter"}}
+    {"key": "exporter", "spokenName": "the SQL Data Exporter", "name": "SQL Data Exporter", "teams": {"SDE": "SQL Data Exporter", "KRDE": "Revit Data Exporter"}}
   ],
   "excludedTeamNameParts": ["Hasa"],
   "areas": [

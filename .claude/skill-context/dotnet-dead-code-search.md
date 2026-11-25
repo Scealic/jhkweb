@@ -23,7 +23,7 @@ The source-text tests (RULES) are `Architecture/*MovesTests` and `LowerLayerRule
 
 ## Compiled references (step 2)
 
-Run `yagni/scripts/refs.cs` over the installed add-in (`C:\Program Files\JH Kelly\Kelly Tools For Revit\V5\<year>`), fresh builds of Fabrication-Tools and the exporter (Kelly-Revit-Data-Exporter), and the newest Kelly packages in `C:\Repo\NugetPackages`.
+Run `yagni/scripts/refs.cs` over the installed add-in (`C:\Program Files\JH Kelly\Kelly Tools For Revit\V5\<year>`), a fresh build of Fabrication-Tools (which holds the exporter, SQL Data Exporter, since 2026-11-25), and the newest Kelly packages in `C:\Repo\NugetPackages`.
 
 ## Keep (step 2)
 
@@ -32,7 +32,7 @@ Test seams by design (`ProgressReporter.UseFactory`, `ProgressWindowReporter.Dis
 ## File, then delete (step 3)
 
 - Issue per repository, in that repository's team (`.claude/skill-context/linear-teams.md`): title `Delete <members>`; estimate 1 or 2; priority Low; labels "Delete" and "Code quality and cleanup"; assignee "me"; state In Progress; Related to the issue whose deletion made it dead.
-- Delete bottom-up: Kelly-Windows-Data-v3, Kelly-Windows-v3, Kelly-Domain, Kelly-Revit-Logic-v5, Kelly-Revit-UI, Kelly-Revit-v5, then Fabrication-Tools and the exporter.
+- Delete bottom-up: Kelly-Windows-Data-v3, Kelly-Windows-v3, Kelly-Domain, Kelly-Revit-Logic-v5, Kelly-Revit-UI, Kelly-Revit-v5, then Fabrication-Tools.
 - In-Revit tests (main session only): SHARED-AGENTS "in-Revit tests", Revit 2024, `--filter` of about 30 tests, rename the active `.addin` to `.addin.x` with a trap that restores it, and include every source-text fixture (`Architecture/*MovesTests`, `LowerLayerRulesTests`) that names a deleted member. A run that selects hundreds of tests times out without running any. The build scripts are named in `.claude/skill-context/scripts/`.
 - Issue comment: commit, configurations built, test totals; In Review ("not yet in a package"), or Done for Fabrication-Tools (no package; push its `develop`). When marked Done, check the issue is in its team's current cycle and add it if not (`LINEAR.md`, Cycles).
 - Packing and repinning, when asked: Packing, repinning, versions, Changelog headings, the application last, push order and traps: `package-chain.md` beside this file (procedure: `~/.claude/skills/_shared/package-chain.md`). Install only when asked.
