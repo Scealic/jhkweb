@@ -61,3 +61,15 @@ member-pattern: ^On[A-Z]\w*Chang(ed|ing)$
 
 # Developer-tab sandbox: helpers named by docs/Specification.md (R3) and swapped into Execute by hand.
 used: Kelly-Revit-v5|SandboxCommand|*
+
+# Kept on purpose (dotnet-deadcodesearch rounds 2026-11-20 to 2026-11-25); only tests use them, but they stay.
+# Test seams by design: tests swap the progress window factory and read whether the window was shown.
+used: Kelly-Windows-v3|ProgressReporter|UseFactory
+used: Kelly-Windows-v3|ProgressWindowReporter|Displayed
+# Kept by the maintainer's decision on KD-10.
+used: Kelly-Windows-v3|FractionalLength|*
+# Public package API the Major Version 4 Kelly.Revit.Logic 4.x packages may call; their source is not on this machine.
+used: Kelly-Windows-Data-Json|JsonFileRepository|DeleteWhere
+used: Kelly-Windows-Data-Json|JsonFileRepository|GetById
+used: Kelly-Windows-Data-Json|JsonFileRepository|Upsert
+used: Kelly-Windows-Data-Json|JsonDataDirectory|*
