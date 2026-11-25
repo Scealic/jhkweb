@@ -10,7 +10,7 @@
 > - **type**: not exactly one label in group "Type"; **function**: not exactly one in "Function";
 > - **feature** (team KTR5 only): no label in "5 - Feature" or none in "5 - Module"; (other teams) any label in those groups;
 > - **assignee**: not Chris Hildebran;
-> - **no-priority**: open and priority None (0); detail = a proposed priority by this rubric, then a reason of a few words: Urgent (fails to start or install, data lost, wrong data written to models or files), High (a tool gives wrong results or blocks a user, a release requirement), Medium (an Add or Change a person asked for, i.e. has a "2 - Who" label other than Chris Hildebran; a Fix with a workaround), Low (internal: refactoring, cleanup, tests, docs, ideas, meetings). Judge from the title and labels; don't read bodies;
+> - **no-priority**: open and priority None (0); detail = a proposed priority by this rubric, then a reason of a few words: Urgent (fails to start or install, data lost, wrong data written to models or files), High (a tool gives wrong results or blocks a user, a release requirement), Medium (an Add or Change a person asked for, judged from the title; a Fix with a workaround), Low (internal: refactoring, cleanup, tests, docs, ideas, meetings). Judge from the title and labels; don't read bodies;
 > - **retired**: a label from a retired group ("0 - Repository", "Issue - 0 - Role") or a retired type (Plan, Require, Technical Debt) on an open issue;
 > - **stale**: status type `started` and `updatedAt` more than 7 days ago;
 > - **cancel**: canceled on or after 2026-11-09: call `list_comments`; flag when no comment gives a reason or names a duplicate.
